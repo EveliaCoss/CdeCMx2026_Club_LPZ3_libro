@@ -8,13 +8,42 @@ book:
   date: "6/15/2026"
   page-navigation: true
   chapters:
-    - index.qmd
-    - intro.qmd
-    - Parte3.qmd
-    - Parte4.qmd
-    - Bash.qmd
-    - REGEX.qmd
+    - index.qmd      # Información general
+    - Presentaciones.qmd
+    - part: "**Pre-requisitos**"
+      chapters: 
+      - install_B.qmd # Instalación de Git y Bash
+      - install_R.qmd # Instalación de R y RStudio
+    - part: "**Sección 1** - Introducción a Bash"
+      chapters:       
+      - Parte1.qmd # Buenas practicas
+      - Parte2.qmd # Intro BASH
+      - Parte3.qmd # Mis primeros pasos BASH
+      - REGEX.qmd  # Wildcards y Streams
+    - part: "**Sección 2** - Edición de archivos"
+      chapters:        
+      - Parte5.qmd # Operadores de redirección de datos I/O
+      - Parte6.qmd # Edición de archivos con los editores de texto (nano y vim)
+      - Parte7A.qmd # Edición de archivos con el editor de flujo sed     
+      - Parte7.qmd # Enlaces simbólicos (symlinks)
+      - Parte8.qmd # Filtrado de texto (`grep, cut, sort, uniq, wc`)
+      - Parte9.qmd # Condicionales
+      - Parte10.qmd # Scripts en Bash
+      - Parte11.qmd # Bucles (for loops)
+    - part: "**Sección 3** - Introducción a Git/GitHub"
+      chapters:  
+      - Parte12.qmd  
+    - part: "**Sección 4** - x"
+      chapters:  
+      - Parte12.qmd   
+    - part: "**Sección 5** - Introducción a R y RStudio"
+      chapters:  
+      - Parte12.qmd   
+    - part: "**Sección 6** - "
+      chapters:  
+      - Parte12.qmd 
 
+      
   # Information
   repo-url: https://github.com/ISCB-RSG-MEXICO/2026-06-15-CodeData_Bootcamp_Git_Bash_R # link de Github
   sharing: [twitter, facebook, linkedin]

@@ -1,129 +1,215 @@
-# Buenas prácticas en bioinformática
+# Mis primeros pasos en Bash
 
-Notas personales recabadas a partir de los tutoriales y ejemplos 😊. Espero que les funcione 💜
+## Entorno de Bash
 
-::: callout-note
-[Presentación completa](https://eveliacoss.github.io/LCG2025_S1_Buenaspracticas_presentacion/Dia1_BuenasPracticas.html#1) empleando Rmarkdown
-:::
+![](reproducible/figures/entornoBash.png)
 
-## Materiales informativos
+El signo `$` es un **prompt**, que nos muestra que la terminal está esperando una entrada; tu terminal puede usar un carácter diferente como prompt y puede agregar información antes de él. Al teclear comandos, ya sea a partir de estas lecciones o de otras fuentes, no escribas el prompt (*\$*), sólo los comandos que le siguen.
 
--   [Curso de Joselyn Cristina Chávez Fuentes](https://comunidadbioinfo.github.io/cdsb2023/creaci%C3%B3n-de-vi%C3%B1etas.html)
--   Me ayudo mucho este [Video](https://www.youtube.com/watch?v=7ZgZ6qUKZvE&ab_channel=DaniMedi)
--   [Documentación de funciones de Andrés Arredondo Cruz](https://comunidadbioinfo.github.io/cdsb2023/documentaci%C3%B3n-de-funciones.html)
+## Preparación del directorio de trabajo
 
-💪 Estuve muy intensa viendo su codigo. Muchas gracias por tenerlos publico.
+- Ruta / Camino absoluto
 
-## **Un algoritmo nos permite resolver un problema ⭐**
+  ``` {.bash code-copy="true" eval="false"}
+  cd /home/usuario/data/
+  ```
 
-Un **algoritmo** es un método para resolver un problema mediante una serie de pasos **definidos, precisos** y **finitos**.
+- Ruta / Camino relativo
 
--   **Definido**: si se sigue dos veces, se obtiene el mismo resultado. Es reproducible.
--   **Preciso**: implica el orden de realización de cada uno de los pasos.
--   **Finito**: Tiene un numero determinado de pasos, implica que tiene un fin.
-
-> Un algoritmo podemos definirlo como un **programa o software**.
-
-[![](reproducible/figures/allison-horst-code-kitchen.png)](https://allisonhorst.com/allison-horst)
-
-## **Para escribir un buen software necesitas:**
-
-> Escribir **código mantenible (maintainable code), usar control de versiones (version control) y rastreadores de problemas (issue trackers), revisiones de código (code reviews), pruebas unitarias (unit testing) y automatización de tareas (task automation)**.
->
-> [Wilson, *et al.* 2014. *PLOS Biology*](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
-
-En bioinformática, es fundamental garantizar el uso **ético y responsable de datos sensibles**, como los genomas humanos, respetando la privacidad y los marcos legales vigentes. Al mismo tiempo, se debe fomentar la ciencia abierta **mediante prácticas transparentes y reproducibles**, sin comprometer la integridad de la información. Estas acciones no solo fortalecen la **confianza en los resultados**, sino que también previenen errores graves que podrían derivar en la **retracción de artículos científicos**.
-
-[![](reproducible/figures/what-code-quality-1.jpg){fig-align="center"}](https://devcom.com/tech-blog/code-quality-definition-how-to-improve-code-quality/)
+  ``` {.bash code-copy="true" eval="false"}
+  cd ../ # Ir a la carpeta anterior
+  ```
 
 ::: callout-note
-## Pasos para escribir un buen software
+**NOTA 1:** Si das `cd` y no indicas una ruta absoluta, te llevara al Directorio Raiz (\~).
 
-1.  Análisis del problema / Definir el problema
-
-2.  Diseño del algoritmo / Diseño del programa
-
-3.  Codificación / Escribir el código
-
-4.  Compilación y ejecución del programa
-
-5.  Verificación / Realizar pruebas
-
-6.  Depuración / Detectar los errores y corregirlos
-
-> Programacion defensiva
-
-7.  Documentación
+**NOTA 2:** Puedes usar la tecla TAB para completar el nombre de la carpeta. En caso de que tengas más de dos carpetas que inicien igual, tendrás que terminar de completar el nombre.
 :::
 
-![](https://eveliacoss.github.io/Buenaspracticas_R_Mayo2024/BestPractices/figures/homersapien.jpg){fig-align="center"}
+## Conocer mi dirección / ubicación
 
-## **Paso 7: Documentación**
+Averiguemos dónde estamos, ejecutando el comando `pwd` (que significa "imprime directorio de trabajo" - "print working directory"). En cualquier momento, nuestro **directorio actual** es nuestro directorio predeterminado, es decir, el directorio que la computadora supone queremos ejecutar comandos a menos que especifiquemos explícitamente otra cosa. En este caso la respuesta de la computadora es `/Users/nelle`, el cual es el directorio de inicio de Nelle, también conocido como su directorio **home**:
+
+``` {.bash code-copy="true" eval="false"}
+pwd # /c/Users/ecoss
+```
+
+En la computadora de Evelia, el sistema de archivos se ve así:
+
+[![](https://swcarpentry.github.io/shell-novice-es/fig/filesystem.svg){fig-align="center"}](https://swcarpentry.github.io/shell-novice-es/02-filedir.html)
+
+En la parte superior está el **directorio raíz** o **root** que contiene todo lo demás. Nos referimos a este directorio usando un caracter de barra `/` por si solo; esta es la barra al inicio de `/Users/ecoss`.
+
+Dentro de ese directorio hay otros directorios: `bin` (que es donde se almacenan algunos programas preinstalados), `data` (para archivos de datos diversos), `Users` (donde se encuentran los directorios personales de los usuarios), `tmp` (para archivos temporales que no necesitan ser almacenados a largo plazo), etcétera.
 
 ::: callout-note
--   *Título* (opcional)
+## Ejercicio 1
 
--   *Autor (author)*: Su nombre
+A partir de `/Users/ecoss/data/`, ¿Cuál de los siguientes comandos podría Amanda usar para navegar a su directorio de inicio, que es `/Users/ecoss`?
 
--   *Dia (date)*: Fecha de creación
+1.  `cd .`
 
--   *Paquetes (packages)*
+2.  `cd /`
 
--   *Directorio de trabajo (Working directory)*: En que carpeta se encuentra tu datos y programa.
+3.  `cd /home/amanda`
 
--   *Información descriptiva del programa (Description)*: ¿Para qué sirve el programa? Ej: El siguiente programa realiza la suma de dos numeros enteros a partir de la entrada del usuario y posteriormente la imprime en pantalla.
+4.  `cd ../..`
 
--   *Usage* ¿Cómo se utiliza?
+5.  `cd ~`
 
--   *Argumentos (Arguments)*
+6.  `cd home`
 
-    -   *Información de entrada (Data Inputs)*: Ej: Solo numeros enteros (sin decimales).
+7.  `cd ~/data/..`
 
-    -   *Información de salida (Outpus)*: Graficas, figuras, tablas, etc.
+8.  `cd`
+
+9.  `cd ..`
+
+    ::: {.callout-tip collapse="true" icon="false"}
+    ## Solución
+
+    1.  No: `.` significa el directorio actual.
+
+    2.  No: `/` significa el directorio raíz.
+
+    3.  No: El directorio **home** de Evelia es `/Users/amanda`.
+
+    4.  No: sube dos niveles, es decir termina en `/Users`.
+
+    5.  Sí: `~` significa el directorio **home** del usuario, en este caso `/Users/amanda`.
+
+    6.  No: esto navegaría a un directorio `home` en el directorio actual, si existe.
+
+    7.  Sí: innecesariamente complicado, pero correcto.
+
+    8.  Sí: un atajo para volver al directorio **home** del usuario.
+
+    9.  Sí: sube un nivel.
+    :::
 :::
 
-![](https://eveliacoss.github.io/Buenaspracticas_R_Mayo2024/BestPractices/figures/meme_documentacion.jpg){fig-align="center"}
+Ejemplo de rutas:
 
-## Puntos claves para buenas prácticas en bioinfo ⭐
+[![](https://github.com/raynamharris/Shell_Intro_for_Transcriptomics/raw/master/lessons/figures/nav_dirs.png)](https://github.com/raynamharris/Shell_Intro_for_Transcriptomics/blob/master/lessons/02_Navigating_Dirs.md)
 
-1.  Escriba **programas para personas, no para computadoras** (Documenta qué hace y por qué). - Se coherente en la nomenclatura, indentación y otros aspectos del estilo.
+## **Comandos básicos**
 
-2.  Modularidad: Divide los programas en *funciones cortas de un solo propósito.* 💻 📚
-
-3.  **No repitas tu código**. Crea pasos reproducibles o que se repitan por si solas. ➰
-
-4.  Planifique los errores (**Programacion defensiva**) 🚩
-
-5.  Optimice el software sólo después de que funcione correctamente. - Si funciona no lo modifiques, simplificalo.
-
-6.  Colaborar - Busque siempre bibliotecas de software bien mantenidas que hagan lo que necesita. 👥
+| Comandos | Información | Argumentos |
+|------------------------|------------------------|------------------------|
+| `ssh` | Conexión a servidores | ssh usuario\@servidor.mx |
+| `ls` | Observar el contenido de los archivos en una carpeta | ls directorio/ |
+| `cd` | Moverse de directorios | cd /home/usuario/data/ |
+| `mkdir` | Crear un nuevo directorio | mkdir data |
+| `rmdir` | Eliminar el directorio | rmkdir -rf data |
+| `nano` / `vim` | Editores de texto plano | nano Archivo.txt / vim Archivo.txt |
+| `cp` | Copiar archivos | cp Archivo1.txt /home/usuario/data/ |
+| `mv` | Mover un archivo o carpeta |  |
+| `echo` | Para llamar y/o declarar variables | echo "Hello world" |
+| `chmod` | Cambiar permisos del usuario | chmod 777 data/ |
+| `rsync` | Descargar o subir archivos |  |
+| `scp` | Descargar o subir archivos |  |
+| `cat` | Visualizar contenido de un archivo. Escribe el contenido del archivo de manera secuencial a la salida estándar, a la ventana de Terminal. |  |
+| `less` | Leer contenido de un archivo sin interrumpir la pantalla de Terminal. Similar a `Vim` pero sin opción para escribir. **Se sale del modo visualización con** q. |  |
+| `find` | Busca archivos en un directorio específico. |  |
+| `head` | Visualizar primeras líneas de un archivo. |  |
+| `tail` | Visualizar últimas líneas de un archivo. |  |
+| `which` | Indica el directorio donde se encuentra un particular comando o programa que se haya podido encontrar usando los directorios guardados en la variable de estado `PATH`. | which bash |
 
 ::: callout-note
-## Ejemplo de como realizo mis documentos 💜
+## Ayuda de funciones
 
-Aqui les dejo el script que les doy a mis alumnos [VisualizacionDatos.R](https://github.com/EveliaCoss/RNAseq_classFEB2024/blob/main/Practica_Dia3/scripts/VisualizacionDatos.R) del curso de [Análisis de datos de RNA-Seq](https://github.com/EveliaCoss/RNAseq_classFEB2024).
+Puedes consultar mas información usando `ls --help`
 :::
 
-## Referencias
+## Consultar información sobre archivos y directorios
 
--   Presentación de [Reproducibilidad de Miriam Lerma](https://miriamll.github.io/teaching_R_Rmd/Repro#1)
--   Presentación [introducción a Git, GitHub y Zenodo de Miriam Lerma](https://miriamll.github.io/teaching_R_Rmd/GitGithubZenodo#1)
--   [Presentación de Introducción a la Bioinformática - Heladia Salgado](https://lcg-cursos.github.io/material/introbioinfo/L2-buenas-practicas.html#1)
--   [Mi próximo artículo científico en R de Florencia D´Andrea](https://flor14.github.io/rladies-jujuy/presentacion.html?panelset=compendio&panelset1=bibliograf%25C3%25ADa#3)
--   [Kristie Reproducible Research](https://github.com/WhitakerLab/ReproducibleResearch)
--   [Presentación de Kristie](https://figshare.com/articles/journal_contribution/Showing_your_working_a_how_to_guide_to_reproducible_research/5443201/1?file=9410686)
--   [FAIR- bioinformatic](https://ifb-elixirfr.github.io/IFB-FAIR-bioinfo-training/assets/pdf/Session2020/01_introduction.pdf)
--   [Unidad 1 Bioinformática e investigación reproducible](https://github.com/AliciaMstt/BioinfInvRepro2016-II/blob/master/Unidad1/Unidad1_Bioinf_e_Investigaci%C3%B3n_Reproducible.md)
--   [The five pillars of computational reproducibility: bioinformatics and beyond](https://academic.oup.com/bib/article/24/6/bbad375/7326135)
--   [Investigación reproducible y análisis de datos](https://open-science-training-handbook.github.io/Open-Science-Training-Handbook_ES/02OpenScienceBasics/04ReproducibleResearchAndDataAnalysis.html)
--   Haydee tutorial: [Temas Selectos de Análisis Numérico y Computación Científica: Computo científico para el análisis de datos](https://haydeeperuyero.github.io/Computo_Cientifico/)
--   Alejandra Medina tutorial: [Control de versiones con GitHub y RStudio](https://comunidadbioinfo.github.io/cdsb2023/control-de-versiones-con-github-y-rstudio.html)
--   Wilson, et al. 2014. [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745). PLOS Biology
--   Evelia Coss - tutorial [Buenas practicas en R](https://github.com/EveliaCoss/Buenaspracticas_R_Mayo2024)
--   Evelia Coss - [Make your CV tutorial](https://github.com/EveliaCoss/Make_yourCV)
--   Markdwn Guide - [Getting Started](https://www.markdownguide.org/getting-started/)
--   Allison Horst - [Imagenes](https://allisonhorst.com/allison-horst)
--   [Statistical Computing using R and Python](https://srvanderplas.github.io/stat-computing-r-python/)
--   [Training Materials](https://learning.nceas.ucsb.edu/2024-10-coreR/)
--   [Visual Studio Code](https://damiandeluca.com.ar/como-comenzar-con-visual-studio-code-una-guia-para-principiantes)
--   [Articulo reproducibilidad](https://blog.ml.cmu.edu/2020/08/31/5-reproducibility/)
+### **Información contenida**
+
+Cada columna en la salida anterior tiene un significado:
+
+[![](reproducible/figures/ejemplo_datos.png)](https://eveliacoss.github.io/RNAseq_classFEB2024/Presentaciones/Dia1_AspectosGenerales.html#74)
+
+### **Permisos**
+
+Cada usuario tiene permisos diferentes cuando crea un archivo. Los permisos pueden modificarse con `chmod`.
+
+Los caracteres atribuidos a los permisos son:
+
+- `r` : escritura (Read)
+
+- `w` : lectura (Write)
+
+- `x` : ejecución (eXecute)
+
+En el siguiente ejemplo, el usuario cuenta con todos los permisos activos, mientras que el grupo y otros tienen solo permisos de lectura y ejecución.
+
+[![](reproducible/figures/permisos.png)](https://eveliacoss.github.io/RNAseq_classFEB2024/Presentaciones/Dia1_AspectosGenerales.html#75)
+
+## **`chmod`:** Cambiar permisos
+
+La representación octal de chmod es muy sencilla
+
+- `r` = Lectura tiene el valor de 4
+
+- `w` = Escritura tiene el valor de 2
+
+- `x` = Ejecución tiene el valor de 1
+
+| Permisos | Valor | Significado                    |
+|:--------:|:-----:|:-------------------------------|
+|   rwx    |   7   | Lectura, escritura y ejecución |
+|   rw-    |   6   | Lectura, escritura             |
+|   r-x    |   5   | Lectura y ejecución            |
+|   r--    |   4   | Lectura                        |
+|   -wx    |   3   | Escritura y ejecución          |
+|   -w-    |   2   | Escritura                      |
+|   --x    |   1   | Ejecución                      |
+|   ---    |   0   | Sin permisos                   |
+
+Por lo tanto:
+
+| Forma larga              | Forma Octal |
+|:-------------------------|-------------|
+| `chmod u=rwx,g=rwx,o=rx` | `chmod 775` |
+| `chmod u=rwx,g=rx,o=`    | `chmod 760` |
+| `chmod u=rw,g=r,o=r`     | `chmod 644` |
+| `chmod u=rw,g=r,o=`      | `chmod 640` |
+| `chmod u=rw,go=`         | `chmod 600` |
+| `chmod u=rwx,go=`        | `chmod 700` |
+
+## Comprimir y descomprimir archivos
+
+Los archivos pueden contener diversos tipos de extensiones, dependiendo del objetivo será necesario descomprimirlos y en otros dejarlos comprimidos para no abarcar tanto espacio en tu espacio de trabajo. 
+
+| Tipo de archivo | Comprimir | Descomprimir |
+|------------------------|------------------------|------------------------|
+| Carpeta.tar | `tar -cvf carpeta.tar /dir/a/comprimir/carpeta` | `tar -xvf carpeta.tar` |
+| Carpeta.tar.gz | `tar -czvf carpeta.tar.gz /carpeta/a/empaquetar/carpeta` | `tar -zxvf carpeta.tar.gz` |
+| Carpeta.gz | `gzip -9 carpeta.gz carpeta/a/empaquetar/carpeta` | `gunzip -kd carpeta.gz` |
+| Carpeta.zip | `zip -r carpeta.zip carpeta` | `unzip carpeta.zip` |
+
+::: callout-note
+## Ejercicio 2
+
+1.  Visita este enlace 👉 [unix.bioinfo.rsgecuador](https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador/tree/gh-pages) .
+2.  Haz clic en el botón verde que dice **"CODE"**.
+3.  Selecciona la opción **"Download ZIP"**.
+4.  Elige la carpeta donde deseas guardar el archivo en tu computadora. El archivo se almacena con la extension `.zip`.
+5.  Ve a la carpeta donde se guardó el archivo desde la **terminal**. Ejemplo en mi computadora:
+
+``` bash
+cd "C:/Users/ecoss/Documents/Respaldos/Github_notes/Workshop_Bash2024/data"
+```
+
+6.  Descomprime el archivo `.zip`.
+
+``` bash
+unzip unix.bioinfo.rsgecuador-gh-pages.zip
+```
+:::
+
+## Material suplementario
+
+- Software Carpentry. [La terminal de Unix](https://swcarpentry.github.io/shell-novice-es/02-filedir.html)
+- RSG Ecuador.[GNU/Linux para bioinfomatica](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_avanzado/02_Bash/1_bash.html)
+- [Introduction to the Unix Shell for Transcriptomics](https://github.com/raynamharris/Shell_Intro_for_Transcriptomics/tree/master)Tutorial.

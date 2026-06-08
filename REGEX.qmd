@@ -29,7 +29,7 @@ echo $mi_primer_string
 Los `wildcards` o `wild characters` son símbolos utilizados para representar uno o más caracteres. Se pueden utilizar con otros comandos para facilitar el procesamiento o búsqueda de archivos, directorios y datos en general.
 
 | **Wildcard** | **Función** |
-|----|----|
+|------------------------------------|------------------------------------|
 | `*` | Asocia **uno o más** caracteres especificados por el usuario, con caracteres en un string con el que se opera. |
 | `?` | Asocia **solo un** caracter a la vez en un string. |
 | `[ ]` | Asocia **cuaquiera** de los caracteres dentro en un string. |
@@ -90,7 +90,7 @@ Puedes seguir repasando y aprendiendo de las expresiones regulares en la pagina 
 Usualmente cuando trabajamos con datos, es necesario pasar el resultado de un comando a otro para hacer un procesamiento de datos apilado, como en un algortimo. Un `stream` o `corriente` esta hecha de datos. Es una corriente de datos. Un ejemplo muy familiar es el teclado y la pantalla. El teclado tiene una interfaz en donde por cada tecla presionada, un caracter se guarda en un archivo. Se dice entonces que es una `corriente de  entrada`. Cuando la pantalla nos muestra lo que estamos escribiendo entonces la data sale hacia nosotros y eso convierte a la pantalla en una `corriente de salida`. Los dispositivos que hacen este tipo de transmisión de datos se llaman dispositivos `I/O` (input y output). Los operadores que se encargan de esto se conocen como `operadores de redirección`. Tres importantes son:
 
 | **Comando** | **Función** |
-|----|----|
+|------------------------------------|------------------------------------|
 | `>` | Stream de **salida de datos**. Sobre escribre sobre un archivo. |
 | `>>` | Stream de salida de datos. Adjunta **nueva salida a datos preexistentes en un archivo.** |
 | `<` | Stream de **entrada de datos.** Recibe datos para procesamiento con algun comando. |
@@ -132,12 +132,12 @@ Usualmente cuando trabajamos con datos, es necesario pasar el resultado de un co
 El operador `>` sobre escribe archivos. Ten cuidado al usarlo para que no pierdas datos.
 :::
 
-![](img/nac35ntlfg831.webp)
+![](reproducible/figures/nac35ntlfg831.webp)
 
 ## Material suplementario
 
--   RSG Ecuador. [Scripts en Bash](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_avanzado/02_Bash/1_bash.html)
--   RSG Ecuador. [Wildcards y Streams](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_basico/03_Manejo_terminal/5_wildcards.html)
--   RSG Ecuador. [Expresiones regulares (*regex*)](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html)
--   [Wildcard Selection in Bash](https://pressbooks.senecapolytechnic.ca/uli101/chapter/wildcard-selection-in-bash/)
--   [Expresiones regulares](https://twiki.org/cgi-bin/view/Codev/TWikiPresentation2017x06x01Regex)
+- RSG Ecuador. [Scripts en Bash](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_avanzado/02_Bash/1_bash.html)
+- RSG Ecuador. [Wildcards y Streams](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_basico/03_Manejo_terminal/5_wildcards.html)
+- RSG Ecuador. [Expresiones regulares (*regex*)](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html)
+- [Wildcard Selection in Bash](https://pressbooks.senecapolytechnic.ca/uli101/chapter/wildcard-selection-in-bash/)
+- [Expresiones regulares](https://twiki.org/cgi-bin/view/Codev/TWikiPresentation2017x06x01Regex)
