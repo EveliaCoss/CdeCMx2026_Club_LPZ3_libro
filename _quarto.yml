@@ -32,16 +32,28 @@ book:
       - Parte11.qmd # Bucles (for loops)
     - part: "**Sección 3** - Introducción a Git/GitHub"
       chapters:  
-      - Parte12.qmd  
+      - Parte12.qmd # Intro a Git
+      - Parte13.qmd # Instalar Git/Bash
+      - Parte14.qmd # Configurar git
+      - Parte15.qmd # Crear e inicializar repos
+      - Parte16.qmd # Rastrear cambios
+      - Parte17.qmd # Explorando el historial
+      - Parte18.qmd # Restore y reset
+      - Parte19.qmd # Ignorar archivos
+      - Parte20.qmd # Conexión con Github
+      - Parte21.qmd # Trabajando con colaboradores
+      - Parte22.qmd # Resolviendo conflictos
+      - Parte23.qmd # Trabajando con ramas
+      - Parte24.qmd # Conexión RStudio con Git 
     - part: "**Sección 4** - x"
       chapters:  
-      - Parte12.qmd   
+        - Parte25.qmd 
     - part: "**Sección 5** - Introducción a R y RStudio"
       chapters:  
-      - Parte12.qmd   
+      - Parte25.qmd   
     - part: "**Sección 6** - "
       chapters:  
-      - Parte12.qmd 
+      - Parte25.qmd 
 
       
   # Information

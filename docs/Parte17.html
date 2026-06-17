@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code &amp; Data Bootcamp: Git, Bash y R - 3&nbsp; Instalación de R y RStudio</title>
+<title>Code &amp; Data Bootcamp: Git, Bash y R - 21&nbsp; Explorando el historial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Parte1.html" rel="next">
-<link href="./install_B.html" rel="prev">
+<link href="./Parte18.html" rel="next">
+<link href="./Parte16.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install_B.html">**Pre-requisitos**</a></li><li class="breadcrumb-item"><a href="./install_R.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Instalación de R y RStudio</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte12.html">**Sección 3** - Introducción a Git/GitHub</a></li><li class="breadcrumb-item"><a href="./Parte17.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Explorando el historial</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -156,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./install_R.html" class="sidebar-item-text sidebar-link active">
+  <a href="./install_R.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Instalación de R y RStudio</span></span></a>
   </div>
 </li>
@@ -271,6 +305,78 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Introducción a Git / GitHub</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Instalar Git Bash en Windows</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Configurar Git</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Repositorios</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Rastrear cambios</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte17.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Explorando el historial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Restore y reset</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Ignorar archivos/carpetas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -284,8 +390,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Parte12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Introducción a Git / GitHub</span></span></a>
+  <a href="./Parte25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
   </div>
 </li>
       </ul>
@@ -301,8 +407,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Parte13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
+  <a href="./Parte25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
   </div>
 </li>
       </ul>
@@ -318,8 +424,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Parte13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
+  <a href="./Parte25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
   </div>
 </li>
       </ul>
@@ -330,26 +436,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#windows---r" id="toc-windows---r" class="nav-link active" data-scroll-target="#windows---r"><span class="header-section-number">3.1</span> Windows - R</a></li>
-  <li><a href="#windows---rstudio" id="toc-windows---rstudio" class="nav-link" data-scroll-target="#windows---rstudio"><span class="header-section-number">3.2</span> Windows - Rstudio</a></li>
-  <li><a href="#macos---r" id="toc-macos---r" class="nav-link" data-scroll-target="#macos---r"><span class="header-section-number">3.3</span> MacOS - R</a></li>
-  <li><a href="#macos--rstudio" id="toc-macos--rstudio" class="nav-link" data-scroll-target="#macos--rstudio"><span class="header-section-number">3.4</span> MacOS- Rstudio</a></li>
-  <li><a href="#linux---r" id="toc-linux---r" class="nav-link" data-scroll-target="#linux---r"><span class="header-section-number">3.5</span> Linux - R</a></li>
-  <li><a href="#linux---rstudio" id="toc-linux---rstudio" class="nav-link" data-scroll-target="#linux---rstudio"><span class="header-section-number">3.6</span> Linux - RStudio</a></li>
-  <li><a href="#actualizar-r---windows-y-macos" id="toc-actualizar-r---windows-y-macos" class="nav-link" data-scroll-target="#actualizar-r---windows-y-macos"><span class="header-section-number">3.7</span> Actualizar R - Windows y MacOS</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="descarga-R" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Instalación de R y RStudio</span></span></h1>
+<h1 class="title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Explorando el historial</span></h1>
 </div>
 
 
@@ -364,146 +458,112 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Para participar en este taller necesitas acceso a los siguientes software y acceso a un navegador como chrome o firefox.</p>
-<section id="windows---r" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="windows---r"><span class="header-section-number">3.1</span> Windows - R</h2>
-<p><strong>Nota:</strong> Para obtener más detalles sobre cómo instalar y configurar R y Rstudio, puedes ver este video tutorial: <a href="https://www.youtube.com/watch?v=H9EBlFDGG4k">Cómo instalar R y RStudio en Windows 11</a>.</p>
+<p>A los commits nos podemos referir a ellos con sus identificadores. Al último commit también nos podemos referir como <code>HEAD</code>. Añadamos una línea más al archivo <code>prueba.txt</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> nano prueba.txt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ahora, para ver el último cambio con el último commit:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git diff HEAD prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Si quitamos el HEAD de esa última instrucción veremos lo mismo. Pero si colocamos un <code>~numero</code> vamos a ver que nos estamos refiriendo al commit anterior número n.&nbsp;</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git diff HEAD~1 prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Con <code>git show</code> vamos a ver los cambios con respecto a un commit anterior.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git show HEAD~1 prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>También podemos referirnos a los commit por su identificador de números y letras enorme o por los primeros 7 números o letras:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git diff 451b2ad469b96e13547e13dc0e718613acdc987c prueba.txt</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git diff 451b2ad prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Revisemos el estado:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Con la siguiente instrucción podemos regresar las cosas a como estaban antes de hacer el último cambio.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout HEAD prueba.txt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>O podríamos usar uno de los identificadores de commits:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout 451b2ad prueba.txt</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat prueba.txt</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Y para regresarlo al último commit de nuevo:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout HEAD prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/git-checkout.png" class="quarto-discovered-preview-image img-fluid figure-img" width="300"></a></p>
+<p></p><figcaption class="figure-caption"><code>git checkout &lt;ID commit&gt; &lt;archivo&gt;</code>, Basado en ASPP-Latam</figcaption><p></p>
+</figure>
+</div>
+<p>El comando <code>git checkout</code> revierte los archivos a alguna versión anterior siempre que no lo hayamos añadido al staging área. Para revertir un commit usamos la instrucción <code>git revert [ID commit]</code>. Supongamos que tenemos un error en el archivo <code>prueba.txt</code> y que ya hicimos commit y queremos revertir al último cambio. Los pasos que haríamos serían los siguientes:</p>
 <ol type="1">
-<li><p>Entra a la siguiente <a href="https://cloud.r-project.org/">página</a></p></li>
-<li><p>Haz click en <u><strong>Download R for Windows</strong></u></p></li>
-<li><p>Haz click en <u><strong>install R for the first time</strong></u></p></li>
-<li><p>Haz click en <u><strong>Download R-4.5.2 for Windows</strong></u></p></li>
-<li><p>Ejecuta el instalador y sigue los siguientes pasos:</p>
-<ul>
-<li><p>Selecciona el lenguaje de preferencia durante el proceso y haz click en “<strong>OK</strong>”</p></li>
-<li><p>Haz clic en “<strong>Next</strong>”</p></li>
-<li><p>Haz clic en “<strong>Next</strong>” (Si deseas cambiar el sitio de instalación, haz clic en “<strong>Browse</strong>” y selecciona tu carpeta deseada).</p></li>
-<li><p>Haz click en “<strong>Next</strong>” en las siguientes cuatro ventanas</p></li>
-<li><p>Espera unos minutos a que finalice la instalación y haz click en “<strong>Finish</strong>”</p></li>
-</ul></li>
+<li><p><code>git log</code> para identificar el ID del commit.</p></li>
+<li><p>Copiar el ID del commit</p></li>
+<li><p><code>git revert [ID del commit]</code> para revertir a ese cambio.</p></li>
+<li><p>Teclear el nuevo mensaje de commit.</p></li>
+<li><p>Guardar y cerrar</p></li>
 </ol>
-</section>
-<section id="windows---rstudio" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="windows---rstudio"><span class="header-section-number">3.2</span> Windows - Rstudio</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/revert-commit.png" class="img-fluid figure-img" width="300"></a></p>
+<p></p><figcaption class="figure-caption"><code>git revert &lt;ID commit&gt;</code>, Basado en ASPP-Latam</figcaption><p></p>
+</figure>
+</div>
+<p>Si ya añadimos los cambios al área de preparación, ya no podemos usar git checkout simplemente.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Realiza las siguientes instrucciones:</p>
 <ol type="1">
-<li>Entra en la siguiente <a href="https://posit.co/download/rstudio-desktop/#download">página</a></li>
-<li>Haz click en <strong>Download RStudio Desktop for Windows</strong></li>
-<li>Ejecuta el instalador y sigue los siguientes pasos:
-<ul>
-<li>Haz clic en “<strong>Next</strong>”</li>
-<li>Haz clic en “<strong>Next</strong>” (Si deseas cambiar el sitio de instalación, haz clic en “<strong>Browse</strong>” y selecciona tu carpeta deseada).</li>
-<li>Haz clic en “<strong>Install</strong>” y espera unos minutos a que acabe el proceso</li>
-<li>Haz clic en “<strong>Finish</strong>”</li>
-</ul></li>
-<li>Abre la aplicación de RStudio</li>
-<li>Haz clic en “<strong>OK</strong>”</li>
+<li><p>Crea una carpeta llamada <code>learn_revert</code>.</p></li>
+<li><p>Muévete a la carpeta <code>learn_revert</code></p></li>
+<li><p>Inicializa el repositorio.</p></li>
+<li><p>Crea un archivo llamado <code>first.txt</code> y añade una línea de texto.</p></li>
+<li><p>Agrégalo al área de preparación y realiza el primer commit.</p></li>
+<li><p>Crea el archivo <code>wrong.txt</code> y agrega una línea de texto.</p></li>
+<li><p>Agrégalo al área de preparación y realiza un commit.</p></li>
+<li><p>Agrega una segunda línea de texto al archivo <code>first.txt</code>, guárdalo, agrégalo al área de preparación y realiza un commit.</p></li>
+<li><p>Agrega una tercera línea de texto al archivo <code>first.txt</code>, guárdalo, agrégalo al área de preparación y realiza un commit.</p></li>
+<li><p>Queremos deshacer el commit realizado cuando se añadió el archivo <code>wrong.txt</code>. Como este commit fue el segundo de donde no estamos, podemos usar <code>git revert HEAD~2</code> (o podemos usar <code>git log</code> y encontrar el ID de ese commit).</p></li>
 </ol>
-</section>
-<section id="macos---r" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="macos---r"><span class="header-section-number">3.3</span> MacOS - R</h2>
-<p><strong>Nota:</strong> Para obtener más detalles sobre cómo instalar y configurar Git Bash, puedes ver este video tutorial: <a href="https://www.youtube.com/watch?v=_k8seoE6b-E">Cómo instalar R y R Studio en MacOS</a></p>
+<p>¿Está el archivo <code>wrong.txt</code>? ¿Qué sucede con el historial de commits?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Otras opciones del historial del commit:</p>
 <ol type="1">
-<li><p>Entra a la siguiente <a href="https://cloud.r-project.org/">página</a></p></li>
-<li><p>Haz click en <u><strong>Download R for macOS</strong></u></p></li>
-<li><p>Existen dos versiones de R que dependen del procesador de tu computadora. Para ver la versión de tu procesador, haz click en el ícono de apple en la parte superior izquierda de tu pantalla y selecciona “acerca de esta mac”. En la ventana emergente, la versión de tu procesador aparecerá junto a la palabra “Chip”, por ejemplo: <strong>Chip Apple M1 Pro</strong></p>
-<ul>
-<li><p>Para Mac con <strong>Apple Silicon</strong> (M1,2,…) haz clic en <u>R-4.5.2-arm64.pkg</u></p></li>
-<li><p>Para Mac con procesador <strong>Intel</strong> haz clic en <u>R-4.5.2-x86_64.pkg</u></p></li>
-</ul></li>
-<li><p>Ejecuta el instalador y sigue los siguientes pasos:</p>
-<ul>
-<li><p>Haz clic en “<strong>Continuar</strong>” tres veces</p></li>
-<li><p>Haz clic en “<strong>De acuerdo</strong>”</p></li>
-<li><p>Haz click en “<strong>Instalar</strong>”</p></li>
-<li><p>Espera unos minutos a que finalice la instalación y haz click en “<strong>Cerrar</strong>”</p></li>
-</ul></li>
+<li>Para ver tanto las diferencias entre los archivos y los ID de los commits. Se puede colocar solo el nombre de un archivo y solo mostrara los commit que afectaban ese archivo o si no se coloca el nombre del archivo aplica sobre todo el historial de commits.</li>
 </ol>
-</section>
-<section id="macos--rstudio" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="macos--rstudio"><span class="header-section-number">3.4</span> MacOS- Rstudio</h2>
-<ol type="1">
-<li>Entra en la siguiente <a href="https://posit.co/download/rstudio-desktop/#download">página</a></li>
-<li>Haz click en <strong>Download RStudio Desktop for macOS 13+</strong>
-<ul>
-<li>Para ver la versión de tu procesador, haz click en el ícono de apple en la parte superior izquierda de tu pantalla y selecciona “acerca de esta mac”. En la ventana emergente, la versión de tu sistema operativo aparecerá junto a la palabra “macOS”, por ejemplo: <strong>macOS Sequola</strong> 15.1.1.</li>
-<li>Si la versión de tu sistema operativo está por debajo de la versión 13, haz clic en <u><strong>download a previous version</strong></u>.</li>
-</ul></li>
-<li>Ejecuta el instalador</li>
-<li>Arrastra el ícono de RStudio a la carpeta de aplicaciones y espera a que finalice la instalación</li>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">--patch</span> prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Para mostrar las descripciones detalladas de las modificaciones y archivos.</li>
 </ol>
-</section>
-<section id="linux---r" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="linux---r"><span class="header-section-number">3.5</span> Linux - R</h2>
-<ol type="1">
-<li><p>Entra a la siguiente <a href="https://cloud.r-project.org/">página</a></p></li>
-<li><p>Junto a <u><strong>Download R for Linux</strong></u> existen tres opciones, selecciona la que se ajusta a tu distribución de Linux</p>
-<ul>
-<li><p><u><strong>Debian</strong></u></p></li>
-<li><p><u><strong>Fedora/Redhat</strong></u></p></li>
-<li><p><u><strong>Ubuntu</strong></u></p></li>
-</ul></li>
-<li><p>Para instalar Linux en <strong>Debian</strong> y ejecuta las siguientes líneas de código (presiona <strong>Enter</strong> después de cada línea de código):</p>
-<ul>
-<li><p><code>sudo apt update</code></p></li>
-<li><p><code>sudo apt install r-base r-base-dev</code></p></li>
-</ul></li>
-<li><p>Para instalar Linux en <strong>Fedora/Redhat</strong> y ejecuta la siguiente línea de código:</p>
-<ul>
-<li><p><code>sudo dnf install R</code></p></li>
-<li><p>Presiona <strong>Enter</strong></p></li>
-</ul></li>
-<li><p>Para instalar Linux en <strong>Ubuntu</strong> y ejecuta las siguientes líneas de código (presiona <strong>Enter</strong> después de cada línea de código):</p>
-<ul>
-<li><p><code>sudo apt update -qq</code></p></li>
-<li><p><code>sudo apt install --no-install-recommends software-properties-common dirmngr</code></p></li>
-<li><p><code>wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc</code></p></li>
-<li><p><code>sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"</code></p></li>
-<li><p><code>sudo apt install --no-install-recommends r-base</code></p></li>
-</ul></li>
-</ol>
-</section>
-<section id="linux---rstudio" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="linux---rstudio"><span class="header-section-number">3.6</span> Linux - RStudio</h2>
-<ol type="1">
-<li>Entra en la siguiente <a href="https://posit.co/download/rstudio-desktop/#download">página</a></li>
-<li>Desliza la página hasta llegar a la tabla de opciones de instalación</li>
-<li>Selecciona tu opción de accuerdo con la distribución y versión de tu sistema operativo (<u><strong>Debian, Fedora/Redhat, Ubuntu</strong></u>).</li>
-<li>Ejecuta el instalador</li>
-</ol>
-</section>
-<section id="actualizar-r---windows-y-macos" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="actualizar-r---windows-y-macos"><span class="header-section-number">3.7</span> Actualizar R - Windows y MacOS</h2>
-<p>Si ya tienes R instalado en tu computadora, asegúrate de tener la versión más actualizada de R</p>
-<p>Existen diferentes formas de actualizar R, la manera más sencilla es a través de <strong>Rgui,</strong> la interfaz gráfica que viene con R base, no con RStudio.</p>
-<p><strong>Windows y MacOS</strong>:</p>
-<ol type="1">
-<li><p>Escribe <strong>Rgui</strong> en el explorador de archivos/aplicaciones de tu computadora para abrir la aplicación de R.</p></li>
-<li><p>Para actualizar R necesitamos de la paquetería <strong>installr</strong>. Para instalarla ejecuta el siguiente código:</p></li>
-</ol>
-<pre><code>-   `install.packages(installr)`
--   Presiona **Enter**</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">-p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
-<li><p>Carga la paquetería con la función <code>library()</code></p>
-<ul>
-<li>library<code>(installr)</code></li>
-<li>Presiona <strong>Enter</strong></li>
-</ul></li>
-<li><p>Para revisar si tienes la versión de R más actualizada ejecuta el siguiente código:</p>
-<ul>
-<li><code>installr(GUI = TRUE)</code></li>
-<li>Presiona <strong>Enter</strong></li>
-<li>En la ventana emergente asegúrate de tener seleccionada la opción “R (updateR)” y haz clic en “OK”</li>
-</ul></li>
-<li><p>Aparecerá otra ventana con información sobre la versión de R que estás usando y si existe una versión más reciente.</p>
-<ul>
-<li>Si <strong>ya tienes la versión más actual</strong>, simplemente haz clic en <strong>“OK”</strong> para cerrar.</li>
-<li>Si <strong>hay una versión nueva disponible</strong>, haz clic en <strong>“Yes”</strong> para comenzar la actualización.</li>
-</ul></li>
-<li><p>Si durante el proceso aparece una ventana preguntando si deseas copiar paquetes o configuraciones anteriores, puedes hacer clic en <strong>“No”</strong> (no es obligatorio copiarlos; puedes reinstalarlos después si lo prefieres).</p></li>
+<li>Para mostrar los nombres de los archivos afectados en cada commit.</li>
 </ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">--name-only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li>Para mostrar los archivos afectados en cada commit con la leyenda de si fueron modificados (M) o añadidos (A) o eliminados.</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">--name-status</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Consultar el siguiente <a href="https://git-scm.com/book/es/v2/Fundamentos-de-Git-Ver-el-Historial-de-Confirmaciones">link</a> para ver más opciones y ejemplos.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -856,13 +916,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./install_B.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Instalación de Git y Bash</span></span>
+      <a href="./Parte16.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Rastrear cambios</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Parte1.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Buenas prácticas en bioinformática</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Parte18.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Restore y reset</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

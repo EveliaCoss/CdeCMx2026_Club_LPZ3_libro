@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code &amp; Data Bootcamp: Git, Bash y R - 3&nbsp; Instalación de R y RStudio</title>
+<title>Code &amp; Data Bootcamp: Git, Bash y R - 12&nbsp; Filtrado de texto (grep, cut, sort, uniq, wc)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Parte1.html" rel="next">
-<link href="./install_B.html" rel="prev">
+<link href="./Parte9.html" rel="next">
+<link href="./Parte7.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install_B.html">**Pre-requisitos**</a></li><li class="breadcrumb-item"><a href="./install_R.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Instalación de R y RStudio</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte5.html">**Sección 2** - Edición de archivos</a></li><li class="breadcrumb-item"><a href="./Parte8.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Filtrado de texto (<code>grep, cut, sort, uniq, wc</code>)</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -156,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./install_R.html" class="sidebar-item-text sidebar-link active">
+  <a href="./install_R.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Instalación de R y RStudio</span></span></a>
   </div>
 </li>
@@ -232,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Parte8.html" class="sidebar-item-text sidebar-link">
+  <a href="./Parte8.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Filtrado de texto (<code>grep, cut, sort, uniq, wc</code>)</span></span></a>
   </div>
 </li>
@@ -334,13 +368,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#windows---r" id="toc-windows---r" class="nav-link active" data-scroll-target="#windows---r"><span class="header-section-number">3.1</span> Windows - R</a></li>
-  <li><a href="#windows---rstudio" id="toc-windows---rstudio" class="nav-link" data-scroll-target="#windows---rstudio"><span class="header-section-number">3.2</span> Windows - Rstudio</a></li>
-  <li><a href="#macos---r" id="toc-macos---r" class="nav-link" data-scroll-target="#macos---r"><span class="header-section-number">3.3</span> MacOS - R</a></li>
-  <li><a href="#macos--rstudio" id="toc-macos--rstudio" class="nav-link" data-scroll-target="#macos--rstudio"><span class="header-section-number">3.4</span> MacOS- Rstudio</a></li>
-  <li><a href="#linux---r" id="toc-linux---r" class="nav-link" data-scroll-target="#linux---r"><span class="header-section-number">3.5</span> Linux - R</a></li>
-  <li><a href="#linux---rstudio" id="toc-linux---rstudio" class="nav-link" data-scroll-target="#linux---rstudio"><span class="header-section-number">3.6</span> Linux - RStudio</a></li>
-  <li><a href="#actualizar-r---windows-y-macos" id="toc-actualizar-r---windows-y-macos" class="nav-link" data-scroll-target="#actualizar-r---windows-y-macos"><span class="header-section-number">3.7</span> Actualizar R - Windows y MacOS</a></li>
+  <li><a href="#contar-el-número-de-secuencias-en-un-archivo-fasta" id="toc-contar-el-número-de-secuencias-en-un-archivo-fasta" class="nav-link active" data-scroll-target="#contar-el-número-de-secuencias-en-un-archivo-fasta"><span class="header-section-number">12.1</span> Contar el número de secuencias en un archivo FASTA</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">12.2</span> Referencias</a></li>
   </ul>
 </nav>
     </div>
@@ -349,7 +378,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="descarga-R" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Instalación de R y RStudio</span></span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Filtrado de texto (<code>grep, cut, sort, uniq, wc</code>)</span></h1>
 </div>
 
 
@@ -364,143 +393,178 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Para participar en este taller necesitas acceso a los siguientes software y acceso a un navegador como chrome o firefox.</p>
-<section id="windows---r" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="windows---r"><span class="header-section-number">3.1</span> Windows - R</h2>
-<p><strong>Nota:</strong> Para obtener más detalles sobre cómo instalar y configurar R y Rstudio, puedes ver este video tutorial: <a href="https://www.youtube.com/watch?v=H9EBlFDGG4k">Cómo instalar R y RStudio en Windows 11</a>.</p>
+<p>Veamos ahora los comandos más usados en tuberías de filtrado de texto en acción, haciendo uso de sólo algunas de las opciones más frecuentes listados en la sección anterior.</p>
+<section id="contar-el-número-de-secuencias-en-un-archivo-fasta" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="contar-el-número-de-secuencias-en-un-archivo-fasta"><span class="header-section-number">12.1</span> Contar el número de secuencias en un archivo FASTA</h2>
 <ol type="1">
-<li><p>Entra a la siguiente <a href="https://cloud.r-project.org/">página</a></p></li>
-<li><p>Haz click en <u><strong>Download R for Windows</strong></u></p></li>
-<li><p>Haz click en <u><strong>install R for the first time</strong></u></p></li>
-<li><p>Haz click en <u><strong>Download R-4.5.2 for Windows</strong></u></p></li>
-<li><p>Ejecuta el instalador y sigue los siguientes pasos:</p>
-<ul>
-<li><p>Selecciona el lenguaje de preferencia durante el proceso y haz click en “<strong>OK</strong>”</p></li>
-<li><p>Haz clic en “<strong>Next</strong>”</p></li>
-<li><p>Haz clic en “<strong>Next</strong>” (Si deseas cambiar el sitio de instalación, haz clic en “<strong>Browse</strong>” y selecciona tu carpeta deseada).</p></li>
-<li><p>Haz click en “<strong>Next</strong>” en las siguientes cuatro ventanas</p></li>
-<li><p>Espera unos minutos a que finalice la instalación y haz click en “<strong>Finish</strong>”</p></li>
-</ul></li>
+<li><strong>¿Cuántas líneas tiene el archivo S_clavuligerus_proteome.fasta?</strong></li>
 </ol>
-</section>
-<section id="windows---rstudio" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="windows---rstudio"><span class="header-section-number">3.2</span> Windows - Rstudio</h2>
-<ol type="1">
-<li>Entra en la siguiente <a href="https://posit.co/download/rstudio-desktop/#download">página</a></li>
-<li>Haz click en <strong>Download RStudio Desktop for Windows</strong></li>
-<li>Ejecuta el instalador y sigue los siguientes pasos:
+<div class="sourceCode" id="cb1" data-eval="FALSE"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/unix.bioinfo.rsgecuador-gh-pages/_files</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> S_clavuligerus_proteome.fasta</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 40739 lineas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>En archivos de formato FASTA o similares, el número de líneas no corresponde al número de secuencias. Esto se debe a la estructura del archivo:</p>
 <ul>
-<li>Haz clic en “<strong>Next</strong>”</li>
-<li>Haz clic en “<strong>Next</strong>” (Si deseas cambiar el sitio de instalación, haz clic en “<strong>Browse</strong>” y selecciona tu carpeta deseada).</li>
-<li>Haz clic en “<strong>Install</strong>” y espera unos minutos a que acabe el proceso</li>
-<li>Haz clic en “<strong>Finish</strong>”</li>
-</ul></li>
-<li>Abre la aplicación de RStudio</li>
-<li>Haz clic en “<strong>OK</strong>”</li>
+<li><p><strong>Formato FASTA</strong>: Cada secuencia comienza con una línea que tiene el símbolo <code>&gt;</code>, seguido de un identificador o descripción de la secuencia.</p></li>
+<li><p>Las líneas siguientes contienen la secuencia de nucleótidos o aminoácidos, que pueden estar divididas en varias líneas.</p></li>
+</ul>
+<p>Por lo tanto, para contar el número de secuencias en un archivo FASTA, <strong>debes contar las líneas que comienzan con <code>&gt;</code></strong>. Aquí tienes un ejemplo práctico en Bash para lograrlo:</p>
+<ol start="2" type="1">
+<li><strong>¿Cuántas secuencias tiene el archivo S_clavuligerus_proteome.fasta?</strong></li>
 </ol>
-</section>
-<section id="macos---r" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="macos---r"><span class="header-section-number">3.3</span> MacOS - R</h2>
-<p><strong>Nota:</strong> Para obtener más detalles sobre cómo instalar y configurar Git Bash, puedes ver este video tutorial: <a href="https://www.youtube.com/watch?v=_k8seoE6b-E">Cómo instalar R y R Studio en MacOS</a></p>
-<ol type="1">
-<li><p>Entra a la siguiente <a href="https://cloud.r-project.org/">página</a></p></li>
-<li><p>Haz click en <u><strong>Download R for macOS</strong></u></p></li>
-<li><p>Existen dos versiones de R que dependen del procesador de tu computadora. Para ver la versión de tu procesador, haz click en el ícono de apple en la parte superior izquierda de tu pantalla y selecciona “acerca de esta mac”. En la ventana emergente, la versión de tu procesador aparecerá junto a la palabra “Chip”, por ejemplo: <strong>Chip Apple M1 Pro</strong></p>
-<ul>
-<li><p>Para Mac con <strong>Apple Silicon</strong> (M1,2,…) haz clic en <u>R-4.5.2-arm64.pkg</u></p></li>
-<li><p>Para Mac con procesador <strong>Intel</strong> haz clic en <u>R-4.5.2-x86_64.pkg</u></p></li>
-</ul></li>
-<li><p>Ejecuta el instalador y sigue los siguientes pasos:</p>
-<ul>
-<li><p>Haz clic en “<strong>Continuar</strong>” tres veces</p></li>
-<li><p>Haz clic en “<strong>De acuerdo</strong>”</p></li>
-<li><p>Haz click en “<strong>Instalar</strong>”</p></li>
-<li><p>Espera unos minutos a que finalice la instalación y haz click en “<strong>Cerrar</strong>”</p></li>
-</ul></li>
-</ol>
-</section>
-<section id="macos--rstudio" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="macos--rstudio"><span class="header-section-number">3.4</span> MacOS- Rstudio</h2>
-<ol type="1">
-<li>Entra en la siguiente <a href="https://posit.co/download/rstudio-desktop/#download">página</a></li>
-<li>Haz click en <strong>Download RStudio Desktop for macOS 13+</strong>
-<ul>
-<li>Para ver la versión de tu procesador, haz click en el ícono de apple en la parte superior izquierda de tu pantalla y selecciona “acerca de esta mac”. En la ventana emergente, la versión de tu sistema operativo aparecerá junto a la palabra “macOS”, por ejemplo: <strong>macOS Sequola</strong> 15.1.1.</li>
-<li>Si la versión de tu sistema operativo está por debajo de la versión 13, haz clic en <u><strong>download a previous version</strong></u>.</li>
-</ul></li>
-<li>Ejecuta el instalador</li>
-<li>Arrastra el ícono de RStudio a la carpeta de aplicaciones y espera a que finalice la instalación</li>
-</ol>
-</section>
-<section id="linux---r" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="linux---r"><span class="header-section-number">3.5</span> Linux - R</h2>
-<ol type="1">
-<li><p>Entra a la siguiente <a href="https://cloud.r-project.org/">página</a></p></li>
-<li><p>Junto a <u><strong>Download R for Linux</strong></u> existen tres opciones, selecciona la que se ajusta a tu distribución de Linux</p>
-<ul>
-<li><p><u><strong>Debian</strong></u></p></li>
-<li><p><u><strong>Fedora/Redhat</strong></u></p></li>
-<li><p><u><strong>Ubuntu</strong></u></p></li>
-</ul></li>
-<li><p>Para instalar Linux en <strong>Debian</strong> y ejecuta las siguientes líneas de código (presiona <strong>Enter</strong> después de cada línea de código):</p>
-<ul>
-<li><p><code>sudo apt update</code></p></li>
-<li><p><code>sudo apt install r-base r-base-dev</code></p></li>
-</ul></li>
-<li><p>Para instalar Linux en <strong>Fedora/Redhat</strong> y ejecuta la siguiente línea de código:</p>
-<ul>
-<li><p><code>sudo dnf install R</code></p></li>
-<li><p>Presiona <strong>Enter</strong></p></li>
-</ul></li>
-<li><p>Para instalar Linux en <strong>Ubuntu</strong> y ejecuta las siguientes líneas de código (presiona <strong>Enter</strong> después de cada línea de código):</p>
-<ul>
-<li><p><code>sudo apt update -qq</code></p></li>
-<li><p><code>sudo apt install --no-install-recommends software-properties-common dirmngr</code></p></li>
-<li><p><code>wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc</code></p></li>
-<li><p><code>sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"</code></p></li>
-<li><p><code>sudo apt install --no-install-recommends r-base</code></p></li>
-</ul></li>
-</ol>
-</section>
-<section id="linux---rstudio" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="linux---rstudio"><span class="header-section-number">3.6</span> Linux - RStudio</h2>
-<ol type="1">
-<li>Entra en la siguiente <a href="https://posit.co/download/rstudio-desktop/#download">página</a></li>
-<li>Desliza la página hasta llegar a la tabla de opciones de instalación</li>
-<li>Selecciona tu opción de accuerdo con la distribución y versión de tu sistema operativo (<u><strong>Debian, Fedora/Redhat, Ubuntu</strong></u>).</li>
-<li>Ejecuta el instalador</li>
-</ol>
-</section>
-<section id="actualizar-r---windows-y-macos" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="actualizar-r---windows-y-macos"><span class="header-section-number">3.7</span> Actualizar R - Windows y MacOS</h2>
-<p>Si ya tienes R instalado en tu computadora, asegúrate de tener la versión más actualizada de R</p>
-<p>Existen diferentes formas de actualizar R, la manera más sencilla es a través de <strong>Rgui,</strong> la interfaz gráfica que viene con R base, no con RStudio.</p>
-<p><strong>Windows y MacOS</strong>:</p>
-<ol type="1">
-<li><p>Escribe <strong>Rgui</strong> en el explorador de archivos/aplicaciones de tu computadora para abrir la aplicación de R.</p></li>
-<li><p>Para actualizar R necesitamos de la paquetería <strong>installr</strong>. Para instalarla ejecuta el siguiente código:</p></li>
-</ol>
-<pre><code>-   `install.packages(installr)`
--   Presiona **Enter**</code></pre>
+<div class="sourceCode" id="cb2" data-eval="FALSE"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"^&gt;"</span> S_clavuligerus_proteome.fasta</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 6439 secuencias</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
-<li><p>Carga la paquetería con la función <code>library()</code></p>
-<ul>
-<li>library<code>(installr)</code></li>
-<li>Presiona <strong>Enter</strong></li>
-</ul></li>
-<li><p>Para revisar si tienes la versión de R más actualizada ejecuta el siguiente código:</p>
-<ul>
-<li><code>installr(GUI = TRUE)</code></li>
-<li>Presiona <strong>Enter</strong></li>
-<li>En la ventana emergente asegúrate de tener seleccionada la opción “R (updateR)” y haz clic en “OK”</li>
-</ul></li>
-<li><p>Aparecerá otra ventana con información sobre la versión de R que estás usando y si existe una versión más reciente.</p>
-<ul>
-<li>Si <strong>ya tienes la versión más actual</strong>, simplemente haz clic en <strong>“OK”</strong> para cerrar.</li>
-<li>Si <strong>hay una versión nueva disponible</strong>, haz clic en <strong>“Yes”</strong> para comenzar la actualización.</li>
-</ul></li>
-<li><p>Si durante el proceso aparece una ventana preguntando si deseas copiar paquetes o configuraciones anteriores, puedes hacer clic en <strong>“No”</strong> (no es obligatorio copiarlos; puedes reinstalarlos después si lo prefieres).</p></li>
+<li><strong>¿Cuáles bases de datos detectaron estas secuencias?</strong></li>
 </ol>
+<div class="sourceCode" id="cb3" data-eval="FALSE"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> S_clavuligerus_proteome.fasta <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span> <span class="st">'|'</span> <span class="at">-f1</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s/&gt;//'</span> <span class="kw">|</span> <span class="fu">uniq</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sp y tr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>UniProtKB (Universal Protein Knowledgebase)</strong> tiene dos secciones principales:</p>
+<ul>
+<li><p><strong>Swiss-Prot (</strong><code>sp</code><strong>)</strong>: Contiene secuencias revisadas y anotadas manualmente.</p></li>
+<li><p><strong>TrEMBL (</strong><code>tr</code><strong>)</strong>: Contiene secuencias computacionalmente anotadas y aún no revisadas manualmente.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explicación del código
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><code>grep "&gt;"</code>: Busca la línea con la cabecera.</p></li>
+<li><p><code>cut -d'|' -f1</code>: Divide por <code>|</code> y selecciona el primer campo.</p></li>
+<li><p><code>sed 's/&gt;//'</code>: Elimina el símbolo <code>&gt;</code> al inicio.</p></li>
+<li><p><code>uniq</code>: Nos da los valores únicos.</p></li>
+</ul>
+</div>
+</div>
+<ol start="4" type="1">
+<li><strong>¿Qué organismo produce esta proteína y cuál es su Taxonomy ID?</strong></li>
+</ol>
+<div class="sourceCode" id="cb4" data-eval="FALSE"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">organism</span><span class="op">=</span><span class="va">$(</span><span class="fu">grep</span> <span class="st">"&gt;"</span> S_clavuligerus_proteome.fasta <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-n</span> <span class="st">'s/.*OS=\([^ ]*\).*/\1/p'</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-u</span><span class="va">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">taxonomy</span><span class="op">=</span><span class="va">$(</span><span class="fu">grep</span> <span class="st">"&gt;"</span> S_clavuligerus_proteome.fasta <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-n</span> <span class="st">'s/.*OX=\([0-9]*\).*/\1/p'</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-u</span><span class="va">)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Organismo: </span><span class="va">$organism</span><span class="st">"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Taxonomy ID: </span><span class="va">$taxonomy</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explicación del código
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>sed -n 's/.*OS=\([^ ]*\).*/\1/p'</code>: Extrae el nombre del organismo entre <code>OS=</code> y el primer espacio.</li>
+<li><code>sed -n 's/.*OX=\([0-9]*\).*/\1/p'</code>: Extrae el número después de <code>OX=</code>.</li>
+<li><strong><code>sort -u</code></strong>: Ordena las líneas y elimina duplicados, asegurando que solo queden valores únicos.</li>
+<li>Se aplica después de extraer los valores con <code>sed</code>, por si existen múltiples cabeceras en el archivo.</li>
+</ul>
+</div>
+</div>
+<ol start="5" type="1">
+<li><strong>¿Cuántos genes codifican a estas proteínas?</strong></li>
+</ol>
+<div class="sourceCode" id="cb5" data-eval="FALSE"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> S_clavuligerus_proteome.fasta <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-n</span> <span class="st">'s/.*GN=\([^ ]*\).*/\1/p'</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 6410 genes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explicación del código
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong><code>grep "&gt;" header.fasta</code></strong>: Encuentra las líneas con cabeceras FASTA.</li>
+<li><strong><code>sed -n 's/.*GN=\([^ ]*\).*/\1/p'</code></strong>: Extrae el valor asociado a <code>GN=</code> (el nombre del gen).</li>
+<li><strong><code>sort</code></strong>: Ordena alfabéticamente los nombres de los genes.</li>
+<li><strong><code>uniq</code></strong>: Filtra y deja solo los nombres únicos.</li>
+<li><strong><code>wc -l</code></strong>: Cuenta el número total de líneas (es decir, el número de genes únicos).</li>
+</ul>
+</div>
+</div>
+<ol start="6" type="1">
+<li><strong>¿Qué nivel de evidencia tiene la existencia de la proteína TMUUS_STRC2?</strong></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><code>TMUUS_STRC2</code></strong>: Es el nombre de la proteína en formato abreviado y en mayúsculas.</p>
+<ul>
+<li><strong><code>TMUUS</code></strong>: Abreviatura de la función de la proteína: “(+)-T-muurolol synthase”.</li>
+<li><strong><code>STRC2</code></strong>: Abreviatura del organismo de origen, <strong>Streptomyces clavuligerus</strong>.</li>
+</ul>
+</div>
+</div>
+<p>El nivel de evidencia de la existencia de la proteína <strong><code>TMUUS_STRC2</code></strong> está especificado en la cabecera FASTA mediante el campo <strong><code>PE</code></strong>. En este caso: <code>&gt;sp|B5GW45|TMUUS_STRC2 (+)-T-muurolol synthase ((2E,6E)-farnesyl diphosphate cyclizing) OS=Streptomyces clavuligerus OX=443255 GN=SCLAV_p0068 PE=1 SV=1</code></p>
+<p>El campo <strong><code>PE=1</code></strong> indica que el nivel de evidencia es <strong>1</strong>, lo que significa que la existencia de esta proteína está confirmada experimentalmente.</p>
+<p><strong>Interpretación de PE (Protein Existence) en UniProt:</strong></p>
+<ol type="1">
+<li><p><strong>PE=1</strong>: Evidencia experimental a nivel de proteína.</p></li>
+<li><p><strong>PE=2</strong>: Evidencia experimental a nivel de transcripción.</p></li>
+<li><p><strong>PE=3</strong>: Inferido por homología.</p></li>
+<li><p><strong>PE=4</strong>: Predicho.</p></li>
+<li><p><strong>PE=5</strong>: Proteína no existente.</p></li>
+</ol>
+<p>En Bash:</p>
+<div class="sourceCode" id="cb6" data-eval="FALSE"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;.*TMUUS_STRC2"</span> S_clavuligerus_proteome.fasta <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-n</span> <span class="st">'s/.*PE=\([0-9]\).*/\1/p'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Por lo tanto, <strong>TMUUS_STRC2 tiene el nivel más alto de evidencia (PE=1), lo que confirma su existencia a nivel experimental</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio 9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Contesta las siguientes preguntas empleando el archivo S_clavuligerus_proteome.fasta:</p>
+<ol type="1">
+<li>¿Qué proteínas tienen un nivel de evidencia menor o igual a 2?</li>
+<li>¿Cuántas proteínas tienen el identificador de taxonomía (<code>OX=443255</code>) específico?</li>
+<li>¿Cuántas variantes de secuencia (SV, sequence version) diferentes hay en el archivo FASTA?</li>
+</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solucion
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<pre data-eval="FALSE"><code>1. grep "&gt;" S_clavuligerus_proteome.fasta | grep "PE=[1-2]"
+2. grep "OX=443255"  S_clavuligerus_proteome.fasta | wc -l
+3. grep "&gt;"  S_clavuligerus_proteome.fasta | grep -o "SV=[0-9]*" | cut -d'=' -f2 | sort | uniq -c</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="referencias" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="referencias"><span class="header-section-number">12.2</span> Referencias</h2>
+<ul>
+<li><a href="https://vinuesa.github.io/intro2linux/index.html#ejemplos-de-herramientas-de-filtrado-de-texto-pipelines-con-grep-cut-sort-uniq-wc-en-acci%C3%B3n">Ejemplos de herramientas de filtrado de texto:&nbsp;<em>pipelines</em>&nbsp;con&nbsp;<strong>grep</strong>,&nbsp;<strong>cut</strong>,&nbsp;<strong>sort</strong>,&nbsp;<strong>uniq</strong>,&nbsp;<strong>wc</strong>&nbsp;en acción</a></li>
+</ul>
 
 
 </section>
@@ -856,13 +920,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./install_B.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Instalación de Git y Bash</span></span>
+      <a href="./Parte7.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Enlaces simbólicos (symlinks)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Parte1.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Buenas prácticas en bioinformática</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Parte9.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Condicionales</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
