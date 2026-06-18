@@ -492,53 +492,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Lo primero que vamos a hacer es crear un repositorio remoto. Entra a tu cuenta de Github y dale click en Nuevo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_1.png" class="quarto-discovered-preview-image img-fluid figure-img" width="300"></a></p>
+<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_1.png" class="quarto-discovered-preview-image img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">Crear repositorio nuevo</figcaption><p></p>
 </figure>
 </div>
 <p>Ponle de nombre <code>Mi_primer_repo</code> (o el nombre que hayas usado en las secciones anteriores). Deja marcada la opción de público y no añadas un README ni una licencia.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_2.png" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_2.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">Crear repositorio vacío</figcaption><p></p>
 </figure>
 </div>
 <p>Al darle click en crear repositorio, la página nos mostrará la siguiente información que es la que usaremos para configurar nuestro local con el remoto.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_3.png" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_3.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">Información del repositorio remoto para configurar con nuestro local</figcaption><p></p>
 </figure>
 </div>
 <p>Lo que acabamos de hacer es como si en nuestra terminal hubiéramos realizado lo siguiente:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir Mi_primer_repo</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd Mi_primer_repo</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> Mi_primer_repo</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Mi_primer_repo</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="paso-2-conectar-local-a-remoto" class="level2" data-number="24.2">
 <h2 data-number="24.2" class="anchored" data-anchor-id="paso-2-conectar-local-a-remoto"><span class="header-section-number">24.2</span> Paso 2: Conectar local a remoto</h2>
 <p>La página principal del repositorio remoto muestra una serie de información que necesitamos usar para conectar el repositorio remoto en Github con el repositorio local de nuestra computadora. Vamos a usar el protocolo de conexión SSH, da click en donde dice SSH y a continuación en el icono de copiar.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_4.png" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_4.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">SSH link para clonar el repositorio</figcaption><p></p>
 </figure>
 </div>
 <p>Ahora, dentro de nuestra carpeta del repositorio local, abrir una terminal y correr lo siguiente:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote add origin git@github.com:User/Mi_primer_repo.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com:User/Mi_primer_repo.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Para revisar que si se haya realizado correctamente procedemos a usar lo siguiente:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote <span class="at">-v</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="paso-3-conexión-mediante-ssh" class="level2" data-number="24.3">
 <h2 data-number="24.3" class="anchored" data-anchor-id="paso-3-conexión-mediante-ssh"><span class="header-section-number">24.3</span> Paso 3: Conexión mediante SSH</h2>
 <p>Primero verificamos si ya tenemos algún par de llaves:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-al</span> ~/.ssh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-al</span> ~/.ssh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Si ya tienen algún par de llaves configuradas las van a ver listadas, si no tiene ninguna les saldrá una leyenda como la siguiente:</p>
 <pre class="output"><code>ls: cannot access '/c/Users/User/.ssh': No such file or directory</code></pre>
 <section id="paso-3.1-crear-un-par-de-llaves-ssh" class="level3" data-number="24.3.1">
 <h3 data-number="24.3.1" class="anchored" data-anchor-id="paso-3.1-crear-un-par-de-llaves-ssh"><span class="header-section-number">24.3.1</span> Paso 3.1: Crear un par de llaves SSH</h3>
 <p>Para crear el par de llaves usamos el siguiente comando, la opción <code>-t</code> se refiere al tipo de algoritmo usado y la opción <code>-C</code> indica un comentario para la llave, en este caso el comentario es nuestro correo.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh-keygen <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"email@dominio.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"email@dominio.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Si tu sistema operativo no lo permite, usa <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code>.</p>
 <p><strong>Nota:</strong> Si no cuentas con <code>ssh-keygen</code> instalado, primero corre el código:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install ssh-keygen</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -561,13 +561,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="ex">+----[SHA256]-----+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Lo que dice <code>identification</code> ser refiere a la llave privada la cual no debes compartir nunca y la cadena de caracteres que dice <code>fingerprint</code> se refiere a parte de tu llave pública.</p>
 <p>Si repetimos el comando siguiente, verán ahora ya sus dos claves pública y privada.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-al</span> ~/.ssh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-al</span> ~/.ssh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="paso-3.2-generar-una-llave-pública-exclusiva-para-github-opcional" class="level3" data-number="24.3.2">
 <h3 data-number="24.3.2" class="anchored" data-anchor-id="paso-3.2-generar-una-llave-pública-exclusiva-para-github-opcional"><span class="header-section-number">24.3.2</span> Paso 3.2 Generar una llave pública exclusiva para Github (opcional)</h3>
 <p>En caso de que ya cuentes con una llave con ese nombre, puedes crear una nueva llave con otro nombre especifico para Github:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"your_email@example.com"</span> <span class="at">-f</span> ~/.ssh/id_ed25519_github</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>[<img src="figures/Clave_github.jpg" class="img-fluid"></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://eveliacoss.github.io/Workshop_GitGithub2025/Parte1.html"><img src="https://eveliacoss.github.io/Workshop_GitGithub2025/figures/Clave_github.jpg" class="img-fluid figure-img" width="300"></a></p>
@@ -575,32 +574,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>Ahora que ya tenemos las claves, debemos decirle a GitHub cuales son.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat ~/.ssh/id_ed25519.pub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Copia la cadena de caracteres, ve a la configuración de tu perfil de GitHub y da clic en “SSH and GPG Keys”.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_5.png" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_5.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">SSH and GPG Keys</figcaption><p></p>
 </figure>
 </div>
 <p>Una vez ahí da clic en “Nueva llave SSH”.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_6.png" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_6.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">Nueva llave SSH</figcaption><p></p>
 </figure>
 </div>
 <p>Después coloca un título que te permita identificar que será la clave con la que usarás la computadora y pega tu llave pública.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_7.png" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_7.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">Llave pública</figcaption><p></p>
 </figure>
 </div>
 <p>Ahora solo falta revisar la conexión desde la terminal.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh <span class="at">-T</span> git@github.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Si vez un mensaje similar al siguiente, significa que quedo completa la autenticación.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Hi Name! Youve successfully authenticated, but GitHub does not provide shell access.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Hi</span> Name! Youve successfully authenticated, but GitHub does not provide shell access.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="paso-3.3-solución-a-error-con-la-llave" class="level3" data-number="24.3.3">
 <h3 data-number="24.3.3" class="anchored" data-anchor-id="paso-3.3-solución-a-error-con-la-llave"><span class="header-section-number">24.3.3</span> Paso 3.3 Solución a Error con la llave</h3>
@@ -641,17 +640,17 @@ Hi HaydeePeruyero! You've successfully authenticated, but GitHub does not provid
 <section id="paso-4-push-and-pull" class="level2" data-number="24.4">
 <h2 data-number="24.4" class="anchored" data-anchor-id="paso-4-push-and-pull"><span class="header-section-number">24.4</span> Paso 4: Push and pull</h2>
 <p>Una vez que ya tenemos configurado todo, solo falta enviar todo lo que tenemos en el repo local al remoto. Si se establecio la contraseña nos la va a pedir en la terminal o una ventana aparte.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>En esa instrucción, <code>origin</code> se refiere al repositorio remoto y <code>main</code> al local (las ramas que estamos intentando poner en el mismo contenido).</p>
 <p>La situación en la que estamos es la siguiente:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://swcarpentry.github.io/git-novice-es/07-github.html"><img src="https://swcarpentry.github.io/git-novice-es/fig/github-repo-after-first-push.svg" class="img-fluid figure-img" width="300"></a></p>
-<p></p><figcaption class="figure-caption"><code>git push origin main</code></figcaption><p></p>
+<p><a href="https://swcarpentry.github.io/git-novice-es/07-github.html"><img src="https://swcarpentry.github.io/git-novice-es/fig/github-repo-after-first-push.svg" class="img-fluid figure-img" style="width:120.0%"></a></p>
+<p></p><figcaption class="figure-caption">git push origin main</figcaption><p></p>
 </figure>
 </div>
 <p>Para actualizar nuestro repositorio local, lo que debemos hacer es lo siguiente:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Como no hemos realizado ningún cambio en el remoto, no veremos nada nuevo en el local. En el remoto también podemos añadir archivos directamente.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -676,7 +675,18 @@ Solución
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-
+<p>Desde el repositorio remoto, podemos crear un nuevo archivo, por ejemplo <code>nuevo_archivo.txt</code>, escribir algo en él y guardar los cambios. GitHub realizará automáticamente un commit en el repositorio remoto.</p>
+<p>Ahora, en nuestra copia local, verificamos el estado del repositorio:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>y descargamos los cambios del repositorio remoto con:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(En caso de que la rama principal tenga otro nombre, reemplazar <code>main</code> por el nombre correspondiente.)</p>
+<p>Git descargará e integrará automáticamente el nuevo commit en nuestro repositorio local.</p>
+<p>Podemos comprobar que el archivo se ha añadido con:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>o revisar el historial con:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Observaremos que ahora el commit realizado desde GitHub también aparece en el historial local.</p>
 </div>
 </div>
 </div>

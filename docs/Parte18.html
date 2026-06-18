@@ -464,69 +464,92 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Otra forma de deshacer cambios es con <code>restore</code> y <code>reset</code>. Usualmente deshacer cambios se requiere para deshacer:</p>
+<p>Otra forma de deshacer cambios es con <code>restore</code> y <code>reset</code>. Usualmente se requiere para deshacer:</p>
 <ul>
 <li><p>Cambios antes de mandarlos al área de preparación.</p></li>
 <li><p>Cambios que ya se mandaron al área de preparación.</p></li>
 <li><p>Commits</p></li>
 </ul>
 <p>Supongamos que hicimos un cambio en el archivo de prueba y lo guardamos y después decidimos que ya no queremos ese cambio, entonces usamos la opción:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git restore prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Esto nos regresará a la versión del archivo del último commit. Esto no se puede deshacer, una vez echo esto no hay forma de recuperar los cambios que se habían realizado.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Esto nos regresará a la versión del archivo del último commit.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esto no se puede deshacer, una vez echo esto no hay forma de recuperar los cambios que se habían realizado.</p>
+</div>
+</div>
+<div class="text-center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/restore-archivo.png" class="quarto-discovered-preview-image img-fluid figure-img" width="300"></a></p>
+<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/restore-archivo.png" class="quarto-discovered-preview-image img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">git restore &lt;archivo&gt;, Basado en ASPP-Latam</figcaption><p></p>
 </figure>
 </div>
+</div>
 <p>Ahora, supongamos que hicimos un cambio y lo mandamos al área de preparación, entonces para sacarlo de esa área usamos:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git restore <span class="at">--staged</span> prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--staged</span> prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="text-center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/restore-staged.png" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/restore-staged.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">git restore –staged &lt;archivo&gt;, Basado en ASPP-Latam</figcaption><p></p>
 </figure>
 </div>
+</div>
 <p>También se pueden restaurar todos los archivos de un proyecto con:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git restore .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Para restaurar a un commit anterior usamos el identificador del commit, por ejemplo:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git restore <span class="at">--source</span> d3a9d6d prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--source</span> d3a9d6d prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Si ahora revisamos el estado del proyecto veremos que si hay cambios.</p>
 <p>Agreguemos una línea al archivo <code>prueba.txt</code> y añadamos el cambio al área de preparación. Usen <code>git checkout</code> para ver si podemos revertir el cambio. Veamos que nos dice el estado <code>git status</code>. Si usamos <code>git checkout -- prueba.txt</code> ya no veremos errores pero tampoco se restaurará el archivo.</p>
 <p>Para hacerlo debemos usar <code>reset</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git reset HEAD prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset HEAD prueba.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Y si usamos ahora:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Nos indica que ya podemos realizar la modificación con checkout:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout <span class="at">--</span> prueba.txt</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--</span> prueba.txt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Con <code>reset</code> tenemos tres posibles situaciones.</p>
 <ul>
 <li>Situación 1: <code>reset --soft HEAD~1</code>: si realizamos un cambio en nuestro archivo y lo añadimos al área de preparación, al realizar el <code>reset soft</code> al commit <code>HEAD~1</code> lo que estamos haciendo es como regresar a un commit anterior pero sin perder los cambios que ya tenemos en el área de preparación, entonces lo que va a resultar es que nuestro historial va a cambiar de un commit anterior hasta el cambio que tenemos ahora. Con <code>git status</code> vemos que no cambio nuestra área de preparación y después con <code>git log</code> podemos ver el cambio en el historial de commits.</li>
 </ul>
+<div class="text-center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/reset-soft.png" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/reset-soft.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">git reset –soft HEAD~1, Basado en ASPP-Latam</figcaption><p></p>
 </figure>
+</div>
 </div>
 <ul>
 <li>Situación 2: <code>reset --mixed HEAD~1</code>: si realizamos un cambio en nuestro archivo y lo añadimos al área de preparación, al realizar el <code>reset mixed</code> al commit <code>HEAD~1</code> lo que estamos haciendo es como regresar nuestra área de preparación a como estaba antes de ese commit, no perdemos el cambio realizado en el archivo pero nuestro historial cambiará, pasará del commit anterior hasta el próximo commit que realicemos. Con <code>git status</code> vemos que nuestra área de preparación si cambio y con <code>git log</code> vemos que nuestro último commit desapareció.</li>
 </ul>
+<div class="text-center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/reset-mixed.png" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/reset-mixed.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">git reset –mixed HEAD~1, Basado en ASPP-Latam</figcaption><p></p>
 </figure>
+</div>
 </div>
 <ul>
 <li>Situación 3: <code>reset --hard HEAD~1</code>: si realizamos un cambio en nuestro archivo y lo añadimos al área de preparación, al realizar el <code>reset hard</code> al commit <code>HEAD~1</code> lo que estamos haciendo es como regresar a un commit anterior pero perdiendo los cambios que ya tenemos en el área de preparación y en nuestro archivo actual, entonces lo que va a resultar es que estaríamos regresando hasta el commit anterior todo nuestro historial y a partir de ahí comenzarían nuestros cambios.</li>
 </ul>
+<div class="text-center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/reset-hard.png" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://github.com/aspp-latam/2023-mexico-git-and-github/blob/main/git-commands-visualizations.pdf"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/reset-hard.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">git reset –hard HEAD~1, Basado en ASPP-Latam</figcaption><p></p>
 </figure>
+</div>
 </div>
 
 

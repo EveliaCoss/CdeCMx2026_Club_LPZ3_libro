@@ -468,34 +468,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Vamos a ir a nuestro repositorio que creamos en GitHub y vamos a ir a la configuración y después en donde dice colaboradores.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_8.png" class="quarto-discovered-preview-image img-fluid figure-img" width="300"></a></p>
+<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_8.png" class="quarto-discovered-preview-image img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">Configurar colaboradores</figcaption><p></p>
 </figure>
 </div>
 <p>Una vez en esa ventana, den clic en añadir colaboradores. Van a buscar con el nombre de usuario de su compañero y dan enter.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_9.png" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://haydeeperuyero.github.io/Computo_Cientifico/git-y-github.html#github"><img src="https://haydeeperuyero.github.io/Computo_Cientifico/img/github_9.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">Añadir colaboradores</figcaption><p></p>
 </figure>
 </div>
 <p>En su correo o cuenta de github, deben ir a notificaciones y aceptar la invitación. También pueden usar el <a href="https://github.com/notifications">link</a>.</p>
 <p>Ahora, su colaborador debe descargar el repositorio a su computadora, a este paso se le llama clonar un repositorio. Para esto, abran una terminal y realicen lo siguiente:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone git@github.com:User/Mi_primer_repo.git ~/colaborador-Mi_primer_repo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:User/Mi_primer_repo.git ~/colaborador-Mi_primer_repo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>La última parte de esa instrucción es la dirección de su computadora donde se clonara el repositorio de su colaborador.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://swcarpentry.github.io/git-novice-es/08-collab.html"><img src="https://swcarpentry.github.io/git-novice-es/fig/github-collaboration.svg" class="img-fluid figure-img" width="300"></a></p>
+<p><a href="https://swcarpentry.github.io/git-novice-es/08-collab.html"><img src="https://swcarpentry.github.io/git-novice-es/fig/github-collaboration.svg" class="img-fluid figure-img" style="width:120.0%"></a></p>
 <p></p><figcaption class="figure-caption">Estructura de los repositorios al clonarlos, Software Carpentry</figcaption><p></p>
 </figure>
 </div>
 <p>Ahora, el colaborador realizará un cambio en el repositorio. Para esto, creará un archivo, lo añadirá al área de preparación, hará el commit correspondiente y enviará los cambios al remoto.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> nano notas.txt</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add notas.txt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Añadimos archivo de colaborador"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> notas.txt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add notas.txt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Añadimos archivo de colaborador"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Si revisamos en la página de Github, veremos ahora un cambio en el repositorio, junto con el commit y quien lo realizo. Finalmente, actualizaremos el repositorio original local con los cambios del colaborador.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Una buena practica cuando se trabaja con colaboradores es realizar la siguiente serie de pasos:</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -527,22 +527,6 @@ Ejercicio
 </div>
 <div class="callout-body-container callout-body">
 <p>Replicar lo que se hizo en esta sección cambiando roles de quien es el colaborador y quien el dueño del repositorio local.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solución
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-</div>
 </div>
 </div>
 

@@ -32,7 +32,7 @@ $ git pull origin main
 
 Vamos a ver un mensaje de que hay un merge que no pudo resolver porque se trabajo en la misma línea en el mismo archivo. Si abrimos el archivo vamos a ver algo como lo siguiente:
 
-```output
+```text
 texto aqui
 <<<<<<< HEAD
 cambios locales aqui
@@ -46,16 +46,16 @@ Ahora lo que tenemos que hacer es decidir que cambios queremos conservar, para e
 Una vez finalizado el merge/resolver conflicto, ya podemos añadirlo al área de preparación, realizar el commit y enviarlo al remoto.
 
 ```bash
-$ git add notas.txt
-$ git status
-$ git commit -m "Resolvimos el conflicto en el archivo notas"
-$ git push origin main
+git add notas.txt
+git status
+git commit -m "Resolvimos el conflicto en el archivo notas"
+git push origin main
 ```
 
 Cuando el colaborador intente hacer un `git pull` no verá ningún conflicto ya que git conservo el registro de que se resolvió y a la copia del colaborador se actualizará sin ningún problema.
 
 ```bash
-$ git pull origin main
+git pull origin main
 ```
 Una forma de evitar algunos conflictos es trabajando en ramas, o distribuyendo el trabajo y que cada quien trabaje sobre archivos diferentes.
 
@@ -65,33 +65,33 @@ Vamos a crear de nuevo un conflicto con una imagen y vamos a tratar de resolverl
 
 
 ```bash
-$ head -c 1024 /dev/urandom > imagen_prueba.jpg
-$ ls -lh imagen_prueba.jpg
+head -c 1024 /dev/urandom > imagen_prueba.jpg
+ls -lh imagen_prueba.jpg
 ```
 
 Lo añadimos al área de preparación, realizamos commit y lo enviamos al repositorio remoto.
 
 ```bash
-$ git add imagen_prueba.jpg
-$ git commit -m "Se creo imagen random para generar conflicto."
+git add imagen_prueba.jpg
+git commit -m "Se creo imagen random para generar conflicto."
 ```
 
 El colaborador realizará un push de su imagen al repositorio remoto.
 
 ```bash
-$ git push origin main
+git push origin main
 ```
 
 Ahora el dueño del repositorio tratará de hacer un push también al repositorio. 
 
 ```bash
-$ git push origin main
+git push origin main
 ```
 
 Lo primero que nos va a pasar y decir git, es que no actualizamos nuestro repositorio con los cambios como en el ejercicio anterior. Vamos a hacer un pull.
 
 ```bash
-$ git pull origin main
+git pull origin main
 ```
 
 Nos va a marcar que hay conflictos y que no puede hacer auto merge y nos dirá adicionalmente un mensaje similar al siguiente:
@@ -107,9 +107,9 @@ Esto se debe a que como es un archivo que no es de texto no puede empalmar los c
 La imagen del dueño del repo es el HEAD y la del colaborador tiene un id de commit. Entonces procedemos a lo siguiente.
 
 ```bash
-$ git checkout HEAD imagen_prueba.jpg
-$ git add imagen_prueba.jpg
-$ git commit -m "Usar la imagen del dueño del repo en lugar de la del colaborador"
+git checkout HEAD imagen_prueba.jpg
+git add imagen_prueba.jpg
+git commit -m "Usar la imagen del dueño del repo en lugar de la del colaborador"
 ```
 
 
@@ -118,9 +118,9 @@ $ git commit -m "Usar la imagen del dueño del repo en lugar de la del colaborad
 La imagen del colaborador tiene un id de commit, buscarlo. Entonces procedemos a lo siguiente.
 
 ```bash
-$ git checkout 439dc8c0 imagen_prueba.jpg
-$ git add imagen_prueba.jpg
-$ git commit -m "Usar la imagen del colaborador del repo en lugar de la del dueño"
+git checkout 439dc8c0 imagen_prueba.jpg
+git add imagen_prueba.jpg
+git commit -m "Usar la imagen del colaborador del repo en lugar de la del dueño"
 ```
 
 
@@ -128,17 +128,17 @@ $ git commit -m "Usar la imagen del colaborador del repo en lugar de la del due�
 
 ```bash
 git checkout HEAD imagen_prueba.jpg
-$ git mv imagen_prueba.jpg imagen_prueba-dueño.jpg
-$ git checkout 439dc8c0 imagen_prueba.jpg
-$ mv imagen_prueba.jpg imagen_prueba-colaborador.jpg
+git mv imagen_prueba.jpg imagen_prueba-dueño.jpg
+git checkout 439dc8c0 imagen_prueba.jpg
+mv imagen_prueba.jpg imagen_prueba-colaborador.jpg
 ```
 
 Y finalmente para remover la imagen de prueba y añadir las dos nuevas versiones:
 
 ```bash
-$ git rm imagen_prueba.jpg
-$ git add imagen_prueba-dueño.jpg
-$ git add imagen_prueba-colaborador.jpg
-$ git commit -m "Use two images: dueño y colaborador"
-$ git push origin main
+git rm imagen_prueba.jpg
+git add imagen_prueba-dueño.jpg
+git add imagen_prueba-colaborador.jpg
+git commit -m "Use two images: dueño y colaborador"
+git push origin main
 ```
