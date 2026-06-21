@@ -14,9 +14,9 @@ wc -l S_clavuligerus_proteome.fasta
 
 En archivos de formato FASTA o similares, el número de líneas no corresponde al número de secuencias. Esto se debe a la estructura del archivo:
 
--   **Formato FASTA**: Cada secuencia comienza con una línea que tiene el símbolo `>`, seguido de un identificador o descripción de la secuencia.
+- **Formato FASTA**: Cada secuencia comienza con una línea que tiene el símbolo `>`, seguido de un identificador o descripción de la secuencia.
 
--   Las líneas siguientes contienen la secuencia de nucleótidos o aminoácidos, que pueden estar divididas en varias líneas.
+- Las líneas siguientes contienen la secuencia de nucleótidos o aminoácidos, que pueden estar divididas en varias líneas.
 
 Por lo tanto, para contar el número de secuencias en un archivo FASTA, **debes contar las líneas que comienzan con `>`**. Aquí tienes un ejemplo práctico en Bash para lograrlo:
 
@@ -36,20 +36,20 @@ grep ">" S_clavuligerus_proteome.fasta | cut -d '|' -f1 | sed 's/>//' | uniq
 
 **UniProtKB (Universal Protein Knowledgebase)** tiene dos secciones principales:
 
--   **Swiss-Prot (**`sp`**)**: Contiene secuencias revisadas y anotadas manualmente.
+- **Swiss-Prot (**`sp`**)**: Contiene secuencias revisadas y anotadas manualmente.
 
--   **TrEMBL (**`tr`**)**: Contiene secuencias computacionalmente anotadas y aún no revisadas manualmente.
+- **TrEMBL (**`tr`**)**: Contiene secuencias computacionalmente anotadas y aún no revisadas manualmente.
 
 ::: {.callout-note icon="false"}
 ## Explicación del código
 
--   `grep ">"`: Busca la línea con la cabecera.
+- `grep ">"`: Busca la línea con la cabecera.
 
--   `cut -d'|' -f1`: Divide por `|` y selecciona el primer campo.
+- `cut -d'|' -f1`: Divide por `|` y selecciona el primer campo.
 
--   `sed 's/>//'`: Elimina el símbolo `>` al inicio.
+- `sed 's/>//'`: Elimina el símbolo `>` al inicio.
 
--   `uniq`: Nos da los valores únicos.
+- `uniq`: Nos da los valores únicos.
 :::
 
 4.  **¿Qué organismo produce esta proteína y cuál es su Taxonomy ID?**
@@ -64,10 +64,10 @@ echo "Taxonomy ID: $taxonomy"
 ::: {.callout-note icon="false"}
 ## Explicación del código
 
--   `sed -n 's/.*OS=\([^ ]*\).*/\1/p'`: Extrae el nombre del organismo entre `OS=` y el primer espacio.
--   `sed -n 's/.*OX=\([0-9]*\).*/\1/p'`: Extrae el número después de `OX=`.
--   **`sort -u`**: Ordena las líneas y elimina duplicados, asegurando que solo queden valores únicos.
--   Se aplica después de extraer los valores con `sed`, por si existen múltiples cabeceras en el archivo.
+- `sed -n 's/.*OS=\([^ ]*\).*/\1/p'`: Extrae el nombre del organismo entre `OS=` y el primer espacio.
+- `sed -n 's/.*OX=\([0-9]*\).*/\1/p'`: Extrae el número después de `OX=`.
+- **`sort -u`**: Ordena las líneas y elimina duplicados, asegurando que solo queden valores únicos.
+- Se aplica después de extraer los valores con `sed`, por si existen múltiples cabeceras en el archivo.
 :::
 
 5.  **¿Cuántos genes codifican a estas proteínas?**
@@ -80,11 +80,11 @@ grep ">" S_clavuligerus_proteome.fasta | sed -n 's/.*GN=\([^ ]*\).*/\1/p' | sort
 ::: {.callout-note icon="false"}
 ## Explicación del código
 
--   **`grep ">" header.fasta`**: Encuentra las líneas con cabeceras FASTA.
--   **`sed -n 's/.*GN=\([^ ]*\).*/\1/p'`**: Extrae el valor asociado a `GN=` (el nombre del gen).
--   **`sort`**: Ordena alfabéticamente los nombres de los genes.
--   **`uniq`**: Filtra y deja solo los nombres únicos.
--   **`wc -l`**: Cuenta el número total de líneas (es decir, el número de genes únicos).
+- **`grep ">" header.fasta`**: Encuentra las líneas con cabeceras FASTA.
+- **`sed -n 's/.*GN=\([^ ]*\).*/\1/p'`**: Extrae el valor asociado a `GN=` (el nombre del gen).
+- **`sort`**: Ordena alfabéticamente los nombres de los genes.
+- **`uniq`**: Filtra y deja solo los nombres únicos.
+- **`wc -l`**: Cuenta el número total de líneas (es decir, el número de genes únicos).
 :::
 
 6.  **¿Qué nivel de evidencia tiene la existencia de la proteína TMUUS_STRC2?**
@@ -92,8 +92,8 @@ grep ">" S_clavuligerus_proteome.fasta | sed -n 's/.*GN=\([^ ]*\).*/\1/p' | sort
 ::: callout-note
 **`TMUUS_STRC2`**: Es el nombre de la proteína en formato abreviado y en mayúsculas.
 
--   **`TMUUS`**: Abreviatura de la función de la proteína: "(+)-T-muurolol synthase".
--   **`STRC2`**: Abreviatura del organismo de origen, **Streptomyces clavuligerus**.
+- **`TMUUS`**: Abreviatura de la función de la proteína: "(+)-T-muurolol synthase".
+- **`STRC2`**: Abreviatura del organismo de origen, **Streptomyces clavuligerus**.
 :::
 
 El nivel de evidencia de la existencia de la proteína **`TMUUS_STRC2`** está especificado en la cabecera FASTA mediante el campo **`PE`**. En este caso: `>sp|B5GW45|TMUUS_STRC2 (+)-T-muurolol synthase ((2E,6E)-farnesyl diphosphate cyclizing) OS=Streptomyces clavuligerus OX=443255 GN=SCLAV_p0068 PE=1 SV=1`
@@ -120,7 +120,7 @@ grep ">.*TMUUS_STRC2" S_clavuligerus_proteome.fasta | sed -n 's/.*PE=\([0-9]\).*
 
 Por lo tanto, **TMUUS_STRC2 tiene el nivel más alto de evidencia (PE=1), lo que confirma su existencia a nivel experimental**.
 
-::: callout-note
+:::: callout-note
 ## Ejercicio 9
 
 Contesta las siguientes preguntas empleando el archivo S_clavuligerus_proteome.fasta:
@@ -132,14 +132,14 @@ Contesta las siguientes preguntas empleando el archivo S_clavuligerus_proteome.f
 ::: {.callout-tip collapse="true" icon="false"}
 ## Solucion
 
-``` {eval="FALSE"}
+``` {.bash eval="FALSE"}
 1. grep ">" S_clavuligerus_proteome.fasta | grep "PE=[1-2]"
 2. grep "OX=443255"  S_clavuligerus_proteome.fasta | wc -l
 3. grep ">"  S_clavuligerus_proteome.fasta | grep -o "SV=[0-9]*" | cut -d'=' -f2 | sort | uniq -c
 ```
 :::
-:::
+::::
 
 ## Referencias
 
--   [Ejemplos de herramientas de filtrado de texto: *pipelines* con **grep**, **cut**, **sort**, **uniq**, **wc** en acción](https://vinuesa.github.io/intro2linux/index.html#ejemplos-de-herramientas-de-filtrado-de-texto-pipelines-con-grep-cut-sort-uniq-wc-en-acci%C3%B3n)
+- [Ejemplos de herramientas de filtrado de texto: *pipelines* con **grep**, **cut**, **sort**, **uniq**, **wc** en acción](https://vinuesa.github.io/intro2linux/index.html#ejemplos-de-herramientas-de-filtrado-de-texto-pipelines-con-grep-cut-sort-uniq-wc-en-acci%C3%B3n)

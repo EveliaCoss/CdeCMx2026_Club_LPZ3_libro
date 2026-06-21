@@ -5,34 +5,44 @@
 [![](https://neurathsboat.blog/post/git-intro/featured.png)](https://neurathsboat.blog/post/git-intro/)
 
 ::: callout-important
--   `git add:` Agregar cambios
+- `git add:` Agregar cambios
 
--   `git status:` Revisamos el estado del proyecto
+- `git status:` Revisamos el estado del proyecto
 
--   `git commit:` comentar los cambios
+- `git commit:` comentar los cambios
 
--   `git checkout:` Pordemos regresar cambios o cambiar de rama.
+- `git checkout:` Pordemos regresar cambios o cambiar de rama.
 
 En Git, los comandos `git pull` y `git push` **son utilizados para sincronizar y actualizar el contenido de un repositorio**: 
 
--   `git pull:` Actualiza la versión local de un repositorio desde otro remoto (en R studio flecha azul).
+- `git pull:` Actualiza la versión local de un repositorio desde otro remoto (en R studio flecha azul).
 
--   `git push:` Carga contenido en un repositorio remoto (en R studio flecha verde)
+- `git push:` Carga contenido en un repositorio remoto (en R studio flecha verde)
+:::
+
+### Ediciones en nuestro perfil desde GitHub
+
+::: callout-note
+## Actividad
+
+Veremos la siguiente [presentación](https://eveliacoss.github.io/VieRnesBioinfo2026_BuenasPracticas_CienciaAbierta_presentacion/Dia2_BuenasPracticas.html?panelset_002=repositorios-acad%25C3%25A9micos-y-cient%25C3%25ADficos2#42) en donde encontraremos las instrucciones de como editar nuestro "Usuario.md" que nos genera una mini tarjeta de presentación de nuestro perfil. Con esto debemos:
+
+1.  Crea un repositorio en GitHub: `mi_repositorio` \> *Public* \> *YES* initialize this repository with a *README* \> `click`en el gran botón verde "Create repository"
+2.  Generar ediciones en el "Usuario.md".
+3.  Guardar los cambios y previsualizar en nuestro inicio.
 :::
 
 ## GitHub primero, RStudio después...
 
-1.  Crea un repositorio en GitHub: `mi_repositorio` \> *Public* \> *YES* initialize this repository with a *README* \> `click`en el gran botón verde "Create repository"
-
-2.  En RStudio crea un nuevo proyecto: *File* \> *New Project* \> *Version Control* \> *Git*. Ahi pega el URL del repositorio `https://github.com/mi_usuario/mi_repositorio.git`. Da click en *Create Project*.
+4.  En RStudio crea un nuevo proyecto: *File* \> *New Project* \> *Version Control* \> *Git*. Ahi pega el URL del repositorio `https://github.com/mi_usuario/mi_repositorio.git`. Da click en *Create Project*.
 
 Esto nos generará los siguientes elementos:
 
--   Un directorio nuevo
+- Un directorio nuevo
 
--   Un repositorio Git enlazado a al repositorio de GitHub
+- Un repositorio Git enlazado a al repositorio de GitHub
 
--   Un proyecto en RStudio
+- Un proyecto en RStudio
 
 Con este procedimiento ya no es necesario preocuparse por configurar controles remotos Git y rastrear ramas en la línea de comandos.
 
@@ -46,7 +56,7 @@ Con la **flecha azul** podemos hacer pull (**RECUERDA HACERLO ANTES DE HACER UN 
 
 Volvemos a dar `click` en *commit*, y finalizamos con *push* (flecha verde).
 
-## Pagina de inicio en GitHub
+## Página de inicio en GitHub
 
 ::: callout-note
 ## Actividad
@@ -61,6 +71,6 @@ Volvemos a dar `click` en *commit*, y finalizamos con *push* (flecha verde).
 
 ## Referencias
 
--   Evelia tutorial:[Workshop sobre Git / Github 2025](https://eveliacoss.github.io/Workshop_GitGithub2025/)
--   Haydee tutorial: [Temas Selectos de Análisis Numérico y Computación Científica: Computo científico para el análisis de datos](https://haydeeperuyero.github.io/Computo_Cientifico/)
--   Alejandra Medina tutorial: [Control de versiones con GitHub y RStudio](https://comunidadbioinfo.github.io/cdsb2023/control-de-versiones-con-github-y-rstudio.html)
+- Evelia tutorial:[Workshop sobre Git / Github 2025](https://eveliacoss.github.io/Workshop_GitGithub2025/)
+- Haydee tutorial: [Temas Selectos de Análisis Numérico y Computación Científica: Computo científico para el análisis de datos](https://haydeeperuyero.github.io/Computo_Cientifico/)
+- Alejandra Medina tutorial: [Control de versiones con GitHub y RStudio](https://comunidadbioinfo.github.io/cdsb2023/control-de-versiones-con-github-y-rstudio.html)
