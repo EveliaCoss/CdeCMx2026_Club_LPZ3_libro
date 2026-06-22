@@ -52,6 +52,8 @@ Podemos cambiar la forma en que se ve la aplicación desde **Editar \> Preferenc
 
 ![](figures/apariencia-rstudio.png)
 
+![](figures/blackwindows.jpeg){fig-align="center"}
+
 ## Crear un R Project
 
 Al comenzar a trabajar con R y RStudio, ya sea para crear un programa para un proyecto, crear una aplicación, presentación, blog, paquete, etc, es recomendado crear un **R project**.
@@ -125,9 +127,9 @@ suma
 
 Selecciona todo el código, después ve a la parte superior de la ventana del **editor** y da click en el botón **Run**. También pueden ejecutar tu código línea por línea, poniendo tu cursor al principio o al final de la linea y presionando las teclas **Control + Enter** o **Command + Enter**.
 
-## **Descargar y cargar Librerías**
+## Descargar y cargar Librerías
 
-### **¿Qué es una librería?**
+### ¿Qué es una librería?
 
 En programación, una librería es una colección de código pre-escrito. Una librería contiene una "paquete" o "librería" de funciones que podemos utilizar si descargamos e importamos esa librería a nuestro programa.
 
@@ -135,7 +137,7 @@ Como mencioné anteriormente, al descargar R, también descargamos una serie de 
 
 Existen distintas formas de instalar librerías.
 
-### **Instalar librerías: CRAN**
+### Instalar librerías: CRAN
 
 1.  Instalación desde el repositorio de CRAN: podemos descargar paqueterías de CRAN de dos formas:
 
@@ -153,7 +155,7 @@ La tercera opción es usar el botón "install" dentro de la pestaña de Packages
 
 ![](figures/rlibrerias_paso3.png)
 
-### **Instalar librerías: Bioconductor**
+### Instalar librerías: Bioconductor
 
 Alternativamente, podemos instalar paqueterías de Bioconductor, que es otro repositorio de paquetes diseñados para el análisis de datos genómicos, por ejemplo para hacer análisis estadísticos, anotación, acceso a bases de datos públicas, etc.
 
@@ -163,7 +165,7 @@ Hay muchas librerías que están tanto en CRAN como en Bioconductor, pero tambi�
 install.packages("BiocManager") # Esto es necesario solo 1 vez
 ```
 
-### **¿Cómo podemos verificar que paquetes tenemos?**
+### ¿Cómo podemos verificar que paquetes tenemos?
 
 En la ventana inferior derecha, existe una pestaña que se llama "Packages" que contendra la lista de paquetes instalados en tu computadora, su descripción corta y su versión.
 
@@ -171,7 +173,7 @@ Tambien en esta pestaña podemos instalar paquetes dandado click en INSTALL.
 
 ![](figures/rlibrerias_paso4.png){fig-align="center"}
 
-### **Eliminación de paquetes**
+### Eliminación de paquetes
 
 En algunas ocasiones vamos a tener que actualizar las versiones de los paquetes, pero primero dedes eliminar la versión anterior. Dando click en el botón que contiene una `X` que esta al final de la fila en cada programa.
 
@@ -183,7 +185,7 @@ También puedes usar codigo para eliminar el paquete:
 remove.packages("package-to-remove")
 ```
 
-### **Cargar paquetes en el ambiente de R**
+### Cargar paquetes en el ambiente de R
 
 - **Opción A:** Emplear la función `library` para cargar en el ambiente el paquete.
 
@@ -211,3 +213,27 @@ install.packages("DT")
 Debes poder ver algo como esto:
 
 ![](figures/rlibrerias_output.png)
+
+## Evitar conflictos para la instalación de paquetes en R
+
+### Si usamos Windows debemos instalar Rtools
+
+En **Windows** utilizamos **Rtools** para evitar problemas al instalar paquetes desde código fuente en RStudio. Selecciona la versión que se adapta a tu versión de R.
+
+[![](figures/rtools_windows.png){fig-align="center"}](https://cran.r-project.org/bin/windows/Rtools/)
+
+Yo seleccioné la versión Rtools 4.5 y me aparece la siguiente página web, después di clic en donde aparece el instalador, descargue el archivo y lo ejecute.
+
+[![](figures/rtools_installer.png)](https://cran.r-project.org/bin/windows/Rtools/rtools45/rtools.html)
+
+### Si usamos Mac/iOs debemos instalar Xcode
+
+En **macOS**, no existe un equivalente directo a Rtools. En su lugar, se emplean las [**Xcode Command Line Tools**](https://mac.r-project.org/tools/) (que incluyen `clang` y `make`) junto con **GNU Fortran** para compilar paquetes que requieren código en C/C++ o Fortran.
+
+[![](figures/xcode_mac.png)](https://mac.r-project.org/tools/)
+
+Esto significa que, si trabajan en Mac, deben asegurarse de tener instaladas estas herramientas para evitar errores al instalar ciertos paquetes de R. Abre una terminal de Bash y coloca este código:
+
+```{bash, eval=F}
+sudo xcode-select --install
+```

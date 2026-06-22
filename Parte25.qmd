@@ -64,9 +64,19 @@ Volvemos a dar `click` en *commit*, y finalizamos con *push* (flecha verde).
 ## Actividad
 
 1.  Sincroniza el repositorio con el nombre de tu usuario en GitHub (ejemplo: [EveliaCoss/EveliaCoss](https://github.com/EveliaCoss/EveliaCoss)) con RStudio
-2.   Realiza los cambios desde R y subelos a GitHub.
+2.  Realiza los cambios desde R y subelos a GitHub.
 3.  Visualiza como cambia tu inicio en el Github.
 :::
+
+::: callout-tip
+## Oh Shit, Git!?!
+
+También existe esta página llamada [Oh Shit, Git!?!](https://ohshitgit.com/). En donde puedes aprender sobre los errores comunes en GitHub.
+:::
+
+![](figures/github_mergeconflic.png)
+
+Imagen tomada de [Allison Horst.](https://allisonhorst.com/git-github)
 
 ## Referencias
 

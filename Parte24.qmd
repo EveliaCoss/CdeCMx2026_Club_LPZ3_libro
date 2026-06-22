@@ -18,9 +18,9 @@
 
 Ahora, para abrir la terminal de **Git Bash dentro de RStudio**, solo tienes que:
 
--   Ir al **Tools** , hacer clic en **Terminal** y en abrir **New terminal**.
+- Ir al **Tools** , hacer clic en **Terminal** y en abrir **New terminal**.
 
--   Deberías ver que se abre una nueva sesión con **Git Bash** como la terminal predeterminada.
+- Deberías ver que se abre una nueva sesión con **Git Bash** como la terminal predeterminada.
 
 ## Verificar la conexión
 
@@ -78,9 +78,9 @@ usethis::create_github_token(
 
 Esta función nos abrirá un navegador para generar el PATH:
 
--   Dar una descripción al PATH: por ejemplo "Laptop personal/Computadora laboratorio".
--   Cambiar la fecha de vencimiento: la fecha puede ser por cierta cantidad de días o sin fecha de vencimiento.
--   Dejar las demás opciones default y seleccionar `Generar token`. Este token deben de **guardarlo** en algún lugar ya que no es posible verlo de nuevo una vez que cierren la página.
+- Dar una descripción al PATH: por ejemplo "Laptop personal/Computadora laboratorio".
+- Cambiar la fecha de vencimiento: la fecha puede ser por cierta cantidad de días o sin fecha de vencimiento.
+- Dejar las demás opciones default y seleccionar `Generar token`. Este token deben de **guardarlo** en algún lugar ya que no es posible verlo de nuevo una vez que cierren la página.
 
 Si olvidan su PATH es posible generar otro.
 
@@ -102,3 +102,5 @@ usethis::git_sitrep()
 ```
 
 Lo que deberán ver son sus datos de su cuenta de GitHub.
+
+![](figures/hellgit.jpeg){fig-align="center"}

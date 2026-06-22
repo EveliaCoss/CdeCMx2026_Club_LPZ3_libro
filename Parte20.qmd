@@ -113,7 +113,6 @@ En caso de que ya cuentes con una llave con ese nombre, puedes crear una nueva l
 ssh-keygen -t ed25519 -C "your_email@example.com" -f ~/.ssh/id_ed25519_github
 ```
 
-
 [![Clave exclusiva de github](https://eveliacoss.github.io/Workshop_GitGithub2025/figures/Clave_github.jpg){width="300"}](https://eveliacoss.github.io/Workshop_GitGithub2025/Parte1.html)
 
 Ahora que ya tenemos las claves, debemos decirle a GitHub cuales son.
@@ -237,13 +236,13 @@ Desde el repositorio remoto, podemos crear un nuevo archivo, por ejemplo `nuevo_
 
 Ahora, en nuestra copia local, verificamos el estado del repositorio:
 
-```bash
+``` bash
 git status
 ```
 
 y descargamos los cambios del repositorio remoto con:
 
-```bash
+``` bash
 git pull origin main
 ```
 
@@ -253,17 +252,16 @@ Git descargará e integrará automáticamente el nuevo commit en nuestro reposit
 
 Podemos comprobar que el archivo se ha añadido con:
 
-```bash
+``` bash
 ls
 ```
 
 o revisar el historial con:
 
-```bash
+``` bash
 git log --oneline
 ```
 
 Observaremos que ahora el commit realizado desde GitHub también aparece en el historial local.
-
 :::
 ::::
