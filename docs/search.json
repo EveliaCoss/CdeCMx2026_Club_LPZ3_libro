@@ -4,10 +4,7 @@
     "href": "index.html",
     "title": "Code & Data Bootcamp: Git, Bash y R",
     "section": "",
-    "text": "Información general\n\n\nSobre el curso 📌Requisitos previosAgenda 📆\n\n\n\nFechas: 15, 18, 22 y 25 de junio, 2026\nDías: Lunes y jueves\nLugar: ENES Juriquilla-UNAM\nHorario: De 10:00 a 14:00 horas\nDuración: 16 horas, 4 horas por día \nCupo máximo: 50 (30 personas en presencial y 20 en línea)\nIdioma: Español\nNivel: Básico \nModalidad: Híbrido\nSobre el curso: Curso extracurricular interno en la ENES Juriquilla.\n\n\nInstructoras:\n\nDra. Evelia Lorena Coss-Navarrete - Profesora de asignatura de la ENES Unidad Juriquilla. Pagina web\nDra. Adriana Haydeé Contreras Peruyero - Profesor Asociado C TC de la ENES Unidad Juriquilla. Página web\n\nCurso registrado en The Carpentries.\nLas instructoras estan certificados por The Carpentries.\nAyudantes, miembros del RSG-México:\n\nMayela Guadalupe Fosado Mendoza, estudiante de licenciatura en Microbiología, UAQ (maye.fosado@gmail.com) (Ayudante presencial). \nEmilio Ortiz Avila, estudiante de licenciatura en Microbiología, UAQ (aeortiz06@gmail.com ) (Ayudante presencial). \nJohanna Castelán Camarillo, maestría en Biotecnología, Universidad Popular Autónoma del Estado de Puebla (johan.ccas02@gmail.com ) (Ayudante virtual)\nMariana Devon Lopez, egresada de la maestría en la Escuela de Salud pública de méxico (mariana.devon@icloud.com) (Ayudante virtual)\n\nResumen:\nEste curso intensivo ofrece una introducción práctica a tres herramientas fundamentales para la ciencia de datos y el desarrollo reproducible: Git para control de versiones, Bash para automatización en la terminal y R para análisis estadístico y visualización. No se requiere experiencia previa: comenzaremos desde cero y avanzaremos paso a paso, combinando teoría y práctica en un entorno accesible.\nEnfoque de la audiencia:\n\nPúblico general interesado en aprender herramientas digitales: no se requiere experiencia previa, el curso inicia desde cero.\nEstudiantes y profesionales de cualquier disciplina que deseen mejorar sus habilidades en manejo de datos, control de versiones y automatización.\n\nPersonas con interés en ciencia de datos, programación o investigación reproducible, pero que aún no han trabajado con Git, Bash o R.\nPatrocinadores\n\nEscuela Nacional de Estudios Superiores Unidad Juriquilla UNAM (ENES Juriquilla)\nInternational Society for Computational Biology (ISCB Student Council) - RSG- México\n\nCitar y reutilizar el material del curso\nLos datos del curso se pueden reutilizar y adaptar libremente con la debida atribución. Todos los datos de los cursos de estos repositorios están sujetos a la licencia Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).\n\n\n\nLos participantes pueden traer su propia computadora (opcional). No se requiere experiencia previa: el curso comenzará desde cero.\n\n\n\n\n\n\nTema\nTiempo\nInstructora\n\n\n\n\n15 de junio\n\n\n\n\n🔷 Sección 1 - (9:00 - 12:30 h)\n\n\n\n\n\nBienvenida (icebreaker) y presentaciones\n\n10 min\nEvelia Coss\n\n\n\nRevisión de instalación de Git, Bash, R y Rstudio / Realizar pre-encuesta\n\n20 min\nEvelia Coss\n\n\n\nBuenas prácticas en bioinformática\n\n10 min\nEvelia Coss\n\n\n\nIntroducción a Bash\n\n10 min\nEvelia Coss\n\n\n\nMis primeros pasos en Bash\n\n15 min\nEvelia Coss\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReceso\n\n\n\n\nSección 2 - (10:00 - 12:15 h)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClausura\nRealizar última encuesta",
-    "crumbs": [
-      "Información general"
-    ]
+    "text": "Información general\n\n\nSobre el curso 📌Requisitos previosAgenda 📆\n\n\n\nFechas: 15, 18, 22 y 25 de junio, 2026\nDías: Lunes y jueves\nLugar: ENES Juriquilla-UNAM\nHorario: De 10:00 a 14:00 horas\nDuración: 16 horas, 4 horas por día \nCupo máximo: 50 (30 personas en presencial y 20 en línea)\nIdioma: Español\nNivel: Básico \nModalidad: Híbrido\nSobre el curso: Curso extracurricular interno en la ENES Juriquilla.\n\n\nInstructoras:\n\nDra. Evelia Lorena Coss-Navarrete - Profesora de asignatura de la ENES Unidad Juriquilla. Pagina web\nDra. Adriana Haydeé Contreras Peruyero - Profesor Asociado C TC de la ENES Unidad Juriquilla. Página web\n\nCurso registrado en The Carpentries.\nLas instructoras estan certificados por The Carpentries.\nAyudantes, miembros del RSG-México:\n\nMayela Guadalupe Fosado Mendoza, estudiante de licenciatura en Microbiología, UAQ (maye.fosado@gmail.com) (Ayudante presencial). \nEmilio Ortiz Avila, estudiante de licenciatura en Microbiología, UAQ (aeortiz06@gmail.com ) (Ayudante presencial). \nJohanna Castelán Camarillo, maestría en Biotecnología, Universidad Popular Autónoma del Estado de Puebla (johan.ccas02@gmail.com ) (Ayudante virtual)\nMariana Devon Lopez, egresada de la maestría en la Escuela de Salud pública de méxico (mariana.devon@icloud.com) (Ayudante virtual)\n\nResumen:\nEste curso intensivo ofrece una introducción práctica a tres herramientas fundamentales para la ciencia de datos y el desarrollo reproducible: Git para control de versiones, Bash para automatización en la terminal y R para análisis estadístico y visualización. No se requiere experiencia previa: comenzaremos desde cero y avanzaremos paso a paso, combinando teoría y práctica en un entorno accesible.\nEnfoque de la audiencia:\n\nPúblico general interesado en aprender herramientas digitales: no se requiere experiencia previa, el curso inicia desde cero.\nEstudiantes y profesionales de cualquier disciplina que deseen mejorar sus habilidades en manejo de datos, control de versiones y automatización.\n\nPersonas con interés en ciencia de datos, programación o investigación reproducible, pero que aún no han trabajado con Git, Bash o R.\nPatrocinadores\n\nEscuela Nacional de Estudios Superiores Unidad Juriquilla UNAM (ENES Juriquilla)\nInternational Society for Computational Biology (ISCB Student Council) - RSG- México\n\nCitar y reutilizar el material del curso\nLos datos del curso se pueden reutilizar y adaptar libremente con la debida atribución. Todos los datos de los cursos de estos repositorios están sujetos a la licencia Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).\n\n\n\nLos participantes pueden traer su propia computadora (opcional). No se requiere experiencia previa: el curso comenzará desde cero.\n\n\n\n\n\n\nTema\nTiempo\nInstructora\n\n\n\n\n15 de junio\n\n\n\n\n🔷 Sección 1 - (9:00 - 12:30 h)\n\n\n\n\n\nBienvenida (icebreaker) y presentaciones\n\n10 min\nEvelia Coss\n\n\n\nRevisión de instalación de Git, Bash, R y Rstudio / Realizar pre-encuesta\n\n20 min\nEvelia Coss\n\n\n\nBuenas prácticas en bioinformática\n\n10 min\nEvelia Coss\n\n\n\nIntroducción a Bash\n\n10 min\nEvelia Coss\n\n\n\nMis primeros pasos en Bash\n\n15 min\nEvelia Coss\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReceso\n\n\n\n\nSección 2 - (10:00 - 12:15 h)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClausura\nRealizar última encuesta"
   },
   {
     "objectID": "install_B.html",
@@ -1103,18 +1100,7 @@
     "href": "Parte25.html#comandos-usados-en-github-y-rstudio",
     "title": "29  Resumen y Práctica Final",
     "section": "",
-    "text": "Important\n\n\n\n\ngit add: Agregar cambios\ngit status: Revisamos el estado del proyecto\ngit commit: comentar los cambios\ngit checkout: Pordemos regresar cambios o cambiar de rama.\n\nEn Git, los comandos git pull y git push son utilizados para sincronizar y actualizar el contenido de un repositorio: \n\ngit pull: Actualiza la versión local de un repositorio desde otro remoto (en R studio flecha azul).\ngit push: Carga contenido en un repositorio remoto (en R studio flecha verde)",
-    "crumbs": [
-      "**Sección 4** - Conexión con Github",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Resumen y Práctica Final</span>"
-    ]
-  },
-  {
-    "objectID": "Parte25.html#página-de-inicio-en-github",
-    "href": "Parte25.html#página-de-inicio-en-github",
-    "title": "29  Resumen y Práctica Final",
-    "section": "29.2 Página de inicio en GitHub",
-    "text": "29.2 Página de inicio en GitHub\n\n\n\n\n\n\nNoteActividad\n\n\n\n\nEn GitHub, crea un repositorio con el mismo nombre de usuario. Ejemplo: Si el usuario es EveliaCoss y entonces el repositorio se llama EveliaCoss, dandonos la siguiente liga https://github.com/EveliaCoss/EveliaCoss\nAgrega un README al repositorio con tu informacion. Por Default ya trae una plantilla, modificala y adaptala a tu gusto.\nVisualiza como cambia tu inicio en el Github.\n\nPuedes aprender a realizar esta actividad paso a paso, siguiendo este tutorial.",
+    "text": "Important\n\n\n\n\ngit add: Agregar cambios\ngit status: Revisamos el estado del proyecto\ngit commit: comentar los cambios\ngit checkout: Pordemos regresar cambios o cambiar de rama.\n\nEn Git, los comandos git pull y git push son utilizados para sincronizar y actualizar el contenido de un repositorio: \n\ngit pull: Actualiza la versión local de un repositorio desde otro remoto (en R studio flecha azul).\ngit push: Carga contenido en un repositorio remoto (en R studio flecha verde)\n\n\n\n\n29.1.1 Ediciones en nuestro perfil desde GitHub\n\n\n\n\n\n\nNoteActividad\n\n\n\nVeremos la siguiente presentación en donde encontraremos las instrucciones de como editar nuestro “Usuario.md” que nos genera una mini tarjeta de presentación de nuestro perfil. Con esto debemos:\n\nCrea un repositorio en GitHub: mi_repositorio &gt; Public &gt; YES initialize this repository with a README &gt; clicken el gran botón verde “Create repository”\nGenerar ediciones en el “Usuario.md”.\nGuardar los cambios y previsualizar en nuestro inicio.",
     "crumbs": [
       "**Sección 4** - Conexión con Github",
       "<span class='chapter-number'>29</span>  <span class='chapter-title'>Resumen y Práctica Final</span>"
@@ -1124,8 +1110,8 @@
     "objectID": "Parte25.html#github-primero-rstudio-después",
     "href": "Parte25.html#github-primero-rstudio-después",
     "title": "29  Resumen y Práctica Final",
-    "section": "29.3 GitHub primero, RStudio después…",
-    "text": "29.3 GitHub primero, RStudio después…\n\nEn RStudio crea un nuevo proyecto: File &gt; New Project &gt; Version Control &gt; Git. Ahi pega el URL del repositorio https://github.com/mi_usuario/mi_repositorio.git. Da click en Create Project.\n\nEsto nos generará los siguientes elementos:\n\nUn directorio nuevo\nUn repositorio Git enlazado a al repositorio de GitHub\nUn proyecto en RStudio\n\nCon este procedimiento ya no es necesario preocuparse por configurar controles remotos Git y rastrear ramas en la línea de comandos.",
+    "section": "29.2 GitHub primero, RStudio después…",
+    "text": "29.2 GitHub primero, RStudio después…\n\nEn RStudio crea un nuevo proyecto: File &gt; New Project &gt; Version Control &gt; Git. Ahi pega el URL del repositorio https://github.com/mi_usuario/mi_repositorio.git. Da click en Create Project.\n\nEsto nos generará los siguientes elementos:\n\nUn directorio nuevo\nUn repositorio Git enlazado a al repositorio de GitHub\nUn proyecto en RStudio\n\nCon este procedimiento ya no es necesario preocuparse por configurar controles remotos Git y rastrear ramas en la línea de comandos.",
     "crumbs": [
       "**Sección 4** - Conexión con Github",
       "<span class='chapter-number'>29</span>  <span class='chapter-title'>Resumen y Práctica Final</span>"
@@ -1135,19 +1121,19 @@
     "objectID": "Parte25.html#comentar-pull-y-push-en-rstudio",
     "href": "Parte25.html#comentar-pull-y-push-en-rstudio",
     "title": "29  Resumen y Práctica Final",
-    "section": "29.4 Comentar, pull y push en Rstudio",
-    "text": "29.4 Comentar, pull y push en Rstudio\n\nCon la flecha azul podemos hacer pull (RECUERDA HACERLO ANTES DE HACER UN PUSH), y con la flecha verde un push. Para poder comentar y hacer push debemos marcar con una palomita mediante un click en las pequeñas cajas blancas de la columna Staged, damos click en commit lo cual nos abre la siguiente ventana.\n\nVolvemos a dar click en commit, y finalizamos con push (flecha verde).",
+    "section": "29.3 Comentar, pull y push en Rstudio",
+    "text": "29.3 Comentar, pull y push en Rstudio\n\nCon la flecha azul podemos hacer pull (RECUERDA HACERLO ANTES DE HACER UN PUSH), y con la flecha verde un push. Para poder comentar y hacer push debemos marcar con una palomita mediante un click en las pequeñas cajas blancas de la columna Staged, damos click en commit lo cual nos abre la siguiente ventana.\n\nVolvemos a dar click en commit, y finalizamos con push (flecha verde).",
     "crumbs": [
       "**Sección 4** - Conexión con Github",
       "<span class='chapter-number'>29</span>  <span class='chapter-title'>Resumen y Práctica Final</span>"
     ]
   },
   {
-    "objectID": "Parte25.html#ediciones-desde-r-de-la-página-de-inicio-en-github",
-    "href": "Parte25.html#ediciones-desde-r-de-la-página-de-inicio-en-github",
+    "objectID": "Parte25.html#página-de-inicio-en-github",
+    "href": "Parte25.html#página-de-inicio-en-github",
     "title": "29  Resumen y Práctica Final",
-    "section": "29.5 Ediciones desde R de la página de inicio en GitHub",
-    "text": "29.5 Ediciones desde R de la página de inicio en GitHub\n\n\n\n\n\n\nNoteActividad\n\n\n\n\nSincroniza el repositorio con el nombre de tu usuario en GitHub (ejemplo: EveliaCoss/EveliaCoss) con RStudio\nRealiza los cambios desde R y subelos a GitHub.\nVisualiza como cambia tu inicio en el Github.",
+    "section": "29.4 Página de inicio en GitHub",
+    "text": "29.4 Página de inicio en GitHub\n\n\n\n\n\n\nNoteActividad\n\n\n\n\nEn GitHub, crea un repositorio con el mismo nombre de usuario. Ejemplo: Si el usuario es EveliaCoss y entonces el repositorio se llama EveliaCoss, dandonos la siguiente liga https://github.com/EveliaCoss/EveliaCoss\nAgrega un README al repositorio con tu informacion. Por Default ya trae una plantilla, modificala y adaptala a tu gusto.\nVisualiza como cambia tu inicio en el Github.\nSincroniza el GitHub en RStudio y realiza los cambios desde ahi.",
     "crumbs": [
       "**Sección 4** - Conexión con Github",
       "<span class='chapter-number'>29</span>  <span class='chapter-title'>Resumen y Práctica Final</span>"
@@ -1157,539 +1143,370 @@
     "objectID": "Parte25.html#referencias",
     "href": "Parte25.html#referencias",
     "title": "29  Resumen y Práctica Final",
-    "section": "29.6 Referencias",
-    "text": "29.6 Referencias\n\nEvelia tutorial:Workshop sobre Git / Github 2025\nHaydee tutorial: Temas Selectos de Análisis Numérico y Computación Científica: Computo científico para el análisis de datos\nAlejandra Medina tutorial: Control de versiones con GitHub y RStudio",
+    "section": "29.5 Referencias",
+    "text": "29.5 Referencias\n\nEvelia tutorial:Workshop sobre Git / Github 2025\nHaydee tutorial: Temas Selectos de Análisis Numérico y Computación Científica: Computo científico para el análisis de datos\nAlejandra Medina tutorial: Control de versiones con GitHub y RStudio",
     "crumbs": [
       "**Sección 4** - Conexión con Github",
       "<span class='chapter-number'>29</span>  <span class='chapter-title'>Resumen y Práctica Final</span>"
     ]
   },
   {
-    "objectID": "Parte26.html",
-    "href": "Parte26.html",
-    "title": "30  Introducción a R",
-    "section": "",
-    "text": "30.1 ¿Qué es R?\nR es un entorno de desarrollo de software libre y lenguaje de programación.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Introducción a R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte26.html#qué-es-r",
-    "href": "Parte26.html#qué-es-r",
-    "title": "30  Introducción a R",
-    "section": "",
-    "text": "¿Por qué utilizar R?\nEs ampliamente utilizado para la computación estadística, gráfica, y de machine learning. Ofrece una amplia variedad de funciones estadísticas (modelos lineales y no lineales, pruebas estadísticas clásicas, análisis de series de tiempo, clasificación, agrupamiento, etc.), y para realizar gráficas.\nAdemás, existen numerosas librerías que nos pemiten realizar análisis y más gráficas, incluyendo para análisis de datos genómicos.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Introducción a R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte26.html#cómo-instalamos-r",
-    "href": "Parte26.html#cómo-instalamos-r",
-    "title": "30  Introducción a R",
-    "section": "30.2 ¿Cómo instalamos R?",
-    "text": "30.2 ¿Cómo instalamos R?\nPara installar R, debemos de entrar a la página de CRAN “The Comprehensive R Archive Network”. Al installar R, descargamos también ~ 25 paqueterías/librerías.\nCRAN es una red en la que se archivan todas las versiones de R base, así como todos los paquetes para R que han pasado por un proceso de revisión riguroso, realizado por el CRAN Team.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Introducción a R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte26.html#qué-es-rstudio",
-    "href": "Parte26.html#qué-es-rstudio",
-    "title": "30  Introducción a R",
-    "section": "30.3 ¿Qué es RStudio?",
-    "text": "30.3 ¿Qué es RStudio?\nRStudio es un entorno de desarrollo integrado (IDE) para R. Un IDE es una aplicación que ayuda a los programadores a desarrollar código de una manera eficiente. Nos proporciona una interfaz para poder editar código fuente, herramientas de ambiente, visualización, terminal y consola.\nRStudio Desktop es una aplicación que se utiliza ampliamente para desarrollar programas en R, pero también podemos accesar al IDE de RStudio a través con RStudio Server, a través de un navegador web.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Introducción a R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte26.html#cómo-descargamos-rstudio",
-    "href": "Parte26.html#cómo-descargamos-rstudio",
-    "title": "30  Introducción a R",
-    "section": "30.4 ¿Cómo descargamos RStudio?",
-    "text": "30.4 ¿Cómo descargamos RStudio?\nPodemos descargar RStudio desde esta página. Ya realizamos el paso 1: Install R.\nEn el paso 2: Install R studio, nos debería detectar el sistema operativo, descarguemos la versión recomendada en el botón azul y sigamos las instrucciones de instalación.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Introducción a R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte26.html#las-partes-de-rstudio",
-    "href": "Parte26.html#las-partes-de-rstudio",
-    "title": "30  Introducción a R",
-    "section": "30.5 Las partes de RStudio",
-    "text": "30.5 Las partes de RStudio",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Introducción a R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte26.html#cambiando-el-aspecto-de-rstudio",
-    "href": "Parte26.html#cambiando-el-aspecto-de-rstudio",
-    "title": "30  Introducción a R",
-    "section": "30.6 Cambiando el aspecto de RStudio",
-    "text": "30.6 Cambiando el aspecto de RStudio\nPodemos cambiar la forma en que se ve la aplicación desde Editar &gt; Preferencias &gt; Apariencia, escogemos el tema que nos guste y damos click en Aplicar y luego OK",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Introducción a R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte26.html#crear-un-r-project",
-    "href": "Parte26.html#crear-un-r-project",
-    "title": "30  Introducción a R",
-    "section": "30.7 Crear un R Project",
-    "text": "30.7 Crear un R Project\nAl comenzar a trabajar con R y RStudio, ya sea para crear un programa para un proyecto, crear una aplicación, presentación, blog, paquete, etc, es recomendado crear un R project.\n\n30.7.1 ¿Qué es un R Project y por qué usarlo?\n\nCarpeta de trabajo dedicada: al crear un R Project, RStudio genera automáticamente una carpeta que contiene todos los archivos y configuraciones necesarias para tu proyecto.\nOrganización: te permite mantener en un solo lugar tus scripts, datos, variables y documentos relacionados.\nReproducibilidad: facilita que cualquier persona (incluido tú en el futuro) pueda abrir el proyecto y trabajar con el mismo entorno.\nIntegración con Git/GitHub: al tener el mismo nombre que tu repositorio, se asegura una sincronización más clara y ordenada entre tu proyecto local y el repositorio remoto.\n\n\n\n30.7.2 ¿Cómo iniciamos un R project?\n\nVayamos en la parte superior al menú Archivos &gt; Nuevo Proyecto.\n\n\n\nSeleccionamos la opción de Nuevo directorio.\n\n\n\nSeleccionamos el tipo de projecto que vamos a iniciar, en nuestro caso Nuevo proyecto.\n\n\n\nNombramos el folder que crearemos y seleccionamos en dónde queremos que se almacene.\n\n\n¡Felicidades, acabas de crear un R project! Si vamos al folder en donde creamos nuestro proyecto, podemos observar que se creó un archivo con terminación Rproj, este es un archivo que contiene la configuración específica para nuestro proyecto.\n\n\n\n\n\nImagen tomada de: Allison Horst\n\n\n30.7.3 Directorio de trabajo\nEste archivo (Rproj) también establece como directorio de trabajo el folder en donde iniciamos el proyecto (puedes comprobarlo desde la consola de RStudio, escribiendo el comando getwd()). Esto es muy conveniente puesto que así podemos asegurarnos de que vamos a acceder a los archivos que estén exclusivamente en nuestro entorno de trabajo.\nColoca en la consola dentro de Rstudio:\n\n\nCode\ngetwd()\n\n\n[1] \"/Users/ecoss/Documents/CodeData_Bootcamp_Git_Bash_R2026_ENESJ\"",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Introducción a R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte26.html#crear-un-rscript",
-    "href": "Parte26.html#crear-un-rscript",
-    "title": "30  Introducción a R",
-    "section": "30.8 Crear un Rscript",
-    "text": "30.8 Crear un Rscript\nPara comenzar a trabajar en un proyecto, necesitamos crear un archivo para escribir nuestro programa. Entra en Archivo &gt; Nuevo Archivo.\nPodemos ver que tenemos distintas opciones de archivos que podemos crear, en este caso vamos a crear nuestro primer Rscript.\n\n\n30.8.1 ¿Qué es un Rscript?\nEs simplemente un archivo de texto con las instrucciones de nuestro algoritmo escritas en el lenguaje de R. También contiene nuestros comentarios escritos con #.\nIntenta escribir tu primer Rscript en el editor, copiando el siguiente algoritmo para realizar una suma:\n\n\nCode\na &lt;- 2\nb &lt;- 3\nsuma = a + b\nsuma\n\n\n[1] 5\n\n\n\n\n30.8.2 ¿Cómo ejecutamos el código?\nSelecciona todo el código, después ve a la parte superior de la ventana del editor y da click en el botón Run. También pueden ejecutar tu código línea por línea, poniendo tu cursor al principio o al final de la linea y presionando las teclas Control + Enter o Command + Enter.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Introducción a R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte26.html#descargar-y-cargar-librerías",
-    "href": "Parte26.html#descargar-y-cargar-librerías",
-    "title": "30  Introducción a R",
-    "section": "30.9 Descargar y cargar Librerías",
-    "text": "30.9 Descargar y cargar Librerías\n\n30.9.1 ¿Qué es una librería?\nEn programación, una librería es una colección de código pre-escrito. Una librería contiene una “paquete” o “librería” de funciones que podemos utilizar si descargamos e importamos esa librería a nuestro programa.\nComo mencioné anteriormente, al descargar R, también descargamos una serie de librerías, llamadas base R packages. Sin embargo, dependiendo del problema que queramos resolver con nuestro programa, necesitaremos librerías que nos permitan hacer otras cosas.\nExisten distintas formas de instalar librerías.\n\n\n30.9.2 Instalar librerías: CRAN\n\nInstalación desde el repositorio de CRAN: podemos descargar paqueterías de CRAN de dos formas:\n\nLa primera, desde consola con el siguiente comando:\n\n\nCode\ninstall.packages(\"tidyverse\")\n\n\nLa segunda, desde el menú Herramientas &gt; Instalar paqueterías. En la ventana, ingresamos el nombre de la librería y click en Instalar.\n\n\n\n\n\nLa tercera opción es usar el botón “install” dentro de la pestaña de Packages.\n\n\n\n30.9.3 Instalar librerías: Bioconductor\nAlternativamente, podemos instalar paqueterías de Bioconductor, que es otro repositorio de paquetes diseñados para el análisis de datos genómicos, por ejemplo para hacer análisis estadísticos, anotación, acceso a bases de datos públicas, etc.\nHay muchas librerías que están tanto en CRAN como en Bioconductor, pero también hay librerías específicas para uno de ellos. Para poder instalar desde bioconductor, necesitamos primero instalar el “instalador de bioconductor”:\n\n\nCode\ninstall.packages(\"BiocManager\") # Esto es necesario solo 1 vez\n\n\n\n\n30.9.4 ¿Cómo podemos verificar que paquetes tenemos?\nEn la ventana inferior derecha, existe una pestaña que se llama “Packages” que contendra la lista de paquetes instalados en tu computadora, su descripción corta y su versión.\nTambien en esta pestaña podemos instalar paquetes dandado click en INSTALL.\n\n\n\n\n\n\n\n30.9.5 Eliminación de paquetes\nEn algunas ocasiones vamos a tener que actualizar las versiones de los paquetes, pero primero dedes eliminar la versión anterior. Dando click en el botón que contiene una X que esta al final de la fila en cada programa.\n\n\n\n\n\nTambién puedes usar codigo para eliminar el paquete:\n\n\nCode\nremove.packages(\"package-to-remove\")\n\n\n\n\n30.9.6 Cargar paquetes en el ambiente de R\n\nOpción A: Emplear la función library para cargar en el ambiente el paquete.\n\n\n\nCode\nlibrary(ggplot2)\n\n\n\nOpción B: Dando click a la casilla que indica el paquete. Para dejar de usarlo da de nuevo click en esa casilla para que deje de estar marcada.\n\n\n\n\n\n\n\n\n\n\n\n\nNoteActividad\n\n\n\nCopia y pega el siguiente código en tu consola dentro de Rstudio:\n\n\nCode\ninstall.packages(\"palmerpenguins\")\ninstall.packages(\"ggplot2\")\ninstall.packages(\"dplyr\")\ninstall.packages(\"DT\")\n\n\n\n\nDebes poder ver algo como esto:",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Introducción a R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte27.html",
-    "href": "Parte27.html",
-    "title": "31  Estructura de datos en R",
-    "section": "",
-    "text": "31.1 Principales estructuras de datos en R\nLas estructuras de datos son objetos que contienen datos. Cuando trabajamos con R, lo que estamos haciendo es manipular estas estructuras.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Estructura de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte27.html#principales-estructuras-de-datos-en-r",
-    "href": "Parte27.html#principales-estructuras-de-datos-en-r",
-    "title": "31  Estructura de datos en R",
-    "section": "",
-    "text": "Estructura\nDimensión\nHomogeneidad\nEjemplo\nUso típico\n\n\n\n\nVector\n1D\nHomogénea (todos del mismo tipo)\nc(1,2,3)\nSecuencias simples de números, caracteres o lógicos\n\n\nLista\n1D\nHeterogénea (puede mezclar tipos)\nlist(a=1:3, b=\"hola\")\nAgrupar objetos distintos, resultados de modelos\n\n\nMatriz\n2D\nHomogénea\nmatrix(1:6, nrow=2)\nCálculos numéricos, álgebra lineal\n\n\nArray\nnD (más de 2 dimensiones)\nHomogénea\narray(1:8, dim=c(2,2,2))\nDatos multidimensionales, imágenes, series temporales\n\n\nData frame\n2D\nHeterogénea (cada columna puede ser de distinto tipo)\ndata.frame(x=1:3, y=c(\"a\",\"b\",\"c\"))\nDatos tabulares, análisis estadístico\n\n\nTibble\n2D\nHeterogénea\ntibble(x=1:3, y=c(\"a\",\"b\",\"c\"))\nVariante moderna de data frame, impresión más clara",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Estructura de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte27.html#clases-de-variables",
-    "href": "Parte27.html#clases-de-variables",
-    "title": "31  Estructura de datos en R",
-    "section": "31.2 Clases de variables",
-    "text": "31.2 Clases de variables\n\n\n\n\n\n\n\n\n\nClases\nDeclaración de la variable\nConversión de formato\nReglas\n\n\n\n\nnumeric\nnumeric()\nas.numeric()\nFALSE -&gt; 0, TRUE -&gt; 1; “1”, “2”, … -&gt; 1,2, …; “A” -&gt; NA\n\n\ninteger\ninteger()\nas.integer()\nFALSE -&gt; 0, TRUE -&gt; 1; “1”, “2”, … -&gt; 1,2, …; “A” -&gt; NA\n\n\ndouble\ndouble()\nas.double()\n\n\n\ncharacter\ncharacter()\nas.character()\n1,2, … -&gt; “1”, “2”, …; FALSE -&gt; “FALSE”; TRUE -&gt; “TRUE”\n\n\nlogical\nlogical()\nas.logical()\n0 -&gt; FALSE, other numbers -&gt; TRUE; (“FALSE”, “F”) -&gt; FALSE; (“TRUE”, “T”) -&gt; TRUE, other character -&gt; NA\n\n\nfactor\nfactor()\nas.factor()\n\n\n\n\nSi queremos saber la clase de la variable debemos usar class(), aunque tambien str() te dice esta información.\n\nNOTA: as.integer() convierte los numeros a enteros. Ejemplo: as.integer(2.5) = 2. En cambio, as.double() permite que los numeros contengan decimales.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Estructura de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte27.html#operadores",
-    "href": "Parte27.html#operadores",
-    "title": "31  Estructura de datos en R",
-    "section": "31.3 Operadores",
-    "text": "31.3 Operadores\n\n\n\n\n\n\n\n\nAritméticos\nComparación\nArgumentos lógicos (Logical Operators)\n\n\n\n\n+ Adición / suma\n&lt; Menor que\n!x - Not x (logical NOT)\n\n\n- Sustracción / resta\n&gt; Mayor que\nx & y OR x AND y - (logical AND)\n\n\n* Multiplicación\n&lt;= Menor o igual que\nx && y - identico\n\n\n/ OR %% División\n&gt;= Mayor o igual que\nxor(x,y) Funcion OR\n\n\n^ OR ** Exponencial\n== Igual a\n%in% pertenece a\n\n\n%/% División integral\n!= Diferente de\n\n\n\n\nOtra forma de escrir OR es x | y OR x || y.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Estructura de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte27.html#jerarquía-de-operaciones",
-    "href": "Parte27.html#jerarquía-de-operaciones",
-    "title": "31  Estructura de datos en R",
-    "section": "31.4 Jerarquía de operaciones",
-    "text": "31.4 Jerarquía de operaciones\nEn R, al igual que en matemáticas, las operaciones tienen un orden de evaluación definido.\nCuanto tenemos varias operaciones ocurriendo al mismo tiempo, en realidad, algunas de ellas son realizadas antes que otras y el resultado de ellas dependerá de este orden.\n\n\n\nOrden\nOperadores\n\n\n\n\n1\n^\n\n\n2\n* /\n\n\n3\n+ -\n\n\n4\n&lt; &gt; &lt;= &gt;= == !=\n\n\n5\n!\n\n\n6\n&\n\n\n7\nOR",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Estructura de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte28.html",
-    "href": "Parte28.html",
-    "title": "32  Manipulación de datos en R",
-    "section": "",
-    "text": "32.1 Paquete palmerpenguins\nCarguemos los paquetes",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Manipulación de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte28.html#paquete-palmerpenguins",
-    "href": "Parte28.html#paquete-palmerpenguins",
-    "title": "32  Manipulación de datos en R",
-    "section": "",
-    "text": "El objetivo de palmerpenguins es proporcionar un gran conjunto de datos para la exploración y visualización de datos, como alternativa a iris.\n\nPaquete en CRAN: palmerpenguins\nGitHub: palmerpenguins\nZenodo del paquete: allisonhorst/palmerpenguins: v0.1.0\nZenodo de los datos: datos de palmerpenguins\nArtículo: https://doi.org/10.1371/journal.pone.0090081",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Manipulación de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte28.html#acerca-de-los-datos",
-    "href": "Parte28.html#acerca-de-los-datos",
-    "title": "32  Manipulación de datos en R",
-    "section": "32.2 Acerca de los datos",
-    "text": "32.2 Acerca de los datos\nLos datos fueron recopilados y puestos a disposición por la Dra. Kristen Gorman y la Estación Palmer, Antártida LTER , miembro de la Red de Investigación Ecológica a Largo Plazo.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Manipulación de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte28.html#medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida",
-    "href": "Parte28.html#medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida",
-    "title": "32  Manipulación de datos en R",
-    "section": "32.3 Medidas de tamaño de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida",
-    "text": "32.3 Medidas de tamaño de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida\nUna de ellas se llama penguins, y es una versión simplificada de los datos brutos; consulte ?penguinspara obtener más información:\n\n\nCode\nhead(penguins) %&gt;% \n  DT::datatable(rownames = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\nTip¿Qué nos dicen las columnas de penguins?\n\n\n\n\n\n\n\n\nspecies / especies: un factor que indica la especie de pingüino (Adelia, Barbijo y Gentoo)\nisland / isla: un factor que denota una isla en el archipiélago Palmer, Antártida (Biscoe, Dream o Torgersen)\nbill_length_mm / longitud del pico en mm: un número que indica la longitud del pico (en milímetros)\nbill_depth_mm / grosor del pico en mm: un número que indica la grosor del pico (milímetros)\nflipper_length_mm / longitud de la aleta en mm: un número entero que indica la longitud de la aleta (en milímetros)\nbody_mass_g / masa corporal en gramos: un número entero que indica la masa corporal (gramos)\nsex / sexo: un factor que indica el sexo del pingüino (hembra, macho)\nyear / año del estudio: un número entero que indica el año del estudio (2007, 2008 o 2009)\n\nInformación tomada de la página principal de palmerpenguins.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Manipulación de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte28.html#tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida",
-    "href": "Parte28.html#tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida",
-    "title": "32  Manipulación de datos en R",
-    "section": "32.4 Tamaño, puesta y datos de isótopos sanguíneos de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida",
-    "text": "32.4 Tamaño, puesta y datos de isótopos sanguíneos de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida\nEl segundo conjunto de datos es penguins_raw, y contiene todas las variables y los nombres originales tal como se descargaron; consulte ?penguins_rawpara obtener más información.\n\n\nCode\nhead(penguins_raw, 4) %&gt;% \n  DT::datatable(rownames = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\nTip¿Qué nos dicen las columnas de penguins_raw?\n\n\n\n\n\n\nstudyName /nombre del estudio : Expedición de muestreo a partir de la cual se recopilaron, generaron, etc., datos.\nSample Number / Número de muestra un número entero que denota la secuencia de numeración continua para cada muestra.\nSpecies/ Especies: una cadena de caracteres que denota la especie de pingüino.\nRegion/ Región: una cadena de caracteres que indica la región de la cuadrícula de muestreo de Palmer LTER.\nIsland / Isla: una cadena de caracteres que indica la isla cercana a la estación Palmer donde se recolectaron las muestras\nStage / Escenario: una cadena de caracteres que indica la etapa reproductiva en el momento de la toma de muestras\nIndividual ID / Identificación individual: una cadena de caracteres que indica el ID único de cada individuo en el conjunto de datos.\nClutch Completion / Finalización del embrague: una cadena de caracteres que indica si el nido estudiado se observó con una nidada completa, es decir, 2 huevos.\nDate Egg / Fecha de muestreo del huevo: una fecha que indica la fecha en que se observó el nido estudiado con 1 huevo (muestreado).\nCulmen Length / Longitud de la cresta dorsal: un número que indica la longitud de la cresta dorsal del pico de un ave (en milímetros)\nCulmen Depth / Profundidad del culmen: un número que indica la profundidad de la cresta dorsal del pico de un ave (en milímetros)\nFlipper Length/ Longitud de la aleta: un número entero que indica la longitud de la aleta del pingüino (en milímetros)\nBody Mass/ Masa corporal: un número entero que indica la masa corporal del pingüino (en gramos)\nSex / Sexo: una cadena de caracteres que indica el sexo de un animal\nDelta 15 N: un número que indica la medida de la proporción de isótopos estables 15N:14N\nDelta 13 C: un número que indica la medida de la proporción de isótopos estables 13C:12C\nComments/ Comentarios: una cadena de caracteres con texto que proporciona información adicional relevante para los datos.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Manipulación de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte28.html#revisar-las-dimensiones-de-un-objeto",
-    "href": "Parte28.html#revisar-las-dimensiones-de-un-objeto",
-    "title": "32  Manipulación de datos en R",
-    "section": "32.5 Revisar las dimensiones de un objeto",
-    "text": "32.5 Revisar las dimensiones de un objeto\n\n\n\n\n\n\n\n\nFunción\nDescripción\nEjemplo\n\n\n\n\nlength()\nDevuelve el número de elementos de un vector o lista.\nlength(1:10) → 10\n\n\ndim()\nDevuelve las dimensiones (filas, columnas) de matrices y data frames.\ndim(penguins) → 344 8\n\n\nnrow()\nNúmero de filas de un objeto tipo data frame o matriz.\nnrow(penguins) → 344\n\n\nncol()\nNúmero de columnas de un objeto tipo data frame o matriz.\nncol(penguins) → 8\n\n\nstr()\nMuestra la estructura del objeto, incluyendo dimensiones y tipo de datos.\nstr(penguins)\n\n\n\nAmbos conjuntos de datos contienen información sobre 344 pingüinos. Estos conjuntos de datos incluyen 3 especies diferentes de pingüinos, recopiladas en 3 islas del archipiélago Palmer, en la Antártida. Vamos a revisar la estructura de los datos:\n\n\nCode\nstr(penguins)\n\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Factor w/ 3 levels \"Adelie\",\"Chinstrap\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\n\n\n\n\n\n\nTip¿Qué significa?\n\n\n\n\ntibble → Es una versión moderna del data frame, creada por el paquete tibble/dplyr.\n[344 × 8] → Son las dimensiones del objeto:\n\n344 filas → cada fila representa una observación o registro.\n8 columnas → cada columna representa una variable o atributo.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Manipulación de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte28.html#funciones-que-vamos-a-emplear-de-dplyr",
-    "href": "Parte28.html#funciones-que-vamos-a-emplear-de-dplyr",
-    "title": "32  Manipulación de datos en R",
-    "section": "32.6 Funciones que vamos a emplear de dplyr",
-    "text": "32.6 Funciones que vamos a emplear de dplyr\n\n\n\n\n\n\n\nselect() : Seleccionar nombres de las columnas. –&gt; select(dataframe, columna1, columna2, … columnax)\nfilter() : Filtrar filas por una condicion especifica, apartir de la columna. –&gt; filter(dataframe, columna1 == “condicion”)\nmutate() : Modificar o agregar columnas. –&gt; mutate(dataframe, columna1 = “condicion”)\ngroup_by() : Agrupar informacion de acuerdo a un(as) columna(s) seleccionada(s).\nif_else() : Condicional. –&gt; if_else(dataframe, codicion, si se acepta entonces, si se rechaza entonces)\narrange() : Acomodar los resultados, default de menor a mayor.\ncount(): Cuenta los valores de acuerdo a una variable.\nleft_join() : Unir dos dataframe con base en una misma columna en comun. –&gt; left_join(dataframe1, dataframe2, by = “Columna en comun, mismo nombre”)\nn_distinct() : Cuenta las filas unicas.\ndistinct() : Muestra las filas duplicadas.\nsummarise() : reduce varios valores seleccionados en un resumen.",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Manipulación de datos en R</span>"
-    ]
-  },
-  {
-    "objectID": "Parte28.html#manos-a-la-obra",
-    "href": "Parte28.html#manos-a-la-obra",
-    "title": "32  Manipulación de datos en R",
-    "section": "32.7 Manos a la obra",
-    "text": "32.7 Manos a la obra\n\n\n\n\n\n\nNoteActividad: Número de especies\n\n\n\n\n\nEn el dataset penguins del paquete palmerpenguins se registran 3 especies de pingüinos:\n\nAdelie\nChinstrap\nGentoo\n\n\nPodemos usar R base para identificar esta información:\n\n\n\nCode\nunique(penguins$species)\n\n\n[1] Adelie    Gentoo    Chinstrap\nLevels: Adelie Chinstrap Gentoo\n\n\nEmplear las funciones del paquete dplyr:\n\nUsar distinct() para obtener los valores únicos de la columna species.\n\n\n\nCode\npenguins %&gt;% \n  dplyr::select(species) %&gt;% \n  distinct() # Nos da valores unicos, sin duplicaciones\n\n\n# A tibble: 3 × 1\n  species  \n  &lt;fct&gt;    \n1 Adelie   \n2 Gentoo   \n3 Chinstrap\n\n\n\nUsar n_distinct() para obtener el número de especies unicas.\n\n\n\nCode\npenguins %&gt;% \n  dplyr::select(species) %&gt;% \n  n_distinct()\n\n\n[1] 3\n\n\n\n¿Cuántos datos registrados tenemos por especies o número de individuos por especie?\n\n\n\nCode\npenguins %&gt;% \n  count(species) \n\n\n# A tibble: 3 × 2\n  species       n\n  &lt;fct&gt;     &lt;int&gt;\n1 Adelie      152\n2 Chinstrap    68\n3 Gentoo      124\n\n\n\n\n\n\n\n\n\n\n\nNoteActividad: Sexo y Distribución del muestreo a través de las islas\n\n\n\n\n\n\nNúmero de individuos de cada sexo\n\n\n\nCode\npenguins %&gt;% \n  count(sex) \n\n\n# A tibble: 3 × 2\n  sex        n\n  &lt;fct&gt;  &lt;int&gt;\n1 female   165\n2 male     168\n3 &lt;NA&gt;      11\n\n\n\n¿Cuántos hembras y machos hay de cada especie?\n\n\n\nCode\npenguins %&gt;% \n  count(species, sex)\n\n\n# A tibble: 8 × 3\n  species   sex        n\n  &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;\n1 Adelie    female    73\n2 Adelie    male      73\n3 Adelie    &lt;NA&gt;       6\n4 Chinstrap female    34\n5 Chinstrap male      34\n6 Gentoo    female    58\n7 Gentoo    male      61\n8 Gentoo    &lt;NA&gt;       5\n\n\n\nNúmero de individuos registrados en cada isla:\n\n\n\nCode\npenguins %&gt;% \n  count(island)\n\n\n# A tibble: 3 × 2\n  island        n\n  &lt;fct&gt;     &lt;int&gt;\n1 Biscoe      168\n2 Dream       124\n3 Torgersen    52\n\n\n\nNúmero de individuos registrados en cada isla:\n\n\n\nCode\npenguins %&gt;% \n  count(species, island, sex)\n\n\n# A tibble: 13 × 4\n   species   island    sex        n\n   &lt;fct&gt;     &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;\n 1 Adelie    Biscoe    female    22\n 2 Adelie    Biscoe    male      22\n 3 Adelie    Dream     female    27\n 4 Adelie    Dream     male      28\n 5 Adelie    Dream     &lt;NA&gt;       1\n 6 Adelie    Torgersen female    24\n 7 Adelie    Torgersen male      23\n 8 Adelie    Torgersen &lt;NA&gt;       5\n 9 Chinstrap Dream     female    34\n10 Chinstrap Dream     male      34\n11 Gentoo    Biscoe    female    58\n12 Gentoo    Biscoe    male      61\n13 Gentoo    Biscoe    &lt;NA&gt;       5\n\n\n\n\n\n\n\n\n\n\n\nNoteActividad: Masa de los individuos\n\n\n\n\n\nCrea una nueva columna llamada body_mass_kg que convierta el peso de gramos a kilogramos.\n\n\nCode\npenguins_kg &lt;- penguins %&gt;% \n  mutate(body_mass_kg = body_mass_g / 1000) \n\nhead(penguins_kg)\n\n\n# A tibble: 6 × 9\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 3 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;\n\n\nCalcula el promedio de masa corporal por especie.\n\n\nCode\npenguins_kg %&gt;% \n  group_by(species) %&gt;% \n  summarise(mean_mass_kg = mean(body_mass_kg, na.rm = TRUE))\n\n\n# A tibble: 3 × 2\n  species   mean_mass_kg\n  &lt;fct&gt;            &lt;dbl&gt;\n1 Adelie            3.70\n2 Chinstrap         3.73\n3 Gentoo            5.08\n\n\nCrea una columna peso_categoria que indique \"Ligero\" si el pingüino pesa menos de 4000 g = 4kg y \"Pesado\" en caso contrario.\n\n\nCode\npenguins_kg &lt;- penguins_kg %&gt;% \n  mutate(peso_categoria = if_else(body_mass_kg &lt; 4, \"Ligero\", \"Pesado\"))\n\nhead(penguins_kg)\n\n\n# A tibble: 6 × 10\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 4 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;\n\n\n¿Cuántos pingüinos tenemos por categoría?\n\n\nCode\npenguins_kg %&gt;% \n  count(peso_categoria)\n\n\n# A tibble: 3 × 2\n  peso_categoria     n\n  &lt;chr&gt;          &lt;int&gt;\n1 Ligero           165\n2 Pesado           177\n3 &lt;NA&gt;               2\n\n\nClasifica a los pingüinos en categorías según su masa corporal:\n\n&lt; 3500 g → \"Pequeño\"\n3500–4500 g → \"Mediano\"\n&gt; 4500 g → \"Grande\"\n\n\n\nCode\npenguins_kg %&gt;% \n  mutate(categoria = case_when(\n    body_mass_g &lt; 3500 ~ \"Pequeño\",\n    body_mass_g &gt;= 3500 & body_mass_g &lt;= 4500 ~ \"Mediano\",\n    body_mass_g &gt; 4500 ~ \"Grande\"\n  ))\n\n\n# A tibble: 344 × 11\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           NA            NA                  NA          NA\n 5 Adelie  Torgersen           36.7          19.3               193        3450\n 6 Adelie  Torgersen           39.3          20.6               190        3650\n 7 Adelie  Torgersen           38.9          17.8               181        3625\n 8 Adelie  Torgersen           39.2          19.6               195        4675\n 9 Adelie  Torgersen           34.1          18.1               193        3475\n10 Adelie  Torgersen           42            20.2               190        4250\n# ℹ 334 more rows\n# ℹ 5 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;, categoria &lt;chr&gt;\n\n\n\n\n\n\n\n\n\n\n\nNoteActividad: Longitud del pico y del ala\n\n\n\n\n\nOrdena los pingüinos por longitud del pico (bill_length_mm) de mayor a menor.\n\n\nCode\npenguins_kg %&gt;% \n  arrange(desc(bill_length_mm)) %&gt;%  # de mayor a menor\n  # tambien se puede poner arrange(-bill_length_mm)\n  head()\n\n\n# A tibble: 6 × 10\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Gentoo    Biscoe           59.6          17                 230        6050\n2 Chinstrap Dream            58            17.8               181        3700\n3 Gentoo    Biscoe           55.9          17                 228        5600\n4 Chinstrap Dream            55.8          19.8               207        4000\n5 Gentoo    Biscoe           55.1          16                 230        5850\n6 Gentoo    Biscoe           54.3          15.7               231        5650\n# ℹ 4 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;\n\n\nSi queremos que sea de menor a mayor, quitamos desc().\n\n\nCode\npenguins_kg %&gt;% \n  arrange(bill_length_mm) %&gt;%  # de menor a mayor\n  head()\n\n\n# A tibble: 6 × 10\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Dream               32.1          15.5               188        3050\n2 Adelie  Dream               33.1          16.1               178        2900\n3 Adelie  Torgersen           33.5          19                 190        3600\n4 Adelie  Dream               34            17.1               185        3400\n5 Adelie  Torgersen           34.1          18.1               193        3475\n6 Adelie  Torgersen           34.4          18.4               184        3325\n# ℹ 4 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;\n\n\nCalcula el promedio y la desviación estándar de la longitud del ala (flipper_length_mm) por especie.\n\n\nCode\npenguins %&gt;% \n  group_by(species) %&gt;% \n  summarise(\n    mean_flipper = mean(flipper_length_mm, na.rm = TRUE), #promedio\n    sd_flipper = sd(flipper_length_mm, na.rm = TRUE) # desviacion estandar\n  )\n\n\n# A tibble: 3 × 3\n  species   mean_flipper sd_flipper\n  &lt;fct&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 Adelie            190.       6.54\n2 Chinstrap         196.       7.13\n3 Gentoo            217.       6.48",
-    "crumbs": [
-      "**Sección 5** - Introducción a R y RStudio",
-      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Manipulación de datos en R</span>"
-    ]
-  },
-  {
     "objectID": "Parte30.html",
     "href": "Parte30.html",
-    "title": "33  ¿Por qué visualizar datos?",
+    "title": "31  ¿Por qué visualizar datos?",
     "section": "",
-    "text": "33.1 ¿Por qué usar R para visualizar datos?\nLos datos por sí solos rara vez cuentan una historia. Una tabla con cientos o miles de observaciones puede contener patrones, tendencias o valores atípicos que son difíciles de identificar únicamente leyendo números.\nLa visualización de datos nos permite:\nEn otras palabras, una gráfica no es únicamente una figura para el reporte final; es una herramienta fundamental para comprender nuestros datos.\nExisten muchas herramientas para crear gráficas, pero R se ha convertido en uno de los lenguajes más utilizados en ciencia de datos y estadística debido a que:",
+    "text": "31.1 ¿Por qué usar R para visualizar datos?\nLos datos por sí solos rara vez cuentan una historia. Una tabla con cientos o miles de observaciones puede contener patrones, tendencias o valores atípicos que son difíciles de identificar únicamente leyendo números.\nLa visualización de datos nos permite:\nEn otras palabras, una gráfica no es únicamente una figura para el reporte final; es una herramienta fundamental para comprender nuestros datos.\nExisten muchas herramientas para crear gráficas, pero R se ha convertido en uno de los lenguajes más utilizados en ciencia de datos y estadística debido a que:",
     "crumbs": [
       "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>33</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
     ]
   },
   {
     "objectID": "Parte30.html#por-qué-usar-r-para-visualizar-datos",
     "href": "Parte30.html#por-qué-usar-r-para-visualizar-datos",
-    "title": "33  ¿Por qué visualizar datos?",
+    "title": "31  ¿Por qué visualizar datos?",
     "section": "",
     "text": "Es gratuito y de código abierto.\nPermite realizar desde la limpieza de datos hasta el análisis estadístico y la visualización en un mismo entorno.\nHace posible reproducir nuestros análisis y compartirlos fácilmente.\nCuenta con miles de paquetes desarrollados por una comunidad muy activa.\nProduce figuras de alta calidad listas para artículos, reportes y presentaciones.",
     "crumbs": [
       "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>33</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
     ]
   },
   {
     "objectID": "Parte30.html#por-qué-ggplot2",
     "href": "Parte30.html#por-qué-ggplot2",
-    "title": "33  ¿Por qué visualizar datos?",
-    "section": "33.2 ¿Por qué ggplot2?",
-    "text": "33.2 ¿Por qué ggplot2?\nEl paquete ggplot2 es una de las herramientas más populares para crear gráficos en R. Basado en la Gramática de los Gráficos, permite construir visualizaciones complejas a partir de componentes simples y consistentes.\nCon ggplot2 podemos:\n\nCrear gráficos claros y estéticamente agradables.\nPersonalizar prácticamente cualquier aspecto de una figura.\nGenerar visualizaciones reproducibles.\nTrabajar con una sintaxis coherente y flexible.\n\nVamos a aprender a transformar datos en visualizaciones que nos ayuden a explorar, entender y comunicar información.",
+    "title": "31  ¿Por qué visualizar datos?",
+    "section": "31.2 ¿Por qué ggplot2?",
+    "text": "31.2 ¿Por qué ggplot2?\nEl paquete ggplot2 es una de las herramientas más populares para crear gráficos en R. Basado en la Gramática de los Gráficos, permite construir visualizaciones complejas a partir de componentes simples y consistentes.\nCon ggplot2 podemos:\n\nCrear gráficos claros y estéticamente agradables.\nPersonalizar prácticamente cualquier aspecto de una figura.\nGenerar visualizaciones reproducibles.\nTrabajar con una sintaxis coherente y flexible.\n\nVamos a aprender a transformar datos en visualizaciones que nos ayuden a explorar, entender y comunicar información.",
     "crumbs": [
       "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>33</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
     ]
   },
   {
     "objectID": "Parte31.html",
     "href": "Parte31.html",
-    "title": "34  La Gramática de los Gráficos (GG)",
+    "title": "32  La Gramática de los Gráficos (GG)",
     "section": "",
-    "text": "34.1 Desglose de las capas comunes\nEmpecemos por lo básico. El paquete ggplot2 se basa en la Gramática de los Gráficos (GG), que es un marco para la visualización de datos que disecciona cada componente de un gráfico en componentes individuales, creando capas distintas. Utilizando el sistema GG, podemos construir gráficos paso a paso para obtener resultados flexibles y personalizables.\nLas capas GG tienen nombres específicos que veremos en las siguientes secciones.\nPara hacer un ggplot, las capas de datos y mapas son requisitos básicos, mientras que las otras capas son para personalización adicional. Las capas que no son necesarias siguen siendo importantes, pero se pueden generar graficos sin ellas.",
+    "text": "32.1 Desglose de las capas comunes\nEmpecemos por lo básico. El paquete ggplot2 se basa en la Gramática de los Gráficos (GG), que es un marco para la visualización de datos que disecciona cada componente de un gráfico en componentes individuales, creando capas distintas. Utilizando el sistema GG, podemos construir gráficos paso a paso para obtener resultados flexibles y personalizables.\nLas capas GG tienen nombres específicos que veremos en las siguientes secciones.\nPara hacer un ggplot, las capas de datos y mapas son requisitos básicos, mientras que las otras capas son para personalización adicional. Las capas que no son necesarias siguen siendo importantes, pero se pueden generar graficos sin ellas.",
     "crumbs": [
       "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>34</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
     ]
   },
   {
     "objectID": "Parte31.html#desglose-de-las-capas-comunes",
     "href": "Parte31.html#desglose-de-las-capas-comunes",
-    "title": "34  La Gramática de los Gráficos (GG)",
+    "title": "32  La Gramática de los Gráficos (GG)",
     "section": "",
     "text": "Datos:\n\nsus datos, en formato tidy o dataframe, proporcionarán los ingredientes para su trazado\nutilice las técnicas dplyr para preparar los datos para un formato de trazado óptimo\npor lo general, esto significa que debe tener una fila por cada observación que desea trazar\n\nEstética (Aesthetics / aes), para hacer visibles los datos\n\nx, y: variable a lo largo de los ejes x e y.\ncolour: color de las variables según los datos.\nfill: color interior de la zona o relleno.\ngroup: a qué grupo pertenece una geom.\nshape: la figura utilizada para trazar un punto.\nlinetype: tipo de línea utilizada (sólida, discontinua, etc.).\nsize: escala de tamaño para una dimensión extra\nalpha: transparencia del objeto geométrico\n\nObjetos geométricos (geoms - determina el tipo de trazado)\n\ngeom_point(): gráfico de dispersión\ngeom_line(): líneas que conectan puntos aumentando el valor de x\ngeom_path(): líneas que conectan puntos en secuencia de aparición\ngeom_boxplot(): gráfico de caja y bigotes para variables categóricas\ngeom_bar(): gráficos de barras para el eje x categórico\ngeom_histogram(): histograma para eje x continuo\ngeom_violin(): núcleo de distribución de la dispersión de datos\ngeom_smooth(): línea de función basada en datos\n\nFacetas:\n\nfacet_wrap() o facet_grid() para múltiplos pequeños\n\nEstadísticas:\n\nsimilar a geoms, pero computada\nmuestran medias, recuentos y otros resúmenes estadísticos de los datos\n\nCoordenadas - ajuste de datos en una página\n\ncoord_cartesian para establecer límites\ncoord_polar para gráficos circulares\ncoord_map para diferentes proyecciones cartográficas\n\nTemas:\n\nparámetros visuales generales\nfuentes, colores, formas, contornos",
     "crumbs": [
       "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>34</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
     ]
   },
   {
     "objectID": "Parte31.html#colocando-las-capas-juntas",
     "href": "Parte31.html#colocando-las-capas-juntas",
-    "title": "34  La Gramática de los Gráficos (GG)",
-    "section": "34.2 Colocando las capas juntas",
-    "text": "34.2 Colocando las capas juntas\nLos pasos básicos para contruir el plot son los siguientes:\n\n\n\n\n\n\nNote\n\n\n\n\nCrear el objeto de plot:\n\n\nplot_object &lt;- ggplot()\n\n\nAgregar la capa geométrica\n\n\nplot_object &lt;- plot_object + geom_*()\n\n\nAgregar las capas de apariencia:\n\n\nplot_object &lt;- plot_object + geom_*() + theme()\n\n\nRepetir pasos 2 y 3 hasta estar satisfechos, luego imprimir:\n\n\nplot_object",
+    "title": "32  La Gramática de los Gráficos (GG)",
+    "section": "32.2 Colocando las capas juntas",
+    "text": "32.2 Colocando las capas juntas\nLos pasos básicos para contruir el plot son los siguientes:\n\n\n\n\n\n\nNote\n\n\n\n\nCrear el objeto de plot:\n\n\nplot_object &lt;- ggplot()\n\n\nAgregar la capa geométrica\n\n\nplot_object &lt;- plot_object + geom_*()\n\n\nAgregar las capas de apariencia:\n\n\nplot_object &lt;- plot_object + geom_*() + theme()\n\n\nRepetir pasos 2 y 3 hasta estar satisfechos, luego imprimir:\n\n\nplot_object",
     "crumbs": [
       "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>34</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
     ]
   },
   {
     "objectID": "Parte31.html#cheatsheet",
     "href": "Parte31.html#cheatsheet",
-    "title": "34  La Gramática de los Gráficos (GG)",
-    "section": "34.3 Cheatsheet",
-    "text": "34.3 Cheatsheet",
+    "title": "32  La Gramática de los Gráficos (GG)",
+    "section": "32.3 Cheatsheet",
+    "text": "32.3 Cheatsheet",
     "crumbs": [
       "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>34</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
     ]
   },
   {
     "objectID": "Parte31.html#referencias",
     "href": "Parte31.html#referencias",
-    "title": "34  La Gramática de los Gráficos (GG)",
-    "section": "34.4 Referencias",
-    "text": "34.4 Referencias\n\nMás información en en el Workshop 3: Introduction to data visualisation with ggplot2\nHaydee tutorial: Seminario de Estadística: Análisis de Datos con R\nTutorial R-Ladies Morelia Reprohack 2024",
+    "title": "32  La Gramática de los Gráficos (GG)",
+    "section": "32.4 Referencias",
+    "text": "32.4 Referencias\n\nMás información en en el Workshop 3: Introduction to data visualisation with ggplot2\nHaydee tutorial: Seminario de Estadística: Análisis de Datos con R\nTutorial R-Ladies Morelia Reprohack 2024",
     "crumbs": [
       "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>34</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
     ]
   },
   {
     "objectID": "Parte32.html",
     "href": "Parte32.html",
-    "title": "35  Básicos de la visualización de datos",
+    "title": "33  Básicos de la visualización de datos",
     "section": "",
-    "text": "35.1 Explorando la estructura de los datos\nVamos a trabajar con un set de datos de pingüinos que se llama palmerpenguins. Pueden encontrar más información sobre este conjunto de datos en la página siguiente:\nEste conjunto de datos contiene las medidas de tres especies de pingüinos de tres islas en el archipiélago Palmer de la Antartica y fueron recolectados entre 2007 y 2009 por el Dr. Kristen Gorman.\nDemos un vistazo las variables que contiene.\nHay variables tanto de tipo factor como numéricas. Las variables de tipo factor nos pueden servir para encontrar grupos al momento de usar ggplot con las capas de los aesthetics.\nggplot2 necesita que los datos sean de la clase data.frame o tibble. Vamos a verificar la clase que tiene la base de datos.\nComo ya mencionamos, los plots nos pueden ayudar para responder algunas preguntas, por ejemplo:\nUna forma rápida de tener un vistazo a los datos es usar ggpairs() del paquete GGally.\nCode\nlibrary(GGally)\nggpairs(penguins, aes(colour = species), progress = FALSE) +\n  theme_bw()",
+    "text": "33.1 Explorando la estructura de los datos\nVamos a trabajar con un set de datos de pingüinos que se llama palmerpenguins. Pueden encontrar más información sobre este conjunto de datos en la página siguiente:\nEste conjunto de datos contiene las medidas de tres especies de pingüinos de tres islas en el archipiélago Palmer de la Antartica y fueron recolectados entre 2007 y 2009 por el Dr. Kristen Gorman.\nDemos un vistazo las variables que contiene.\nHay variables tanto de tipo factor como numéricas. Las variables de tipo factor nos pueden servir para encontrar grupos al momento de usar ggplot con las capas de los aesthetics.\nggplot2 necesita que los datos sean de la clase data.frame o tibble. Vamos a verificar la clase que tiene la base de datos.\nComo ya mencionamos, los plots nos pueden ayudar para responder algunas preguntas, por ejemplo:\nUna forma rápida de tener un vistazo a los datos es usar ggpairs() del paquete GGally.\nCode\nlibrary(GGally)\nggpairs(penguins, aes(colour = species), progress = FALSE) +\n  theme_bw()",
     "crumbs": [
       "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Básicos de la visualización de datos</span>"
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Básicos de la visualización de datos</span>"
     ]
   },
   {
     "objectID": "Parte33.html",
     "href": "Parte33.html",
-    "title": "36  Construyendo gráficas capa por capa",
+    "title": "34  Construyendo gráficas capa por capa",
     "section": "",
-    "text": "36.1 Primera capa: los datos\nUna de las ideas más poderosas de ggplot2 es que las gráficas se construyen agregando capas. Comenzamos con los datos, después indicamos qué variables queremos representar y finalmente elegimos cómo mostrar la información.\nPrimero cargamos el paquete de ggplot2\nToda gráfica comienza indicando qué conjunto de datos utilizaremos.\nCode\nggplot(data = penguins)\nTodavía no aparece ninguna figura, porque aún no hemos especificado qué variables queremos representar.",
+    "text": "34.1 Primera capa: los datos\nUna de las ideas más poderosas de ggplot2 es que las gráficas se construyen agregando capas. Comenzamos con los datos, después indicamos qué variables queremos representar y finalmente elegimos cómo mostrar la información.\nPrimero cargamos el paquete de ggplot2\nToda gráfica comienza indicando qué conjunto de datos utilizaremos.\nCode\nggplot(data = penguins)\nTodavía no aparece ninguna figura, porque aún no hemos especificado qué variables queremos representar.",
     "crumbs": [
       "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
     ]
   },
   {
     "objectID": "Parte33.html#segunda-capa-las-estéticas",
     "href": "Parte33.html#segunda-capa-las-estéticas",
-    "title": "36  Construyendo gráficas capa por capa",
-    "section": "36.2 Segunda capa: las estéticas",
-    "text": "36.2 Segunda capa: las estéticas\nLas estéticas (aes) indican qué variables del conjunto de datos estarán asociadas a los ejes, colores, tamaños, etc.\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n)\n\n\n\n\n\n\n\n\n\nAunque ya definimos los ejes, todavía falta indicar cómo representar los datos.",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
-    ]
+    "title": "34  Construyendo gráficas capa por capa",
+    "section": "34.2 Segunda capa: las estéticas",
+    "text": "34.2 Segunda capa: las estéticas\nLas estéticas (aes) indican qué variables del conjunto de datos estarán asociadas a los ejes, colores, tamaños, etc.\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n)\n\n\n\n\n\nAunque ya definimos los ejes, todavía falta indicar cómo representar los datos."
   },
   {
     "objectID": "Parte33.html#tercera-capa-la-geometría",
     "href": "Parte33.html#tercera-capa-la-geometría",
-    "title": "36  Construyendo gráficas capa por capa",
-    "section": "36.3 Tercera capa: la geometría",
-    "text": "36.3 Tercera capa: la geometría\nLas geometrías (geom_) determinan el tipo de gráfico. Para dos variables numéricas, una opción es un diagrama de dispersión (no es una regla).\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nAhora cada observación se representa mediante un punto.",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
-    ]
+    "title": "34  Construyendo gráficas capa por capa",
+    "section": "34.3 Tercera capa: la geometría",
+    "text": "34.3 Tercera capa: la geometría\nLas geometrías (geom_) determinan el tipo de gráfico. Para dos variables numéricas, una opción es un diagrama de dispersión (no es una regla).\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point()\n\n\n\n\n\nAhora cada observación se representa mediante un punto."
   },
   {
     "objectID": "Parte33.html#cuarta-capa-agregar-color",
     "href": "Parte33.html#cuarta-capa-agregar-color",
-    "title": "36  Construyendo gráficas capa por capa",
-    "section": "36.4 Cuarta capa: agregar color",
-    "text": "36.4 Cuarta capa: agregar color\nPodemos incorporar una variable categórica para distinguir grupos.\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nLos colores permiten identificar las diferentes especies de pingüinos.",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
-    ]
+    "title": "34  Construyendo gráficas capa por capa",
+    "section": "34.4 Cuarta capa: agregar color",
+    "text": "34.4 Cuarta capa: agregar color\nPodemos incorporar una variable categórica para distinguir grupos.\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point()\n\n\n\n\n\nLos colores permiten identificar las diferentes especies de pingüinos."
   },
   {
     "objectID": "Parte33.html#quinta-capa-modificar-la-apariencia",
     "href": "Parte33.html#quinta-capa-modificar-la-apariencia",
-    "title": "36  Construyendo gráficas capa por capa",
-    "section": "36.5 Quinta capa: modificar la apariencia",
-    "text": "36.5 Quinta capa: modificar la apariencia\nLas capas también permiten cambiar propiedades visuales.\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7)\n\n\n\n\n\n\n\n\n\n\nsize controla el tamaño de los puntos.\nalpha controla la transparencia.",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
-    ]
+    "title": "34  Construyendo gráficas capa por capa",
+    "section": "34.5 Quinta capa: modificar la apariencia",
+    "text": "34.5 Quinta capa: modificar la apariencia\nLas capas también permiten cambiar propiedades visuales.\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7)\n\n\n\n\n\n\nsize controla el tamaño de los puntos.\nalpha controla la transparencia."
   },
   {
     "objectID": "Parte33.html#sexta-capa-etiquetas",
     "href": "Parte33.html#sexta-capa-etiquetas",
-    "title": "36  Construyendo gráficas capa por capa",
-    "section": "36.6 Sexta capa: etiquetas",
-    "text": "36.6 Sexta capa: etiquetas\nUna gráfica debe ser fácil de interpretar. Podemos añadir títulos y etiquetas a los ejes.\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  )",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
-    ]
+    "title": "34  Construyendo gráficas capa por capa",
+    "section": "34.6 Sexta capa: etiquetas",
+    "text": "34.6 Sexta capa: etiquetas\nUna gráfica debe ser fácil de interpretar. Podemos añadir títulos y etiquetas a los ejes.\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  )"
   },
   {
     "objectID": "Parte33.html#séptima-capa-temas",
     "href": "Parte33.html#séptima-capa-temas",
-    "title": "36  Construyendo gráficas capa por capa",
-    "section": "36.7 Séptima capa: temas",
-    "text": "36.7 Séptima capa: temas\nFinalmente, podemos modificar la apariencia general de la figura.\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipLa idea principal\n\n\n\nEn ggplot2, una gráfica se construye sumando capas:\nggplot(datos)} + aes() + geom_() +otras capas\nCada nueva capa añade información o modifica la apariencia de la figura, permitiendo construir visualizaciones complejas de manera gradual.\n\n\n\n\n\n\n\n\nNoteEjercicio\n\n\n\nRealiza un plot para tratar de responder a las siguientes preguntas:\n¿Existe alguna relación entre la longitud del pico y la longitud de la aleta?\n¿La longitud del pico incrementa con la longitud de la aleta?\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
-    ]
+    "title": "34  Construyendo gráficas capa por capa",
+    "section": "34.7 Séptima capa: temas",
+    "text": "34.7 Séptima capa: temas\nFinalmente, podemos modificar la apariencia general de la figura.\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nLa idea principal\n\n\n\nEn ggplot2, una gráfica se construye sumando capas:\nggplot(datos)} + aes() + geom_() +otras capas\nCada nueva capa añade información o modifica la apariencia de la figura, permitiendo construir visualizaciones complejas de manera gradual.\n\n\n\n\n\n\n\n\nEjercicio\n\n\n\nRealiza un plot para tratar de responder a las siguientes preguntas:\n¿Existe alguna relación entre la longitud del pico y la longitud de la aleta?\n¿La longitud del pico incrementa con la longitud de la aleta?\n\n\n\n\n\n\nSolución\n\n\n\n\n\n\n\nCode\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()"
   },
   {
     "objectID": "Parte34.html",
     "href": "Parte34.html",
-    "title": "37  Estéticas y escalas en ggplot2",
+    "title": "35  Estéticas y escalas en ggplot2",
     "section": "",
-    "text": "37.1 ¿Qué son las estéticas?\nAdemás de elegir el tipo de gráfica, podemos utilizar propiedades visuales para representar información adicional. Estas propiedades reciben el nombre de estéticas (aesthetics) y permiten asociar variables con colores, formas, tamaños o transparencia.\nLas estéticas establecen una correspondencia entre las variables del conjunto de datos y características visuales de la gráfica.\nLas más comunes son:\nPor ejemplo:\nCode\nlibrary(ggplot2)\n\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\nEn este caso, el color está determinado por la variable species.",
+    "text": "35.1 ¿Qué son las estéticas?\nAdemás de elegir el tipo de gráfica, podemos utilizar propiedades visuales para representar información adicional. Estas propiedades reciben el nombre de estéticas (aesthetics) y permiten asociar variables con colores, formas, tamaños o transparencia.\nLas estéticas establecen una correspondencia entre las variables del conjunto de datos y características visuales de la gráfica.\nLas más comunes son:\nPor ejemplo:\nCode\nlibrary(ggplot2)\n\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\nEn este caso, el color está determinado por la variable species.",
     "crumbs": [
       "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
     ]
   },
   {
     "objectID": "Parte34.html#qué-son-las-estéticas",
     "href": "Parte34.html#qué-son-las-estéticas",
-    "title": "37  Estéticas y escalas en ggplot2",
-    "section": "",
-    "text": "x y y: posición en los ejes.\ncolor: color de puntos o líneas.\nshape: forma de los puntos.\nsize: tamaño.\nalpha: transparencia.",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
-    ]
+    "title": "35  Estéticas y escalas en ggplot2",
+    "section": "35.1 ¿Qué son las estéticas?",
+    "text": "35.1 ¿Qué son las estéticas?\nLas estéticas establecen una correspondencia entre las variables del conjunto de datos y características visuales de la gráfica.\nLas más comunes son:\n\nx y y: posición en los ejes.\ncolor: color de puntos o líneas.\nshape: forma de los puntos.\nsize: tamaño.\nalpha: transparencia.\n\nPor ejemplo:\n\n\nCode\nlibrary(ggplot2)\n\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\nEn este caso, el color está determinado por la variable species."
   },
   {
     "objectID": "Parte34.html#colores",
     "href": "Parte34.html#colores",
-    "title": "37  Estéticas y escalas en ggplot2",
-    "section": "37.2 Colores",
-    "text": "37.2 Colores\nEl color es una de las estéticas más útiles en una gráfica. Nos permite:\n\ndistinguir grupos;\nrepresentar valores numéricos;\nresaltar patrones;\nmejorar la comunicación visual.\n\nEn ggplot2, el color puede usarse de dos formas principales:\n\nComo una estética mapeada a una variable, dentro de aes().\nComo una propiedad fija, fuera de aes().\n\n\n\nCode\nlibrary(dplyr)\n\n\n\n37.2.1 Color como estética\nCuando colocamos color dentro de aes(), le estamos diciendo a ggplot2 que el color depende de una variable del conjunto de datos.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nEn este caso, cada especie aparece con un color diferente. Esto facilita comparar si las especies se agrupan de manera distinta según la longitud del pico y la longitud de la aleta.\nTambién podemos agregar una tendencia por especie:\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  geom_smooth(method = \"lm\") +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nAquí el color no solamente afecta a los puntos, sino también a las líneas de tendencia.\n\n\n37.2.2 Color fijo\nSi queremos que todos los puntos tengan el mismo color, el argumento debe ir fuera de aes().\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len\n  )\n) +\n  geom_point(size = 2, alpha = 0.7, color = \"steelblue\") +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nDentro de aes() usamos variables del conjunto de datos.\nFuera de aes() usamos valores fijos.\n\n\n\n\n37.2.3 Guardar una gráfica como objeto\nUna práctica común es guardar una gráfica base y después agregarle nuevas capas.\n\n\nCode\np_penguins &lt;- ggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.8) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  )\n\np_penguins\n\n\n\n\n\n\n\n\n\nAhora podemos reutilizar p_penguins y modificar únicamente la escala de color.\n\n\n37.2.4 Cambiar colores manualmente\nPor defecto, ggplot2 asigna colores automáticamente. Sin embargo, podemos elegir colores específicos con scale_color_manual().\n\n\nCode\np_penguins +\n  scale_color_manual(\n    values = c(\n      \"Adelie\" = \"grey40\",\n      \"Chinstrap\" = \"orange\",\n      \"Gentoo\" = \"skyblue\"\n    )\n  )\n\n\n\n\n\n\n\n\n\nEsto es útil cuando queremos usar colores más contrastantes o una paleta específica.\n\n\n\n\n\n\nNote\n\n\n\nTambién existe scale_fill_manual(), que se usa cuando la estética es fill, por ejemplo en barras, histogramas, diagramas de caja o violines.\n\n\n\n\n37.2.5 Color para variables numéricas\nEl color no solamente sirve para variables categóricas. También puede representar variables numéricas.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nEn este caso, el color representa una escala continua: pingüinos con menor o mayor masa corporal.\n\n\n37.2.6 Gradientes de color\nPodemos controlar el gradiente usando scale_color_gradient().\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"lightblue\",\n    high = \"darkblue\"\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nTambién podemos usar una transformación, por ejemplo log10, si los valores tienen una escala muy desigual.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = log10(body_mass)\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"blue\",\n    high = \"red\"\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"log10(masa corporal)\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n37.2.7 Gradientes con punto medio\nCuando queremos mostrar valores por debajo y por encima de un punto de referencia, podemos usar scale_color_gradient2().\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient2(\n    low = \"blue\",\n    mid = \"white\",\n    high = \"red\",\n    midpoint = mean(penguins$body_mass, na.rm = TRUE)\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nEste tipo de escala es útil cuando hay un valor central importante, por ejemplo cero, un promedio o una referencia biológica.\n\n\n37.2.8 Usar paletas de colores\nEn lugar de elegir colores manualmente, podemos usar paletas ya diseñadas.\nUna opción común es el paquete RColorBrewer.\n\n\nCode\nlibrary(RColorBrewer)\n\ndisplay.brewer.all()\n\n\n\n\n\n\n\n\n\nPara una variable categórica, podemos usar scale_color_brewer().\n\n\nCode\np_penguins +\n  scale_color_brewer(palette = \"Dark2\")\n\n\n\n\n\n\n\n\n\n\n\n37.2.9 Paletas viridis\nLas paletas viridis son muy útiles porque suelen funcionar bien en escala de grises y son más accesibles para personas con distintos tipos de daltonismo.\nPara variables categóricas usamos scale_color_viridis_d().\n\n\nCode\np_penguins +\n  scale_color_viridis_d()\n\n\n\n\n\n\n\n\n\nLa d viene de discrete, porque species es una variable categórica.\nPara variables continuas usamos scale_color_viridis_c().\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_viridis_c() +\n  labs(\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nLa c viene de continuous, porque body_mass es una variable numérica.\n\n\n\n\n\n\nTip\n\n\n\nComo regla práctica:\n\nusa scale_color_viridis_d() para grupos o categorías;\nusa scale_color_viridis_c() para variables numéricas continuas.\n\n\n\n\n\n37.2.10 Escala de grises\nA veces necesitamos figuras que funcionen bien impresas en blanco y negro.\nPara variables categóricas:\n\n\nCode\np_penguins +\n  scale_color_grey()\n\n\n\n\n\n\n\n\n\nPara variables continuas:\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"grey85\",\n    high = \"black\"\n  ) +\n  labs(\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n37.2.11 Una nota sobre accesibilidad\nNo todas las combinaciones de colores son igualmente fáciles de interpretar. Algunas paletas pueden ser confusas para personas con daltonismo o pueden perder información al imprimirse en escala de grises.\nPor eso, cuando la gráfica sea para comunicación pública, artículos o presentaciones, conviene usar paletas accesibles como viridis.\n\n\nCode\np_penguins +\n  scale_color_viridis_d() +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    subtitle = \"Colores por especie usando una paleta accesible\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nEl color puede usarse para comunicar distintos tipos de información:\n\n\n\n\n\n\n\nObjetivo\nFunción útil\n\n\n\n\nAsignar color por grupo\naes(color = variable)\n\n\nUsar un color fijo\ngeom_point(color = \"steelblue\")\n\n\nElegir colores manualmente\nscale_color_manual()\n\n\nRepresentar una variable numérica\naes(color = variable_numerica)\n\n\nCrear un gradiente\nscale_color_gradient()\n\n\nUsar un gradiente con punto medio\nscale_color_gradient2()\n\n\nUsar paletas predefinidas\nscale_color_brewer()\n\n\nUsar paletas accesibles\nscale_color_viridis_d() / scale_color_viridis_c()\n\n\nUsar escala de grises\nscale_color_grey()\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nUna página que contiene muchas paletas de colores y varias paletas accesibles es la siguietne:\nhttps://r-charts.com/color-palettes/",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
-    ]
+    "title": "35  Estéticas y escalas en ggplot2",
+    "section": "35.2 Colores",
+    "text": "35.2 Colores\nEl color es una de las estéticas más útiles en una gráfica. Nos permite:\n\ndistinguir grupos;\nrepresentar valores numéricos;\nresaltar patrones;\nmejorar la comunicación visual.\n\nEn ggplot2, el color puede usarse de dos formas principales:\n\nComo una estética mapeada a una variable, dentro de aes().\nComo una propiedad fija, fuera de aes().\n\n\n\nCode\nlibrary(dplyr)\n\n\n\n35.2.1 Color como estética\nCuando colocamos color dentro de aes(), le estamos diciendo a ggplot2 que el color depende de una variable del conjunto de datos.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\nEn este caso, cada especie aparece con un color diferente. Esto facilita comparar si las especies se agrupan de manera distinta según la longitud del pico y la longitud de la aleta.\nTambién podemos agregar una tendencia por especie:\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  geom_smooth(method = \"lm\") +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\nAquí el color no solamente afecta a los puntos, sino también a las líneas de tendencia.\n\n\n35.2.2 Color fijo\nSi queremos que todos los puntos tengan el mismo color, el argumento debe ir fuera de aes().\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len\n  )\n) +\n  geom_point(size = 2, alpha = 0.7, color = \"steelblue\") +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nDentro de aes() usamos variables del conjunto de datos.\nFuera de aes() usamos valores fijos.\n\n\n\n\n35.2.3 Guardar una gráfica como objeto\nUna práctica común es guardar una gráfica base y después agregarle nuevas capas.\n\n\nCode\np_penguins &lt;- ggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.8) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  )\n\np_penguins\n\n\n\n\n\nAhora podemos reutilizar p_penguins y modificar únicamente la escala de color.\n\n\n35.2.4 Cambiar colores manualmente\nPor defecto, ggplot2 asigna colores automáticamente. Sin embargo, podemos elegir colores específicos con scale_color_manual().\n\n\nCode\np_penguins +\n  scale_color_manual(\n    values = c(\n      \"Adelie\" = \"grey40\",\n      \"Chinstrap\" = \"orange\",\n      \"Gentoo\" = \"skyblue\"\n    )\n  )\n\n\n\n\n\nEsto es útil cuando queremos usar colores más contrastantes o una paleta específica.\n\n\n\n\n\n\nNote\n\n\n\nTambién existe scale_fill_manual(), que se usa cuando la estética es fill, por ejemplo en barras, histogramas, diagramas de caja o violines.\n\n\n\n\n35.2.5 Color para variables numéricas\nEl color no solamente sirve para variables categóricas. También puede representar variables numéricas.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\nEn este caso, el color representa una escala continua: pingüinos con menor o mayor masa corporal.\n\n\n35.2.6 Gradientes de color\nPodemos controlar el gradiente usando scale_color_gradient().\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"lightblue\",\n    high = \"darkblue\"\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\nTambién podemos usar una transformación, por ejemplo log10, si los valores tienen una escala muy desigual.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = log10(body_mass)\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"blue\",\n    high = \"red\"\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"log10(masa corporal)\"\n  )\n\n\n\n\n\n\n\n35.2.7 Gradientes con punto medio\nCuando queremos mostrar valores por debajo y por encima de un punto de referencia, podemos usar scale_color_gradient2().\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient2(\n    low = \"blue\",\n    mid = \"white\",\n    high = \"red\",\n    midpoint = mean(penguins$body_mass, na.rm = TRUE)\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\nEste tipo de escala es útil cuando hay un valor central importante, por ejemplo cero, un promedio o una referencia biológica.\n\n\n35.2.8 Usar paletas de colores\nEn lugar de elegir colores manualmente, podemos usar paletas ya diseñadas.\nUna opción común es el paquete RColorBrewer.\n\n\nCode\nlibrary(RColorBrewer)\n\ndisplay.brewer.all()\n\n\n\n\n\nPara una variable categórica, podemos usar scale_color_brewer().\n\n\nCode\np_penguins +\n  scale_color_brewer(palette = \"Dark2\")\n\n\n\n\n\n\n\n35.2.9 Paletas viridis\nLas paletas viridis son muy útiles porque suelen funcionar bien en escala de grises y son más accesibles para personas con distintos tipos de daltonismo.\nPara variables categóricas usamos scale_color_viridis_d().\n\n\nCode\np_penguins +\n  scale_color_viridis_d()\n\n\n\n\n\nLa d viene de discrete, porque species es una variable categórica.\nPara variables continuas usamos scale_color_viridis_c().\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_viridis_c() +\n  labs(\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\nLa c viene de continuous, porque body_mass es una variable numérica.\n\n\n\n\n\n\nTip\n\n\n\nComo regla práctica:\n\nusa scale_color_viridis_d() para grupos o categorías;\nusa scale_color_viridis_c() para variables numéricas continuas.\n\n\n\n\n\n35.2.10 Escala de grises\nA veces necesitamos figuras que funcionen bien impresas en blanco y negro.\nPara variables categóricas:\n\n\nCode\np_penguins +\n  scale_color_grey()\n\n\n\n\n\nPara variables continuas:\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"grey85\",\n    high = \"black\"\n  ) +\n  labs(\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n35.2.11 Una nota sobre accesibilidad\nNo todas las combinaciones de colores son igualmente fáciles de interpretar. Algunas paletas pueden ser confusas para personas con daltonismo o pueden perder información al imprimirse en escala de grises.\nPor eso, cuando la gráfica sea para comunicación pública, artículos o presentaciones, conviene usar paletas accesibles como viridis.\n\n\nCode\np_penguins +\n  scale_color_viridis_d() +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    subtitle = \"Colores por especie usando una paleta accesible\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  ) +\n  theme_minimal()\n\n\n\n\n\nEl color puede usarse para comunicar distintos tipos de información:\n\n\n\n\n\n\n\nObjetivo\nFunción útil\n\n\n\n\nAsignar color por grupo\naes(color = variable)\n\n\nUsar un color fijo\ngeom_point(color = \"steelblue\")\n\n\nElegir colores manualmente\nscale_color_manual()\n\n\nRepresentar una variable numérica\naes(color = variable_numerica)\n\n\nCrear un gradiente\nscale_color_gradient()\n\n\nUsar un gradiente con punto medio\nscale_color_gradient2()\n\n\nUsar paletas predefinidas\nscale_color_brewer()\n\n\nUsar paletas accesibles\nscale_color_viridis_d() / scale_color_viridis_c()\n\n\nUsar escala de grises\nscale_color_grey()\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nUna página que contiene muchas paletas de colores y varias paletas accesibles es la siguietne:\nhttps://r-charts.com/color-palettes/\n\n\n\n\n35.2.12 Revisar accesibilidad de colores\nComo ya mencionamos, además de elegir una paleta agradable, es importante verificar que los colores sean distinguibles para personas con distintas formas de daltonismo. Una forma sencilla de hacerlo es con la función cvdPlot().\nLa función cvdPlot() permite visualizar cómo se vería una gráfica bajo distintas condiciones de deficiencia en la visión del color.\n\n\nCode\nif (!\"colorBlindness\" %in% installed.packages()) {\n  install.packages(\"colorBlindness\")\n}\n\nlibrary(colorBlindness)\n\n\nWarning: package 'colorBlindness' was built under R version 4.5.3\n\n\nPrimero construimos una gráfica usando una paleta accesible, como viridis.\n\n\nCode\npp2_viridis &lt;- p_penguins +\n  scale_color_viridis_d() +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    subtitle = \"Colores por especie usando una paleta accesible\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  ) +\n  theme_minimal()\n\npp2_viridis\n\n\n\n\n\nAhora usamos cvdPlot() para simular cómo se vería la misma gráfica para personas con distintos tipos de deficiencia en la visión del color.\n\n\nCode\ncvdPlot(pp2_viridis)\n\n\n\n\n\nLa salida muestra varias versiones de la gráfica. Esto nos ayuda a revisar si los grupos siguen siendo distinguibles aun cuando cambia la percepción del color.\n\n\n\n\n\n\nNota\n\n\n\nLas paletas viridis suelen ser una buena opción porque fueron diseñadas para ser perceptualmente uniformes y más accesibles para personas con daltonismo.\n\n\nVeamos solo un ejemplo de una paleta no accesible.\n\n\nCode\np_penguins\n\n\n\n\n\nUsando cvdPlot vemos que estos plots no son visualemente accesibles.\n\n\nCode\ncvdPlot(p_penguins)"
   },
   {
     "objectID": "Parte34.html#forma-de-los-puntos",
     "href": "Parte34.html#forma-de-los-puntos",
-    "title": "37  Estéticas y escalas en ggplot2",
-    "section": "37.3 Forma de los puntos",
-    "text": "37.3 Forma de los puntos\nLa estética shape permite distinguir grupos mediante símbolos diferentes.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    shape = species\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nIncluso podemos combinar color y forma:\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species,\n    shape = species\n  )\n) +\n  geom_point()",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
-    ]
+    "title": "35  Estéticas y escalas en ggplot2",
+    "section": "35.3 Forma de los puntos",
+    "text": "35.3 Forma de los puntos\nLa estética shape permite distinguir grupos mediante símbolos diferentes.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    shape = species\n  )\n) +\n  geom_point()\n\n\n\n\n\nIncluso podemos combinar color y forma:\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species,\n    shape = species\n  )\n) +\n  geom_point()\n\n\n\n\n\nEs el equivalente al parámetro pch de los gráficos base de R. Para cambiarlo, usamos shape = n, donde n es un número entre 0 y 25. Algunos de los símbolos disponibles se muestran a continuación."
   },
   {
     "objectID": "Parte34.html#tamaño",
     "href": "Parte34.html#tamaño",
-    "title": "37  Estéticas y escalas en ggplot2",
-    "section": "37.4 Tamaño",
-    "text": "37.4 Tamaño\nLa estética size es especialmente útil para variables numéricas.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    size = body_mass\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nLos pingüinos con mayor masa corporal aparecen representados por puntos más grandes.\nTambién podemos fijar un tamaño constante:\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(size = 3)",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
-    ]
+    "title": "35  Estéticas y escalas en ggplot2",
+    "section": "35.4 Tamaño",
+    "text": "35.4 Tamaño\nLa estética size es especialmente útil para variables numéricas.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    size = body_mass\n  )\n) +\n  geom_point()\n\n\n\n\n\nLos pingüinos con mayor masa corporal aparecen representados por puntos más grandes.\nTambién podemos fijar un tamaño constante:\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(size = 3)"
   },
   {
     "objectID": "Parte34.html#transparencia",
     "href": "Parte34.html#transparencia",
-    "title": "37  Estéticas y escalas en ggplot2",
-    "section": "37.5 Transparencia",
-    "text": "37.5 Transparencia\nLa transparencia se controla mediante el parámetro alpha, cuyos valores están entre 0 y 1.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(alpha = 0.4)\n\n\n\n\n\n\n\n\n\nValores pequeños producen puntos más transparentes.\nLa transparencia es útil cuando existen muchos datos y varios puntos se superponen.",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
-    ]
+    "title": "35  Estéticas y escalas en ggplot2",
+    "section": "35.5 Transparencia",
+    "text": "35.5 Transparencia\nLa transparencia se controla mediante el parámetro alpha, cuyos valores están entre 0 y 1.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(alpha = 0.4)\n\n\n\n\n\nValores pequeños producen puntos más transparentes.\nLa transparencia es útil cuando existen muchos datos y varios puntos se superponen."
   },
   {
     "objectID": "Parte34.html#combinando-varias-estéticas",
     "href": "Parte34.html#combinando-varias-estéticas",
-    "title": "37  Estéticas y escalas en ggplot2",
-    "section": "37.6 Combinando varias estéticas",
-    "text": "37.6 Combinando varias estéticas\nPodemos utilizar varias estéticas simultáneamente.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species,\n    shape = species,\n    size = body_mass\n  )\n) +\n  geom_point(alpha = 0.7)\n\n\n\n\n\n\n\n\n\nCada estética añade una dimensión adicional de información.",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
-    ]
+    "title": "35  Estéticas y escalas en ggplot2",
+    "section": "35.7 Combinando varias estéticas",
+    "text": "35.7 Combinando varias estéticas\nPodemos utilizar varias estéticas simultáneamente.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species,\n    shape = species,\n    size = body_mass\n  )\n) +\n  geom_point(alpha = 0.7)\n\n\n\n\n\nCada estética añade una dimensión adicional de información."
   },
   {
     "objectID": "Parte34.html#escalas-de-los-ejes",
     "href": "Parte34.html#escalas-de-los-ejes",
-    "title": "37  Estéticas y escalas en ggplot2",
-    "section": "37.7 Escalas de los ejes",
-    "text": "37.7 Escalas de los ejes\nEn ocasiones es necesario modificar los límites o las marcas de los ejes.\n\n37.7.1 Cambiar los límites\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  xlim(30, 60) +\n  ylim(12, 22)\n\n\n\n\n\n\n\n\n\n\n\n37.7.2 Utilizando scale_x_continuous()\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  scale_x_continuous(\n    limits = c(30, 60),\n    breaks = seq(30,60,5)\n  )\n\n\n\n\n\n\n\n\n\nAquí:\n\nlimits controla el intervalo mostrado.\nbreaks determina las marcas del eje.\n\n\n\n37.7.3 Modificando ambos ejes\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  scale_x_continuous(\n    breaks = seq(30,60,5)\n  ) +\n  scale_y_continuous(\n    breaks = seq(12,22,2)\n  )",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
-    ]
+    "title": "35  Estéticas y escalas en ggplot2",
+    "section": "35.8 Escalas de los ejes",
+    "text": "35.8 Escalas de los ejes\nEn ocasiones es necesario modificar los límites o las marcas de los ejes.\n\n35.8.1 Cambiar los límites\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  xlim(30, 60) +\n  ylim(12, 22)\n\n\n\n\n\n\n\n35.8.2 Utilizando scale_x_continuous()\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  scale_x_continuous(\n    limits = c(30, 60),\n    breaks = seq(30,60,5)\n  )\n\n\n\n\n\nAquí:\n\nlimits controla el intervalo mostrado.\nbreaks determina las marcas del eje.\n\n\n\n35.8.3 Modificando ambos ejes\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  scale_x_continuous(\n    breaks = seq(30,60,5)\n  ) +\n  scale_y_continuous(\n    breaks = seq(12,22,2)\n  )"
   },
   {
     "objectID": "Parte34.html#resumen",
     "href": "Parte34.html#resumen",
-    "title": "37  Estéticas y escalas en ggplot2",
-    "section": "37.8 Resumen",
-    "text": "37.8 Resumen\nLas estéticas permiten representar información mediante propiedades visuales:\n\n\n\nEstética\nRepresenta\n\n\n\n\nx, y\nPosición\n\n\ncolor\nColor\n\n\nshape\nForma\n\n\nsize\nTamaño\n\n\nalpha\nTransparencia\n\n\n\nLas escalas permiten controlar cómo se muestran los valores sobre los ejes y cómo se traducen las variables a elementos visuales.\nEn conjunto, las estéticas y las escalas hacen posible construir gráficas más informativas y fáciles de interpretar.",
-    "crumbs": [
-      "**Sección 6** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
-    ]
+    "title": "35  Estéticas y escalas en ggplot2",
+    "section": "35.9 Resumen",
+    "text": "35.9 Resumen\nLas estéticas permiten representar información mediante propiedades visuales:\n\n\n\nEstética\nRepresenta\n\n\n\n\nx, y\nPosición\n\n\ncolor\nColor\n\n\nshape\nForma\n\n\nsize\nTamaño\n\n\nalpha\nTransparencia\n\n\n\nLas escalas permiten controlar cómo se muestran los valores sobre los ejes y cómo se traducen las variables a elementos visuales.\nEn conjunto, las estéticas y las escalas hacen posible construir gráficas más informativas y fáciles de interpretar."
+  },
+  {
+    "objectID": "Parte34.html#tipo-de-línea",
+    "href": "Parte34.html#tipo-de-línea",
+    "title": "35  Estéticas y escalas en ggplot2",
+    "section": "35.6 Tipo de línea",
+    "text": "35.6 Tipo de línea\nlinetype: cambia el tipo de línea, por ejemplo, de sólida a punteada. Es el equivalente al parámetro lty de los gráficos base. Podemos especificar el tipo de línea mediante nombres (“solid”, “dashed”, “dotted”, “dotdash”, “longdash”, “twodash”) o mediante números del 0 al 6."
+  },
+  {
+    "objectID": "Parte37.html#facet_wrap",
+    "href": "Parte37.html#facet_wrap",
+    "title": "38  Facetas",
+    "section": "38.1 facet_wrap()",
+    "text": "38.1 facet_wrap()\nLa función facet_wrap() divide la gráfica según una sola variable categórica y organiza automáticamente los paneles en filas y columnas.\nPor ejemplo, podemos crear una gráfica para cada isla:\n\n\nCode\np +\n  facet_wrap(~ island)\n\n\n\n\n\nCada panel contiene únicamente los pingüinos correspondientes a una isla.\nTambién podemos controlar el número de columnas:\n\n\nCode\np +\n  facet_wrap(~ species, ncol = 1)\n\n\n\n\n\nEn este caso obtenemos una gráfica para cada especie, acomodadas en una sola columna.\n\n\n\n\n\n\nNota\n\n\n\nfacet_wrap() es útil cuando queremos dividir los datos según una sola variable."
+  },
+  {
+    "objectID": "Parte37.html#facet_grid",
+    "href": "Parte37.html#facet_grid",
+    "title": "38  Facetas",
+    "section": "38.2 facet_grid()",
+    "text": "38.2 facet_grid()\nLa función facet_grid() permite organizar los paneles en una cuadrícula determinada por dos variables. Una variable define las filas y la otra las columnas.\nPor ejemplo, podemos separar por sexo y por isla:\n\n\nCode\np +\n  facet_grid(sex ~ island)\n\n\n\n\n\nAquí:\n\nlas filas corresponden al sexo;\nlas columnas corresponden a la isla.\n\nCada panel muestra únicamente las observaciones que pertenecen a esa combinación de categorías.\nTambién es posible utilizar una sola dimensión y dejar que la escala del eje \\(y\\) cambie entre las facetas:\n\n\nCode\np +\n  facet_grid(~ island, scales = \"free\")\n\n\n\n\n\nlo cual produce una fila con una columna por isla.\nO bien,\n\n\nCode\np +\n  facet_grid(species ~ .)\n\n\n\n\n\npara obtener una columna con una fila por especie.\n\n\n\n\n\n\n¿Cuándo usar cada una?\n\n\n\n\nfacet_wrap() se utiliza cuando queremos dividir los datos según una sola variable y dejar que ggplot2 organice automáticamente los paneles.\nfacet_grid() es útil cuando queremos comparar simultáneamente dos variables categóricas, una en las filas y otra en las columnas."
+  },
+  {
+    "objectID": "Parte33.html#primera-capa-los-datos",
+    "href": "Parte33.html#primera-capa-los-datos",
+    "title": "34  Construyendo gráficas capa por capa",
+    "section": "34.1 Primera capa: los datos",
+    "text": "34.1 Primera capa: los datos\nToda gráfica comienza indicando qué conjunto de datos utilizaremos.\n\n\nCode\nggplot(data = penguins)\n\n\n\n\n\nTodavía no aparece ninguna figura, porque aún no hemos especificado qué variables queremos representar."
+  },
+  {
+    "objectID": "Parte36.html#temas-predefinidos",
+    "href": "Parte36.html#temas-predefinidos",
+    "title": "37  Temas en ggplot2",
+    "section": "37.1 Temas predefinidos",
+    "text": "37.1 Temas predefinidos\nggplot2 tiene varios temas predefinidos. Todos contienen la misma información, pero cambia la presentación visual.\n\n\nCode\np + theme_gray()\n\n\n\n\n\nCode\np + theme_light()\n\n\n\n\n\nCode\np + theme_dark()\n\n\n\n\n\nCode\np + theme_minimal()\n\n\n\n\n\nCode\np + theme_void()\n\n\n\n\n\nCode\np + theme_test()\n\n\n\n\n\nPor ejemplo, theme_gray() es el tema por defecto de ggplot2, mientras que theme_minimal() elimina varios elementos visuales para dejar una gráfica más limpia. En cambio, theme_void() elimina casi todos los elementos del fondo, incluyendo ejes y cuadrícula.\n\n\n\n\n\n\nNota\n\n\n\nLos temas no cambian los datos ni la relación entre variables. Sólo modifican la apariencia general de la gráfica."
+  },
+  {
+    "objectID": "Parte36.html#modificar-elementos-del-tema",
+    "href": "Parte36.html#modificar-elementos-del-tema",
+    "title": "37  Temas en ggplot2",
+    "section": "37.2 Modificar elementos del tema",
+    "text": "37.2 Modificar elementos del tema\nTambién podemos modificar elementos específicos con theme(). Por ejemplo, podemos cambiar el estilo del título, los títulos de los ejes y el texto de los ejes.\n\n\nCode\np +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(\n      color = \"red\",\n      size = 12,\n      face = \"bold.italic\"\n    ),\n    axis.title.x = element_text(\n      color = \"blue\",\n      size = 10,\n      face = \"bold\"\n    ),\n    axis.title.y = element_text(\n      color = \"#993333\",\n      size = 10,\n      face = \"italic\"\n    ),\n    axis.text = element_text(\n      color = \"slateblue2\",\n      size = 10\n    )\n  )\n\n\n\n\n\nEn este ejemplo usamos:\n\nplot.title: para modificar el título de la gráfica.\naxis.title.x: para modificar el título del eje x.\naxis.title.y: para modificar el título del eje y.\naxis.text: para modificar los valores que aparecen sobre los ejes.\n\nLa función element_text() permite modificar propiedades del texto, como el color, tamaño y estilo."
+  },
+  {
+    "objectID": "Parte36.html#combinar-temas-predefinidos-con-modificaciones-propias",
+    "href": "Parte36.html#combinar-temas-predefinidos-con-modificaciones-propias",
+    "title": "37  Temas en ggplot2",
+    "section": "37.3 Combinar temas predefinidos con modificaciones propias",
+    "text": "37.3 Combinar temas predefinidos con modificaciones propias\nTambién podemos partir de un tema predefinido y después modificar algunos elementos particulares.\n\n\nCode\np +\n  theme_dark() +\n  theme(\n    plot.title = element_text(\n      color = \"red\",\n      size = 12,\n      face = \"bold.italic\"\n    ),\n    axis.title.x = element_text(\n      color = \"blue\",\n      size = 10,\n      face = \"bold\"\n    ),\n    axis.title.y = element_text(\n      color = \"#993333\",\n      size = 10,\n      face = \"italic\"\n    ),\n    axis.text = element_text(\n      color = \"slateblue2\",\n      size = 10\n    )\n  )\n\n\n\n\n\nAquí primero aplicamos theme_dark() y después cambiamos algunos elementos del texto. Esto muestra que los temas se pueden usar como punto de partida y luego ajustar según nuestras necesidades."
+  },
+  {
+    "objectID": "Parte36.html#elementos-de-un-tema",
+    "href": "Parte36.html#elementos-de-un-tema",
+    "title": "37  Temas en ggplot2",
+    "section": "37.4 Elementos de un tema",
+    "text": "37.4 Elementos de un tema\nUna infografía que les puede ayudar a personalizar sus plots.\n\n\n\nggplot2 Theme Elements Reference Sheet"
+  },
+  {
+    "objectID": "Parte36.html#temas-propios",
+    "href": "Parte36.html#temas-propios",
+    "title": "37  Temas en ggplot2",
+    "section": "37.5 Temas propios",
+    "text": "37.5 Temas propios\nHasta ahora hemos utilizado los temas predefinidos de ggplot2, como theme_light() o theme_minimal(). Sin embargo, también podemos construir nuestro propio tema combinando un tema existente con modificaciones realizadas mediante theme().\nPor ejemplo, podemos definir un tema personalizado para todas nuestras gráficas:\n\n\nCode\ntema_pingüinos &lt;- theme_minimal() +\n  theme(\n    plot.title = element_text(face = \"bold\", size = 14),\n    axis.title = element_text(size = 12),\n    legend.position = \"bottom\",\n    panel.grid.minor = element_blank()\n  )\n\n\nAhora podemos reutilizar este tema en cualquier figura:\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(alpha = 0.7) +\n  labs(\n    title = \"Relación entre longitud y profundidad del pico\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\"\n  ) +\n  tema_pingüinos\n\n\n\n\n\nDe esta manera, podemos mantener una apariencia consistente en todas nuestras visualizaciones sin tener que repetir las mismas modificaciones en cada gráfico.\n\n\n\n\n\n\nIdea importante\n\n\n\nUn tema personalizado es simplemente un objeto que almacena modificaciones de estilo. Esto es especialmente útil cuando queremos que todas las figuras de un proyecto, artículo o presentación compartan una apariencia uniforme."
+  },
+  {
+    "objectID": "Parte32.html#explorando-la-estructura-de-los-datos",
+    "href": "Parte32.html#explorando-la-estructura-de-los-datos",
+    "title": "33  Básicos de la visualización de datos",
+    "section": "33.1 Explorando la estructura de los datos",
+    "text": "33.1 Explorando la estructura de los datos\nUna forma rápida de tener un vistazo a los datos es usar ggpairs() del paquete GGally.\n\n\nCode\n#install.packages(\"GGally\")\nlibrary(GGally)\nggpairs(penguins, aes(colour = species), progress = FALSE) +\n  theme_bw()"
+  },
+  {
+    "objectID": "Parte39.html",
+    "href": "Parte39.html",
+    "title": "40  Ejercicios finales",
+    "section": "",
+    "text": "Ejercicio 1: ¿Existe dimorfismo sexual en los pingüinos?\n\n\n\nLos machos y las hembras de muchas especies presentan diferencias de tamaño. Usando el conjunto de datos penguins, investiga si el peso corporal de los pingüinos parece diferir entre sexos y especies. Construye una gráfica que cumpla con lo siguiente:\n\nCompara la variable body_mass entre machos y hembras.\nDistingue las especies mediante color.\nElige una geometría apropiada para comparar distribuciones.\nSepara la gráfica por isla usando facetas.\nPersonaliza el título, etiquetas y tema.\nA partir de la gráfica, responde:\n\n\n¿Los machos parecen pesar más que las hembras?\n¿La diferencia es similar en las tres especies?\n\n\n\n\n\n\n\nSolución\n\n\n\n\n\n\n\nCode\nlibrary(ggplot2)\nggplot( penguins, aes( x = sex, y = body_mass, fill = species ) ) + \n  geom_boxplot() + \n  facet_wrap(~ island) + \n  labs( title = \"Peso corporal por sexo y especie\", \n        x = \"Sexo\", \n        y = \"Peso corporal (g)\", \n        fill = \"Especie\" ) + \n  theme_minimal() \n\n\n\n\n\nEn general, los machos presentan un mayor peso corporal que las hembras. Además, existen diferencias entre especies y entre islas.\n\n\n\n\n\n\n\n\n\n\n\nEjercicio 2:¿Los diamantes de mejor calidad son más caros?\n\n\n\nEl conjunto de datos diamonds, incluido en ggplot2, contiene información sobre más de 50,000 diamantes.\nConstruye una gráfica que permita explorar la relación entre la calidad del corte (cut) y el precio (price).\nLa gráfica debe:\n\nComparar la distribución de precios entre las categorías de cut.\nUtilizar una geometría adecuada para comparar distribuciones.\nMostrar también las observaciones individuales.\nPersonalizar el título y las etiquetas de los ejes.\nElegir un tema diferente al predeterminado.\nResponder:\n\n¿Los diamantes con mejor corte son necesariamente más caros?\n¿Existe mucha variabilidad dentro de cada categoría?\n\n\n\n\n\n\n\n\nSolución\n\n\n\n\n\n\n\nCode\nggplot(\n  diamonds,\n  aes(\n    x = cut,\n    y = price,\n    fill = cut\n  )\n) +\n  geom_boxplot(alpha = 0.7) +\n  geom_jitter(\n    alpha = 0.1,\n    width = 0.2\n  ) +\n  labs(\n    title = \"Precio de los diamantes según la calidad del corte\",\n    x = \"Calidad del corte\",\n    y = \"Precio (USD)\"\n  ) +\n  theme_light() +\n  theme(\n    legend.position = \"none\"\n  )\n\n\n\n\n\nLa gráfica muestra una gran variabilidad en los precios. Aunque las categorías de mejor calidad tienden a tener precios altos, existe un traslape considerable entre las distribuciones."
+  },
+  {
+    "objectID": "Parte38.html#gráfica-de-dispersión",
+    "href": "Parte38.html#gráfica-de-dispersión",
+    "title": "39  Algunas geometrías básicas",
+    "section": "39.1 Gráfica de dispersión",
+    "text": "39.1 Gráfica de dispersión\nLa geometría más común para estudiar la relación entre dos variables numéricas es geom_point().\n\n\nCode\np +\n  geom_point(alpha = 0.7) +\n  ggtitle(\"geom_point()\")"
+  },
+  {
+    "objectID": "Parte38.html#etiquetas-de-texto",
+    "href": "Parte38.html#etiquetas-de-texto",
+    "title": "39  Algunas geometrías básicas",
+    "section": "39.2 Etiquetas de texto",
+    "text": "39.2 Etiquetas de texto\nPodemos sustituir los puntos por texto utilizando geom_text(). Aquí usamos la especie como etiqueta.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    label = species,\n    color = species\n  )\n) +\n  geom_text() +\n  theme_minimal() +\n  ggtitle(\"geom_text()\")"
+  },
+  {
+    "objectID": "Parte38.html#líneas",
+    "href": "Parte38.html#líneas",
+    "title": "39  Algunas geometrías básicas",
+    "section": "39.3 Líneas",
+    "text": "39.3 Líneas\nSi ordenamos las observaciones por longitud del pico, podemos unirlas mediante líneas.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_line() +\n  theme_minimal() +\n  ggtitle(\"geom_line()\")\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nLas líneas suelen utilizarse para series de tiempo o datos con un orden natural. En este ejemplo se muestran únicamente para ilustrar la geometría."
+  },
+  {
+    "objectID": "Parte38.html#curvas-suavizadas",
+    "href": "Parte38.html#curvas-suavizadas",
+    "title": "39  Algunas geometrías básicas",
+    "section": "39.4 Curvas suavizadas",
+    "text": "39.4 Curvas suavizadas\nUna forma común de visualizar tendencias es mediante geom_smooth().\n\n\nCode\np +\n  geom_point(alpha = 0.5) +\n  geom_smooth(se = FALSE) +\n  ggtitle(\"geom_smooth()\")"
+  },
+  {
+    "objectID": "Parte38.html#histogramas",
+    "href": "Parte38.html#histogramas",
+    "title": "39  Algunas geometrías básicas",
+    "section": "39.5 Histogramas",
+    "text": "39.5 Histogramas\nPara estudiar la distribución de una variable podemos utilizar histogramas.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    fill = species\n  )\n) +\n  geom_histogram(\n    bins = 30,\n    alpha = 0.7\n  ) +\n  theme_minimal() +\n  ggtitle(\"geom_histogram()\")"
+  },
+  {
+    "objectID": "Parte38.html#diagramas-de-caja",
+    "href": "Parte38.html#diagramas-de-caja",
+    "title": "39  Algunas geometrías básicas",
+    "section": "39.6 Diagramas de caja",
+    "text": "39.6 Diagramas de caja\nLos diagramas de caja resumen la distribución de una variable y facilitan la comparación entre grupos.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = species,\n    y = bill_len,\n    fill = species\n  )\n) +\n  geom_boxplot() +\n  theme_minimal() +\n  ggtitle(\"geom_boxplot()\")"
+  },
+  {
+    "objectID": "Parte38.html#diagramas-de-violín",
+    "href": "Parte38.html#diagramas-de-violín",
+    "title": "39  Algunas geometrías básicas",
+    "section": "39.7 Diagramas de violín",
+    "text": "39.7 Diagramas de violín\nUna alternativa al diagrama de caja es el diagrama de violín, que muestra la forma de la distribución.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = species,\n    y = bill_len,\n    fill = species\n  )\n) +\n  geom_violin() +\n  theme_minimal() +\n  ggtitle(\"geom_violin()\")"
+  },
+  {
+    "objectID": "Parte38.html#barras",
+    "href": "Parte38.html#barras",
+    "title": "39  Algunas geometrías básicas",
+    "section": "39.8 Barras",
+    "text": "39.8 Barras\nTambién podemos representar el número de observaciones de cada especie.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = species,\n    fill = species\n  )\n) +\n  geom_bar() +\n  theme_minimal() +\n  ggtitle(\"geom_bar()\")"
+  },
+  {
+    "objectID": "Parte38.html#densidades",
+    "href": "Parte38.html#densidades",
+    "title": "39  Algunas geometrías básicas",
+    "section": "39.9 Densidades",
+    "text": "39.9 Densidades\nLas curvas de densidad permiten comparar distribuciones de forma suave.\n\n\nCode\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    fill = species\n  )\n) +\n  geom_density(alpha = 0.4) +\n  theme_minimal() +\n  ggtitle(\"geom_density()\")\n\n\n\n\n\n\n\n\n\n\n\nIdea importante\n\n\n\nLa estructura básica del gráfico permanece igual; únicamente cambia la geometría. Esta filosofía de capas es una de las características fundamentales de ggplot2."
   }
 ]
