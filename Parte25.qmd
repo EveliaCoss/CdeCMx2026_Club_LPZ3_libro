@@ -20,17 +20,19 @@ En Git, los comandos `git pull` y `git push` **son utilizados para sincronizar y
 - `git push:` Carga contenido en un repositorio remoto (en R studio flecha verde)
 :::
 
-### Ediciones en nuestro perfil desde GitHub
+## Página de inicio en GitHub
 
 ::: callout-note
 ## Actividad
 
-Veremos la siguiente [presentación](https://eveliacoss.github.io/VieRnesBioinfo2026_BuenasPracticas_CienciaAbierta_presentacion/Dia2_BuenasPracticas.html?panelset_002=repositorios-acad%25C3%25A9micos-y-cient%25C3%25ADficos2#42) en donde encontraremos las instrucciones de como editar nuestro "Usuario.md" que nos genera una mini tarjeta de presentación de nuestro perfil. Con esto debemos:
+1.  En GitHub, crea un repositorio con el mismo nombre de usuario. Ejemplo: Si el usuario es EveliaCoss y entonces el repositorio se llama EveliaCoss, dandonos la siguiente liga <https://github.com/EveliaCoss/EveliaCoss>
+2.  Agrega un README al repositorio con tu informacion. Por Default ya trae una plantilla, modificala y adaptala a tu gusto.
+3.  Visualiza como cambia tu inicio en el Github.
 
-1.  Crea un repositorio en GitHub: `mi_repositorio` \> *Public* \> *YES* initialize this repository with a *README* \> `click`en el gran botón verde "Create repository"
-2.  Generar ediciones en el "Usuario.md".
-3.  Guardar los cambios y previsualizar en nuestro inicio.
+Puedes aprender a realizar esta actividad paso a paso, siguiendo este [tutorial](https://eveliacoss.github.io/LCG2026_Buenas_practicas_presentacion_S4/Dia1_BuenasPracticas.html?panelset_002=repositorios-acad%25C3%25A9micos-y-cient%25C3%25ADficos2#38).
 :::
+
+![](figures/EveliaCoss_inciio.jpg)
 
 ## GitHub primero, RStudio después...
 
@@ -56,18 +58,15 @@ Con la **flecha azul** podemos hacer pull (**RECUERDA HACERLO ANTES DE HACER UN 
 
 Volvemos a dar `click` en *commit*, y finalizamos con *push* (flecha verde).
 
-## Página de inicio en GitHub
+## Ediciones desde R de la página de inicio en GitHub
 
 ::: callout-note
 ## Actividad
 
-1.  En GitHub, crea un repositorio con el mismo nombre de usuario. Ejemplo: Si el usuario es EveliaCoss y entonces el repositorio se llama EveliaCoss, dandonos la siguiente liga https://github.com/EveliaCoss/EveliaCoss
-2.  Agrega un README al repositorio con tu informacion. Por Default ya trae una plantilla, modificala y adaptala a tu gusto.
+1.  Sincroniza el repositorio con el nombre de tu usuario en GitHub (ejemplo: [EveliaCoss/EveliaCoss](https://github.com/EveliaCoss/EveliaCoss)) con RStudio
+2.   Realiza los cambios desde R y subelos a GitHub.
 3.  Visualiza como cambia tu inicio en el Github.
-4.  Sincroniza el GitHub en RStudio y realiza los cambios desde ahi.
 :::
-
-[![](figures/EveliaCoss_inciio.jpg)](https://github.com/EveliaCoss)
 
 ## Referencias
 

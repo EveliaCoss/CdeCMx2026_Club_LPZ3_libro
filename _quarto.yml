@@ -50,7 +50,9 @@ book:
       - Parte25.qmd # Resumen y practica final
     - part: "**Sección 5** - Introducción a R y RStudio"
       chapters:  
-      - Parte26.qmd   
+      - Parte26.qmd
+      - Parte27.qmd 
+      - Parte28.qmd 
     - part: "**Sección 6** - Gráficos con ggplot2 "
       chapters:  
       - Parte30.qmd # Intro a ggplot

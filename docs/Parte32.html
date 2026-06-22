@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>33&nbsp; Básicos de la visualización de datos – Code &amp; Data Bootcamp: Git, Bash y R</title>
+<title>35&nbsp; Básicos de la visualización de datos – Code &amp; Data Bootcamp: Git, Bash y R</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -286,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte30.html"><strong>Sección 6</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte32.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte30.html"><strong>Sección 6</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte32.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -585,7 +585,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Introducción a R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Estructura de datos en R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Manipulación de datos en R</span></span></a>
   </div>
 </li>
       </ul>
@@ -602,31 +614,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte30.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">¿Por qué visualizar datos?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">¿Por qué visualizar datos?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte31.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte32.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte33.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte34.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Estéticas y escalas en ggplot2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Estéticas y escalas en ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -641,7 +653,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#explorando-la-estructura-de-los-datos" id="toc-explorando-la-estructura-de-los-datos" class="nav-link active" data-scroll-target="#explorando-la-estructura-de-los-datos"><span class="header-section-number">33.1</span> Explorando la estructura de los datos</a></li>
+  <li><a href="#explorando-la-estructura-de-los-datos" id="toc-explorando-la-estructura-de-los-datos" class="nav-link active" data-scroll-target="#explorando-la-estructura-de-los-datos"><span class="header-section-number">35.1</span> Explorando la estructura de los datos</a></li>
   </ul>
 </nav>
     </div>
@@ -649,9 +661,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte30.html"><strong>Sección 6</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte32.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte30.html"><strong>Sección 6</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte32.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></h1>
+<h1 class="title"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></h1>
 </div>
 
 
@@ -708,8 +720,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>El tamaño de los picos y alas varían juntos?</p></li>
 <li><p>¿Cómo se distribuyen estas medidas entre las 3 especies?</p></li>
 </ul>
-<section id="explorando-la-estructura-de-los-datos" class="level2" data-number="33.1">
-<h2 data-number="33.1" class="anchored" data-anchor-id="explorando-la-estructura-de-los-datos"><span class="header-section-number">33.1</span> Explorando la estructura de los datos</h2>
+<section id="explorando-la-estructura-de-los-datos" class="level2" data-number="35.1">
+<h2 data-number="35.1" class="anchored" data-anchor-id="explorando-la-estructura-de-los-datos"><span class="header-section-number">35.1</span> Explorando la estructura de los datos</h2>
 <p>Una forma rápida de tener un vistazo a los datos es usar <code>ggpairs()</code> del paquete <code>GGally</code>.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -1147,12 +1159,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Parte31.html" class="pagination-link" aria-label="La Gramática de los Gráficos (GG)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Parte33.html" class="pagination-link" aria-label="Construyendo gráficas capa por capa">
-        <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

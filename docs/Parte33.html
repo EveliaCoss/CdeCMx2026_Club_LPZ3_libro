@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>34&nbsp; Construyendo gráficas capa por capa – Code &amp; Data Bootcamp: Git, Bash y R</title>
+<title>36&nbsp; Construyendo gráficas capa por capa – Code &amp; Data Bootcamp: Git, Bash y R</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -286,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte30.html"><strong>Sección 6</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte33.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte30.html"><strong>Sección 6</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte33.html"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -585,7 +585,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Por llenar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Introducción a R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Estructura de datos en R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Manipulación de datos en R</span></span></a>
   </div>
 </li>
       </ul>
@@ -602,31 +614,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte30.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">¿Por qué visualizar datos?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">¿Por qué visualizar datos?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte31.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte32.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte33.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte34.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Estéticas y escalas en ggplot2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Estéticas y escalas en ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -641,13 +653,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#primera-capa-los-datos" id="toc-primera-capa-los-datos" class="nav-link active" data-scroll-target="#primera-capa-los-datos"><span class="header-section-number">34.1</span> Primera capa: los datos</a></li>
-  <li><a href="#segunda-capa-las-estéticas" id="toc-segunda-capa-las-estéticas" class="nav-link" data-scroll-target="#segunda-capa-las-estéticas"><span class="header-section-number">34.2</span> Segunda capa: las estéticas</a></li>
-  <li><a href="#tercera-capa-la-geometría" id="toc-tercera-capa-la-geometría" class="nav-link" data-scroll-target="#tercera-capa-la-geometría"><span class="header-section-number">34.3</span> Tercera capa: la geometría</a></li>
-  <li><a href="#cuarta-capa-agregar-color" id="toc-cuarta-capa-agregar-color" class="nav-link" data-scroll-target="#cuarta-capa-agregar-color"><span class="header-section-number">34.4</span> Cuarta capa: agregar color</a></li>
-  <li><a href="#quinta-capa-modificar-la-apariencia" id="toc-quinta-capa-modificar-la-apariencia" class="nav-link" data-scroll-target="#quinta-capa-modificar-la-apariencia"><span class="header-section-number">34.5</span> Quinta capa: modificar la apariencia</a></li>
-  <li><a href="#sexta-capa-etiquetas" id="toc-sexta-capa-etiquetas" class="nav-link" data-scroll-target="#sexta-capa-etiquetas"><span class="header-section-number">34.6</span> Sexta capa: etiquetas</a></li>
-  <li><a href="#séptima-capa-temas" id="toc-séptima-capa-temas" class="nav-link" data-scroll-target="#séptima-capa-temas"><span class="header-section-number">34.7</span> Séptima capa: temas</a></li>
+  <li><a href="#primera-capa-los-datos" id="toc-primera-capa-los-datos" class="nav-link active" data-scroll-target="#primera-capa-los-datos"><span class="header-section-number">36.1</span> Primera capa: los datos</a></li>
+  <li><a href="#segunda-capa-las-estéticas" id="toc-segunda-capa-las-estéticas" class="nav-link" data-scroll-target="#segunda-capa-las-estéticas"><span class="header-section-number">36.2</span> Segunda capa: las estéticas</a></li>
+  <li><a href="#tercera-capa-la-geometría" id="toc-tercera-capa-la-geometría" class="nav-link" data-scroll-target="#tercera-capa-la-geometría"><span class="header-section-number">36.3</span> Tercera capa: la geometría</a></li>
+  <li><a href="#cuarta-capa-agregar-color" id="toc-cuarta-capa-agregar-color" class="nav-link" data-scroll-target="#cuarta-capa-agregar-color"><span class="header-section-number">36.4</span> Cuarta capa: agregar color</a></li>
+  <li><a href="#quinta-capa-modificar-la-apariencia" id="toc-quinta-capa-modificar-la-apariencia" class="nav-link" data-scroll-target="#quinta-capa-modificar-la-apariencia"><span class="header-section-number">36.5</span> Quinta capa: modificar la apariencia</a></li>
+  <li><a href="#sexta-capa-etiquetas" id="toc-sexta-capa-etiquetas" class="nav-link" data-scroll-target="#sexta-capa-etiquetas"><span class="header-section-number">36.6</span> Sexta capa: etiquetas</a></li>
+  <li><a href="#séptima-capa-temas" id="toc-séptima-capa-temas" class="nav-link" data-scroll-target="#séptima-capa-temas"><span class="header-section-number">36.7</span> Séptima capa: temas</a></li>
   </ul>
 </nav>
     </div>
@@ -655,9 +667,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte30.html"><strong>Sección 6</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte33.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte30.html"><strong>Sección 6</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte33.html"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></h1>
+<h1 class="title"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></h1>
 </div>
 
 
@@ -682,8 +694,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<section id="primera-capa-los-datos" class="level2" data-number="34.1">
-<h2 data-number="34.1" class="anchored" data-anchor-id="primera-capa-los-datos"><span class="header-section-number">34.1</span> Primera capa: los datos</h2>
+<section id="primera-capa-los-datos" class="level2" data-number="36.1">
+<h2 data-number="36.1" class="anchored" data-anchor-id="primera-capa-los-datos"><span class="header-section-number">36.1</span> Primera capa: los datos</h2>
 <p>Toda gráfica comienza indicando qué conjunto de datos utilizaremos.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -700,8 +712,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Todavía no aparece ninguna figura, porque aún no hemos especificado qué variables queremos representar.</p>
 </section>
-<section id="segunda-capa-las-estéticas" class="level2" data-number="34.2">
-<h2 data-number="34.2" class="anchored" data-anchor-id="segunda-capa-las-estéticas"><span class="header-section-number">34.2</span> Segunda capa: las estéticas</h2>
+<section id="segunda-capa-las-estéticas" class="level2" data-number="36.2">
+<h2 data-number="36.2" class="anchored" data-anchor-id="segunda-capa-las-estéticas"><span class="header-section-number">36.2</span> Segunda capa: las estéticas</h2>
 <p>Las estéticas (<code>aes</code>) indican qué variables del conjunto de datos estarán asociadas a los ejes, colores, tamaños, etc.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -724,8 +736,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Aunque ya definimos los ejes, todavía falta indicar cómo representar los datos.</p>
 </section>
-<section id="tercera-capa-la-geometría" class="level2" data-number="34.3">
-<h2 data-number="34.3" class="anchored" data-anchor-id="tercera-capa-la-geometría"><span class="header-section-number">34.3</span> Tercera capa: la geometría</h2>
+<section id="tercera-capa-la-geometría" class="level2" data-number="36.3">
+<h2 data-number="36.3" class="anchored" data-anchor-id="tercera-capa-la-geometría"><span class="header-section-number">36.3</span> Tercera capa: la geometría</h2>
 <p>Las geometrías (<code>geom_</code>) determinan el tipo de gráfico. Para dos variables numéricas, una opción es un diagrama de dispersión (no es una regla).</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -749,8 +761,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Ahora cada observación se representa mediante un punto.</p>
 </section>
-<section id="cuarta-capa-agregar-color" class="level2" data-number="34.4">
-<h2 data-number="34.4" class="anchored" data-anchor-id="cuarta-capa-agregar-color"><span class="header-section-number">34.4</span> Cuarta capa: agregar color</h2>
+<section id="cuarta-capa-agregar-color" class="level2" data-number="36.4">
+<h2 data-number="36.4" class="anchored" data-anchor-id="cuarta-capa-agregar-color"><span class="header-section-number">36.4</span> Cuarta capa: agregar color</h2>
 <p>Podemos incorporar una variable categórica para distinguir grupos.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -775,8 +787,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Los colores permiten identificar las diferentes especies de pingüinos.</p>
 </section>
-<section id="quinta-capa-modificar-la-apariencia" class="level2" data-number="34.5">
-<h2 data-number="34.5" class="anchored" data-anchor-id="quinta-capa-modificar-la-apariencia"><span class="header-section-number">34.5</span> Quinta capa: modificar la apariencia</h2>
+<section id="quinta-capa-modificar-la-apariencia" class="level2" data-number="36.5">
+<h2 data-number="36.5" class="anchored" data-anchor-id="quinta-capa-modificar-la-apariencia"><span class="header-section-number">36.5</span> Quinta capa: modificar la apariencia</h2>
 <p>Las capas también permiten cambiar propiedades visuales.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -804,8 +816,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>alpha</code> controla la transparencia.</li>
 </ul>
 </section>
-<section id="sexta-capa-etiquetas" class="level2" data-number="34.6">
-<h2 data-number="34.6" class="anchored" data-anchor-id="sexta-capa-etiquetas"><span class="header-section-number">34.6</span> Sexta capa: etiquetas</h2>
+<section id="sexta-capa-etiquetas" class="level2" data-number="36.6">
+<h2 data-number="36.6" class="anchored" data-anchor-id="sexta-capa-etiquetas"><span class="header-section-number">36.6</span> Sexta capa: etiquetas</h2>
 <p>Una gráfica debe ser fácil de interpretar. Podemos añadir títulos y etiquetas a los ejes.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -835,8 +847,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="séptima-capa-temas" class="level2" data-number="34.7">
-<h2 data-number="34.7" class="anchored" data-anchor-id="séptima-capa-temas"><span class="header-section-number">34.7</span> Séptima capa: temas</h2>
+<section id="séptima-capa-temas" class="level2" data-number="36.7">
+<h2 data-number="36.7" class="anchored" data-anchor-id="séptima-capa-temas"><span class="header-section-number">36.7</span> Séptima capa: temas</h2>
 <p>Finalmente, podemos modificar la apariencia general de la figura.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -1358,12 +1370,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Parte32.html" class="pagination-link" aria-label="Básicos de la visualización de datos">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Parte34.html" class="pagination-link" aria-label="Estéticas y escalas en ggplot2">
-        <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Estéticas y escalas en ggplot2</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Estéticas y escalas en ggplot2</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
