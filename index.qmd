@@ -1,146 +1,48 @@
-::: {layout-ncol="2"}
-[![](figures/logo_y_475-2-1.png)](https://www.enesjuriquilla.unam.mx/?page_id=5126)
-:::
-
 # Información general {.unnumbered}
 
--   ::: {.panel-tabset group="globalInfo"}
-    ### Sobre el curso 📌
+- ::: {.panel-tabset group="globalInfo"}
+  ### Sobre el curso 📌
 
-    -   **Fechas:** 15, 18, 22 y 25 de junio, 2026
-    -   **Días:** Lunes y jueves
-    -   **Lugar:** ENES Juriquilla-UNAM
-    -   **Horario:** De 10:00 a 14:00 horas
-    -   **Duración:** 16 horas, 4 horas por día 
-    -   **Cupo máximo:** 50 **(**30 personas en presencial y 20 en línea)
-    -   **Idioma:** Español
-    -   **Nivel:** Básico 
-    -   **Modalidad:** Híbrido
-    -   **Sobre el curso:** Curso extracurricular interno en la ENES Juriquilla.
+  - **Idioma:** Impartido en español 
+  - **Sede:** La Paz, Baja California Sur 
+  - **Fechas:** 26 julio - 01 agosto, 2026 
+  - **Horario:** Lunes - Viernes 9am a 5pm 
+  - **Edición:** Clubes de Ciencia México, Verano 2026
 
-    ![](figures/CODE%20&%20DATA%20(630%20x%201200%20px).png){width="308"}
+  ![](flyer/flyer.png)
 
-    #### **Instructoras:**
+  #### **Instructores:**
 
-    -   **Dra. Evelia Lorena Coss-Navarrete** - Profesora de asignatura de la ENES Unidad Juriquilla. [Pagina web](https://eveliacoss.github.io/)
-    -   **Dra. Adriana Haydeé Contreras Peruyero** - Profesor Asociado C TC de la ENES Unidad Juriquilla. [Página web](https://haydeeperuyero.github.io/)
+  - **Australia: Zuriel Ceja** - Estudiante de doctorado, QIMR Berghofer / The University of Queensland Zuriel.Ceja\@qimrb.edu.au GitHub: ZurielCeja 
+  - **México: Dra. Evelia Lorena Coss-Navarrete** - Profesora de asignatura de la ENES Unidad Juriquilla. [Pagina web](https://eveliacoss.github.io/)
 
-    **Curso registrado en The Carpentries.**
+  #### **Resumen del club:**
 
-    Las instructoras estan certificados por [The Carpentries](https://carpentries.org/).
+  En este club explorarás cómo los genes interactúan con el entorno, el estrés, el sueño, los hábitos y la comunidad para influir en la salud y el bienestar. A través de actividades prácticas, analizarás datos reales en R (de manera accesible y guiada) para descubrir patrones en genética, cerebro y salud mental. También realizaremos una actividad de observación en ecosistemas de La Paz para relacionar variables ambientales con sistemas vivos. Al final, cada participante desarrollará un proyecto o dashboard para contar una historia con datos, desde su propio estilo y perspectiva.
 
-    #### **Ayudantes, miembros del RSG-México:**
+  #### **Enfoque de la audiencia:**
 
-    -   **Mayela Guadalupe Fosado Mendoza**, estudiante de licenciatura en Microbiología, UAQ ([maye.fosado\@gmail.com](mailto:maye.fosado@gmail.com)) (Ayudante presencial). 
+  - **Público general interesado en aprender herramientas digitales**: no se requiere experiencia previa, el curso inicia desde cero.
 
-    -   **Emilio Ortiz Avila**, estudiante de licenciatura en Microbiología, UAQ ([aeortiz06\@gmail.com](mailto:aeortiz06@gmail.com) ) (Ayudante presencial). 
+  #### Patrocinador
 
-    -   **Johanna Castelán Camarillo**, maestría en Biotecnología, Universidad Popular Autónoma del Estado de Puebla ([johan.ccas02\@gmail.com](mailto:johan.ccas02@gmail.com) ) (Ayudante virtual)
+  - Clubes de Ciencia México
 
-    -   **Mariana Devon Lopez**, egresada de la maestría en la Escuela de Salud pública de méxico ([mariana.devon\@icloud.com](mailto:mariana.devon@icloud.com)) (Ayudante virtual)
+  ## Citar y reutilizar el material del curso
 
-    #### **Resumen:**
+  Los datos del curso se pueden reutilizar y adaptar libremente con la debida atribución. Todos los datos de los cursos de estos repositorios están sujetos a la licencia [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-    Este curso intensivo ofrece una introducción práctica a tres herramientas fundamentales para la ciencia de datos y el desarrollo reproducible: **Git** para control de versiones, **Bash** para automatización en la terminal y **R** para análisis estadístico y visualización. No se requiere experiencia previa: comenzaremos desde cero y avanzaremos paso a paso, combinando teoría y práctica en un entorno accesible.
+  ### Requisitos previos
 
-    #### **Enfoque de la audiencia:**
+  - Los participantes pueden traer su propia computadora (opcional). No se requiere experiencia previa: el curso comenzará desde cero.
 
-    -   **Público general interesado en aprender herramientas digitales**: no se requiere experiencia previa, el curso inicia desde cero.
+  ### Agenda 📆 {#agenda}
 
-    -   **Estudiantes y profesionales de cualquier disciplina** que deseen mejorar sus habilidades en manejo de datos, control de versiones y automatización.
-
-    **Personas con interés en ciencia de datos, programación o investigación reproducible**, pero que aún no han trabajado con Git, Bash o R.
-
-    #### Patrocinadores
-
-    -   Escuela Nacional de Estudios Superiores Unidad Juriquilla UNAM (ENES Juriquilla)
-    -   International Society for Computational Biology (ISCB Student Council) - RSG- México
-
-    ## Citar y reutilizar el material del curso
-
-    Los datos del curso se pueden reutilizar y adaptar libremente con la debida atribución. Todos los datos de los cursos de estos repositorios están sujetos a la licencia [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-
-    ### Requisitos previos
-
-    -   Los participantes pueden traer su propia computadora (opcional). No se requiere experiencia previa: el curso comenzará desde cero.
-
-    ### Agenda 📆 {#agenda}
-
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | Tema                                                                                                                                                                     | Tiempo | Instructora |
-    +==========================================================================================================================================================================+========+=============+
-    | [**15 de junio**]{style="color:#59B4C3"}                                                                                                                                 |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | 🔷 **Sección 1 - (9:00 - 12:30 h)**                                                                                                                                      |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | -   Bienvenida (icebreaker) y presentaciones                                                                                                                             | 10 min | Evelia Coss |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | -   Revisión de instalación de Git, Bash, R y Rstudio / Realizar [pre-encuesta](https://carpentries.typeform.com/to/wi32rS?slug=2026-06-15-CodeData_Bootcamp_Git_Bash_R) | 20 min | Evelia Coss |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | -   Buenas prácticas en bioinformática                                                                                                                                   | 10 min | Evelia Coss |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | -   Introducción a Bash                                                                                                                                                  | 10 min | Evelia Coss |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | -   Mis primeros pasos en Bash                                                                                                                                           | 15 min | Evelia Coss |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | -                                                                                                                                                                        |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | -                                                                                                                                                                        |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | **Receso**                                                                                                                                                               |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | **Sección 2 - (10:00 - 12:15 h)**                                                                                                                                        |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    |                                                                                                                                                                          |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    | Clausura                                                                                                                                                                 |        |             |
-    |                                                                                                                                                                          |        |             |
-    | Realizar [última encuesta](https://carpentries.typeform.com/to/UgVdRQ?slug=2026-06-15-CodeData_Bootcamp_Git_Bash_R)                                                      |        |             |
-    +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+
-    :::
+  | Tema | Tiempo | Instructor(a) |
+  |------|--------|---------------|
+  |      |        |               |
+  |      |        |               |
+  |      |        |               |
+  |      |        |               |
+  |      |        |               |
+  :::

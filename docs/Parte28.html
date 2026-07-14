@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>32&nbsp; Manipulación de datos en R – Code &amp; Data Bootcamp: Git, Bash y R</title>
+<title>6&nbsp; Manipulación de datos en R – POV: Descubres lo que dicen tus genes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -76,14 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-367522ac618891c39d4b2ae87ea7600e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c5491cb7295b3d79f070a3ccf938a403.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-367522ac618891c39d4b2ae87ea7600e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6f5e339e910af865eb2cfbba9cbcf7d6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -98,17 +94,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 <link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
@@ -123,183 +119,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
-      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte26.html"><strong>Sección 5</strong> - Introducción a R y RStudio</a></li><li class="breadcrumb-item"><a href="./Parte28.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Manipulación de datos en R</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte26.html"><strong>Sección 1</strong> - Introducción a R y RStudio</a></li><li class="breadcrumb-item"><a href="./Parte28.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Manipulación de datos en R</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -309,13 +144,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./flyer/logo_cdecmx.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./flyer/logo_cdecmx.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Code &amp; Data Bootcamp: Git, Bash y R</a> 
-        <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/ISCB-RSG-MEXICO/2026-06-15-CodeData_Bootcamp_Git_Bash_R" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+      <a href="./">POV: Descubres lo que dicen tus genes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/EveliaCoss/CdeCMx2026_Club_LPZ3_libro" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Compartir" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Compartir"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
@@ -337,13 +176,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </li>
       </ul>
     </div>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -364,21 +202,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text"><strong>Pre-requisitos</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./install_B.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Instalación de Git y Bash</span></span></a>
+  <a href="./install_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Instalación de R y RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./install_R.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Instalación de R y RStudio</span></span></a>
+  <a href="./Parte1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Buenas prácticas en bioinformática</span></span></a>
   </div>
 </li>
       </ul>
@@ -386,34 +224,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Sección 1</strong> - Introducción a Bash</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text"><strong>Sección 1</strong> - Introducción a R y RStudio</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Parte1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Buenas prácticas en bioinformática</span></span></a>
+  <a href="./Parte26.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Parte2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Conceptos Unix y GNU/Linux</span></span></a>
+  <a href="./Parte27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estructura de datos en R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Parte3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Mis primeros pasos en Bash</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./REGEX.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Wildcards y Streams</span></span></a>
+  <a href="./Parte28.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Manipulación de datos en R</span></span></a>
   </div>
 </li>
       </ul>
@@ -421,264 +253,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Sección 2</strong> - Edición de archivos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text"><strong>Sección 2</strong> - Gráficos con ggplot2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Parte5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Operadores de redirección de datos I/O</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Edición de archivos con los editores de texto (nano y vim)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte7A.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Edición de archivos con el editor de flujo <code>sed</code></span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Enlaces simbólicos (symlinks)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Filtrado de texto (<code>grep, cut, sort, uniq, wc</code>)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Condicionales</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Scripts en Bash</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Bucles (for loops)</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Sección 3</strong> - Introducción a Git/GitHub</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Introducción a Git / GitHub</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Instalar Git Bash en Windows</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Configurar Git</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Repositorios</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Rastrear cambios</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Explorando el historial</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Restore y reset</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Ignorar archivos/carpetas</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Sección 4</strong> - Conexión con Github</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Github</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Colaboradores</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Conflictos</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trabajando con Ramas</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Conectar Github con RStudio</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Resumen y Práctica Final</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Sección 5</strong> - Introducción a R y RStudio</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Introducción a R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Estructura de datos en R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Parte28.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Manipulación de datos en R</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Sección 6</strong> - Gráficos con ggplot2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./Parte30.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">¿Por qué visualizar datos?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">¿Por qué visualizar datos?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte31.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte32.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte33.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte34.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Estéticas y escalas en ggplot2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estéticas y escalas en ggplot2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte35.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Estéticas globales y locales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Estéticas globales y locales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte36.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Temas en <code>ggplot2</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Temas en <code>ggplot2</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte37.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Facetas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Facetas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte38.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Algunas geometrías básicas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Algunas geometrías básicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte39.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Ejercicios finales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ejercicios finales</span></span></a>
   </div>
 </li>
       </ul>
@@ -690,26 +328,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#paquete-palmerpenguins" id="toc-paquete-palmerpenguins" class="nav-link active" data-scroll-target="#paquete-palmerpenguins"><span class="header-section-number">32.1</span> Paquete <code>palmerpenguins</code></a></li>
-  <li><a href="#acerca-de-los-datos" id="toc-acerca-de-los-datos" class="nav-link" data-scroll-target="#acerca-de-los-datos"><span class="header-section-number">32.2</span> Acerca de los datos</a></li>
-  <li><a href="#medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" id="toc-medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" class="nav-link" data-scroll-target="#medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida"><span class="header-section-number">32.3</span> Medidas de tamaño de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida</a></li>
-  <li><a href="#tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" id="toc-tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" class="nav-link" data-scroll-target="#tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida"><span class="header-section-number">32.4</span> Tamaño, puesta y datos de isótopos sanguíneos de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida</a></li>
-  <li><a href="#revisar-las-dimensiones-de-un-objeto" id="toc-revisar-las-dimensiones-de-un-objeto" class="nav-link" data-scroll-target="#revisar-las-dimensiones-de-un-objeto"><span class="header-section-number">32.5</span> Revisar las dimensiones de un objeto</a></li>
-  <li><a href="#funciones-que-vamos-a-emplear-de-dplyr" id="toc-funciones-que-vamos-a-emplear-de-dplyr" class="nav-link" data-scroll-target="#funciones-que-vamos-a-emplear-de-dplyr"><span class="header-section-number">32.6</span> Funciones que vamos a emplear de <code>dplyr</code></a></li>
-  <li><a href="#manos-a-la-obra" id="toc-manos-a-la-obra" class="nav-link" data-scroll-target="#manos-a-la-obra"><span class="header-section-number">32.7</span> Manos a la obra</a></li>
+  <li><a href="#paquete-palmerpenguins" id="toc-paquete-palmerpenguins" class="nav-link active" data-scroll-target="#paquete-palmerpenguins"><span class="header-section-number">6.1</span> Paquete <code>palmerpenguins</code></a></li>
+  <li><a href="#acerca-de-los-datos" id="toc-acerca-de-los-datos" class="nav-link" data-scroll-target="#acerca-de-los-datos"><span class="header-section-number">6.2</span> Acerca de los datos</a></li>
+  <li><a href="#medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" id="toc-medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" class="nav-link" data-scroll-target="#medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida"><span class="header-section-number">6.3</span> Medidas de tamaño de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida</a></li>
+  <li><a href="#tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" id="toc-tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" class="nav-link" data-scroll-target="#tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida"><span class="header-section-number">6.4</span> Tamaño, puesta y datos de isótopos sanguíneos de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida</a></li>
+  <li><a href="#revisar-las-dimensiones-de-un-objeto" id="toc-revisar-las-dimensiones-de-un-objeto" class="nav-link" data-scroll-target="#revisar-las-dimensiones-de-un-objeto"><span class="header-section-number">6.5</span> Revisar las dimensiones de un objeto</a></li>
+  <li><a href="#funciones-que-vamos-a-emplear-de-dplyr" id="toc-funciones-que-vamos-a-emplear-de-dplyr" class="nav-link" data-scroll-target="#funciones-que-vamos-a-emplear-de-dplyr"><span class="header-section-number">6.6</span> Funciones que vamos a emplear de <code>dplyr</code></a></li>
+  <li><a href="#manos-a-la-obra" id="toc-manos-a-la-obra" class="nav-link" data-scroll-target="#manos-a-la-obra"><span class="header-section-number">6.7</span> Manos a la obra</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte26.html"><strong>Sección 5</strong> - Introducción a R y RStudio</a></li><li class="breadcrumb-item"><a href="./Parte28.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Manipulación de datos en R</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte26.html"><strong>Sección 1</strong> - Introducción a R y RStudio</a></li><li class="breadcrumb-item"><a href="./Parte28.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Manipulación de datos en R</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Manipulación de datos en R</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Manipulación de datos en R</span></h1>
 </div>
 
 
@@ -729,10 +366,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Carguemos los paquetes</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
@@ -741,7 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Nota 1
+<span class="screen-reader-only">Importante</span>Nota 1
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -757,7 +394,7 @@ Esto es útil para inspeccionar rápidamente datos sin necesidad de abrir todo e
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Nota 2
+<span class="screen-reader-only">Importante</span>Nota 2
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -776,7 +413,7 @@ Esto es útil para inspeccionar rápidamente datos sin necesidad de abrir todo e
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Nota 3
+<span class="screen-reader-only">Importante</span>Nota 3
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -805,8 +442,8 @@ Esto es útil para inspeccionar rápidamente datos sin necesidad de abrir todo e
 </ul>
 </div>
 </div>
-<section id="paquete-palmerpenguins" class="level2" data-number="32.1">
-<h2 data-number="32.1" class="anchored" data-anchor-id="paquete-palmerpenguins"><span class="header-section-number">32.1</span> Paquete <code>palmerpenguins</code></h2>
+<section id="paquete-palmerpenguins" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="paquete-palmerpenguins"><span class="header-section-number">6.1</span> Paquete <code>palmerpenguins</code></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p>El objetivo de palmerpenguins es proporcionar un gran conjunto de datos para la exploración y visualización de datos, como alternativa a <code>iris</code>.</p>
@@ -826,22 +463,22 @@ Esto es útil para inspeccionar rápidamente datos sin necesidad de abrir todo e
 </div>
 </div>
 </section>
-<section id="acerca-de-los-datos" class="level2" data-number="32.2">
-<h2 data-number="32.2" class="anchored" data-anchor-id="acerca-de-los-datos"><span class="header-section-number">32.2</span> Acerca de los datos</h2>
+<section id="acerca-de-los-datos" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="acerca-de-los-datos"><span class="header-section-number">6.2</span> Acerca de los datos</h2>
 <p>Los datos fueron recopilados y puestos a disposición por <a href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php">la Dra. Kristen Gorman</a> y la <a href="https://pallter.marine.rutgers.edu/">Estación Palmer, Antártida LTER</a> , miembro de la <a href="https://lternet.edu/">Red de Investigación Ecológica a Largo Plazo</a>.</p>
 </section>
-<section id="medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" class="level2" data-number="32.3">
-<h2 data-number="32.3" class="anchored" data-anchor-id="medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida"><span class="header-section-number">32.3</span> Medidas de tamaño de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida</h2>
+<section id="medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="medidas-de-tamaño-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida"><span class="header-section-number">6.3</span> Medidas de tamaño de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida</h2>
 <p>Una de ellas se llama <code>penguins</code>, y es una versión simplificada de los datos brutos; consulte <a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html"><code>?penguins</code></a>para obtener más información:</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-e8bbba918250c672b9b8" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-e8bbba918250c672b9b8">{"x":{"filter":"none","vertical":false,"data":[["Adelie","Adelie","Adelie","Adelie","Adelie","Adelie"],["Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen"],[39.1,39.5,40.3,null,36.7,39.3],[18.7,17.4,18,null,19.3,20.6],[181,186,195,null,193,190],[3750,3800,3250,null,3450,3650],["male","female","female",null,"female","male"],[2007,2007,2007,2007,2007,2007]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>species<\/th>\n      <th>island<\/th>\n      <th>bill_length_mm<\/th>\n      <th>bill_depth_mm<\/th>\n      <th>flipper_length_mm<\/th>\n      <th>body_mass_g<\/th>\n      <th>sex<\/th>\n      <th>year<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,7]},{"name":"species","targets":0},{"name":"island","targets":1},{"name":"bill_length_mm","targets":2},{"name":"bill_depth_mm","targets":3},{"name":"flipper_length_mm","targets":4},{"name":"body_mass_g","targets":5},{"name":"sex","targets":6},{"name":"year","targets":7}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-0f3fdbc495d47fdb9897" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0f3fdbc495d47fdb9897">{"x":{"filter":"none","vertical":false,"data":[["Adelie","Adelie","Adelie","Adelie","Adelie","Adelie"],["Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen"],[39.1,39.5,40.3,null,36.7,39.3],[18.7,17.4,18,null,19.3,20.6],[181,186,195,null,193,190],[3750,3800,3250,null,3450,3650],["male","female","female",null,"female","male"],[2007,2007,2007,2007,2007,2007]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>species<\/th>\n      <th>island<\/th>\n      <th>bill_length_mm<\/th>\n      <th>bill_depth_mm<\/th>\n      <th>flipper_length_mm<\/th>\n      <th>body_mass_g<\/th>\n      <th>sex<\/th>\n      <th>year<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,7]},{"name":"species","targets":0},{"name":"island","targets":1},{"name":"bill_length_mm","targets":2},{"name":"bill_depth_mm","targets":3},{"name":"flipper_length_mm","targets":4},{"name":"body_mass_g","targets":5},{"name":"sex","targets":6},{"name":"year","targets":7}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -881,18 +518,18 @@ Esto es útil para inspeccionar rápidamente datos sin necesidad de abrir todo e
 </div>
 </div>
 </section>
-<section id="tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" class="level2" data-number="32.4">
-<h2 data-number="32.4" class="anchored" data-anchor-id="tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida"><span class="header-section-number">32.4</span> Tamaño, puesta y datos de isótopos sanguíneos de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida</h2>
+<section id="tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="tamaño-puesta-y-datos-de-isótopos-sanguíneos-de-pingüinos-adultos-en-busca-de-alimento-cerca-de-la-estación-palmer-antártida"><span class="header-section-number">6.4</span> Tamaño, puesta y datos de isótopos sanguíneos de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida</h2>
 <p>El segundo conjunto de datos es <code>penguins_raw</code>, y contiene todas las variables y los nombres originales tal como se descargaron; consulte <a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins_raw.html"><code>?penguins_raw</code></a>para obtener más información.</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins_raw, <span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="at">rownames =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-e2e2b0852fcbc3074c26" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-e2e2b0852fcbc3074c26">{"x":{"filter":"none","vertical":false,"data":[["PAL0708","PAL0708","PAL0708","PAL0708"],[1,2,3,4],["Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)"],["Anvers","Anvers","Anvers","Anvers"],["Torgersen","Torgersen","Torgersen","Torgersen"],["Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage"],["N1A1","N1A2","N2A1","N2A2"],["Yes","Yes","Yes","Yes"],["2007-11-11","2007-11-11","2007-11-16","2007-11-16"],[39.1,39.5,40.3,null],[18.7,17.4,18,null],[181,186,195,null],[3750,3800,3250,null],["MALE","FEMALE","FEMALE",null],[null,8.94956,8.368209999999999,null],[null,-24.69454,-25.33302,null],["Not enough blood for isotopes.",null,null,"Adult not sampled."]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>studyName<\/th>\n      <th>Sample Number<\/th>\n      <th>Species<\/th>\n      <th>Region<\/th>\n      <th>Island<\/th>\n      <th>Stage<\/th>\n      <th>Individual ID<\/th>\n      <th>Clutch Completion<\/th>\n      <th>Date Egg<\/th>\n      <th>Culmen Length (mm)<\/th>\n      <th>Culmen Depth (mm)<\/th>\n      <th>Flipper Length (mm)<\/th>\n      <th>Body Mass (g)<\/th>\n      <th>Sex<\/th>\n      <th>Delta 15 N (o/oo)<\/th>\n      <th>Delta 13 C (o/oo)<\/th>\n      <th>Comments<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,9,10,11,12,14,15]},{"name":"studyName","targets":0},{"name":"Sample Number","targets":1},{"name":"Species","targets":2},{"name":"Region","targets":3},{"name":"Island","targets":4},{"name":"Stage","targets":5},{"name":"Individual ID","targets":6},{"name":"Clutch Completion","targets":7},{"name":"Date Egg","targets":8},{"name":"Culmen Length (mm)","targets":9},{"name":"Culmen Depth (mm)","targets":10},{"name":"Flipper Length (mm)","targets":11},{"name":"Body Mass (g)","targets":12},{"name":"Sex","targets":13},{"name":"Delta 15 N (o/oo)","targets":14},{"name":"Delta 13 C (o/oo)","targets":15},{"name":"Comments","targets":16}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-52567fa2f0e215066940" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-52567fa2f0e215066940">{"x":{"filter":"none","vertical":false,"data":[["PAL0708","PAL0708","PAL0708","PAL0708"],[1,2,3,4],["Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)","Adelie Penguin (Pygoscelis adeliae)"],["Anvers","Anvers","Anvers","Anvers"],["Torgersen","Torgersen","Torgersen","Torgersen"],["Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage","Adult, 1 Egg Stage"],["N1A1","N1A2","N2A1","N2A2"],["Yes","Yes","Yes","Yes"],["2007-11-11","2007-11-11","2007-11-16","2007-11-16"],[39.1,39.5,40.3,null],[18.7,17.4,18,null],[181,186,195,null],[3750,3800,3250,null],["MALE","FEMALE","FEMALE",null],[null,8.94956,8.368209999999999,null],[null,-24.69454,-25.33302,null],["Not enough blood for isotopes.",null,null,"Adult not sampled."]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>studyName<\/th>\n      <th>Sample Number<\/th>\n      <th>Species<\/th>\n      <th>Region<\/th>\n      <th>Island<\/th>\n      <th>Stage<\/th>\n      <th>Individual ID<\/th>\n      <th>Clutch Completion<\/th>\n      <th>Date Egg<\/th>\n      <th>Culmen Length (mm)<\/th>\n      <th>Culmen Depth (mm)<\/th>\n      <th>Flipper Length (mm)<\/th>\n      <th>Body Mass (g)<\/th>\n      <th>Sex<\/th>\n      <th>Delta 15 N (o/oo)<\/th>\n      <th>Delta 13 C (o/oo)<\/th>\n      <th>Comments<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,9,10,11,12,14,15]},{"name":"studyName","targets":0},{"name":"Sample Number","targets":1},{"name":"Species","targets":2},{"name":"Region","targets":3},{"name":"Island","targets":4},{"name":"Stage","targets":5},{"name":"Individual ID","targets":6},{"name":"Clutch Completion","targets":7},{"name":"Date Egg","targets":8},{"name":"Culmen Length (mm)","targets":9},{"name":"Culmen Depth (mm)","targets":10},{"name":"Flipper Length (mm)","targets":11},{"name":"Body Mass (g)","targets":12},{"name":"Sex","targets":13},{"name":"Delta 15 N (o/oo)","targets":14},{"name":"Delta 13 C (o/oo)","targets":15},{"name":"Comments","targets":16}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -930,8 +567,8 @@ Esto es útil para inspeccionar rápidamente datos sin necesidad de abrir todo e
 </div>
 </div>
 </section>
-<section id="revisar-las-dimensiones-de-un-objeto" class="level2" data-number="32.5">
-<h2 data-number="32.5" class="anchored" data-anchor-id="revisar-las-dimensiones-de-un-objeto"><span class="header-section-number">32.5</span> Revisar las dimensiones de un objeto</h2>
+<section id="revisar-las-dimensiones-de-un-objeto" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="revisar-las-dimensiones-de-un-objeto"><span class="header-section-number">6.5</span> Revisar las dimensiones de un objeto</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -976,8 +613,8 @@ Esto es útil para inspeccionar rápidamente datos sin necesidad de abrir todo e
 <p>Ambos conjuntos de datos contienen información sobre <strong>344 pingüinos</strong>. Estos conjuntos de datos incluyen <strong>3 especies diferentes de pingüinos, recopiladas en 3 islas</strong> del archipiélago Palmer, en la Antártida. Vamos a revisar la estructura de los datos:</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(penguins)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
@@ -1012,8 +649,8 @@ Esto es útil para inspeccionar rápidamente datos sin necesidad de abrir todo e
 </div>
 </div>
 </section>
-<section id="funciones-que-vamos-a-emplear-de-dplyr" class="level2" data-number="32.6">
-<h2 data-number="32.6" class="anchored" data-anchor-id="funciones-que-vamos-a-emplear-de-dplyr"><span class="header-section-number">32.6</span> Funciones que vamos a emplear de <code>dplyr</code></h2>
+<section id="funciones-que-vamos-a-emplear-de-dplyr" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="funciones-que-vamos-a-emplear-de-dplyr"><span class="header-section-number">6.6</span> Funciones que vamos a emplear de <code>dplyr</code></h2>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1037,15 +674,15 @@ Esto es útil para inspeccionar rápidamente datos sin necesidad de abrir todo e
 </div>
 </div>
 </section>
-<section id="manos-a-la-obra" class="level2" data-number="32.7">
-<h2 data-number="32.7" class="anchored" data-anchor-id="manos-a-la-obra"><span class="header-section-number">32.7</span> Manos a la obra</h2>
+<section id="manos-a-la-obra" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="manos-a-la-obra"><span class="header-section-number">6.7</span> Manos a la obra</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Actividad: Número de especies
+<span class="screen-reader-only">Nota</span>Actividad: Número de especies
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1062,8 +699,8 @@ Esto es útil para inspeccionar rápidamente datos sin necesidad de abrir todo e
 </ol>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(penguins<span class="sc">$</span>species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(penguins<span class="sc">$</span>species)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Adelie    Gentoo    Chinstrap
@@ -1076,10 +713,10 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 </ol>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(species) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="co"># Nos da valores unicos, sin duplicaciones</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="co"># Nos da valores unicos, sin duplicaciones</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 1
@@ -1095,10 +732,10 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 </ol>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(species) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">n_distinct</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">n_distinct</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
@@ -1109,9 +746,9 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 </ol>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
@@ -1131,7 +768,7 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Actividad: Sexo y Distribución del muestreo a través de las islas
+<span class="screen-reader-only">Nota</span>Actividad: Sexo y Distribución del muestreo a través de las islas
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1142,9 +779,9 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 </ol>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
@@ -1160,9 +797,9 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 </ol>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species, sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species, sex)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 3
@@ -1183,9 +820,9 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 </ol>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(island)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(island)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
@@ -1201,9 +838,9 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 </ol>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species, island, sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species, island, sex)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 13 × 4
@@ -1233,7 +870,7 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Actividad: Masa de los individuos
+<span class="screen-reader-only">Nota</span>Actividad: Masa de los individuos
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1242,11 +879,11 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 <p>Crea una nueva columna llamada <code>body_mass_kg</code> que convierta el peso de gramos a kilogramos.</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>penguins_kg <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body_mass_kg =</span> body_mass_g <span class="sc">/</span> <span class="dv">1000</span>) </span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins_kg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins_kg)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 9
@@ -1264,10 +901,10 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 <p>Calcula el promedio de masa corporal por especie.</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>penguins_kg <span class="sc">%&gt;%</span> </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_mass_kg =</span> <span class="fu">mean</span>(body_mass_kg, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_mass_kg =</span> <span class="fu">mean</span>(body_mass_kg, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
@@ -1281,11 +918,11 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 <p>Crea una columna <code>peso_categoria</code> que indique <code>"Ligero"</code> si el pingüino pesa menos de 4000 g = 4kg y <code>"Pesado"</code> en caso contrario.</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>penguins_kg <span class="ot">&lt;-</span> penguins_kg <span class="sc">%&gt;%</span> </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">peso_categoria =</span> <span class="fu">if_else</span>(body_mass_kg <span class="sc">&lt;</span> <span class="dv">4</span>, <span class="st">"Ligero"</span>, <span class="st">"Pesado"</span>))</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins_kg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins_kg)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 10
@@ -1304,9 +941,9 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 <p>¿Cuántos pingüinos tenemos por categoría?</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>penguins_kg <span class="sc">%&gt;%</span> </span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(peso_categoria)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(peso_categoria)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
@@ -1325,13 +962,13 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 </ul>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>penguins_kg <span class="sc">%&gt;%</span> </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">categoria =</span> <span class="fu">case_when</span>(</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    body_mass_g <span class="sc">&lt;</span> <span class="dv">3500</span> <span class="sc">~</span> <span class="st">"Pequeño"</span>,</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    body_mass_g <span class="sc">&gt;=</span> <span class="dv">3500</span> <span class="sc">&amp;</span> body_mass_g <span class="sc">&lt;=</span> <span class="dv">4500</span> <span class="sc">~</span> <span class="st">"Mediano"</span>,</span>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    body_mass_g <span class="sc">&gt;</span> <span class="dv">4500</span> <span class="sc">~</span> <span class="st">"Grande"</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 11
@@ -1361,7 +998,7 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Actividad: Longitud del pico y del ala
+<span class="screen-reader-only">Nota</span>Actividad: Longitud del pico y del ala
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1370,11 +1007,11 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 <p>Ordena los pingüinos por longitud del pico (<code>bill_length_mm</code>) de mayor a menor.</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>penguins_kg <span class="sc">%&gt;%</span> </span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(bill_length_mm)) <span class="sc">%&gt;%</span>  <span class="co"># de mayor a menor</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># tambien se puede poner arrange(-bill_length_mm)</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 10
@@ -1393,10 +1030,10 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 <p>Si queremos que sea de menor a mayor, quitamos <code>desc()</code>.</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>penguins_kg <span class="sc">%&gt;%</span> </span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(bill_length_mm) <span class="sc">%&gt;%</span>  <span class="co"># de menor a mayor</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 10
@@ -1415,13 +1052,13 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 <p>Calcula el promedio y la desviación estándar de la longitud del ala (<code>flipper_length_mm</code>) por especie.</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_flipper =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#promedio</span></span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_flipper =</span> <span class="fu">sd</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># desviacion estandar</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
@@ -1442,19 +1079,6 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1478,12 +1102,12 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiado");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiado");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -1526,7 +1150,7 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/github\.com\/EveliaCoss\/CdeCMx2026_Club_LPZ3_libro");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1794,25 +1418,64 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
           }
         };
       }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
             }
-          });
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
         }
     const findCites = (el) => {
       const parentEl = el.parentElement;
@@ -1856,16 +1519,29 @@ Levels: Adelie Chinstrap Gentoo</code></pre>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Parte27.html" class="pagination-link" aria-label="Estructura de datos en R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Estructura de datos en R</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estructura de datos en R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Parte30.html" class="pagination-link" aria-label="¿Por qué visualizar datos?">
-        <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">¿Por qué visualizar datos?</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">¿Por qué visualizar datos?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>POV: Descubres lo que dicen tus genes - Clubes de Ciencia México</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

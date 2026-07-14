@@ -3,57 +3,48 @@ project:
   output-dir: docs
 
 book:
-  title: "Code & Data Bootcamp: Git, Bash y R"
-  author: "Dra. Evelia Coss, Dra. Haydedé Peruyero"
-  date: "6/15/2026"
+  title: "POV: Descubres lo que dicen tus genes"
+  site-url: https://github.com/EveliaCoss/CdeCMx2026_Club_LPZ3_libro
+  page-footer:  "POV: Descubres lo que dicen tus genes - Clubes de Ciencia México" 
+  sidebar: 
+    # background: "#ffcccc"
+    logo: "flyer/logo_cdecmx.png" # Logo ENES
+    search: true
+  author: 
+    - name: Evelia Coss
+      degrees: PhD
+      url: https://eveliacoss.github.io/ 
+      orcid: https://orcid.org/0000-0002-7087-2977
+      email: ecosnav@gmail.com
+      github: https://github.com/zurielceja
+      affiliations:
+        - name: ENES, Juriquilla - UNAM
+          country: México
+          url: https://www.enesjuriquilla.unam.mx/
+    - name: Zuriel Ceja
+      degrees: PhD student
+      url: https://www.qimrb.edu.au/about/our-people/zuriel-ceja-de-la-cruz
+      orcid: https://orcid.org/0000-0003-2392-1964
+      email: Zuriel.ceja@qimrberghofer.edu.au
+      affiliations:
+        - name: QIMR Berghofer / The University of Queensland 
+          country: Australia
+          url: https://www.qimrb.edu.au/        
+  # date: "6/15/2026"
   page-navigation: true
   chapters:
     - index.qmd      # Información general
     - Presentaciones.qmd
     - part: "**Pre-requisitos**"
       chapters: 
-      - install_B.qmd # Instalación de Git y Bash
       - install_R.qmd # Instalación de R y RStudio
-    - part: "**Sección 1** - Introducción a Bash"
-      chapters:       
       - Parte1.qmd # Buenas practicas
-      - Parte2.qmd # Intro BASH
-      - Parte3.qmd # Mis primeros pasos BASH
-      - REGEX.qmd  # Wildcards y Streams
-    - part: "**Sección 2** - Edición de archivos"
-      chapters:        
-      - Parte5.qmd # Operadores de redirección de datos I/O
-      - Parte6.qmd # Edición de archivos con los editores de texto (nano y vim)
-      - Parte7A.qmd # Edición de archivos con el editor de flujo sed     
-      - Parte7.qmd # Enlaces simbólicos (symlinks)
-      - Parte8.qmd # Filtrado de texto (`grep, cut, sort, uniq, wc`)
-      - Parte9.qmd # Condicionales
-      - Parte10.qmd # Scripts en Bash
-      - Parte11.qmd # Bucles (for loops)
-    - part: "**Sección 3** - Introducción a Git/GitHub"
-      chapters:  
-      - Parte12.qmd # Intro a Git
-      - Parte13.qmd # Instalar Git/Bash
-      - Parte14.qmd # Configurar git
-      - Parte15.qmd # Crear e inicializar repos
-      - Parte16.qmd # Rastrear cambios
-      - Parte17.qmd # Explorando el historial
-      - Parte18.qmd # Restore y reset
-      - Parte19.qmd # Ignorar archivos
-    - part: "**Sección 4** - Conexión con Github"
-      chapters:
-      - Parte20.qmd # Conexión con Github
-      - Parte21.qmd # Trabajando con colaboradores
-      - Parte22.qmd # Resolviendo conflictos
-      - Parte23.qmd # Trabajando con ramas
-      - Parte24.qmd # Conexión RStudio con Git 
-      - Parte25.qmd # Resumen y practica final
-    - part: "**Sección 5** - Introducción a R y RStudio"
+    - part: "**Sección 1** - Introducción a R y RStudio"
       chapters:  
       - Parte26.qmd
       - Parte27.qmd 
       - Parte28.qmd 
-    - part: "**Sección 6** - Gráficos con ggplot2 "
+    - part: "**Sección 2** - Gráficos con ggplot2 "
       chapters:  
       - Parte30.qmd # Intro a ggplot
       - Parte31.qmd # La gramatica de los gráficos
@@ -68,7 +59,7 @@ book:
 
       
   # Information
-  repo-url: https://github.com/ISCB-RSG-MEXICO/2026-06-15-CodeData_Bootcamp_Git_Bash_R # link de Github
+  repo-url: https://github.com/EveliaCoss/CdeCMx2026_Club_LPZ3_libro # link de Github
   sharing: [twitter, facebook, linkedin]
   # favicon: "rsgMexico.jpeg" # icono de la pagina en pestana
 
@@ -77,13 +68,22 @@ format:
   html:
     toc-depth: 4
     number-depth: 3
+    # css
+    css: styles.css
+    linkcolor: "#007f99"
   # Boton para cambiar tema de oscuro a claro
     theme:
       light: cosmo
-      dark: darkly
+      # dark: darkly
     code-fold: show # Ocultar codigo
     code-copy: true # Copy button
+    code-annotations: hover #c(hover, below, select): posicion https://quarto.org/docs/authoring/code-annotation.html
+    code-block-bg: true # Bloque de código
+    code-block-border-left: "#007f99" # color del borde izquierdo del codigo
+    syntax-highlighting: arrow # Estilo de los codigos https://quarto.org/docs/output-formats/html-code.html#highlighting
     freeze: false  # Desactivar congelamiento
 
 editor: visual
+
+lang: es
 
