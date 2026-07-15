@@ -1,1 +1,58 @@
-## Presentaciones
+# Bienvenida: Tú y tus genes
+
+## Introducción al curso
+
+En este curso descubrirás cómo tus genes interactúan con el entorno, el estrés, el sueño y la comunidad para influir en tu salud y bienestar. A través de actividades prácticas con datos reales y salidas de campo, aprenderás a usar herramientas científicas como **R** para analizar **patrones genéticos y crear tu propio proyecto o dashboard**.
+
+No necesitas experiencia previa, solo curiosidad y ganas de explorar.
+
+## **Objetivos de aprendizaje**
+
+- Comprender cómo las **variantes genéticas y el riesgo genético** influyen en la salud y cómo interactúan con el entorno (gene × environment).
+- Analizar datos reales de **genética, cerebro y salud mental** para identificar patrones significativos.
+- Utilizar herramientas de **ciencia de datos** como medio para explorar sistemas complejos.
+- Explorar el papel del **entorno, la comunidad** y el sentido de pertenencia en la **resiliencia**.
+- Diseñar y comunicar un proyecto final basado en datos, integrando evidencia y creatividad.
+
+## Dinámica de trabajo
+
+### Notas adhesivas 📄
+
+Entregamos a cada alumno **tres notas adhesivas** de distintos colores, por ejemplo, [**rosa/rojo**]{.text-pink}, [**verde**]{.text-green} y [**azul**]{.text-blueblack}. Se pueden sostener para votar, pero su uso real es como **banderas de estado**.
+
+- [**Nota rosa/roja**]{.text-pink} 😱:
+  - Acción explícita: Colócala en tu computadora cuando enfrentes un problema que no puedes resolver solo y necesites ayuda inmediata.
+  - 👉 Significa: [*"Estoy atascado, necesito apoyo de la profesora"*]{.text-pink}.
+- [**Nota azul**]{.text-blueblack} 😥:
+  - Acción explícita: Úsala si la explicación va demasiado rápido, si no alcanzas a seguir el ritmo o si requieres más ejemplos prácticos.
+  - 👉 Significa: [*"Necesitamos bajar la velocidad y reforzar con ejercicios"*]{.text-blueblack}, también puede relacionarse con [*"Aún no terminamos, necesitamos más tiempo"*]{.text-blueblack}.
+- [**Nota verde**]{.text-green} 😁:
+  - Acción explícita: Colócala cuando hayas terminado un ejercicio o quieras que la profesora revise tu trabajo.
+  - 👉 Significa: [*"Ya concluí, podemos continuar con lo que sigue"*]{.text-green}.
+
+![](figures/notes.png){fig-align="center"}
+
+Esto es mejor que hacer que la gente **levante la mano** porque:
+
+- es más discreto (lo que significa que es más probable que realmente lo hagan),
+- pueden seguir trabajando mientras su bandera está levantada, y
+- el instructor puede ver rápidamente desde el frente de la sala en qué estado se encuentra la clase.
+
+## Ronda de Presentaciones
+
+::: {.callout-note icon="false"}
+## Actividad: ¡Preséntate!
+
+Para comenzar, haremos una breve ronda de presentaciones. Cada persona deberá compartir la siguiente información en voz alta, en **3 min**:
+
+1.  **Nombre y apellido**
+
+2.  **Preparatoria de procedencia**
+
+3.  **Tu comida favorita 🍕🍜🍫**
+
+👉 Ejemplo:\
+"Hola, soy *Evelia Coss*, trabajo en uDocz (como programadora de agentes de AI) y soy profesora de la *ENES Juriquilla-UNAM* en el área de bioinformática, y mi comida favorita es el ceviche."
+
+¡La idea es romper el hielo y conocernos un poco mejor! 😊
+:::

@@ -1,3 +1,7 @@
+# Introducción a la bioinformática como lupa para la vida
+
+¿Qué es la bioinformática y la ciencia de datos?
+
 # Buenas prácticas en bioinformática
 
 Notas personales recabadas a partir de los tutoriales y ejemplos 😊. Espero que les funcione 💜

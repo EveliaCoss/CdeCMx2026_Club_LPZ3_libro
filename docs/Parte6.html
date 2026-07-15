@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Bienvenida: Tú y tus genes – POV: Descubres lo que dicen tus genes</title>
+<title>9&nbsp; La Gramática de los Gráficos (GG) – POV: Descubres lo que dicen tus genes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./install_R.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./Parte7.html" rel="next">
+<link href="./Parte5.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Presentaciones.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bienvenida: Tú y tus genes</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte5.html"><strong>Sección 2</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte6.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -149,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Presentaciones.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Presentaciones.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bienvenida: Tú y tus genes</span></span></a>
   </div>
 </li>
@@ -239,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Parte6.html" class="sidebar-item-text sidebar-link">
+  <a href="./Parte6.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></span></a>
   </div>
 </li>
@@ -303,22 +303,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción-al-curso" id="toc-introducción-al-curso" class="nav-link active" data-scroll-target="#introducción-al-curso"><span class="header-section-number">1.1</span> Introducción al curso</a></li>
-  <li><a href="#objetivos-de-aprendizaje" id="toc-objetivos-de-aprendizaje" class="nav-link" data-scroll-target="#objetivos-de-aprendizaje"><span class="header-section-number">1.2</span> <strong>Objetivos de aprendizaje</strong></a></li>
-  <li><a href="#dinámica-de-trabajo" id="toc-dinámica-de-trabajo" class="nav-link" data-scroll-target="#dinámica-de-trabajo"><span class="header-section-number">1.3</span> Dinámica de trabajo</a>
-  <ul>
-  <li><a href="#notas-adhesivas" id="toc-notas-adhesivas" class="nav-link" data-scroll-target="#notas-adhesivas"><span class="header-section-number">1.3.1</span> Notas adhesivas 📄</a></li>
-  </ul></li>
-  <li><a href="#ronda-de-presentaciones" id="toc-ronda-de-presentaciones" class="nav-link" data-scroll-target="#ronda-de-presentaciones"><span class="header-section-number">1.4</span> Ronda de Presentaciones</a></li>
+  <li><a href="#desglose-de-las-capas-comunes" id="toc-desglose-de-las-capas-comunes" class="nav-link active" data-scroll-target="#desglose-de-las-capas-comunes"><span class="header-section-number">9.1</span> Desglose de las capas comunes</a></li>
+  <li><a href="#colocando-las-capas-juntas" id="toc-colocando-las-capas-juntas" class="nav-link" data-scroll-target="#colocando-las-capas-juntas"><span class="header-section-number">9.2</span> Colocando las capas juntas</a></li>
+  <li><a href="#cheatsheet" id="toc-cheatsheet" class="nav-link" data-scroll-target="#cheatsheet"><span class="header-section-number">9.3</span> Cheatsheet</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">9.4</span> Referencias</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte5.html"><strong>Sección 2</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte6.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bienvenida: Tú y tus genes</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></h1>
 </div>
 
 
@@ -335,79 +332,129 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introducción-al-curso" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="introducción-al-curso"><span class="header-section-number">1.1</span> Introducción al curso</h2>
-<p>En este curso descubrirás cómo tus genes interactúan con el entorno, el estrés, el sueño y la comunidad para influir en tu salud y bienestar. A través de actividades prácticas con datos reales y salidas de campo, aprenderás a usar herramientas científicas como <strong>R</strong> para analizar <strong>patrones genéticos y crear tu propio proyecto o dashboard</strong>.</p>
-<p>No necesitas experiencia previa, solo curiosidad y ganas de explorar.</p>
-</section>
-<section id="objetivos-de-aprendizaje" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="objetivos-de-aprendizaje"><span class="header-section-number">1.2</span> <strong>Objetivos de aprendizaje</strong></h2>
-<ul>
-<li>Comprender cómo las <strong>variantes genéticas y el riesgo genético</strong> influyen en la salud y cómo interactúan con el entorno (gene × environment).</li>
-<li>Analizar datos reales de <strong>genética, cerebro y salud mental</strong> para identificar patrones significativos.</li>
-<li>Utilizar herramientas de <strong>ciencia de datos</strong> como medio para explorar sistemas complejos.</li>
-<li>Explorar el papel del <strong>entorno, la comunidad</strong> y el sentido de pertenencia en la <strong>resiliencia</strong>.</li>
-<li>Diseñar y comunicar un proyecto final basado en datos, integrando evidencia y creatividad.</li>
-</ul>
-</section>
-<section id="dinámica-de-trabajo" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="dinámica-de-trabajo"><span class="header-section-number">1.3</span> Dinámica de trabajo</h2>
-<section id="notas-adhesivas" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="notas-adhesivas"><span class="header-section-number">1.3.1</span> Notas adhesivas 📄</h3>
-<p>Entregamos a cada alumno <strong>tres notas adhesivas</strong> de distintos colores, por ejemplo, <span class="text-pink"><strong>rosa/rojo</strong></span>, <span class="text-green"><strong>verde</strong></span> y <span class="text-blueblack"><strong>azul</strong></span>. Se pueden sostener para votar, pero su uso real es como <strong>banderas de estado</strong>.</p>
-<ul>
-<li><span class="text-pink"><strong>Nota rosa/roja</strong></span> 😱:
-<ul>
-<li>Acción explícita: Colócala en tu computadora cuando enfrentes un problema que no puedes resolver solo y necesites ayuda inmediata.</li>
-<li>👉 Significa: <span class="text-pink"><em>“Estoy atascado, necesito apoyo de la profesora”</em></span>.</li>
-</ul></li>
-<li><span class="text-blueblack"><strong>Nota azul</strong></span> 😥:
-<ul>
-<li>Acción explícita: Úsala si la explicación va demasiado rápido, si no alcanzas a seguir el ritmo o si requieres más ejemplos prácticos.</li>
-<li>👉 Significa: <span class="text-blueblack"><em>“Necesitamos bajar la velocidad y reforzar con ejercicios”</em></span>, también puede relacionarse con <span class="text-blueblack"><em>“Aún no terminamos, necesitamos más tiempo”</em></span>.</li>
-</ul></li>
-<li><span class="text-green"><strong>Nota verde</strong></span> 😁:
-<ul>
-<li>Acción explícita: Colócala cuando hayas terminado un ejercicio o quieras que la profesora revise tu trabajo.</li>
-<li>👉 Significa: <span class="text-green"><em>“Ya concluí, podemos continuar con lo que sigue”</em></span>.</li>
-</ul></li>
-</ul>
+<p>Empecemos por lo básico. El paquete <code>ggplot2</code> se basa en la Gramática de los Gráficos (GG), que es un marco para la visualización de datos que disecciona cada componente de un gráfico en <strong>componentes individuales</strong>, creando <strong>capas distintas</strong>. Utilizando el sistema GG, podemos construir gráficos paso a paso para obtener resultados flexibles y personalizables.</p>
+<div class="text-center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/notes.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><a href="https://r.qcbs.ca/workshop03/book-en/grammar-of-graphics-gg-basics.html"><img src="figures/Layers_ggplot.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
+<figcaption>Capas</figcaption>
 </figure>
 </div>
-<p>Esto es mejor que hacer que la gente <strong>levante la mano</strong> porque:</p>
+</div>
+<p>Las capas GG tienen nombres específicos que veremos en las siguientes secciones.</p>
+<div class="text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://r.qcbs.ca/workshop03/book-en/grammar-of-graphics-gg-basics.html"><img src="figures/gglayers.png" class="img-fluid figure-img" style="width:120.0%"></a></p>
+<figcaption>gglayers</figcaption>
+</figure>
+</div>
+</div>
+<p>Para hacer un ggplot, las capas de datos y mapas son requisitos básicos, mientras que las otras capas son para personalización adicional. Las capas que no son necesarias siguen siendo importantes, pero se pueden generar graficos sin ellas.</p>
+<section id="desglose-de-las-capas-comunes" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="desglose-de-las-capas-comunes"><span class="header-section-number">9.1</span> Desglose de las capas comunes</h2>
 <ul>
-<li>es más discreto (lo que significa que es más probable que realmente lo hagan),</li>
-<li>pueden seguir trabajando mientras su bandera está levantada, y</li>
-<li>el instructor puede ver rápidamente desde el frente de la sala en qué estado se encuentra la clase.</li>
+<li><strong>Datos:</strong>
+<ul>
+<li><code>sus datos</code>, en formato <code>tidy</code> o <code>dataframe</code>, proporcionarán los ingredientes para su trazado</li>
+<li>utilice las técnicas <code>dplyr</code> para preparar los datos para un formato de trazado óptimo</li>
+<li>por lo general, esto significa que debe tener una fila por cada observación que desea trazar</li>
+</ul></li>
+<li><strong>Estética (Aesthetics / aes)</strong>, para hacer visibles los datos
+<ul>
+<li><code>x</code>, <code>y</code>: variable a lo largo de los ejes x e y.</li>
+<li><code>colour</code>: color de las variables según los datos.</li>
+<li><code>fill</code>: color interior de la zona o relleno.</li>
+<li><code>group</code>: a qué grupo pertenece una geom.</li>
+<li><code>shape</code>: la figura utilizada para trazar un punto.</li>
+<li><code>linetype</code>: tipo de línea utilizada (sólida, discontinua, etc.).</li>
+<li><code>size</code>: escala de tamaño para una dimensión extra</li>
+<li><code>alpha</code>: transparencia del objeto geométrico</li>
+</ul></li>
+<li><strong>Objetos geométricos</strong> (geoms - determina el tipo de trazado)
+<ul>
+<li><code>geom_point()</code>: gráfico de dispersión</li>
+<li><code>geom_line()</code>: líneas que conectan puntos aumentando el valor de x</li>
+<li><code>geom_path()</code>: líneas que conectan puntos en secuencia de aparición</li>
+<li><code>geom_boxplot()</code>: gráfico de caja y bigotes para variables categóricas</li>
+<li><code>geom_bar()</code>: gráficos de barras para el eje x categórico</li>
+<li><code>geom_histogram()</code>: histograma para eje x continuo</li>
+<li><code>geom_violin()</code>: núcleo de distribución de la dispersión de datos</li>
+<li><code>geom_smooth()</code>: línea de función basada en datos</li>
+</ul></li>
+<li><strong>Facetas:</strong>
+<ul>
+<li><code>facet_wrap()</code> o <code>facet_grid()</code> para múltiplos pequeños</li>
+</ul></li>
+<li><strong>Estadísticas:</strong>
+<ul>
+<li>similar a geoms, pero computada</li>
+<li>muestran medias, recuentos y otros resúmenes estadísticos de los datos</li>
+</ul></li>
+<li><strong>Coordenadas</strong> - ajuste de datos en una página
+<ul>
+<li><code>coord_cartesian</code> para establecer límites</li>
+<li><code>coord_polar</code> para gráficos circulares</li>
+<li><code>coord_map</code> para diferentes proyecciones cartográficas</li>
+</ul></li>
+<li><strong>Temas:</strong>
+<ul>
+<li>parámetros visuales generales</li>
+<li>fuentes, colores, formas, contornos</li>
+</ul></li>
 </ul>
 </section>
-</section>
-<section id="ronda-de-presentaciones" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="ronda-de-presentaciones"><span class="header-section-number">1.4</span> Ronda de Presentaciones</h2>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<section id="colocando-las-capas-juntas" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="colocando-las-capas-juntas"><span class="header-section-number">9.2</span> Colocando las capas juntas</h2>
+<p>Los pasos básicos para contruir el plot son los siguientes:</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Actividad: ¡Preséntate!
+Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Para comenzar, haremos una breve ronda de presentaciones. Cada persona deberá compartir la siguiente información en voz alta, en <strong>3 min</strong>:</p>
 <ol type="1">
-<li><p><strong>Nombre y apellido</strong></p></li>
-<li><p><strong>Preparatoria de procedencia</strong></p></li>
-<li><p><strong>Tu comida favorita 🍕🍜🍫</strong></p></li>
+<li>Crear el objeto de plot:</li>
 </ol>
-<p>👉 Ejemplo:<br>
-“Hola, soy <em>Evelia Coss</em>, trabajo en uDocz (como programadora de agentes de AI) y soy profesora de la <em>ENES Juriquilla-UNAM</em> en el área de bioinformática, y mi comida favorita es el ceviche.”</p>
-<p>¡La idea es romper el hielo y conocernos un poco mejor! 😊</p>
+<ul>
+<li><code>plot_object &lt;- ggplot()</code></li>
+</ul>
+<ol start="2" type="1">
+<li>Agregar la capa geométrica</li>
+</ol>
+<ul>
+<li><code>plot_object &lt;- plot_object + geom_*()</code></li>
+</ul>
+<ol start="3" type="1">
+<li>Agregar las capas de apariencia:</li>
+</ol>
+<ul>
+<li><code>plot_object &lt;- plot_object + geom_*() + theme()</code></li>
+</ul>
+<ol start="4" type="1">
+<li>Repetir pasos 2 y 3 hasta estar satisfechos, luego imprimir:</li>
+</ol>
+<ul>
+<li><code>plot_object</code></li>
+</ul>
 </div>
 </div>
+</section>
+<section id="cheatsheet" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="cheatsheet"><span class="header-section-number">9.3</span> Cheatsheet</h2>
+<p><embed src="figures/ggplot2-cheatsheet-2.1-Spanish.pdf" width="1000" height="1000"></p>
+</section>
+<section id="referencias" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="referencias"><span class="header-section-number">9.4</span> Referencias</h2>
+<ul>
+<li><p>Más información en en el <a href="https://r.qcbs.ca/workshop03/book-en/">Workshop 3: Introduction to data visualisation with ggplot2</a></p></li>
+<li><p>Haydee tutorial: <a href="https://haydeeperuyero.github.io/Seminario_Estadistica/visualizaci%C3%B3n-de-datos.html#ggplot2">Seminario de Estadística: Análisis de Datos con R</a></p></li>
+<li><p>Tutorial R-Ladies Morelia <a href="https://r-ladies-morelia.github.io/Reprohack2024/Grupo2/docs/tema4.html">Reprohack 2024</a></p></li>
+</ul>
 
 
 </section>
@@ -854,13 +901,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Información general">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Información general</span>
+      <a href="./Parte5.html" class="pagination-link" aria-label="¿Por qué visualizar datos?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">¿Por qué visualizar datos?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./install_R.html" class="pagination-link" aria-label="Instalación de R y RStudio">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Instalación de R y RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Parte7.html" class="pagination-link" aria-label="Básicos de la visualización de datos">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,109 +1,128 @@
-# Scripts en Bash
+# Estéticas globales y locales
 
-Los `scripts` son archivos de texto que contienen instrucciones ejecutables por un intérprete de un lenguaje de programación para la ejecución de tareas. El formato `.sh` se utiliza para escribir `scripts ejecutables` por un intérprete como **Bash**. En esta sección crearemos varios scripts de Bash y usaremos varios comandos y operadores.
+Hasta ahora hemos modificado diferentes estéticas como `shape`, `size` y `alpha`. Estas estéticas pueden especificarse dentro de la llamada a `ggplot()` o dentro de una capa particular, como `geom_point()`.
 
-::: callout-note
-Los script de Bash contiene al inicio esta descripción `#!bin/bash` y la extensión `.sh`
+La diferencia radica en el alcance de las estéticas:
+
+- Las estéticas definidas en `ggplot()` son **globales** y se heredan por todas las capas.
+- Las estéticas definidas dentro de un `geom()` son **locales** y sólo afectan a esa capa.
+
+## Estéticas globales
+
+Estas son como las que ya hemos usado: las variables `bill_len`, `bill_dep` y `species` se definen dentro de `ggplot()`. Por lo tanto, cualquier capa añadida posteriormente heredará estas estéticas.
+
+```{r, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+ggplot(
+  data = penguins,
+  aes(
+    x = bill_len,
+    y = bill_dep,
+    color = species
+  )
+) +
+  geom_point(size = 2) +
+  labs(title = "Color heredado por todas las capas")
+```
+
+## Estéticas locales
+
+También podemos especificar las estéticas dentro de una capa. En este caso, sólo esa capa utilizará dichas estéticas.
+
+```{r, message=FALSE, warning=FALSE}
+ggplot(data = penguins) +
+  geom_point(
+    aes(
+      x = bill_len,
+      y = bill_dep,
+      color = species
+    ),
+    size = 2
+  ) +
+  labs(title = "Las estéticas se definen dentro de geom_point()")
+```
+
+En ambos casos obtenemos la misma figura. La diferencia se hace evidente cuando utilizamos varias capas.
+
+## Herencia de estéticas
+
+Retomemos el caso en el que añadimos una línea de tendencia además de los puntos.
+
+```{r, warning=FALSE, message=FALSE}
+ggplot(
+  data = penguins,
+  aes(
+    x = bill_len,
+    y = bill_dep,
+    color = species
+  )
+) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(se = FALSE)
+```
+
+Como `color = species` fue definido de forma global, tanto los puntos como las líneas se colorean según la especie.
+
+Si queremos que sólo los puntos tengan colores diferentes y que la línea de ajuste sea única, podemos definir el color únicamente en `geom_point()`.
+
+```{r}
+ggplot(
+  data = penguins,
+  aes(
+    x = bill_len,
+    y = bill_dep
+  )
+) +
+  geom_point(
+    aes(color = species),
+    alpha = 0.7
+  ) +
+  geom_smooth(
+    color = "black",
+    se = FALSE
+  )
+```
+
+Ahora el color depende de la especie únicamente para los puntos, mientras que la línea de tendencia se calcula usando todos los datos y aparece en negro.
+
+::: callout-tip
+## Regla general
+
+- Colocar dentro de `ggplot()` las estéticas que serán compartidas por varias capas.
+- Colocar dentro de cada `geom()` las estéticas que sólo deban afectar a esa capa.
+
+Esta forma de trabajar permite construir gráficos complejos de manera modular y es una de las principales ventajas de **ggplot2**.
 :::
 
-## Actividad grupal
+Podemos colocar también el estético de `shape` dentro de las geometrías y asociarlo a una variable.
 
-**Paso 1.** Crear un script en Bash con el nombre demo.sh empleando nano.
-
-``` {.bash code-copy="true" eval="false"}
-nano demo.sh
+```{r, warning=FALSE, message=FALSE}
+ggplot(
+  data = penguins,
+  aes(
+    x = bill_len,
+    y = bill_dep
+  )
+) +
+  geom_point(
+    aes(shape = species),
+    alpha = 0.7
+  )
 ```
 
-**Paso 2.** Copia el siguiente código dentro del script `demo.sh` y guarda los cambios.
+O incluso usar el tamaño y alfa para variables continuas.
 
-``` {.bash code-copy="true" eval="false"}
-
-#!/bin/bash
-# File: demo.sh
-
-# Input de archivo
-# 2. Mostrar el archivo y número de argumentos
-echo "Archivo a procesar > $@"
-echo "Numero de argumentos: $#"
-
-# 3. Conteo de secuencias y separación de malas lecturas
-numero_secuencias=$(grep -c '^@SRR098026' $@)
-grep -B1 -A2 NNNNNNNNNN $@ > malas_lecturas.fastq
-malas=$(cat malas_lecturas.fastq | wc -l)
-echo "Número de malas lecturas: $malas"
-
-# 4. Búsqueda de patrones
-echo "Desea buscar patrones (y/n): "
-read d
-
-if [[ $d == "y" ]]; then
-    echo "Los patrones se guardarán en: patrones.txt"
-    echo -e 'ACTG\nCCCCC\nNNNCNNN\nNNNGNNN\nTTTT\nTATA\nAAA' > patrones.txt
-    grep -f patrones.txt $@ > busqueda.txt
-    echo "Búsqueda de patrones guardada en: busqueda.txt"
-else
-    echo "ok :P"
-fi
-
-# Mensaje final
-echo "Fin :)"
+```{r, warning=FALSE, message=FALSE}
+ggplot(
+  data = penguins,
+  aes(
+    x = bill_len,
+    y = bill_dep
+  )
+) +
+  geom_point(
+    aes(size = body_mass, alpha = flipper_len)
+  )+
+  labs(title = "Tamaño y alpha usando variables continuas")
 ```
-
-::: {.callout-note collapse="true"}
-## Explicación del código
-
-- 1\. **Comentarios y declaración de archivo**
-- `#!/bin/bash`: Indica que el script se ejecutará usando el intérprete de Bash.
-- `# File: demo.sh`: Un comentario que indica el nombre del archivo del script.
-- 2\. **Mostrar el archivo y número de argumentos**
-- `echo "Archivo a procesar > $@"`: Muestra el nombre del archivo que se pasará como argumento al script. `$@` representa todos los argumentos pasados al script.
-- `echo "Numero de argumentos: $#"`: Muestra cuántos argumentos ha recibido el script. `$#` indica el número de argumentos.
-- 3\. **Contar secuencias y separar malas lecturas**
-- `numero_secuencias=$(grep -c '^@SRR098026' $@)`: Usa `grep` para contar cuántas secuencias empiezan con `@SRR098026` en el archivo (probablemente sea un prefijo en un archivo FASTQ que identifica secuencias de interés). `-c` cuenta las coincidencias.
-- `grep -B1 -A2 NNNNNNNNNN $@ > malas_lecturas.fastq`: Busca secuencias de calidad baja o problemáticas (que contengan 10 nucleótidos seguidos de `N`, que representan bases no determinadas).
-  - `-B1`: Muestra 1 línea antes de cada coincidencia de `NNNNNNNNNN`.
-
-  - `-A2`: Muestra 2 líneas después de la coincidencia.
-
-  - El resultado se guarda en un archivo llamado `malas_lecturas.fastq`.
-- `malas=$(cat malas_lecturas.fastq | wc -l)`: Cuenta el número total de líneas en `malas_lecturas.fastq` (esto indica la cantidad de malas lecturas encontradas).
-- `echo "Número de malas lecturas: $malas"`: Muestra la cantidad de malas lecturas encontradas
-- `echo "Numero de argumentos: $#"`: Muestra cuántos argumentos ha recibido el script. `$#` indica el número de argumentos.
-- 4\. **Búsqueda de patrones**
-- `echo "Desea buscar patrones (y/n): "`: Pregunta al usuario si desea buscar patrones específicos en el archivo.
-- `read d`: Lee la respuesta del usuario y la guarda en la variable `d`.
-- `if [[ $d == "y" ]]; then`: Si la respuesta es "y" (sí), el script procede a buscar los patrones.
-  - `echo -e 'ACTG\nCCCCC\nNNNCNNN\nNNNGNNN\nTTTT\nTATA\nAAA' > patrones.txt`: Crea un archivo `patrones.txt` que contiene una lista de secuencias de interés (patrones a buscar).
-
-  - `grep -f patrones.txt $@ > busqueda.txt`: Busca los patrones contenidos en `patrones.txt` dentro del archivo de entrada. El resultado de la búsqueda se guarda en `busqueda.txt`.
-
-  - `echo "Búsqueda de patrones guardada en: busqueda.txt"`: Informa al usuario que los resultados de la búsqueda se guardaron en el archivo `busqueda.txt`.
-- `else`: Si la respuesta es "n" (no), simplemente muestra un mensaje.
-:::
-
-Este código realizará las siguientes instrucciones:
-
-1.  Tomará como input el nombre del archivo `./_files/secuencias_bash.fastq` de secuencias fastq para analizar.
-
-2.  Buscará dentro del archivo provisto por el usuario las secuencias con el string \@SRR098026 y las contará.
-
-3.  Exportará las malas secuencias a un archivo llamado `malas_lecturas.fastq`, usando el string "NNNNNNNNNN" como plantilla.
-
-4.  Reportará el número de malas secuencias.
-
-5.  Luego buscaremos patrones en el archivo `buenas_lecturas.fastq`, si es que el usuario lo desea.
-
-**Paso 3.** Deberías correr el script así, una vez que hayas descargado el archivo `secuencias_bash.fastq`:
-
-``` {.bash code-copy="true" eval="false"}
-bash demo.sh secuencias_bash.fastq
-```
-
-[![](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/_images/b5.png)](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_avanzado/02_Bash/1_bash.html)
-
-## Material suplementario
-
-- RSG Ecuador. [Scripts en Bash](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_avanzado/02_Bash/1_bash.html)
-- RSG Ecuador. [Wildcards y Streams](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_basico/03_Manejo_terminal/5_wildcards.html)
-- RSG Ecuador. [Expresiones regulares (*regex*)](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html)
-- [Wildcard Selection in Bash](https://pressbooks.senecapolytechnic.ca/uli101/chapter/wildcard-selection-in-bash/)

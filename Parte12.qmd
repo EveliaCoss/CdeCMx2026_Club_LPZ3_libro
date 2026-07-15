@@ -1,92 +1,99 @@
-# Introducción a Git / GitHub
+# Facetas
 
-## ¿Por qué hacer control de versiones de nuestros proyectos?
+En ocasiones es útil separar una gráfica en varios paneles para comparar grupos de datos. En `ggplot2`, esto se logra mediante las funciones `facet_wrap()` y `facet_grid()`, las cuales generan una colección de gráficas con la misma estructura, pero para diferentes subconjuntos de los datos.
 
-1.  ✅ Los proyectos suelen cambiar y crecer.
-2.  💾 Es díficil saber cuáles fueron todos los cambios a lo largo del tiempo (en especial tiempos largos, hazlo por tu yo del **futuro!**).
-3.  🤔 Las colaboraciones se pueden complicar sin un buen control de versiones.
-4.  🔐 Seguridad.
+Reutilicemos nuestro plot base:
 
-[!["notFinal.doc" by Jorge Cham, https://www.phdcomics.com](https://swcarpentry.github.io/git-novice/fig/phd101212s.png){width="300"}](https://swcarpentry.github.io/git-novice/01-basics.html)
+```{r, warning=FALSE, message=FALSE}
+library(ggplot2)
 
-## Git
+p <- ggplot(
+  penguins,
+  aes(
+    x = bill_len,
+    y = bill_dep,
+    color = species
+  )
+) +
+  geom_point(alpha = 0.7) +
+  labs(
+    x = "Longitud del pico (mm)",
+    y = "Profundidad del pico (mm)",
+    color = "Especie"
+  ) +
+  theme_minimal()
 
-Git es un sistema de **control de versiones distribuido, gratuito y de código abierto**, diseñado para manejar todo tipo de proyectos, desde los más pequeños hasta los más grandes, con rapidez y eficiencia.
+p
+```
 
-Git es fácil de aprender y ocupa poco espacio con un **rendimiento rapidísimo**. Supera a las herramientas SCM como Subversion, CVS, Perforce y ClearCase con características como la ramificación local barata, las cómodas áreas de preparación y los múltiples flujos de trabajo.
+## `facet_wrap()`
 
-En resumen:
+La función `facet_wrap()` divide la gráfica según una sola variable categórica y organiza automáticamente los paneles en filas y columnas.
 
--   Git es un sistema de control de versiones
+Por ejemplo, podemos crear una gráfica para cada isla:
 
--   Git funciona con GitHub, Bitbucket o GitLab
+```{r, warning=FALSE, message=FALSE}
+p +
+  facet_wrap(~ island)
+```
 
-## **Git vs controles de versión a mano**
+Cada panel contiene únicamente los pingüinos correspondientes a una isla.
 
-[![](https://comunidadbioinfo.github.io/cdsb2023/img/git_vers.png){width="600"}](https://comunidadbioinfo.github.io/cdsb2023/control-de-versiones-con-github-y-rstudio.html)
+También podemos controlar el número de columnas:
 
-Con Git cada contribuidor tiene una copia del repositorio central, con todos los archivos y la historia de los cambios por los que han pasado.
+```{r, warning=FALSE, message=FALSE}
+p +
+  facet_wrap(~ species, ncol = 1)
+```
 
-## Recomendaciones para sus proyectos
+En este caso obtenemos una gráfica para cada especie, acomodadas en una sola columna.
 
--   Dedicar un directorio exclusivo por proyecto.
+::: callout-note
+## Nota
 
--   Es mejor organizarlo en un RStudio Project.
+`facet_wrap()` es útil cuando queremos dividir los datos según una sola variable.
+:::
 
--   Hacer un repositorio de Git.
+## `facet_grid()`
 
--   Trabajen como siempre, solo además de guardar, recuerden hacer `commit`
+La función `facet_grid()` permite organizar los paneles en una cuadrícula determinada por dos variables. Una variable define las filas y la otra las columnas.
 
--   De vez en vez hagan `push` de sus cambios cuando los hayan **verificado**.
+Por ejemplo, podemos separar por sexo y por isla:
 
-## 10.5 Proyectos colaborativos
+```{r, warning=FALSE, message=FALSE}
+p +
+  facet_grid(sex ~ island)
+```
 
--   GitHub se parece más a un GoogleDoc que a un Word Document.
+Aquí:
 
--   Es fácil que los colaboradores hagan cambios y también es fácil saber quién hizo que.
+- las filas corresponden al sexo;
+- las columnas corresponden a la isla.
 
--   El owner del proyecto puede dar permisos a los diferentes colaboradores.
+Cada panel muestra únicamente las observaciones que pertenecen a esa combinación de categorías.
 
--   También existen organizaciones, esto puede ser útil para manejar los permisos de grupos grandes de colaboración.
+También es posible utilizar una sola dimensión y dejar que la escala del eje $y$ cambie entre las facetas:
 
-## GitHub
+```{r, warning=FALSE, message=FALSE}
+p +
+  facet_grid(~ island, scales = "free")
+```
 
-[GitHub](https://github.com/about) es una plataforma para guardar proyectos, hace uso de Git. Su principal utilidad es para generar código fuente de programas.
+lo cual produce una fila con una columna por isla.
 
-También existen otras plataformas como [Bitbucked](https://bitbucket.org/product/) y [GitLab](https://about.gitlab.com/), las cuales funcionan de manera similar a GitHub.
+O bien,
 
-## Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)
+```{r, warning=FALSE, message=FALSE}
+p +
+  facet_grid(species ~ .)
+```
 
--   Por cualquier problema con la conexión entre RStudio y Git, siempre ten en cuenta la ubicación de dónde se instaló Git.
+para obtener una columna con una fila por especie.
 
-    -   Puedes usar en la terminal `which git` (Mac y Linux)
+::: callout-tip
+## ¿Cuándo usar cada una?
 
-    -   O bien usar en la terminal `where git` (Windows)
+- `facet_wrap()` se utiliza cuando queremos dividir los datos según una sola variable y dejar que `ggplot2` organice automáticamente los paneles.
 
--   Recuerda que la terminal (línea de comandos, consola, shell o bash) es un programa en tu computadora que funciona para correr otros programas. Desde RStudio puedes abrir la **terminal**, lo cual es muy conveniente si estás trabajando en un proyecto. Puedes abrir una terminal con:
-
-    -   *Tools \> Terminal* (abre la terminal dentro del IDE de RStudio)
-
-    -   *Tools \> Shell* (abre una terminal externa a RStudio) \> Apply \> OK
-
-## Clonar un repositorio y tener conexión/permisos para modificarlo
-
--   Git puede comunicarse con un servidor remoto usando uno de dos protocolos, HTTPS o SSH, y cada protocolo usa credenciales diferentes.
-
--   La recomendación actual de **GitHub** es usar HTTPS porque es la manera más fácil de configurar y tiene operatividad en múltiples redes y plataformas.
-
-    -   Es menos probable que HTTPS sea bloqueado por un firewall.
-
-    -   Una conexión HTTPS permite que credential.helper almacene en caché su contraseña. (por tanto puedes configurar tu usuario y contraseña en tu equipo de uso).
-
-    -   Es más sencillo acceder a un repositorio desde cualquier lugar, ya que solo necesitas los detalles de tu cuenta (no se requieren claves **SSH**) para escribir en el repositorio.
-
--   Usualmente cuando inicies un proyecto colaborativo con GitHub inicializa el repositorio con un README. Copia el HTTPS URL para clonar el repositorio en la terminal `git clone` `https://github.com/TU-USUARIO/TU-REPOSITORIO.git`.
-
-## Referencias
-
--   Evelia tutorial:[Workshop sobre Git / Github 2025](https://eveliacoss.github.io/Workshop_GitGithub2025/)
--   Haydee tutorial: [Temas Selectos de Análisis Numérico y Computación Científica: Computo científico para el análisis de datos](https://haydeeperuyero.github.io/Computo_Cientifico/)
--   Github tutorial: [Trabajar con contraseñas de clave SSH](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)
--   Alejandra Medina tutorial: [Control de versiones con GitHub y RStudio](https://comunidadbioinfo.github.io/cdsb2023/control-de-versiones-con-github-y-rstudio.html)
--   [Hacia una biología computacional más reproducible, transparente y colaborativa](https://ellipse.prbb.org/es/hacia-una-biologia-computacional-mas-reproducible-transparente-y-colaborativa/)
+- `facet_grid()` es útil cuando queremos comparar simultáneamente dos variables categóricas, una en las filas y otra en las columnas.
+:::

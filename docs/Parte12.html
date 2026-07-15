@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Bienvenida: Tú y tus genes – POV: Descubres lo que dicen tus genes</title>
+<title>15&nbsp; Facetas – POV: Descubres lo que dicen tus genes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,8 +68,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./install_R.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./Parte13.html" rel="next">
+<link href="./Parte11.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -73,6 +108,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -86,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Presentaciones.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bienvenida: Tú y tus genes</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte5.html"><strong>Sección 2</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte12.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Facetas</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -149,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Presentaciones.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Presentaciones.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bienvenida: Tú y tus genes</span></span></a>
   </div>
 </li>
@@ -275,7 +339,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Parte12.html" class="sidebar-item-text sidebar-link">
+  <a href="./Parte12.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Facetas</span></span></a>
   </div>
 </li>
@@ -303,22 +367,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción-al-curso" id="toc-introducción-al-curso" class="nav-link active" data-scroll-target="#introducción-al-curso"><span class="header-section-number">1.1</span> Introducción al curso</a></li>
-  <li><a href="#objetivos-de-aprendizaje" id="toc-objetivos-de-aprendizaje" class="nav-link" data-scroll-target="#objetivos-de-aprendizaje"><span class="header-section-number">1.2</span> <strong>Objetivos de aprendizaje</strong></a></li>
-  <li><a href="#dinámica-de-trabajo" id="toc-dinámica-de-trabajo" class="nav-link" data-scroll-target="#dinámica-de-trabajo"><span class="header-section-number">1.3</span> Dinámica de trabajo</a>
-  <ul>
-  <li><a href="#notas-adhesivas" id="toc-notas-adhesivas" class="nav-link" data-scroll-target="#notas-adhesivas"><span class="header-section-number">1.3.1</span> Notas adhesivas 📄</a></li>
-  </ul></li>
-  <li><a href="#ronda-de-presentaciones" id="toc-ronda-de-presentaciones" class="nav-link" data-scroll-target="#ronda-de-presentaciones"><span class="header-section-number">1.4</span> Ronda de Presentaciones</a></li>
+  <li><a href="#facet_wrap" id="toc-facet_wrap" class="nav-link active" data-scroll-target="#facet_wrap"><span class="header-section-number">15.1</span> <code>facet_wrap()</code></a></li>
+  <li><a href="#facet_grid" id="toc-facet_grid" class="nav-link" data-scroll-target="#facet_grid"><span class="header-section-number">15.2</span> <code>facet_grid()</code></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte5.html"><strong>Sección 2</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte12.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Facetas</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bienvenida: Tú y tus genes</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Facetas</span></h1>
 </div>
 
 
@@ -335,77 +394,158 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introducción-al-curso" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="introducción-al-curso"><span class="header-section-number">1.1</span> Introducción al curso</h2>
-<p>En este curso descubrirás cómo tus genes interactúan con el entorno, el estrés, el sueño y la comunidad para influir en tu salud y bienestar. A través de actividades prácticas con datos reales y salidas de campo, aprenderás a usar herramientas científicas como <strong>R</strong> para analizar <strong>patrones genéticos y crear tu propio proyecto o dashboard</strong>.</p>
-<p>No necesitas experiencia previa, solo curiosidad y ganas de explorar.</p>
-</section>
-<section id="objetivos-de-aprendizaje" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="objetivos-de-aprendizaje"><span class="header-section-number">1.2</span> <strong>Objetivos de aprendizaje</strong></h2>
-<ul>
-<li>Comprender cómo las <strong>variantes genéticas y el riesgo genético</strong> influyen en la salud y cómo interactúan con el entorno (gene × environment).</li>
-<li>Analizar datos reales de <strong>genética, cerebro y salud mental</strong> para identificar patrones significativos.</li>
-<li>Utilizar herramientas de <strong>ciencia de datos</strong> como medio para explorar sistemas complejos.</li>
-<li>Explorar el papel del <strong>entorno, la comunidad</strong> y el sentido de pertenencia en la <strong>resiliencia</strong>.</li>
-<li>Diseñar y comunicar un proyecto final basado en datos, integrando evidencia y creatividad.</li>
-</ul>
-</section>
-<section id="dinámica-de-trabajo" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="dinámica-de-trabajo"><span class="header-section-number">1.3</span> Dinámica de trabajo</h2>
-<section id="notas-adhesivas" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="notas-adhesivas"><span class="header-section-number">1.3.1</span> Notas adhesivas 📄</h3>
-<p>Entregamos a cada alumno <strong>tres notas adhesivas</strong> de distintos colores, por ejemplo, <span class="text-pink"><strong>rosa/rojo</strong></span>, <span class="text-green"><strong>verde</strong></span> y <span class="text-blueblack"><strong>azul</strong></span>. Se pueden sostener para votar, pero su uso real es como <strong>banderas de estado</strong>.</p>
-<ul>
-<li><span class="text-pink"><strong>Nota rosa/roja</strong></span> 😱:
-<ul>
-<li>Acción explícita: Colócala en tu computadora cuando enfrentes un problema que no puedes resolver solo y necesites ayuda inmediata.</li>
-<li>👉 Significa: <span class="text-pink"><em>“Estoy atascado, necesito apoyo de la profesora”</em></span>.</li>
-</ul></li>
-<li><span class="text-blueblack"><strong>Nota azul</strong></span> 😥:
-<ul>
-<li>Acción explícita: Úsala si la explicación va demasiado rápido, si no alcanzas a seguir el ritmo o si requieres más ejemplos prácticos.</li>
-<li>👉 Significa: <span class="text-blueblack"><em>“Necesitamos bajar la velocidad y reforzar con ejercicios”</em></span>, también puede relacionarse con <span class="text-blueblack"><em>“Aún no terminamos, necesitamos más tiempo”</em></span>.</li>
-</ul></li>
-<li><span class="text-green"><strong>Nota verde</strong></span> 😁:
-<ul>
-<li>Acción explícita: Colócala cuando hayas terminado un ejercicio o quieras que la profesora revise tu trabajo.</li>
-<li>👉 Significa: <span class="text-green"><em>“Ya concluí, podemos continuar con lo que sigue”</em></span>.</li>
-</ul></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
+<p>En ocasiones es útil separar una gráfica en varios paneles para comparar grupos de datos. En <code>ggplot2</code>, esto se logra mediante las funciones <code>facet_wrap()</code> y <code>facet_grid()</code>, las cuales generan una colección de gráficas con la misma estructura, pero para diferentes subconjuntos de los datos.</p>
+<p>Reutilicemos nuestro plot base:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  penguins,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> bill_len,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> bill_dep,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> species</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longitud del pico (mm)"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Profundidad del pico (mm)"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Especie"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="figures/notes.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="Parte12_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
-<p>Esto es mejor que hacer que la gente <strong>levante la mano</strong> porque:</p>
-<ul>
-<li>es más discreto (lo que significa que es más probable que realmente lo hagan),</li>
-<li>pueden seguir trabajando mientras su bandera está levantada, y</li>
-<li>el instructor puede ver rápidamente desde el frente de la sala en qué estado se encuentra la clase.</li>
-</ul>
-</section>
-</section>
-<section id="ronda-de-presentaciones" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="ronda-de-presentaciones"><span class="header-section-number">1.4</span> Ronda de Presentaciones</h2>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+</div>
+</div>
+<section id="facet_wrap" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="facet_wrap"><span class="header-section-number">15.1</span> <code>facet_wrap()</code></h2>
+<p>La función <code>facet_wrap()</code> divide la gráfica según una sola variable categórica y organiza automáticamente los paneles en filas y columnas.</p>
+<p>Por ejemplo, podemos crear una gráfica para cada isla:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> island)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Parte12_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Cada panel contiene únicamente los pingüinos correspondientes a una isla.</p>
+<p>También podemos controlar el número de columnas:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> species, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Parte12_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En este caso obtenemos una gráfica para cada especie, acomodadas en una sola columna.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Actividad: ¡Preséntate!
+<span class="screen-reader-only">Nota</span>Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Para comenzar, haremos una breve ronda de presentaciones. Cada persona deberá compartir la siguiente información en voz alta, en <strong>3 min</strong>:</p>
-<ol type="1">
-<li><p><strong>Nombre y apellido</strong></p></li>
-<li><p><strong>Preparatoria de procedencia</strong></p></li>
-<li><p><strong>Tu comida favorita 🍕🍜🍫</strong></p></li>
-</ol>
-<p>👉 Ejemplo:<br>
-“Hola, soy <em>Evelia Coss</em>, trabajo en uDocz (como programadora de agentes de AI) y soy profesora de la <em>ENES Juriquilla-UNAM</em> en el área de bioinformática, y mi comida favorita es el ceviche.”</p>
-<p>¡La idea es romper el hielo y conocernos un poco mejor! 😊</p>
+<p><code>facet_wrap()</code> es útil cuando queremos dividir los datos según una sola variable.</p>
+</div>
+</div>
+</section>
+<section id="facet_grid" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="facet_grid"><span class="header-section-number">15.2</span> <code>facet_grid()</code></h2>
+<p>La función <code>facet_grid()</code> permite organizar los paneles en una cuadrícula determinada por dos variables. Una variable define las filas y la otra las columnas.</p>
+<p>Por ejemplo, podemos separar por sexo y por isla:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(sex <span class="sc">~</span> island)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Parte12_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Aquí:</p>
+<ul>
+<li>las filas corresponden al sexo;</li>
+<li>las columnas corresponden a la isla.</li>
+</ul>
+<p>Cada panel muestra únicamente las observaciones que pertenecen a esa combinación de categorías.</p>
+<p>También es posible utilizar una sola dimensión y dejar que la escala del eje <span class="math inline">\(y\)</span> cambie entre las facetas:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span> island, <span class="at">scales =</span> <span class="st">"free"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Parte12_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>lo cual produce una fila con una columna por isla.</p>
+<p>O bien,</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(species <span class="sc">~</span> .)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Parte12_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>para obtener una columna con una fila por especie.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>¿Cuándo usar cada una?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><code>facet_wrap()</code> se utiliza cuando queremos dividir los datos según una sola variable y dejar que <code>ggplot2</code> organice automáticamente los paneles.</p></li>
+<li><p><code>facet_grid()</code> es útil cuando queremos comparar simultáneamente dos variables categóricas, una en las filas y otra en las columnas.</p></li>
+</ul>
 </div>
 </div>
 
@@ -854,13 +994,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Información general">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Información general</span>
+      <a href="./Parte11.html" class="pagination-link" aria-label="Temas en `ggplot2`">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Temas en <code>ggplot2</code></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./install_R.html" class="pagination-link" aria-label="Instalación de R y RStudio">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Instalación de R y RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Parte13.html" class="pagination-link" aria-label="Algunas geometrías básicas">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Algunas geometrías básicas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

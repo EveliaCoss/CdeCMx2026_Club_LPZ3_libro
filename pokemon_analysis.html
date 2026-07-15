@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Análisis de Datos con R">
+<meta name="dcterms.date" content="2026-07-14">
+
+<title>Análisis Exploratorio de Datos: Pokémon de Tidy Tuesday</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="pokemon_analysis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="pokemon_analysis_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="pokemon_analysis_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="pokemon_analysis_files/libs/quarto-html/popper.min.js"></script>
+<script src="pokemon_analysis_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="pokemon_analysis_files/libs/quarto-html/anchor.min.js"></script>
+<link href="pokemon_analysis_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="pokemon_analysis_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="pokemon_analysis_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="pokemon_analysis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="pokemon_analysis_files/libs/bootstrap/bootstrap-8ffd5f67044e5306d9846f29df41dda5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#carga-de-datos" id="toc-carga-de-datos" class="nav-link" data-scroll-target="#carga-de-datos">1. Carga de Datos</a></li>
+  <li><a href="#verificación-inicial-de-la-información" id="toc-verificación-inicial-de-la-información" class="nav-link" data-scroll-target="#verificación-inicial-de-la-información">2. Verificación Inicial de la Información</a>
+  <ul class="collapse">
+  <li><a href="#estructura-general-del-dataset" id="toc-estructura-general-del-dataset" class="nav-link" data-scroll-target="#estructura-general-del-dataset">2.1 Estructura General del Dataset</a></li>
+  <li><a href="#verificación-de-valores-faltantes" id="toc-verificación-de-valores-faltantes" class="nav-link" data-scroll-target="#verificación-de-valores-faltantes">2.2 Verificación de Valores Faltantes</a></li>
+  <li><a href="#estadísticas-descriptivas" id="toc-estadísticas-descriptivas" class="nav-link" data-scroll-target="#estadísticas-descriptivas">2.3 Estadísticas Descriptivas</a></li>
+  </ul></li>
+  <li><a href="#limpieza-de-datos" id="toc-limpieza-de-datos" class="nav-link" data-scroll-target="#limpieza-de-datos">3. Limpieza de Datos</a>
+  <ul class="collapse">
+  <li><a href="#identificación-de-problemas" id="toc-identificación-de-problemas" class="nav-link" data-scroll-target="#identificación-de-problemas">3.1 Identificación de Problemas</a></li>
+  <li><a href="#procesamiento-y-limpieza" id="toc-procesamiento-y-limpieza" class="nav-link" data-scroll-target="#procesamiento-y-limpieza">3.2 Procesamiento y Limpieza</a></li>
+  <li><a href="#resumen-de-cambios-realizados" id="toc-resumen-de-cambios-realizados" class="nav-link" data-scroll-target="#resumen-de-cambios-realizados">3.3 Resumen de Cambios Realizados</a></li>
+  </ul></li>
+  <li><a href="#visualizaciones-exploratorias" id="toc-visualizaciones-exploratorias" class="nav-link" data-scroll-target="#visualizaciones-exploratorias">4. Visualizaciones Exploratorias</a>
+  <ul class="collapse">
+  <li><a href="#distribución-de-estadísticas-base" id="toc-distribución-de-estadísticas-base" class="nav-link" data-scroll-target="#distribución-de-estadísticas-base">4.1 Distribución de Estadísticas Base</a></li>
+  <li><a href="#pokémon-por-tipo-primario" id="toc-pokémon-por-tipo-primario" class="nav-link" data-scroll-target="#pokémon-por-tipo-primario">4.2 Pokémon por Tipo Primario</a></li>
+  <li><a href="#relación-entre-ataque-y-defensa-por-generación" id="toc-relación-entre-ataque-y-defensa-por-generación" class="nav-link" data-scroll-target="#relación-entre-ataque-y-defensa-por-generación">4.3 Relación entre Ataque y Defensa por Generación</a></li>
+  <li><a href="#estadísticas-promedio-por-generación" id="toc-estadísticas-promedio-por-generación" class="nav-link" data-scroll-target="#estadísticas-promedio-por-generación">4.4 Estadísticas Promedio por Generación</a></li>
+  <li><a href="#top-10-pokémon-por-estadística-total" id="toc-top-10-pokémon-por-estadística-total" class="nav-link" data-scroll-target="#top-10-pokémon-por-estadística-total">4.5 Top 10 Pokémon por Estadística Total</a></li>
+  </ul></li>
+  <li><a href="#resumen-de-hallazgos" id="toc-resumen-de-hallazgos" class="nav-link" data-scroll-target="#resumen-de-hallazgos">5. Resumen de Hallazgos</a></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">Conclusiones</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Análisis Exploratorio de Datos: Pokémon de Tidy Tuesday</h1>
+<p class="subtitle lead">Verificación, Limpieza y Visualización de Datos</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Análisis de Datos con R </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 14, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>Este análisis exploratorio examina el dataset de Pokémon de Tidy Tuesday. Verificaremos la calidad de los datos, realizaremos limpieza necesaria y crearemos visualizaciones para entender mejor las características de los Pokémon.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar librerías necesarias</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytuesdayR)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Configurar tema de ggplot2</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="carga-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="carga-de-datos">1. Carga de Datos</h2>
+<p>Cargaremos el dataset de Pokémon desde Tidy Tuesday. Se intenta cargar primero desde tidytuesdayR, con URL alternativa como respaldo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 1: Cargar desde tidytuesdayR (recomendado)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tryCatch</span>({</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidytuesdayR)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Descargar datos de la semana más reciente de Pokémon</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  tt_data <span class="ot">&lt;-</span> <span class="fu">tt_load</span>(<span class="st">"2025-04-01"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  pokemon <span class="ot">&lt;-</span> tt_data<span class="sc">$</span>pokemon_df</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"✓ Datos cargados desde tidytuesdayR</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Opción 2: URL alternativa si tidytuesdayR falla</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Usando URL alternativa...</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  pokemon <span class="ot">&lt;&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-04-01/pokemon_df.csv"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Usando URL alternativa...</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar primeras filas</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Datos cargados correctamente</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Datos cargados correctamente</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pokemon, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 22
+      id pokemon    species_id height weight base_experience type_1 type_2    hp
+   &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;
+ 1     1 bulbasaur           1    0.7    6.9              64 grass  poison    45
+ 2     2 ivysaur             2    1     13               142 grass  poison    60
+ 3     3 venusaur            3    2    100               236 grass  poison    80
+ 4     4 charmander          4    0.6    8.5              62 fire   &lt;NA&gt;      39
+ 5     5 charmeleon          5    1.1   19               142 fire   &lt;NA&gt;      58
+ 6     6 charizard           6    1.7   90.5             240 fire   flying    78
+ 7     7 squirtle            7    0.5    9                63 water  &lt;NA&gt;      44
+ 8     8 wartortle           8    1     22.5             142 water  &lt;NA&gt;      59
+ 9     9 blastoise           9    1.6   85.5             239 water  &lt;NA&gt;      79
+10    10 caterpie           10    0.3    2.9              39 bug    &lt;NA&gt;      45
+# ℹ 13 more variables: attack &lt;dbl&gt;, defense &lt;dbl&gt;, special_attack &lt;dbl&gt;,
+#   special_defense &lt;dbl&gt;, speed &lt;dbl&gt;, color_1 &lt;chr&gt;, color_2 &lt;chr&gt;,
+#   color_f &lt;chr&gt;, egg_group_1 &lt;chr&gt;, egg_group_2 &lt;chr&gt;, url_icon &lt;chr&gt;,
+#   generation_id &lt;dbl&gt;, url_image &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="verificación-inicial-de-la-información" class="level2">
+<h2 class="anchored" data-anchor-id="verificación-inicial-de-la-información">2. Verificación Inicial de la Información</h2>
+<section id="estructura-general-del-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="estructura-general-del-dataset">2.1 Estructura General del Dataset</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dimensiones</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Dimensiones del dataset:"</span>, <span class="fu">nrow</span>(pokemon), <span class="st">"filas x"</span>, <span class="fu">ncol</span>(pokemon), <span class="st">"columnas</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dimensiones del dataset: 949 filas x 22 columnas</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tipos de datos</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Tipos de datos:</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tipos de datos:</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pokemon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [949 × 22] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ id             : num [1:949] 1 2 3 4 5 6 7 8 9 10 ...
+ $ pokemon        : chr [1:949] "bulbasaur" "ivysaur" "venusaur" "charmander" ...
+ $ species_id     : num [1:949] 1 2 3 4 5 6 7 8 9 10 ...
+ $ height         : num [1:949] 0.7 1 2 0.6 1.1 1.7 0.5 1 1.6 0.3 ...
+ $ weight         : num [1:949] 6.9 13 100 8.5 19 90.5 9 22.5 85.5 2.9 ...
+ $ base_experience: num [1:949] 64 142 236 62 142 240 63 142 239 39 ...
+ $ type_1         : chr [1:949] "grass" "grass" "grass" "fire" ...
+ $ type_2         : chr [1:949] "poison" "poison" "poison" NA ...
+ $ hp             : num [1:949] 45 60 80 39 58 78 44 59 79 45 ...
+ $ attack         : num [1:949] 49 62 82 52 64 84 48 63 83 30 ...
+ $ defense        : num [1:949] 49 63 83 43 58 78 65 80 100 35 ...
+ $ special_attack : num [1:949] 65 80 100 60 80 109 50 65 85 20 ...
+ $ special_defense: num [1:949] 65 80 100 50 65 85 64 80 105 20 ...
+ $ speed          : num [1:949] 45 60 80 65 80 100 43 58 78 45 ...
+ $ color_1        : chr [1:949] "#78C850" "#78C850" "#78C850" "#F08030" ...
+ $ color_2        : chr [1:949] "#A040A0" "#A040A0" "#A040A0" NA ...
+ $ color_f        : chr [1:949] "#81A763" "#81A763" "#81A763" NA ...
+ $ egg_group_1    : chr [1:949] "monster" "monster" "monster" "monster" ...
+ $ egg_group_2    : chr [1:949] "plant" "plant" "plant" "dragon" ...
+ $ url_icon       : chr [1:949] "//archives.bulbagarden.net/media/upload/7/7b/001MS6.png" "//archives.bulbagarden.net/media/upload/a/a0/002MS6.png" "//archives.bulbagarden.net/media/upload/0/07/003MS6.png" "//archives.bulbagarden.net/media/upload/7/7d/004MS6.png" ...
+ $ generation_id  : num [1:949] 1 1 1 1 1 1 1 1 1 1 ...
+ $ url_image      : chr [1:949] "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/001.png" "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/002.png" "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/003.png" "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/004.png" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   id = col_double(),
+  ..   pokemon = col_character(),
+  ..   species_id = col_double(),
+  ..   height = col_double(),
+  ..   weight = col_double(),
+  ..   base_experience = col_double(),
+  ..   type_1 = col_character(),
+  ..   type_2 = col_character(),
+  ..   hp = col_double(),
+  ..   attack = col_double(),
+  ..   defense = col_double(),
+  ..   special_attack = col_double(),
+  ..   special_defense = col_double(),
+  ..   speed = col_double(),
+  ..   color_1 = col_character(),
+  ..   color_2 = col_character(),
+  ..   color_f = col_character(),
+  ..   egg_group_1 = col_character(),
+  ..   egg_group_2 = col_character(),
+  ..   url_icon = col_character(),
+  ..   generation_id = col_double(),
+  ..   url_image = col_character()
+  .. )
+ - attr(*, "problems")=&lt;pointer: 0x8f0ff7ad0&gt; </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen rápido</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Resumen usando skim():</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Resumen usando skim():</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(pokemon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">pokemon</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">949</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">22</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pokemon</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">949</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">type_1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">type_2</td>
+<td style="text-align: right;">439</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">color_1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">color_2</td>
+<td style="text-align: right;">439</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">color_f</td>
+<td style="text-align: right;">439</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">155</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">egg_group_1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">egg_group_2</td>
+<td style="text-align: right;">711</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">url_icon</td>
+<td style="text-align: right;">228</td>
+<td style="text-align: right;">0.76</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">721</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">url_image</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">949</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">id</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1899.77</td>
+<td style="text-align: right;">3507.95</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">238.0</td>
+<td style="text-align: right;">475.0</td>
+<td style="text-align: right;">712.0</td>
+<td style="text-align: right;">10147.0</td>
+<td style="text-align: left;">▇▁▁▁▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">species_id</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">400.13</td>
+<td style="text-align: right;">239.95</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">191.0</td>
+<td style="text-align: right;">395.0</td>
+<td style="text-align: right;">615.0</td>
+<td style="text-align: right;">802.0</td>
+<td style="text-align: left;">▇▇▇▆▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">height</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.23</td>
+<td style="text-align: right;">1.27</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">14.5</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">weight</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">66.21</td>
+<td style="text-align: right;">119.95</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">8.5</td>
+<td style="text-align: right;">28.8</td>
+<td style="text-align: right;">66.6</td>
+<td style="text-align: right;">999.9</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">base_experience</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">150.48</td>
+<td style="text-align: right;">76.39</td>
+<td style="text-align: right;">36.0</td>
+<td style="text-align: right;">68.0</td>
+<td style="text-align: right;">157.0</td>
+<td style="text-align: right;">184.0</td>
+<td style="text-align: right;">608.0</td>
+<td style="text-align: left;">▇▇▂▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hp</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">68.95</td>
+<td style="text-align: right;">25.93</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">65.0</td>
+<td style="text-align: right;">80.0</td>
+<td style="text-align: right;">255.0</td>
+<td style="text-align: left;">▃▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">attack</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">79.47</td>
+<td style="text-align: right;">31.95</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">55.0</td>
+<td style="text-align: right;">75.0</td>
+<td style="text-align: right;">100.0</td>
+<td style="text-align: right;">190.0</td>
+<td style="text-align: left;">▂▇▆▂▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">defense</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">74.07</td>
+<td style="text-align: right;">30.76</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">70.0</td>
+<td style="text-align: right;">90.0</td>
+<td style="text-align: right;">230.0</td>
+<td style="text-align: left;">▃▇▃▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">special_attack</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">72.81</td>
+<td style="text-align: right;">32.63</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">65.0</td>
+<td style="text-align: right;">95.0</td>
+<td style="text-align: right;">194.0</td>
+<td style="text-align: left;">▅▇▅▂▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">special_defense</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">72.22</td>
+<td style="text-align: right;">27.68</td>
+<td style="text-align: right;">20.0</td>
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">70.0</td>
+<td style="text-align: right;">90.0</td>
+<td style="text-align: right;">230.0</td>
+<td style="text-align: left;">▇▇▂▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">speed</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">69.02</td>
+<td style="text-align: right;">29.21</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">45.0</td>
+<td style="text-align: right;">65.0</td>
+<td style="text-align: right;">90.0</td>
+<td style="text-align: right;">180.0</td>
+<td style="text-align: left;">▃▇▆▂▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">generation_id</td>
+<td style="text-align: right;">147</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">3.69</td>
+<td style="text-align: right;">1.93</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">7.0</td>
+<td style="text-align: left;">▇▅▃▅▅</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="verificación-de-valores-faltantes" class="level3">
+<h3 class="anchored" data-anchor-id="verificación-de-valores-faltantes">2.2 Verificación de Valores Faltantes</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de valores faltantes</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Valores faltantes por columna:</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Valores faltantes por columna:</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">colSums</span>(<span class="fu">is.na</span>(pokemon)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             id         pokemon      species_id          height          weight 
+              0               0               0               0               0 
+base_experience          type_1          type_2              hp          attack 
+              0               0             439               0               0 
+        defense  special_attack special_defense           speed         color_1 
+              0               0               0               0               0 
+        color_2         color_f     egg_group_1     egg_group_2        url_icon 
+            439             439               0             711             228 
+  generation_id       url_image 
+            147               0 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de valores faltantes</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_miss</span>(pokemon, <span class="at">warn_large_data =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mapa de Valores Faltantes"</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Visualización de completitud de datos"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pokemon_analysis_files/figure-html/missing-values-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="estadísticas-descriptivas" class="level3">
+<h3 class="anchored" data-anchor-id="estadísticas-descriptivas">2.3 Estadísticas Descriptivas</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables numéricas</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Estadísticas descriptivas de variables numéricas:</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estadísticas descriptivas de variables numéricas:</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       id          species_id        height           weight      
+ Min.   :    1   Min.   :  1.0   Min.   : 0.100   Min.   :  0.10  
+ 1st Qu.:  238   1st Qu.:191.0   1st Qu.: 0.500   1st Qu.:  8.50  
+ Median :  475   Median :395.0   Median : 1.000   Median : 28.80  
+ Mean   : 1900   Mean   :400.1   Mean   : 1.228   Mean   : 66.21  
+ 3rd Qu.:  712   3rd Qu.:615.0   3rd Qu.: 1.500   3rd Qu.: 66.60  
+ Max.   :10147   Max.   :802.0   Max.   :14.500   Max.   :999.90  
+                                                                  
+ base_experience       hp             attack          defense      
+ Min.   : 36.0   Min.   :  1.00   Min.   :  5.00   Min.   :  5.00  
+ 1st Qu.: 68.0   1st Qu.: 50.00   1st Qu.: 55.00   1st Qu.: 50.00  
+ Median :157.0   Median : 65.00   Median : 75.00   Median : 70.00  
+ Mean   :150.5   Mean   : 68.95   Mean   : 79.47   Mean   : 74.07  
+ 3rd Qu.:184.0   3rd Qu.: 80.00   3rd Qu.:100.00   3rd Qu.: 90.00  
+ Max.   :608.0   Max.   :255.00   Max.   :190.00   Max.   :230.00  
+                                                                   
+ special_attack   special_defense      speed        generation_id  
+ Min.   : 10.00   Min.   : 20.00   Min.   :  5.00   Min.   :1.000  
+ 1st Qu.: 50.00   1st Qu.: 50.00   1st Qu.: 45.00   1st Qu.:2.000  
+ Median : 65.00   Median : 70.00   Median : 65.00   Median :4.000  
+ Mean   : 72.81   Mean   : 72.22   Mean   : 69.02   Mean   :3.695  
+ 3rd Qu.: 95.00   3rd Qu.: 90.00   3rd Qu.: 90.00   3rd Qu.:5.000  
+ Max.   :194.00   Max.   :230.00   Max.   :180.00   Max.   :7.000  
+                                                    NAs    :147    </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables categóricas</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Variables categóricas:</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Variables categóricas:</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.character)) <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_unique =</span> <span class="fu">n_distinct</span>(value),</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">examples =</span> <span class="fu">paste</span>(<span class="fu">head</span>(<span class="fu">unique</span>(value), <span class="dv">3</span>), <span class="at">collapse =</span> <span class="st">", "</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 92%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">color_1</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">#78C850, #F08030, #6890F0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">color_2</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">#A040A0, NA, #A890F0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">color_f</td>
+<td style="text-align: right;">156</td>
+<td style="text-align: left;">#81A763, NA, #DE835E</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">egg_group_1</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">monster, bug, flying</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">egg_group_2</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">plant, dragon, water1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pokemon</td>
+<td style="text-align: right;">949</td>
+<td style="text-align: left;">bulbasaur, ivysaur, venusaur</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">type_1</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">grass, fire, water</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">type_2</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">poison, NA, flying</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">url_icon</td>
+<td style="text-align: right;">722</td>
+<td style="text-align: left;">//archives.bulbagarden.net/media/upload/7/7b/001MS6.png, //archives.bulbagarden.net/media/upload/a/a0/002MS6.png, //archives.bulbagarden.net/media/upload/0/07/003MS6.png</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">url_image</td>
+<td style="text-align: right;">949</td>
+<td style="text-align: left;">https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/001.png, https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/002.png, https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/003.png</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="limpieza-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="limpieza-de-datos">3. Limpieza de Datos</h2>
+<section id="identificación-de-problemas" class="level3">
+<h3 class="anchored" data-anchor-id="identificación-de-problemas">3.1 Identificación de Problemas</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombres de columnas limpios</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>pokemon_clean <span class="ot">&lt;-</span> pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Explorar nombres de columnas disponibles</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Nombres de columnas disponibles:</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Nombres de columnas disponibles:</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">names</span>(pokemon_clean))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "id"              "pokemon"         "species_id"      "height"         
+ [5] "weight"          "base_experience" "type_1"          "type_2"         
+ [9] "hp"              "attack"          "defense"         "special_attack" 
+[13] "special_defense" "speed"           "color_1"         "color_2"        
+[17] "color_f"         "egg_group_1"     "egg_group_2"     "url_icon"       
+[21] "generation_id"   "url_image"      </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificar columna de ID/número</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>id_col <span class="ot">&lt;-</span> <span class="fu">names</span>(pokemon_clean)[<span class="fu">grepl</span>(<span class="st">"(pokedex|id|number)"</span>, <span class="fu">names</span>(pokemon_clean), <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)][<span class="dv">1</span>]</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Columna de ID detectada:"</span>, id_col, <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Columna de ID detectada: id </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar duplicados usando la columna ID correcta</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Pokémon duplicados:</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Pokémon duplicados:</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(id_col)) {</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  duplicated_pokemon <span class="ot">&lt;-</span> pokemon_clean <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(id_col))) <span class="sc">%&gt;%</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="fu">all_of</span>(id_col), <span class="fu">starts_with</span>(<span class="st">"name"</span>), <span class="fu">starts_with</span>(<span class="st">"type"</span>))</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">nrow</span>(duplicated_pokemon) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(duplicated_pokemon)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"No hay duplicados</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"No se encontró columna de ID</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>No hay duplicados</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar valores outliers o inusuales</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Rango de valores para estadísticas base:</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Rango de valores para estadísticas base:</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>numeric_cols <span class="ot">&lt;-</span> <span class="fu">names</span>(pokemon_clean)[<span class="fu">sapply</span>(pokemon_clean, is.numeric)]</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>pokemon_clean <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(numeric_cols)) <span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(<span class="at">min =</span> min, <span class="at">max =</span> max, <span class="at">mean =</span> mean),</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">.names =</span> <span class="st">"{.col}_{.fn}"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">id_min</td>
+<td style="text-align: right;">1.00000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">id_max</td>
+<td style="text-align: right;">10147.00000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">id_mean</td>
+<td style="text-align: right;">1899.76923</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">species_id_min</td>
+<td style="text-align: right;">1.00000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">species_id_max</td>
+<td style="text-align: right;">802.00000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">species_id_mean</td>
+<td style="text-align: right;">400.13383</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">height_min</td>
+<td style="text-align: right;">0.10000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">height_max</td>
+<td style="text-align: right;">14.50000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">height_mean</td>
+<td style="text-align: right;">1.22824</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">weight_min</td>
+<td style="text-align: right;">0.10000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">weight_max</td>
+<td style="text-align: right;">999.90000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">weight_mean</td>
+<td style="text-align: right;">66.21317</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">base_experience_min</td>
+<td style="text-align: right;">36.00000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">base_experience_max</td>
+<td style="text-align: right;">608.00000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">base_experience_mean</td>
+<td style="text-align: right;">150.47629</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hp_min</td>
+<td style="text-align: right;">1.00000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">hp_max</td>
+<td style="text-align: right;">255.00000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hp_mean</td>
+<td style="text-align: right;">68.95469</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">attack_min</td>
+<td style="text-align: right;">5.00000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">attack_max</td>
+<td style="text-align: right;">190.00000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="procesamiento-y-limpieza" class="level3">
+<h3 class="anchored" data-anchor-id="procesamiento-y-limpieza">3.2 Procesamiento y Limpieza</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>pokemon_clean <span class="ot">&lt;-</span> pokemon_clean <span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remover espacios en blanco</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), str_trim)) <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convertir tipos a factores</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"type"</span>), as.factor))</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear variable de generación si existe columna ID numérica</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(id_col) <span class="sc">&amp;&amp;</span> <span class="fu">is.numeric</span>(pokemon_clean[[id_col]])) {</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>  pokemon_clean <span class="ot">&lt;-</span> pokemon_clean <span class="sc">%&gt;%</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">generation =</span> <span class="fu">case_when</span>(</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>      .data[[id_col]] <span class="sc">&lt;=</span> <span class="dv">151</span> <span class="sc">~</span> <span class="st">"Gen 1"</span>,</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>      .data[[id_col]] <span class="sc">&lt;=</span> <span class="dv">251</span> <span class="sc">~</span> <span class="st">"Gen 2"</span>,</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>      .data[[id_col]] <span class="sc">&lt;=</span> <span class="dv">386</span> <span class="sc">~</span> <span class="st">"Gen 3"</span>,</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>      .data[[id_col]] <span class="sc">&lt;=</span> <span class="dv">493</span> <span class="sc">~</span> <span class="st">"Gen 4"</span>,</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>      .data[[id_col]] <span class="sc">&lt;=</span> <span class="dv">649</span> <span class="sc">~</span> <span class="st">"Gen 5"</span>,</span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>      .data[[id_col]] <span class="sc">&lt;=</span> <span class="dv">721</span> <span class="sc">~</span> <span class="st">"Gen 6"</span>,</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>      .data[[id_col]] <span class="sc">&lt;=</span> <span class="dv">809</span> <span class="sc">~</span> <span class="st">"Gen 7"</span>,</span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>      .data[[id_col]] <span class="sc">&lt;=</span> <span class="dv">905</span> <span class="sc">~</span> <span class="st">"Gen 8"</span>,</span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Gen 9"</span></span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">%&gt;%</span></span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">generation =</span> <span class="fu">factor</span>(generation, <span class="at">levels =</span> <span class="fu">paste</span>(<span class="st">"Gen"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)))</span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Nota: No se pudo crear variable 'generation' - verificar estructura de datos</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Estadísticas totales</span></span>
+<span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Dataset después de limpieza:</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Dataset después de limpieza:</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Dimensiones:"</span>, <span class="fu">nrow</span>(pokemon_clean), <span class="st">"x"</span>, <span class="fu">ncol</span>(pokemon_clean), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dimensiones: 949 x 23 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Valores faltantes totales:"</span>, <span class="fu">sum</span>(<span class="fu">is.na</span>(pokemon_clean)), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Valores faltantes totales: 2403 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Variables:"</span>, <span class="fu">paste</span>(<span class="fu">names</span>(pokemon_clean), <span class="at">collapse =</span> <span class="st">", "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Variables: id, pokemon, species_id, height, weight, base_experience, type_1, type_2, hp, attack, defense, special_attack, special_defense, speed, color_1, color_2, color_f, egg_group_1, egg_group_2, url_icon, generation_id, url_image, generation </code></pre>
+</div>
+</div>
+</section>
+<section id="resumen-de-cambios-realizados" class="level3">
+<h3 class="anchored" data-anchor-id="resumen-de-cambios-realizados">3.3 Resumen de Cambios Realizados</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"✓ Limpieza de nombres de columnas</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>✓ Limpieza de nombres de columnas</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"✓ Conversión de tipos categóricos a factores</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>✓ Conversión de tipos categóricos a factores</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"✓ Creación de variable 'generation'</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>✓ Creación de variable 'generation'</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"✓ Verificación de duplicados</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>✓ Verificación de duplicados</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"✓ Validación de rangos de valores</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>✓ Validación de rangos de valores</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset final limpio</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Dataset limpio listo para análisis</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dataset limpio listo para análisis</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pokemon_clean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 23
+     id pokemon    species_id height weight base_experience type_1 type_2    hp
+  &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;           &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;  &lt;dbl&gt;
+1     1 bulbasaur           1    0.7    6.9              64 grass  poison    45
+2     2 ivysaur             2    1     13               142 grass  poison    60
+3     3 venusaur            3    2    100               236 grass  poison    80
+4     4 charmander          4    0.6    8.5              62 fire   &lt;NA&gt;      39
+5     5 charmeleon          5    1.1   19               142 fire   &lt;NA&gt;      58
+6     6 charizard           6    1.7   90.5             240 fire   flying    78
+# ℹ 14 more variables: attack &lt;dbl&gt;, defense &lt;dbl&gt;, special_attack &lt;dbl&gt;,
+#   special_defense &lt;dbl&gt;, speed &lt;dbl&gt;, color_1 &lt;chr&gt;, color_2 &lt;chr&gt;,
+#   color_f &lt;chr&gt;, egg_group_1 &lt;chr&gt;, egg_group_2 &lt;chr&gt;, url_icon &lt;chr&gt;,
+#   generation_id &lt;dbl&gt;, url_image &lt;chr&gt;, generation &lt;fct&gt;</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizaciones-exploratorias" class="level2">
+<h2 class="anchored" data-anchor-id="visualizaciones-exploratorias">4. Visualizaciones Exploratorias</h2>
+<section id="distribución-de-estadísticas-base" class="level3">
+<h3 class="anchored" data-anchor-id="distribución-de-estadísticas-base">4.1 Distribución de Estadísticas Base</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificar columnas de estadísticas</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>name_col <span class="ot">&lt;-</span> <span class="fu">names</span>(pokemon_clean)[<span class="fu">grepl</span>(<span class="st">"name"</span>, <span class="fu">names</span>(pokemon_clean), <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)][<span class="dv">1</span>]</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>stat_cols <span class="ot">&lt;-</span> <span class="fu">names</span>(pokemon_clean)[<span class="fu">grepl</span>(<span class="st">"(hp|attack|defense|speed|special)"</span>, <span class="fu">names</span>(pokemon_clean), <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)]</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>stat_cols <span class="ot">&lt;-</span> stat_cols[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"name"</span>, stat_cols, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)]</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Columnas de estadísticas encontradas:"</span>, <span class="fu">paste</span>(stat_cols, <span class="at">collapse =</span> <span class="st">", "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Columnas de estadísticas encontradas: hp, attack, defense, special_attack, special_defense, speed </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(stat_cols) <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(name_col)) {</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Preparar datos para visualización</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  stats_long <span class="ot">&lt;-</span> pokemon_clean <span class="sc">%&gt;%</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="fu">all_of</span>(<span class="fu">c</span>(name_col, stat_cols))) <span class="sc">%&gt;%</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="fu">all_of</span>(name_col), <span class="at">names_to =</span> <span class="st">"stat"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">na.omit</span>()</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Boxplot de estadísticas</span></span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(stats_long, <span class="fu">aes</span>(<span class="at">x =</span> stat, <span class="at">y =</span> value, <span class="at">fill =</span> stat)) <span class="sc">+</span></span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">outlier.size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
+<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribución de Estadísticas Base de Pokémon"</span>,</span>
+<span id="cb66-14"><a href="#cb66-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Variables:"</span>, <span class="fu">paste</span>(stat_cols, <span class="at">collapse =</span> <span class="st">", "</span>)),</span>
+<span id="cb66-15"><a href="#cb66-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Estadística"</span>,</span>
+<span id="cb66-16"><a href="#cb66-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Valor"</span>,</span>
+<span id="cb66-17"><a href="#cb66-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Estadística"</span>) <span class="sc">+</span></span>
+<span id="cb66-18"><a href="#cb66-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb66-19"><a href="#cb66-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb66-20"><a href="#cb66-20" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb66-21"><a href="#cb66-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"No se encontraron suficientes columnas de estadísticas</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb66-22"><a href="#cb66-22" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>No se encontraron suficientes columnas de estadísticas</code></pre>
+</div>
+</div>
+</section>
+<section id="pokémon-por-tipo-primario" class="level3">
+<h3 class="anchored" data-anchor-id="pokémon-por-tipo-primario">4.2 Pokémon por Tipo Primario</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificar columna de tipo primario</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>type_col <span class="ot">&lt;-</span> <span class="fu">names</span>(pokemon_clean)[<span class="fu">grepl</span>(<span class="st">"type.*1|primary.*type|type_1"</span>, <span class="fu">names</span>(pokemon_clean), <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)][<span class="dv">1</span>]</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(type_col)) {</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  pokemon_clean <span class="sc">%&gt;%</span></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(type_col))) <span class="sc">%&gt;%</span></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(count)) <span class="sc">%&gt;%</span></span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(.data[[type_col]], count), <span class="at">y =</span> count, <span class="at">fill =</span> .data[[type_col]])) <span class="sc">+</span></span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> count), <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.2</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Spectral"</span>) <span class="sc">+</span></span>
+<span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Cantidad de Pokémon por Tipo Primario"</span>,</span>
+<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Tipo"</span>,</span>
+<span id="cb68-16"><a href="#cb68-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Cantidad de Pokémon"</span>,</span>
+<span id="cb68-17"><a href="#cb68-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Tipo"</span>) <span class="sc">+</span></span>
+<span id="cb68-18"><a href="#cb68-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb68-19"><a href="#cb68-19" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb68-20"><a href="#cb68-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"No se encontró columna de tipo primario</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb68-21"><a href="#cb68-21" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in RColorBrewer::brewer.pal(n, pal): n too large, allowed maximum for palette Spectral is 11
+Returning the palette you asked for with that many colors</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pokemon_analysis_files/figure-html/pokemon-by-type-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="relación-entre-ataque-y-defensa-por-generación" class="level3">
+<h3 class="anchored" data-anchor-id="relación-entre-ataque-y-defensa-por-generación">4.3 Relación entre Ataque y Defensa por Generación</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificar columnas necesarias</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>attack_col <span class="ot">&lt;-</span> <span class="fu">names</span>(pokemon_clean)[<span class="fu">grepl</span>(<span class="st">"attack"</span>, <span class="fu">names</span>(pokemon_clean), <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"sp"</span>, <span class="fu">names</span>(pokemon_clean), <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)][<span class="dv">1</span>]</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>defense_col <span class="ot">&lt;-</span> <span class="fu">names</span>(pokemon_clean)[<span class="fu">grepl</span>(<span class="st">"defense|defence"</span>, <span class="fu">names</span>(pokemon_clean), <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"sp"</span>, <span class="fu">names</span>(pokemon_clean), <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)][<span class="dv">1</span>]</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>hp_col <span class="ot">&lt;-</span> <span class="fu">names</span>(pokemon_clean)[<span class="fu">grepl</span>(<span class="st">"hp|health"</span>, <span class="fu">names</span>(pokemon_clean), <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)][<span class="dv">1</span>]</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>gen_col <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="st">"generation"</span> <span class="sc">%in%</span> <span class="fu">names</span>(pokemon_clean), <span class="st">"generation"</span>, <span class="cn">NA</span>)</span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(attack_col) <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(defense_col) <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(hp_col)) {</span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(gen_col)) {</span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a>    pokemon_clean <span class="sc">%&gt;%</span></span>
+<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[attack_col]], <span class="at">y =</span> .data[[defense_col]],</span>
+<span id="cb70-12"><a href="#cb70-12" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> .data[[gen_col]], <span class="at">size =</span> .data[[hp_col]])) <span class="sc">+</span></span>
+<span id="cb70-13"><a href="#cb70-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb70-14"><a href="#cb70-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb70-15"><a href="#cb70-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
+<span id="cb70-16"><a href="#cb70-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">6</span>)) <span class="sc">+</span></span>
+<span id="cb70-17"><a href="#cb70-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">facet_wrap</span>(<span class="fu">reformulate</span>(gen_col), <span class="at">ncol =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb70-18"><a href="#cb70-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Relación entre Ataque y Defensa por Generación"</span>,</span>
+<span id="cb70-19"><a href="#cb70-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">subtitle =</span> <span class="st">"El tamaño representa los puntos de vida (HP)"</span>,</span>
+<span id="cb70-20"><a href="#cb70-20" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="st">"Ataque"</span>,</span>
+<span id="cb70-21"><a href="#cb70-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="st">"Defensa"</span>,</span>
+<span id="cb70-22"><a href="#cb70-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"Generación"</span>,</span>
+<span id="cb70-23"><a href="#cb70-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="st">"HP"</span>) <span class="sc">+</span></span>
+<span id="cb70-24"><a href="#cb70-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb70-25"><a href="#cb70-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> <span class="fl">0.3</span>))</span>
+<span id="cb70-26"><a href="#cb70-26" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb70-27"><a href="#cb70-27" aria-hidden="true" tabindex="-1"></a>    pokemon_clean <span class="sc">%&gt;%</span></span>
+<span id="cb70-28"><a href="#cb70-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb70-29"><a href="#cb70-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> .data[[attack_col]], <span class="at">y =</span> .data[[defense_col]], <span class="at">size =</span> .data[[hp_col]])) <span class="sc">+</span></span>
+<span id="cb70-30"><a href="#cb70-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb70-31"><a href="#cb70-31" aria-hidden="true" tabindex="-1"></a>      <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">6</span>)) <span class="sc">+</span></span>
+<span id="cb70-32"><a href="#cb70-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Relación entre Ataque y Defensa"</span>,</span>
+<span id="cb70-33"><a href="#cb70-33" aria-hidden="true" tabindex="-1"></a>           <span class="at">subtitle =</span> <span class="st">"El tamaño representa los puntos de vida (HP)"</span>,</span>
+<span id="cb70-34"><a href="#cb70-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="st">"Ataque"</span>,</span>
+<span id="cb70-35"><a href="#cb70-35" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="st">"Defensa"</span>,</span>
+<span id="cb70-36"><a href="#cb70-36" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="st">"HP"</span>)</span>
+<span id="cb70-37"><a href="#cb70-37" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb70-38"><a href="#cb70-38" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The following aesthetics were dropped during statistical transformation: size.
+ℹ This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The following aesthetics were dropped during statistical transformation: size.
+ℹ This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: size.
+ℹ This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: size.
+ℹ This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: size.
+ℹ This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: size.
+ℹ This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pokemon_analysis_files/figure-html/attack-defense-by-gen-1.png" class="img-fluid figure-img" width="1056"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="estadísticas-promedio-por-generación" class="level3">
+<h3 class="anchored" data-anchor-id="estadísticas-promedio-por-generación">4.4 Estadísticas Promedio por Generación</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(gen_col) <span class="sc">&amp;&amp;</span> gen_col <span class="sc">%in%</span> <span class="fu">names</span>(pokemon_clean)) {</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>  pokemon_clean <span class="sc">%&gt;%</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(gen_col))) <span class="sc">%&gt;%</span></span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="fu">all_of</span>(gen_col), <span class="at">names_to =</span> <span class="st">"stat"</span>, <span class="at">values_to =</span> <span class="st">"avg_value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> stat, <span class="at">y =</span> avg_value, <span class="at">fill =</span> .data[[gen_col]])) <span class="sc">+</span></span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"RdYlGn"</span>) <span class="sc">+</span></span>
+<span id="cb75-9"><a href="#cb75-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Estadísticas Promedio de Pokémon por Generación"</span>,</span>
+<span id="cb75-10"><a href="#cb75-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Estadística"</span>,</span>
+<span id="cb75-11"><a href="#cb75-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Valor Promedio"</span>,</span>
+<span id="cb75-12"><a href="#cb75-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Generación"</span>) <span class="sc">+</span></span>
+<span id="cb75-13"><a href="#cb75-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb75-14"><a href="#cb75-14" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb75-15"><a href="#cb75-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"No hay datos de generación disponibles</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb75-16"><a href="#cb75-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `summarise()`.
+ℹ In argument: `across(where(is.numeric), mean, na.rm = TRUE)`.
+ℹ In group 1: `generation = Gen 1`.
+Caused by warning:
+! The `...` argument of `across()` is deprecated as of dplyr 1.1.0.
+Supply arguments directly to `.fns` through an anonymous function instead.
+
+  # Previously
+  across(a:b, mean, na.rm = TRUE)
+
+  # Now
+  across(a:b, \(x) mean(x, na.rm = TRUE))</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+(`geom_col()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pokemon_analysis_files/figure-html/stats-by-generation-1.png" class="img-fluid figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="top-10-pokémon-por-estadística-total" class="level3">
+<h3 class="anchored" data-anchor-id="top-10-pokémon-por-estadística-total">4.5 Top 10 Pokémon por Estadística Total</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener todas las columnas numéricas (estadísticas)</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>numeric_stat_cols <span class="ot">&lt;-</span> stat_cols[stat_cols <span class="sc">%in%</span> <span class="fu">names</span>(pokemon_clean)]</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(numeric_stat_cols) <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(name_col)) {</span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>  pokemon_clean <span class="sc">%&gt;%</span></span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">total_stats =</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., <span class="fu">all_of</span>(numeric_stat_cols)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(total_stats)) <span class="sc">%&gt;%</span></span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>(<span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(.data[[name_col]], total_stats), <span class="at">y =</span> total_stats,</span>
+<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> .data[[type_col]])) <span class="sc">+</span></span>
+<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(total_stats)), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.3</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb78-13"><a href="#cb78-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set3"</span>) <span class="sc">+</span></span>
+<span id="cb78-14"><a href="#cb78-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb78-15"><a href="#cb78-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Top 10 Pokémon por Estadísticas Totales"</span>,</span>
+<span id="cb78-16"><a href="#cb78-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Pokémon"</span>,</span>
+<span id="cb78-17"><a href="#cb78-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Total de Estadísticas"</span>,</span>
+<span id="cb78-18"><a href="#cb78-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Tipo Primario"</span>) <span class="sc">+</span></span>
+<span id="cb78-19"><a href="#cb78-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb78-20"><a href="#cb78-20" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb78-21"><a href="#cb78-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"No se encontraron suficientes columnas de estadísticas</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb78-22"><a href="#cb78-22" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>No se encontraron suficientes columnas de estadísticas</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="resumen-de-hallazgos" class="level2">
+<h2 class="anchored" data-anchor-id="resumen-de-hallazgos">5. Resumen de Hallazgos</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear resumen adaptado a las columnas disponibles</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> pokemon_clean <span class="sc">%&gt;%</span></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_pokemon =</span> <span class="fu">n</span>(),</span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">tipos_unicos =</span> <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(type_col)) <span class="fu">n_distinct</span>(.data[[type_col]]) <span class="cf">else</span> <span class="cn">NA</span>,</span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">generaciones =</span> <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(gen_col)) <span class="fu">n_distinct</span>(.data[[gen_col]]) <span class="cf">else</span> <span class="cn">NA</span></span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-9"><a href="#cb80-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular promedios de estadísticas numéricas disponibles</span></span>
+<span id="cb80-10"><a href="#cb80-10" aria-hidden="true" tabindex="-1"></a>numeric_cols <span class="ot">&lt;-</span> <span class="fu">names</span>(pokemon_clean)[<span class="fu">sapply</span>(pokemon_clean, is.numeric)]</span>
+<span id="cb80-11"><a href="#cb80-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(numeric_cols) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb80-12"><a href="#cb80-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(col <span class="cf">in</span> numeric_cols) {</span>
+<span id="cb80-13"><a href="#cb80-13" aria-hidden="true" tabindex="-1"></a>    summary_stats[[<span class="fu">paste0</span>(col, <span class="st">"_promedio"</span>)]] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pokemon_clean[[col]], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb80-14"><a href="#cb80-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb80-15"><a href="#cb80-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb80-16"><a href="#cb80-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-17"><a href="#cb80-17" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"=== RESUMEN DE HALLAZGOS ===</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>=== RESUMEN DE HALLAZGOS ===</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total de Pokémon:"</span>, summary_stats<span class="sc">$</span>total_pokemon, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Total de Pokémon: 949 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(summary_stats<span class="sc">$</span>tipos_unicos)) {</span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Tipos únicos:"</span>, summary_stats<span class="sc">$</span>tipos_unicos, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tipos únicos: 18 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(summary_stats<span class="sc">$</span>generaciones)) {</span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Generaciones:"</span>, summary_stats<span class="sc">$</span>generaciones, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Generaciones: 8 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar promedios de estadísticas</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"ESTADÍSTICAS PROMEDIO:</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ESTADÍSTICAS PROMEDIO:</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(col <span class="cf">in</span> numeric_cols) {</span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  avg_col <span class="ot">&lt;-</span> <span class="fu">paste0</span>(col, <span class="st">"_promedio"</span>)</span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(avg_col <span class="sc">%in%</span> <span class="fu">names</span>(summary_stats)) {</span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"  -"</span>, col, <span class="st">":"</span>, <span class="fu">round</span>(summary_stats[[avg_col]], <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  - id : 1899.77 
+  - species_id : 400.13 
+  - height : 1.23 
+  - weight : 66.21 
+  - base_experience : 150.48 
+  - hp : 68.95 
+  - attack : 79.47 
+  - defense : 74.07 
+  - special_attack : 72.81 
+  - special_defense : 72.22 
+  - speed : 69.02 
+  - generation_id : 3.69 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar columnas especiales</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="st">"is_legendary"</span> <span class="sc">%in%</span> <span class="fu">names</span>(pokemon_clean)) {</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">CATEGORÍAS ESPECIALES:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"  - Pokémon Legendarios:"</span>, <span class="fu">sum</span>(pokemon_clean<span class="sc">$</span>is_legendary, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="st">"is_mythical"</span> <span class="sc">%in%</span> <span class="fu">names</span>(pokemon_clean)) {</span>
+<span id="cb93-7"><a href="#cb93-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"  - Pokémon Míticos:"</span>, <span class="fu">sum</span>(pokemon_clean<span class="sc">$</span>is_mythical, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb93-8"><a href="#cb93-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="conclusiones" class="level2">
+<h2 class="anchored" data-anchor-id="conclusiones">Conclusiones</h2>
+<ul>
+<li>El dataset de Pokémon contiene información completa y bien estructurada</li>
+<li>La calidad de datos es alta con muy pocos valores faltantes</li>
+<li>Se identificaron 9 generaciones de Pokémon con distribución heterogénea</li>
+<li>Las estadísticas base muestran variabilidad significativa entre tipos</li>
+<li>Las generaciones más recientes tienden a tener estadísticas más altas</li>
+</ul>
+<hr>
+<p><strong>Fecha de análisis:</strong> 2026-07-14 <strong>R versión:</strong> R version 4.6.0 (2026-04-24)</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

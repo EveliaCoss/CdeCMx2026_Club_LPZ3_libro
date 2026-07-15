@@ -34,28 +34,31 @@ book:
   page-navigation: true
   chapters:
     - index.qmd      # Información general
-    - Presentaciones.qmd
+    - Presentaciones.qmd    
     - part: "**Pre-requisitos**"
       chapters: 
-      - install_R.qmd # Instalación de R y RStudio
-      - Parte1.qmd # Buenas practicas
-    - part: "**Sección 1** - Introducción a R y RStudio"
+      - install_R.qmd # Instalación de R y RStudio    
+    - part: "**Sección 1** - Introducción: Datos, Genes, y Tú"
       chapters:  
-      - Parte26.qmd
-      - Parte27.qmd 
-      - Parte28.qmd 
+      - Introduccion.qmd
+      - Parte1.qmd # Buenas practicas    
+    - part: "**Sección 2** - Introducción a R y RStudio"
+      chapters:  
+      - Parte2.qmd
+      - Parte3.qmd 
+      - Parte4.qmd 
     - part: "**Sección 2** - Gráficos con ggplot2 "
       chapters:  
-      - Parte30.qmd # Intro a ggplot
-      - Parte31.qmd # La gramatica de los gráficos
-      - Parte32.qmd #  Básicos de la visualización de datos
-      - Parte33.qmd # Construyendo gráficas capa por capa
-      - Parte34.qmd # estéticas globales
-      - Parte35.qmd # esteticos locales
-      - Parte36.qmd # Temas
-      - Parte37.qmd # facetas
-      - Parte38.qmd # Geometrías
-      - Parte39.qmd # Ejercicios finales
+      - Parte5.qmd # Intro a ggplot
+      - Parte6.qmd # La gramatica de los gráficos
+      - Parte7.qmd #  Básicos de la visualización de datos
+      - Parte8.qmd # Construyendo gráficas capa por capa
+      - Parte9.qmd # estéticas globales
+      - Parte10.qmd # esteticos locales
+      - Parte11.qmd # Temas
+      - Parte12.qmd # facetas
+      - Parte13.qmd # Geometrías
+      - Parte14.qmd # Ejercicios finales
 
       
   # Information

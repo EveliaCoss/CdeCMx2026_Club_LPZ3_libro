@@ -1,53 +1,36 @@
-# Operadores de redirección de datos I/O
+# ¿Por qué visualizar datos?
 
-Usualmente cuando trabajamos con datos, es necesario pasar el resultado de un comando a otro para hacer un procesamiento de datos apilado, como en un algortimo. Un `stream` o `corriente` esta hecha de datos. Es una corriente de datos. Un ejemplo muy familiar es el teclado y la pantalla. El teclado tiene una interfaz en donde por cada tecla presionada, un caracter se guarda en un archivo. Se dice entonces que es una `corriente de entrada`. Cuando la pantalla nos muestra lo que estamos escribiendo entonces la data sale hacia nosotros y eso convierte a la pantalla en una `corriente de salida`. Los dispositivos que hacen este tipo de transmisión de datos se llaman dispositivos `I/O` (input y output). Los operadores que se encargan de esto se conocen como `operadores de redirección`. Tres importantes son:
+Los datos por sí solos rara vez cuentan una historia. Una tabla con cientos o miles de observaciones puede contener patrones, tendencias o valores atípicos que son difíciles de identificar únicamente leyendo números.
 
-| **Comando** | **Función** |
-|----|----|
-| `>` | Stream de **salida de datos**. Sobre escribre sobre un archivo. |
-| `>>` | Stream de salida de datos. Adjunta **nueva salida a datos preexistentes en un archivo.** |
-| `<` | Stream de **entrada de datos.** Recibe datos para procesamiento con algun comando. |
+La visualización de datos nos permite:
 
-::: callout-note
-## Ejercicio 5
+- Explorar nuestros datos antes de analizarlos.
+- Detectar errores, valores extremos o datos faltantes.
+- Identificar patrones y relaciones entre variables.
+- Comunicar resultados de forma clara y efectiva.
+- Generar nuevas preguntas e hipótesis.
 
-1.  Crea el archivo `bacterias_generos.txt` e imprime su contenido empleando los siguientes comandos:
+En otras palabras, **una gráfica no es únicamente una figura para el reporte final; es una herramienta fundamental para comprender nuestros datos**.
 
-``` {.bash code-copy="true" eval="false"}
-echo -e "\nRickettsia\nOrientia\nWolbachia\nAegyptianella\nAnaplasma\nCowdria\nEhrlichia\nNeorickettsia\nCaedibacter\nHolospora\nLyticum\nOdyssella\nSymbiotes\nTectibacter" > bacterias_generos.txt
-cat bacterias_generos.txt
-```
+## ¿Por qué usar R para visualizar datos?
 
-2.  Agrega una nueva especie en la ultima fila empleando "\>\>".
+Existen muchas herramientas para crear gráficas, pero **R se ha convertido en uno de los lenguajes más utilizados en ciencia de datos y estadística** debido a que:
 
-    ``` {.bash code-copy="true" eval="false"}
-    echo -e "\nEscherichia\n:D" >> bacterias_generos.txt
-    cat bacterias_generos.txt
-    ```
+- Es gratuito y de código abierto.
+- Permite realizar desde la limpieza de datos hasta el análisis estadístico y la visualización en un mismo entorno.
+- Hace posible reproducir nuestros análisis y compartirlos fácilmente.
+- Cuenta con miles de paquetes desarrollados por una comunidad muy activa.
+- Produce figuras de alta calidad listas para artículos, reportes y presentaciones.
 
-3.  Ahora usaremos el comando `sort` para reordenar todos los géneros. Sin embargo notamos que el archivo original no cambia nunca.
+## ¿Por qué `ggplot2`?
 
-    ``` {.bash code-copy="true" eval="false"}
-    sort < bacterias_generos.txt
-    ```
+El paquete `ggplot2` es una de las herramientas más populares para crear gráficos en R. Basado en la *Gramática de los Gráficos*, permite construir visualizaciones complejas a partir de componentes simples y consistentes.
 
-4.  Para hacer un cambio sobre `bacterias_generos.txt`, usamos este comando. Notamos que ahora no usamos `>>` sino solo `>`. Esto va a borrar el contenido previo con géneros desordenados y ahora los va a ordenar. El cambio no se puede deshacer, así que ten cuidado con el operador `>` para que no pierdas datos.
+Con `ggplot2` podemos:
 
-    ``` {.bash code-copy="true" eval="false"}
-    (sort < bacterias_generos.txt) > bacterias_generos_sorted.txt
-    cat bacterias_generos_sorted.txt
-    ```
-:::
+- Crear gráficos claros y estéticamente agradables.
+- Personalizar prácticamente cualquier aspecto de una figura.
+- Generar visualizaciones reproducibles.
+- Trabajar con una sintaxis coherente y flexible.
 
-::: callout-warning
-## Advertencia
-
-El operador `>` sobre escribe archivos. Ten cuidado al usarlo para que no pierdas datos.
-:::
-
-## Material suplementario
-
-- RSG Ecuador. [Scripts en Bash](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_avanzado/02_Bash/1_bash.html)
-- RSG Ecuador. [Wildcards y Streams](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_basico/03_Manejo_terminal/5_wildcards.html)
-- RSG Ecuador. [Expresiones regulares (*regex*)](https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html)
-- [Wildcard Selection in Bash](https://pressbooks.senecapolytechnic.ca/uli101/chapter/wildcard-selection-in-bash/)
+Vamos a aprender a transformar datos en visualizaciones que nos ayuden a **explorar, entender y comunicar información**.
