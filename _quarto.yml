@@ -33,25 +33,31 @@ book:
   # date: "6/15/2026"
   page-navigation: true
   chapters:
-    - index.qmd      # Información general
-    - Presentaciones.qmd    
+    - index.qmd          # Información general
+    - Presentaciones.qmd # Bienvenida: Tú y tus genes    
     - part: "**Pre-requisitos**"
       chapters: 
       - install_R.qmd # Instalación de R y RStudio    
     - part: "**Sección 1** - Introducción: Datos, Genes, y Tú"
       chapters:  
-      - Introduccion.qmd
-      - Parte1.qmd # Buenas practicas    
+      - Introduccion.qmd   # Descubre qué son los genes
+      - Parte1.qmd         # Buenas practicas    
     - part: "**Sección 2** - Introducción a R y RStudio"
       chapters:  
-      - Parte2.qmd
-      - Parte3.qmd 
-      - Parte4.qmd 
-    - part: "**Sección 2** - Gráficos con ggplot2 "
+      - Parte2.qmd # introducción a R
+      - Parte3.qmd # Estructura de datos en R
+      - Parte4.qmd  # Manipulación de datos
+      - Act1_seccion2.qmd # Actividad: Manos a la obtra 
+    - part: "**Sección 3** - Estructura del proyecto final"
+      chapters: 
+      - Act2_seccion3.qmd # Actividad: Lo que los datos nos cuentan
+      - Explicacion_ProyectoFinal.qmd # Explicación del proyecto final
+      - Explicacion_Poster.qmd # Cómo comunicar ciencia en un póster    
+    - part: "**Sección 4** - Gráficos con ggplot2"
       chapters:  
       - Parte5.qmd # Intro a ggplot
       - Parte6.qmd # La gramatica de los gráficos
-      - Parte7.qmd #  Básicos de la visualización de datos
+      - Parte7.qmd # Básicos de la visualización de datos
       - Parte8.qmd # Construyendo gráficas capa por capa
       - Parte9.qmd # estéticas globales
       - Parte10.qmd # esteticos locales
@@ -59,12 +65,46 @@ book:
       - Parte12.qmd # facetas
       - Parte13.qmd # Geometrías
       - Parte14.qmd # Ejercicios finales
-
+      - Act3_seccion4.qmd # Actividad:
+    - part: "**Sección 5** - Descubre patrones en los datos"
+      chapters: 
+      - Parte15.qmd # Identificación de patrones en conjuntos de datos reales
+      - Parte16.qmd # Actividad: descubre algo interesante en un conjunto de datos
+      - Act4_seccion5.qmd # Actividad: descubre algo interesante en un conjunto de datos
+    - part: "**Sección 6** - Datos biológicos"
+      chapters: 
+      - Parte17.qmd # Primer vistazo a datos biológicos 
+      - Parte18.qmd # Creación de tablas con información con estadística descriptiva
+      - Act5_seccion6.qmd # Actividad: Casos de estudio salud pública
+    - part: "**Sección 7** - Caso de estudio: Genes y el sistema inmune"
+      chapters: 
+      - Parte19.qmd # Variantes genéticas y enfermedades del sistema inmune
+      - Parte20.qmd # Exploración de bases de datos públicas
+      - Act6_seccion7.qmd # Actividad: Explora datos genéticos reales
+    - part: "**Sección 8** - Preguntas biológicas y reportes en Quarto"
+      chapters: 
+      - Parte21.qmd # Cómo formular preguntas biológicas
+      - Act7_seccion8.qmd # Actividad: de la pregunta al análisis
+      - Parte22.qmd # Creación de reportes con Quarto
+      - Act8_seccion8.qmd # Actividad en equipo: identificación de patrones en datos genéticos
+    - part: "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)"
+      chapters: 
+      - Parte23.qmd # Salida de campo: ecosistemas de La Paz
+      - Parte24.qmd # ¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?
+      - Parte25.qmd # ¿Qué significa tener una predisposición genética?
+      - Parte26.qmd # Introducción a la salud mental y a los datos relacionados con el cerebro
+      - Parte27.qmd # Estrés, sueño y hábitos: la interacción gene × entorno
+      - Act9_seccion9.qmd # Actividad en equipo: continuación del póster 
+    - part: "**Sección 10** - Recta final del proyecto"
+      chapters: 
+      - Parte28.qmd # Análisis y visualización de tus datos
+      - Parte29.qmd # Creación de paneles de figuras
+     
       
   # Information
   repo-url: https://github.com/EveliaCoss/CdeCMx2026_Club_LPZ3_libro # link de Github
   sharing: [twitter, facebook, linkedin]
-  # favicon: "rsgMexico.jpeg" # icono de la pagina en pestana
+  favicon: "flyer/logo_cdecmx.png" # icono de la pagina en pestana
 
 
 format:

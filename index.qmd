@@ -38,47 +38,47 @@
 
   ### Agenda 📆 {#agenda}
 
-  +----------------+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-  | Días           | Tema                                              | Actividades                                                                                                       |
-  +================+===================================================+===================================================================================================================+
-  | **Día 1**      | Introducción: Datos, Genes, y Tú                  | 1.  **Dinámica**: Bienvenida: Tú y tus genes                                                                      |
-  |                |                                                   | 2.  **Clase**: Descubre qué son los genes                                                                         |
-  | Lunes 27/julio |                                                   | 3.  **Clase**: Introducción a la bioinformática como lupa para la vida                                            |
-  |                |                                                   | 4.  **Dinámica:** Primeros pasos en R con datos divertidos (Pokémon / conjuntos de datos divertidos)              |
-  |                |                                                   | 5.  **Actividad**: Lo que los datos nos cuentan                                                                   |
-  |                |                                                   | 6.  Introducción al proyecto final                                                                                |
-  |                |                                                   | 7.  **Clase**: Cómo comunicar ciencia en un póster                                                                |
-  +----------------+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-  | **Día 2**      | Descubre patrones en los datos                    | 1.  **Clase**: Explora y ordena tus datos                                                                         |
-  |                |                                                   | 2.  **Clase**: Introducción a la visualización de datos                                                           |
-  | Martes         |                                                   | 3.  **Dinámica**: Identificación de patrones en conjuntos de datos reales                                         |
-  |                |                                                   | 4.  **Actividad**: Descubre algo interesante en un conjunto de datos                                              |
-  | 28/julio       |                                                   | 5.  **Clase**: Primer vistazo a datos biológicos (ejemplos de genética y salud)                                   |
-  |                |                                                   | 6.  **Clase**: Creación de tablas con información con estadística descriptiva                                     |
-  |                |                                                   | 7.  **Actividad**: Casos de estudio salud pública                                                                 |
-  +----------------+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-  | **Día 3**      | Caso de estudio: Genes y el sistema inmune        | 1.  **Clase**: Variantes genéticas y enfermedades del sistema inmune                                              |
-  |                |                                                   | 2.  **Dinámica**: Exploración de bases de datos públicas                                                          |
-  | Miércoles      |                                                   | 3.  **Actividad:** Explora datos genéticos reales                                                                 |
-  |                |                                                   | 4.  **Dinámica**: Cómo formular preguntas biológicas                                                              |
-  | 29/julio       |                                                   | 5.  **Actividad:** De la pregunta al análisis                                                                     |
-  |                |                                                   | 6.  **Clase**: Creación de reportes con Quarto                                                                    |
-  |                |                                                   | 7.  **Actividad en equipo**: Identificación de patrones en datos genéticos                                        |
-  |                |                                                   | 8.  **Actividad en equipo**: bosquejo inicial del póster relacionado con el proyecto final                        |
-  +----------------+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-  | **Día 4**      | Cerebro, Conducta y ambiente (Gene × Environment) | 1.  **Salida de campo**: Ecosistemas, genes y salud humana: ¿Qué nos puede enseñar la naturaleza sobre nosotros?  |
-  |                |                                                   | 2.  **Actividad:** Mapeando sistemas                                                                              |
-  | Jueves         |                                                   | 3.  **Actividad:** Traduciendo observaciones a humanos                                                            |
-  |                |                                                   | 4.  **Actividad:** Gene x Environment Uno Game                                                                    |
-  | 30/julio       |                                                   | 5.  **Actividad:** Construyendo una hipótesis Gene x Environment                                                  |
-  |                |                                                   | 6.  **Actividad en equipo**: continuación del póster                                                              |
-  +----------------+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-  | **Día 5**      | Recta final del proyecto                          | 1.  **Clase**:  Análisis y visualización de tus datos                                                             |
-  |                |                                                   | 2.  **Dinámica**: Creación de paneles de figuras                                                                  |
-  | Viernes        |                                                   | 3.  **Actividad**: Construir el póster final                                                                      |
-  |                |                                                   | 4.  **Actividad**: Preparación de presentaciones                                                                  |
-  | 31/julio       |                                                   | 5.  **Dinámica**:Retroalimentación de los alumnos e instructores                                                  |
-  |                |                                                   | 6.  **Actividad**: Últimos retoques al poster                                                                     |
-  |                |                                                   | 7.  **Discusión:** Debate y reflexión final                                                                       |
-  +----------------+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+  +----------------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+  | Días           | Tema                                              | Actividades                                                                                                      |
+  +================+===================================================+==================================================================================================================+
+  | **Día 1**      | Introducción: Datos, Genes, y Tú                  | 1.  **Dinámica**: Bienvenida: Tú y tus genes                                                                     |
+  |                |                                                   | 2.  **Clase**: Descubre qué son los genes                                                                        |
+  | Lunes 27/julio |                                                   | 3.  **Clase**: Introducción a la bioinformática como lupa para la vida                                           |
+  |                |                                                   | 4.  **Dinámica:** Primeros pasos en R con datos divertidos (Pokémon / conjuntos de datos divertidos)             |
+  |                |                                                   | 5.  **Actividad**: Lo que los datos nos cuentan                                                                  |
+  |                |                                                   | 6.  Introducción al proyecto final                                                                               |
+  |                |                                                   | 7.  **Clase**: Cómo comunicar ciencia en un póster                                                               |
+  +----------------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+  | **Día 2**      | Descubre patrones en los datos                    | 1.  **Clase**: Explora y ordena tus datos                                                                        |
+  |                |                                                   | 2.  **Clase**: Introducción a la visualización de datos                                                          |
+  | Martes         |                                                   | 3.  **Dinámica**: Identificación de patrones en conjuntos de datos reales                                        |
+  |                |                                                   | 4.  **Actividad**: Descubre algo interesante en un conjunto de datos                                             |
+  | 28/julio       |                                                   | 5.  **Clase**: Primer vistazo a datos biológicos (ejemplos de genética y salud)                                  |
+  |                |                                                   | 6.  **Clase**: Creación de tablas con información con estadística descriptiva                                    |
+  |                |                                                   | 7.  **Actividad**: Casos de estudio salud pública                                                                |
+  +----------------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+  | **Día 3**      | Caso de estudio: Genes y el sistema inmune        | 1.  **Clase**: Variantes genéticas y enfermedades del sistema inmune                                             |
+  |                |                                                   | 2.  **Dinámica**: Exploración de bases de datos públicas                                                         |
+  | Miércoles      |                                                   | 3.  **Actividad:** Explora datos genéticos reales                                                                |
+  |                |                                                   | 4.  **Dinámica**: Cómo formular preguntas biológicas                                                             |
+  | 29/julio       |                                                   | 5.  **Actividad:** De la pregunta al análisis                                                                    |
+  |                |                                                   | 6.  **Clase**: Creación de reportes con Quarto                                                                   |
+  |                |                                                   | 7.  **Actividad en equipo**: Identificación de patrones en datos genéticos                                       |
+  |                |                                                   | 8.  **Actividad en equipo**: bosquejo inicial del póster relacionado con el proyecto final                       |
+  +----------------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+  | **Día 4**      | Cerebro, Conducta y ambiente (Gene × Environment) | 1.  **Salida de campo**: Ecosistemas, genes y salud humana: ¿Qué nos puede enseñar la naturaleza sobre nosotros? |
+  |                |                                                   | 2.  **Actividad:** Mapeando sistemas                                                                             |
+  | Jueves         |                                                   | 3.  **Actividad:** Traduciendo observaciones a humanos                                                           |
+  |                |                                                   | 4.  **Actividad:** Gene x Environment Uno Game                                                                   |
+  | 30/julio       |                                                   | 5.  **Actividad:** Construyendo una hipótesis Gene x Environment                                                 |
+  |                |                                                   | 6.  **Actividad en equipo**: continuación del póster                                                             |
+  +----------------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+  | **Día 5**      | Recta final del proyecto                          | 1.  **Clase**:  Análisis y visualización de tus datos                                                            |
+  |                |                                                   | 2.  **Dinámica**: Creación de paneles de figuras                                                                 |
+  | Viernes        |                                                   | 3.  **Actividad**: Construir el póster final                                                                     |
+  |                |                                                   | 4.  **Actividad**: Preparación de presentaciones                                                                 |
+  | 31/julio       |                                                   | 5.  **Dinámica**:Retroalimentación de los alumnos e instructores                                                 |
+  |                |                                                   | 6.  **Actividad**: Últimos retoques al poster                                                                    |
+  |                |                                                   | 7.  **Discusión:** Debate y reflexión final                                                                      |
+  +----------------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
   :::

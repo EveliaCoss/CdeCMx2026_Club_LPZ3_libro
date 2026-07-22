@@ -1,0 +1,3 @@
+# **Actividad:** descubre algo interesante en un conjunto de datos
+
+Ejercicio práctico donde cada estudiante elige un hallazgo relevante y lo explica con evidencia.

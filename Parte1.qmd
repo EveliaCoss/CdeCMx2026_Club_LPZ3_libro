@@ -28,7 +28,7 @@ Un **algoritmo** es un método para resolver un problema mediante una serie de p
 
 > Un algoritmo podemos definirlo como un **programa o software**.
 
-[![](reproducible/figures/allison-horst-code-kitchen.png)](https://allisonhorst.com/allison-horst)
+[![Imagen tomada de Allison Horst.](reproducible/figures/allison-horst-code-kitchen.png)](https://allisonhorst.com/allison-horst)
 
 ## **Para escribir un buen software necesitas:**
 

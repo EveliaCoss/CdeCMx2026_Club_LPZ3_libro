@@ -1,0 +1,3 @@
+# Actividad en equipo: identificación de patrones en datos genéticos
+
+Colaborar para detectar tendencias y discutir su posible significado biológico.

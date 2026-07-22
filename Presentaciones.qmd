@@ -14,6 +14,8 @@ No necesitas experiencia previa, solo curiosidad y ganas de explorar.
 - Explorar el papel del **entorno, la comunidad** y el sentido de pertenencia en la **resiliencia**.
 - Diseñar y comunicar un proyecto final basado en datos, integrando evidencia y creatividad.
 
+[![Imagen tomada de Allison Horst.](figures/webeliveinyou.png){fig-align="center"}](https://allisonhorst.com/everything-else)
+
 ## Dinámica de trabajo
 
 ### Notas adhesivas 📄

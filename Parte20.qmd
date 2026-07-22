@@ -1,0 +1,3 @@
+# Exploración de bases de datos públicas
+
+Aprender a buscar y descargar información genética disponible en repositorios abiertos.

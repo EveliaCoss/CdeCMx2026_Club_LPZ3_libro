@@ -1,0 +1,3 @@
+# Actividad: Explora datos genéticos reales
+
+Ejercicio práctico para familiarizarse con datasets auténticos y reconocer su estructura.

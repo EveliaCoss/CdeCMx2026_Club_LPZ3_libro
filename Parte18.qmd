@@ -1,0 +1,3 @@
+# Creación de tablas con información con estadística descriptiva
+
+Generar tablas con medidas básicas (media, mediana, desviación estándar) para resumir información.

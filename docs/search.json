@@ -24,7 +24,7 @@
     "href": "Presentaciones.html#objetivos-de-aprendizaje",
     "title": "1  Bienvenida: Tú y tus genes",
     "section": "1.2 Objetivos de aprendizaje",
-    "text": "1.2 Objetivos de aprendizaje\n\nComprender cómo las variantes genéticas y el riesgo genético influyen en la salud y cómo interactúan con el entorno (gene × environment).\nAnalizar datos reales de genética, cerebro y salud mental para identificar patrones significativos.\nUtilizar herramientas de ciencia de datos como medio para explorar sistemas complejos.\nExplorar el papel del entorno, la comunidad y el sentido de pertenencia en la resiliencia.\nDiseñar y comunicar un proyecto final basado en datos, integrando evidencia y creatividad.",
+    "text": "1.2 Objetivos de aprendizaje\n\nComprender cómo las variantes genéticas y el riesgo genético influyen en la salud y cómo interactúan con el entorno (gene × environment).\nAnalizar datos reales de genética, cerebro y salud mental para identificar patrones significativos.\nUtilizar herramientas de ciencia de datos como medio para explorar sistemas complejos.\nExplorar el papel del entorno, la comunidad y el sentido de pertenencia en la resiliencia.\nDiseñar y comunicar un proyecto final basado en datos, integrando evidencia y creatividad.\n\n\n\n\n\n\n\n\nImagen tomada de Allison Horst.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bienvenida: Tú y tus genes</span>"
     ]
@@ -175,7 +175,7 @@
     "href": "Parte1.html#un-algoritmo-nos-permite-resolver-un-problema",
     "title": "4  Introducción a la bioinformática como lupa para la vida",
     "section": "5.2 Un algoritmo nos permite resolver un problema ⭐",
-    "text": "5.2 Un algoritmo nos permite resolver un problema ⭐\nUn algoritmo es un método para resolver un problema mediante una serie de pasos definidos, precisos y finitos.\n\nDefinido: si se sigue dos veces, se obtiene el mismo resultado. Es reproducible.\nPreciso: implica el orden de realización de cada uno de los pasos.\nFinito: Tiene un numero determinado de pasos, implica que tiene un fin.\n\n\nUn algoritmo podemos definirlo como un programa o software.",
+    "text": "5.2 Un algoritmo nos permite resolver un problema ⭐\nUn algoritmo es un método para resolver un problema mediante una serie de pasos definidos, precisos y finitos.\n\nDefinido: si se sigue dos veces, se obtiene el mismo resultado. Es reproducible.\nPreciso: implica el orden de realización de cada uno de los pasos.\nFinito: Tiene un numero determinado de pasos, implica que tiene un fin.\n\n\nUn algoritmo podemos definirlo como un programa o software.\n\n\n\n\nImagen tomada de Allison Horst.",
     "crumbs": [
       "**Sección 1** - Introducción: Datos, Genes, y Tú",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introducción a la bioinformática como lupa para la vida</span>"
@@ -468,553 +468,839 @@
     ]
   },
   {
-    "objectID": "Parte4.html#funciones-que-vamos-a-emplear-de-dplyr",
-    "href": "Parte4.html#funciones-que-vamos-a-emplear-de-dplyr",
-    "title": "7  Manipulación de datos en R",
-    "section": "7.6 Funciones que vamos a emplear de dplyr",
-    "text": "7.6 Funciones que vamos a emplear de dplyr\n\n\n\n\n\n\n\nselect() : Seleccionar nombres de las columnas. –&gt; select(dataframe, columna1, columna2, … columnax)\nfilter() : Filtrar filas por una condicion especifica, apartir de la columna. –&gt; filter(dataframe, columna1 == “condicion”)\nmutate() : Modificar o agregar columnas. –&gt; mutate(dataframe, columna1 = “condicion”)\ngroup_by() : Agrupar informacion de acuerdo a un(as) columna(s) seleccionada(s).\nif_else() : Condicional. –&gt; if_else(dataframe, codicion, si se acepta entonces, si se rechaza entonces)\narrange() : Acomodar los resultados, default de menor a mayor.\ncount(): Cuenta los valores de acuerdo a una variable.\nleft_join() : Unir dos dataframe con base en una misma columna en comun. –&gt; left_join(dataframe1, dataframe2, by = “Columna en comun, mismo nombre”)\nn_distinct() : Cuenta las filas unicas.\ndistinct() : Muestra las filas duplicadas.\nsummarise() : reduce varios valores seleccionados en un resumen.",
+    "objectID": "Act1_seccion2.html",
+    "href": "Act1_seccion2.html",
+    "title": "8  Actividad: Pokémon con dplyr",
+    "section": "",
+    "text": "8.1 Funciones que vamos a emplear de dplyr\nCarguemos los paquetes",
     "crumbs": [
       "**Sección 2** - Introducción a R y RStudio",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Manipulación de datos en R</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>**Actividad:** Pokémon con `dplyr`</span>"
     ]
   },
   {
-    "objectID": "Parte4.html#manos-a-la-obra",
-    "href": "Parte4.html#manos-a-la-obra",
-    "title": "7  Manipulación de datos en R",
-    "section": "7.7 Manos a la obra",
-    "text": "7.7 Manos a la obra\n\n\n\n\n\n\nNotaActividad: Número de especies\n\n\n\n\n\nEn el dataset penguins del paquete palmerpenguins se registran 3 especies de pingüinos:\n\nAdelie\nChinstrap\nGentoo\n\n\nPodemos usar R base para identificar esta información:\n\n\n\nCódigo\nunique(penguins$species)\n\n\n[1] Adelie    Gentoo    Chinstrap\nLevels: Adelie Chinstrap Gentoo\n\n\nEmplear las funciones del paquete dplyr:\n\nUsar distinct() para obtener los valores únicos de la columna species.\n\n\n\nCódigo\npenguins %&gt;% \n  dplyr::select(species) %&gt;% \n  distinct() # Nos da valores unicos, sin duplicaciones\n\n\n# A tibble: 3 × 1\n  species  \n  &lt;fct&gt;    \n1 Adelie   \n2 Gentoo   \n3 Chinstrap\n\n\n\nUsar n_distinct() para obtener el número de especies unicas.\n\n\n\nCódigo\npenguins %&gt;% \n  dplyr::select(species) %&gt;% \n  n_distinct()\n\n\n[1] 3\n\n\n\n¿Cuántos datos registrados tenemos por especies o número de individuos por especie?\n\n\n\nCódigo\npenguins %&gt;% \n  count(species) \n\n\n# A tibble: 3 × 2\n  species       n\n  &lt;fct&gt;     &lt;int&gt;\n1 Adelie      152\n2 Chinstrap    68\n3 Gentoo      124\n\n\n\n\n\n\n\n\n\n\n\nNotaActividad: Sexo y Distribución del muestreo a través de las islas\n\n\n\n\n\n\nNúmero de individuos de cada sexo\n\n\n\nCódigo\npenguins %&gt;% \n  count(sex) \n\n\n# A tibble: 3 × 2\n  sex        n\n  &lt;fct&gt;  &lt;int&gt;\n1 female   165\n2 male     168\n3 &lt;NA&gt;      11\n\n\n\n¿Cuántos hembras y machos hay de cada especie?\n\n\n\nCódigo\npenguins %&gt;% \n  count(species, sex)\n\n\n# A tibble: 8 × 3\n  species   sex        n\n  &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;\n1 Adelie    female    73\n2 Adelie    male      73\n3 Adelie    &lt;NA&gt;       6\n4 Chinstrap female    34\n5 Chinstrap male      34\n6 Gentoo    female    58\n7 Gentoo    male      61\n8 Gentoo    &lt;NA&gt;       5\n\n\n\nNúmero de individuos registrados en cada isla:\n\n\n\nCódigo\npenguins %&gt;% \n  count(island)\n\n\n# A tibble: 3 × 2\n  island        n\n  &lt;fct&gt;     &lt;int&gt;\n1 Biscoe      168\n2 Dream       124\n3 Torgersen    52\n\n\n\nNúmero de individuos registrados en cada isla:\n\n\n\nCódigo\npenguins %&gt;% \n  count(species, island, sex)\n\n\n# A tibble: 13 × 4\n   species   island    sex        n\n   &lt;fct&gt;     &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;\n 1 Adelie    Biscoe    female    22\n 2 Adelie    Biscoe    male      22\n 3 Adelie    Dream     female    27\n 4 Adelie    Dream     male      28\n 5 Adelie    Dream     &lt;NA&gt;       1\n 6 Adelie    Torgersen female    24\n 7 Adelie    Torgersen male      23\n 8 Adelie    Torgersen &lt;NA&gt;       5\n 9 Chinstrap Dream     female    34\n10 Chinstrap Dream     male      34\n11 Gentoo    Biscoe    female    58\n12 Gentoo    Biscoe    male      61\n13 Gentoo    Biscoe    &lt;NA&gt;       5\n\n\n\n\n\n\n\n\n\n\n\nNotaActividad: Masa de los individuos\n\n\n\n\n\nCrea una nueva columna llamada body_mass_kg que convierta el peso de gramos a kilogramos.\n\n\nCódigo\npenguins_kg &lt;- penguins %&gt;% \n  mutate(body_mass_kg = body_mass_g / 1000) \n\nhead(penguins_kg)\n\n\n# A tibble: 6 × 9\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 3 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;\n\n\nCalcula el promedio de masa corporal por especie.\n\n\nCódigo\npenguins_kg %&gt;% \n  group_by(species) %&gt;% \n  summarise(mean_mass_kg = mean(body_mass_kg, na.rm = TRUE))\n\n\n# A tibble: 3 × 2\n  species   mean_mass_kg\n  &lt;fct&gt;            &lt;dbl&gt;\n1 Adelie            3.70\n2 Chinstrap         3.73\n3 Gentoo            5.08\n\n\nCrea una columna peso_categoria que indique \"Ligero\" si el pingüino pesa menos de 4000 g = 4kg y \"Pesado\" en caso contrario.\n\n\nCódigo\npenguins_kg &lt;- penguins_kg %&gt;% \n  mutate(peso_categoria = if_else(body_mass_kg &lt; 4, \"Ligero\", \"Pesado\"))\n\nhead(penguins_kg)\n\n\n# A tibble: 6 × 10\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 4 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;\n\n\n¿Cuántos pingüinos tenemos por categoría?\n\n\nCódigo\npenguins_kg %&gt;% \n  count(peso_categoria)\n\n\n# A tibble: 3 × 2\n  peso_categoria     n\n  &lt;chr&gt;          &lt;int&gt;\n1 Ligero           165\n2 Pesado           177\n3 &lt;NA&gt;               2\n\n\nClasifica a los pingüinos en categorías según su masa corporal:\n\n&lt; 3500 g → \"Pequeño\"\n3500–4500 g → \"Mediano\"\n&gt; 4500 g → \"Grande\"\n\n\n\nCódigo\npenguins_kg %&gt;% \n  mutate(categoria = case_when(\n    body_mass_g &lt; 3500 ~ \"Pequeño\",\n    body_mass_g &gt;= 3500 & body_mass_g &lt;= 4500 ~ \"Mediano\",\n    body_mass_g &gt; 4500 ~ \"Grande\"\n  ))\n\n\n# A tibble: 344 × 11\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           NA            NA                  NA          NA\n 5 Adelie  Torgersen           36.7          19.3               193        3450\n 6 Adelie  Torgersen           39.3          20.6               190        3650\n 7 Adelie  Torgersen           38.9          17.8               181        3625\n 8 Adelie  Torgersen           39.2          19.6               195        4675\n 9 Adelie  Torgersen           34.1          18.1               193        3475\n10 Adelie  Torgersen           42            20.2               190        4250\n# ℹ 334 more rows\n# ℹ 5 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;, categoria &lt;chr&gt;\n\n\n\n\n\n\n\n\n\n\n\nNotaActividad: Longitud del pico y del ala\n\n\n\n\n\nOrdena los pingüinos por longitud del pico (bill_length_mm) de mayor a menor.\n\n\nCódigo\npenguins_kg %&gt;% \n  arrange(desc(bill_length_mm)) %&gt;%  # de mayor a menor\n  # tambien se puede poner arrange(-bill_length_mm)\n  head()\n\n\n# A tibble: 6 × 10\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Gentoo    Biscoe           59.6          17                 230        6050\n2 Chinstrap Dream            58            17.8               181        3700\n3 Gentoo    Biscoe           55.9          17                 228        5600\n4 Chinstrap Dream            55.8          19.8               207        4000\n5 Gentoo    Biscoe           55.1          16                 230        5850\n6 Gentoo    Biscoe           54.3          15.7               231        5650\n# ℹ 4 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;\n\n\nSi queremos que sea de menor a mayor, quitamos desc().\n\n\nCódigo\npenguins_kg %&gt;% \n  arrange(bill_length_mm) %&gt;%  # de menor a mayor\n  head()\n\n\n# A tibble: 6 × 10\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Dream               32.1          15.5               188        3050\n2 Adelie  Dream               33.1          16.1               178        2900\n3 Adelie  Torgersen           33.5          19                 190        3600\n4 Adelie  Dream               34            17.1               185        3400\n5 Adelie  Torgersen           34.1          18.1               193        3475\n6 Adelie  Torgersen           34.4          18.4               184        3325\n# ℹ 4 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;\n\n\nCalcula el promedio y la desviación estándar de la longitud del ala (flipper_length_mm) por especie.\n\n\nCódigo\npenguins %&gt;% \n  group_by(species) %&gt;% \n  summarise(\n    mean_flipper = mean(flipper_length_mm, na.rm = TRUE), #promedio\n    sd_flipper = sd(flipper_length_mm, na.rm = TRUE) # desviacion estandar\n  )\n\n\n# A tibble: 3 × 3\n  species   mean_flipper sd_flipper\n  &lt;fct&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 Adelie            190.       6.54\n2 Chinstrap         196.       7.13\n3 Gentoo            217.       6.48",
+    "objectID": "Act1_seccion2.html#funciones-que-vamos-a-emplear-de-dplyr",
+    "href": "Act1_seccion2.html#funciones-que-vamos-a-emplear-de-dplyr",
+    "title": "8  Actividad: Pokémon con dplyr",
+    "section": "",
+    "text": "select() : Seleccionar nombres de las columnas. –&gt; select(dataframe, columna1, columna2, … columnax)\nfilter() : Filtrar filas por una condicion especifica, apartir de la columna. –&gt; filter(dataframe, columna1 == “condicion”)\nmutate() : Modificar o agregar columnas. –&gt; mutate(dataframe, columna1 = “condicion”)\ngroup_by() : Agrupar informacion de acuerdo a un(as) columna(s) seleccionada(s).\nif_else() : Condicional. –&gt; if_else(dataframe, codicion, si se acepta entonces, si se rechaza entonces)\narrange() : Acomodar los resultados, default de menor a mayor.\ncount(): Cuenta los valores de acuerdo a una variable.\nleft_join() : Unir dos dataframe con base en una misma columna en comun. –&gt; left_join(dataframe1, dataframe2, by = “Columna en comun, mismo nombre”)\nn_distinct() : Cuenta las filas unicas.\ndistinct() : Muestra las filas duplicadas.\nsummarise() : reduce varios valores seleccionados en un resumen.",
     "crumbs": [
       "**Sección 2** - Introducción a R y RStudio",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Manipulación de datos en R</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>**Actividad:** Pokémon con `dplyr`</span>"
+    ]
+  },
+  {
+    "objectID": "Act1_seccion2.html#manos-a-la-obra",
+    "href": "Act1_seccion2.html#manos-a-la-obra",
+    "title": "8  Actividad: Pokémon con dplyr",
+    "section": "8.2 Manos a la obra",
+    "text": "8.2 Manos a la obra\n\n\n\n\n\n\nNotaActividad: Número de especies\n\n\n\n\n\nEn el dataset penguins del paquete palmerpenguins se registran 3 especies de pingüinos:\n\nAdelie\nChinstrap\nGentoo\n\n\nPodemos usar R base para identificar esta información:\n\n\n\nCódigo\nunique(penguins$species)\n\n\n[1] Adelie    Gentoo    Chinstrap\nLevels: Adelie Chinstrap Gentoo\n\n\nEmplear las funciones del paquete dplyr:\n\nUsar distinct() para obtener los valores únicos de la columna species.\n\n\n\nCódigo\npenguins %&gt;% \n  dplyr::select(species) %&gt;% \n  distinct() # Nos da valores unicos, sin duplicaciones\n\n\n# A tibble: 3 × 1\n  species  \n  &lt;fct&gt;    \n1 Adelie   \n2 Gentoo   \n3 Chinstrap\n\n\n\nUsar n_distinct() para obtener el número de especies unicas.\n\n\n\nCódigo\npenguins %&gt;% \n  dplyr::select(species) %&gt;% \n  n_distinct()\n\n\n[1] 3\n\n\n\n¿Cuántos datos registrados tenemos por especies o número de individuos por especie?\n\n\n\nCódigo\npenguins %&gt;% \n  count(species) \n\n\n# A tibble: 3 × 2\n  species       n\n  &lt;fct&gt;     &lt;int&gt;\n1 Adelie      152\n2 Chinstrap    68\n3 Gentoo      124\n\n\n\n\n\n\n\n\n\n\n\nNotaActividad: Sexo y Distribución del muestreo a través de las islas\n\n\n\n\n\n\nNúmero de individuos de cada sexo\n\n\n\nCódigo\npenguins %&gt;% \n  count(sex) \n\n\n# A tibble: 3 × 2\n  sex        n\n  &lt;fct&gt;  &lt;int&gt;\n1 female   165\n2 male     168\n3 &lt;NA&gt;      11\n\n\n\n¿Cuántos hembras y machos hay de cada especie?\n\n\n\nCódigo\npenguins %&gt;% \n  count(species, sex)\n\n\n# A tibble: 8 × 3\n  species   sex        n\n  &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;\n1 Adelie    female    73\n2 Adelie    male      73\n3 Adelie    &lt;NA&gt;       6\n4 Chinstrap female    34\n5 Chinstrap male      34\n6 Gentoo    female    58\n7 Gentoo    male      61\n8 Gentoo    &lt;NA&gt;       5\n\n\n\nNúmero de individuos registrados en cada isla:\n\n\n\nCódigo\npenguins %&gt;% \n  count(island)\n\n\n# A tibble: 3 × 2\n  island        n\n  &lt;fct&gt;     &lt;int&gt;\n1 Biscoe      168\n2 Dream       124\n3 Torgersen    52\n\n\n\nNúmero de individuos registrados en cada isla:\n\n\n\nCódigo\npenguins %&gt;% \n  count(species, island, sex)\n\n\n# A tibble: 13 × 4\n   species   island    sex        n\n   &lt;fct&gt;     &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;\n 1 Adelie    Biscoe    female    22\n 2 Adelie    Biscoe    male      22\n 3 Adelie    Dream     female    27\n 4 Adelie    Dream     male      28\n 5 Adelie    Dream     &lt;NA&gt;       1\n 6 Adelie    Torgersen female    24\n 7 Adelie    Torgersen male      23\n 8 Adelie    Torgersen &lt;NA&gt;       5\n 9 Chinstrap Dream     female    34\n10 Chinstrap Dream     male      34\n11 Gentoo    Biscoe    female    58\n12 Gentoo    Biscoe    male      61\n13 Gentoo    Biscoe    &lt;NA&gt;       5\n\n\n\n\n\n\n\n\n\n\n\nNotaActividad: Masa de los individuos\n\n\n\n\n\nCrea una nueva columna llamada body_mass_kg que convierta el peso de gramos a kilogramos.\n\n\nCódigo\npenguins_kg &lt;- penguins %&gt;% \n  mutate(body_mass_kg = body_mass_g / 1000) \n\nhead(penguins_kg)\n\n\n# A tibble: 6 × 9\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 3 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;\n\n\nCalcula el promedio de masa corporal por especie.\n\n\nCódigo\npenguins_kg %&gt;% \n  group_by(species) %&gt;% \n  summarise(mean_mass_kg = mean(body_mass_kg, na.rm = TRUE))\n\n\n# A tibble: 3 × 2\n  species   mean_mass_kg\n  &lt;fct&gt;            &lt;dbl&gt;\n1 Adelie            3.70\n2 Chinstrap         3.73\n3 Gentoo            5.08\n\n\nCrea una columna peso_categoria que indique \"Ligero\" si el pingüino pesa menos de 4000 g = 4kg y \"Pesado\" en caso contrario.\n\n\nCódigo\npenguins_kg &lt;- penguins_kg %&gt;% \n  mutate(peso_categoria = if_else(body_mass_kg &lt; 4, \"Ligero\", \"Pesado\"))\n\nhead(penguins_kg)\n\n\n# A tibble: 6 × 10\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 4 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;\n\n\n¿Cuántos pingüinos tenemos por categoría?\n\n\nCódigo\npenguins_kg %&gt;% \n  count(peso_categoria)\n\n\n# A tibble: 3 × 2\n  peso_categoria     n\n  &lt;chr&gt;          &lt;int&gt;\n1 Ligero           165\n2 Pesado           177\n3 &lt;NA&gt;               2\n\n\nClasifica a los pingüinos en categorías según su masa corporal:\n\n&lt; 3500 g → \"Pequeño\"\n3500–4500 g → \"Mediano\"\n&gt; 4500 g → \"Grande\"\n\n\n\nCódigo\npenguins_kg %&gt;% \n  mutate(categoria = case_when(\n    body_mass_g &lt; 3500 ~ \"Pequeño\",\n    body_mass_g &gt;= 3500 & body_mass_g &lt;= 4500 ~ \"Mediano\",\n    body_mass_g &gt; 4500 ~ \"Grande\"\n  ))\n\n\n# A tibble: 344 × 11\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           NA            NA                  NA          NA\n 5 Adelie  Torgersen           36.7          19.3               193        3450\n 6 Adelie  Torgersen           39.3          20.6               190        3650\n 7 Adelie  Torgersen           38.9          17.8               181        3625\n 8 Adelie  Torgersen           39.2          19.6               195        4675\n 9 Adelie  Torgersen           34.1          18.1               193        3475\n10 Adelie  Torgersen           42            20.2               190        4250\n# ℹ 334 more rows\n# ℹ 5 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;, categoria &lt;chr&gt;\n\n\n\n\n\n\n\n\n\n\n\nNotaActividad: Longitud del pico y del ala\n\n\n\n\n\nOrdena los pingüinos por longitud del pico (bill_length_mm) de mayor a menor.\n\n\nCódigo\npenguins_kg %&gt;% \n  arrange(desc(bill_length_mm)) %&gt;%  # de mayor a menor\n  # tambien se puede poner arrange(-bill_length_mm)\n  head()\n\n\n# A tibble: 6 × 10\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Gentoo    Biscoe           59.6          17                 230        6050\n2 Chinstrap Dream            58            17.8               181        3700\n3 Gentoo    Biscoe           55.9          17                 228        5600\n4 Chinstrap Dream            55.8          19.8               207        4000\n5 Gentoo    Biscoe           55.1          16                 230        5850\n6 Gentoo    Biscoe           54.3          15.7               231        5650\n# ℹ 4 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;\n\n\nSi queremos que sea de menor a mayor, quitamos desc().\n\n\nCódigo\npenguins_kg %&gt;% \n  arrange(bill_length_mm) %&gt;%  # de menor a mayor\n  head()\n\n\n# A tibble: 6 × 10\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Dream               32.1          15.5               188        3050\n2 Adelie  Dream               33.1          16.1               178        2900\n3 Adelie  Torgersen           33.5          19                 190        3600\n4 Adelie  Dream               34            17.1               185        3400\n5 Adelie  Torgersen           34.1          18.1               193        3475\n6 Adelie  Torgersen           34.4          18.4               184        3325\n# ℹ 4 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body_mass_kg &lt;dbl&gt;,\n#   peso_categoria &lt;chr&gt;\n\n\nCalcula el promedio y la desviación estándar de la longitud del ala (flipper_length_mm) por especie.\n\n\nCódigo\npenguins %&gt;% \n  group_by(species) %&gt;% \n  summarise(\n    mean_flipper = mean(flipper_length_mm, na.rm = TRUE), #promedio\n    sd_flipper = sd(flipper_length_mm, na.rm = TRUE) # desviacion estandar\n  )\n\n\n# A tibble: 3 × 3\n  species   mean_flipper sd_flipper\n  &lt;fct&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 Adelie            190.       6.54\n2 Chinstrap         196.       7.13\n3 Gentoo            217.       6.48",
+    "crumbs": [
+      "**Sección 2** - Introducción a R y RStudio",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>**Actividad:** Pokémon con `dplyr`</span>"
+    ]
+  },
+  {
+    "objectID": "Act2_seccion3.html",
+    "href": "Act2_seccion3.html",
+    "title": "9  Actividad: Lo que los datos nos cuentan",
+    "section": "",
+    "text": "Interpretar visualizaciones y reconocer patrones en los datos, diferenciando métricas técnicas de significado biológico.",
+    "crumbs": [
+      "**Sección 3** - Estructura del proyecto final",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>**Actividad:** Lo que los datos nos cuentan</span>"
+    ]
+  },
+  {
+    "objectID": "Explicacion_ProyectoFinal.html",
+    "href": "Explicacion_ProyectoFinal.html",
+    "title": "10  Explicación del proyecto final",
+    "section": "",
+    "text": "Presentar la estructura, entregables y criterios de evaluación del trabajo integrador del curso.",
+    "crumbs": [
+      "**Sección 3** - Estructura del proyecto final",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Explicación del proyecto final</span>"
+    ]
+  },
+  {
+    "objectID": "Explicacion_Poster.html",
+    "href": "Explicacion_Poster.html",
+    "title": "11  Cómo comunicar ciencia en un póster",
+    "section": "",
+    "text": "Aprender a sintetizar resultados en un formato visual claro, breve y atractivo, con gráficos y texto conciso.",
+    "crumbs": [
+      "**Sección 3** - Estructura del proyecto final",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Cómo comunicar ciencia en un póster</span>"
     ]
   },
   {
     "objectID": "Parte5.html",
     "href": "Parte5.html",
-    "title": "8  ¿Por qué visualizar datos?",
+    "title": "12  ¿Por qué visualizar datos?",
     "section": "",
-    "text": "8.1 ¿Por qué usar R para visualizar datos?\nLos datos por sí solos rara vez cuentan una historia. Una tabla con cientos o miles de observaciones puede contener patrones, tendencias o valores atípicos que son difíciles de identificar únicamente leyendo números.\nLa visualización de datos nos permite:\nEn otras palabras, una gráfica no es únicamente una figura para el reporte final; es una herramienta fundamental para comprender nuestros datos.\nExisten muchas herramientas para crear gráficas, pero R se ha convertido en uno de los lenguajes más utilizados en ciencia de datos y estadística debido a que:",
+    "text": "12.1 ¿Por qué usar R para visualizar datos?\nLos datos por sí solos rara vez cuentan una historia. Una tabla con cientos o miles de observaciones puede contener patrones, tendencias o valores atípicos que son difíciles de identificar únicamente leyendo números.\nLa visualización de datos nos permite:\nEn otras palabras, una gráfica no es únicamente una figura para el reporte final; es una herramienta fundamental para comprender nuestros datos.\nExisten muchas herramientas para crear gráficas, pero R se ha convertido en uno de los lenguajes más utilizados en ciencia de datos y estadística debido a que:",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
     ]
   },
   {
     "objectID": "Parte5.html#por-qué-usar-r-para-visualizar-datos",
     "href": "Parte5.html#por-qué-usar-r-para-visualizar-datos",
-    "title": "8  ¿Por qué visualizar datos?",
+    "title": "12  ¿Por qué visualizar datos?",
     "section": "",
     "text": "Es gratuito y de código abierto.\nPermite realizar desde la limpieza de datos hasta el análisis estadístico y la visualización en un mismo entorno.\nHace posible reproducir nuestros análisis y compartirlos fácilmente.\nCuenta con miles de paquetes desarrollados por una comunidad muy activa.\nProduce figuras de alta calidad listas para artículos, reportes y presentaciones.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
     ]
   },
   {
     "objectID": "Parte5.html#por-qué-ggplot2",
     "href": "Parte5.html#por-qué-ggplot2",
-    "title": "8  ¿Por qué visualizar datos?",
-    "section": "8.2 ¿Por qué ggplot2?",
-    "text": "8.2 ¿Por qué ggplot2?\nEl paquete ggplot2 es una de las herramientas más populares para crear gráficos en R. Basado en la Gramática de los Gráficos, permite construir visualizaciones complejas a partir de componentes simples y consistentes.\nCon ggplot2 podemos:\n\nCrear gráficos claros y estéticamente agradables.\nPersonalizar prácticamente cualquier aspecto de una figura.\nGenerar visualizaciones reproducibles.\nTrabajar con una sintaxis coherente y flexible.\n\nVamos a aprender a transformar datos en visualizaciones que nos ayuden a explorar, entender y comunicar información.",
+    "title": "12  ¿Por qué visualizar datos?",
+    "section": "12.2 ¿Por qué ggplot2?",
+    "text": "12.2 ¿Por qué ggplot2?\nEl paquete ggplot2 es una de las herramientas más populares para crear gráficos en R. Basado en la Gramática de los Gráficos, permite construir visualizaciones complejas a partir de componentes simples y consistentes.\nCon ggplot2 podemos:\n\nCrear gráficos claros y estéticamente agradables.\nPersonalizar prácticamente cualquier aspecto de una figura.\nGenerar visualizaciones reproducibles.\nTrabajar con una sintaxis coherente y flexible.\n\nVamos a aprender a transformar datos en visualizaciones que nos ayuden a explorar, entender y comunicar información.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>¿Por qué visualizar datos?</span>"
     ]
   },
   {
     "objectID": "Parte6.html",
     "href": "Parte6.html",
-    "title": "9  La Gramática de los Gráficos (GG)",
+    "title": "13  La Gramática de los Gráficos (GG)",
     "section": "",
-    "text": "9.1 Desglose de las capas comunes\nEmpecemos por lo básico. El paquete ggplot2 se basa en la Gramática de los Gráficos (GG), que es un marco para la visualización de datos que disecciona cada componente de un gráfico en componentes individuales, creando capas distintas. Utilizando el sistema GG, podemos construir gráficos paso a paso para obtener resultados flexibles y personalizables.\nLas capas GG tienen nombres específicos que veremos en las siguientes secciones.\nPara hacer un ggplot, las capas de datos y mapas son requisitos básicos, mientras que las otras capas son para personalización adicional. Las capas que no son necesarias siguen siendo importantes, pero se pueden generar graficos sin ellas.",
+    "text": "13.1 Desglose de las capas comunes\nEmpecemos por lo básico. El paquete ggplot2 se basa en la Gramática de los Gráficos (GG), que es un marco para la visualización de datos que disecciona cada componente de un gráfico en componentes individuales, creando capas distintas. Utilizando el sistema GG, podemos construir gráficos paso a paso para obtener resultados flexibles y personalizables.\nLas capas GG tienen nombres específicos que veremos en las siguientes secciones.\nPara hacer un ggplot, las capas de datos y mapas son requisitos básicos, mientras que las otras capas son para personalización adicional. Las capas que no son necesarias siguen siendo importantes, pero se pueden generar graficos sin ellas.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
     ]
   },
   {
     "objectID": "Parte6.html#desglose-de-las-capas-comunes",
     "href": "Parte6.html#desglose-de-las-capas-comunes",
-    "title": "9  La Gramática de los Gráficos (GG)",
+    "title": "13  La Gramática de los Gráficos (GG)",
     "section": "",
     "text": "Datos:\n\nsus datos, en formato tidy o dataframe, proporcionarán los ingredientes para su trazado\nutilice las técnicas dplyr para preparar los datos para un formato de trazado óptimo\npor lo general, esto significa que debe tener una fila por cada observación que desea trazar\n\nEstética (Aesthetics / aes), para hacer visibles los datos\n\nx, y: variable a lo largo de los ejes x e y.\ncolour: color de las variables según los datos.\nfill: color interior de la zona o relleno.\ngroup: a qué grupo pertenece una geom.\nshape: la figura utilizada para trazar un punto.\nlinetype: tipo de línea utilizada (sólida, discontinua, etc.).\nsize: escala de tamaño para una dimensión extra\nalpha: transparencia del objeto geométrico\n\nObjetos geométricos (geoms - determina el tipo de trazado)\n\ngeom_point(): gráfico de dispersión\ngeom_line(): líneas que conectan puntos aumentando el valor de x\ngeom_path(): líneas que conectan puntos en secuencia de aparición\ngeom_boxplot(): gráfico de caja y bigotes para variables categóricas\ngeom_bar(): gráficos de barras para el eje x categórico\ngeom_histogram(): histograma para eje x continuo\ngeom_violin(): núcleo de distribución de la dispersión de datos\ngeom_smooth(): línea de función basada en datos\n\nFacetas:\n\nfacet_wrap() o facet_grid() para múltiplos pequeños\n\nEstadísticas:\n\nsimilar a geoms, pero computada\nmuestran medias, recuentos y otros resúmenes estadísticos de los datos\n\nCoordenadas - ajuste de datos en una página\n\ncoord_cartesian para establecer límites\ncoord_polar para gráficos circulares\ncoord_map para diferentes proyecciones cartográficas\n\nTemas:\n\nparámetros visuales generales\nfuentes, colores, formas, contornos",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
     ]
   },
   {
     "objectID": "Parte6.html#colocando-las-capas-juntas",
     "href": "Parte6.html#colocando-las-capas-juntas",
-    "title": "9  La Gramática de los Gráficos (GG)",
-    "section": "9.2 Colocando las capas juntas",
-    "text": "9.2 Colocando las capas juntas\nLos pasos básicos para contruir el plot son los siguientes:\n\n\n\n\n\n\nNota\n\n\n\n\nCrear el objeto de plot:\n\n\nplot_object &lt;- ggplot()\n\n\nAgregar la capa geométrica\n\n\nplot_object &lt;- plot_object + geom_*()\n\n\nAgregar las capas de apariencia:\n\n\nplot_object &lt;- plot_object + geom_*() + theme()\n\n\nRepetir pasos 2 y 3 hasta estar satisfechos, luego imprimir:\n\n\nplot_object",
+    "title": "13  La Gramática de los Gráficos (GG)",
+    "section": "13.2 Colocando las capas juntas",
+    "text": "13.2 Colocando las capas juntas\nLos pasos básicos para contruir el plot son los siguientes:\n\n\n\n\n\n\nNota\n\n\n\n\nCrear el objeto de plot:\n\n\nplot_object &lt;- ggplot()\n\n\nAgregar la capa geométrica\n\n\nplot_object &lt;- plot_object + geom_*()\n\n\nAgregar las capas de apariencia:\n\n\nplot_object &lt;- plot_object + geom_*() + theme()\n\n\nRepetir pasos 2 y 3 hasta estar satisfechos, luego imprimir:\n\n\nplot_object",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
     ]
   },
   {
     "objectID": "Parte6.html#cheatsheet",
     "href": "Parte6.html#cheatsheet",
-    "title": "9  La Gramática de los Gráficos (GG)",
-    "section": "9.3 Cheatsheet",
-    "text": "9.3 Cheatsheet",
+    "title": "13  La Gramática de los Gráficos (GG)",
+    "section": "13.3 Cheatsheet",
+    "text": "13.3 Cheatsheet",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
     ]
   },
   {
     "objectID": "Parte6.html#referencias",
     "href": "Parte6.html#referencias",
-    "title": "9  La Gramática de los Gráficos (GG)",
-    "section": "9.4 Referencias",
-    "text": "9.4 Referencias\n\nMás información en en el Workshop 3: Introduction to data visualisation with ggplot2\nHaydee tutorial: Seminario de Estadística: Análisis de Datos con R\nTutorial R-Ladies Morelia Reprohack 2024",
+    "title": "13  La Gramática de los Gráficos (GG)",
+    "section": "13.4 Referencias",
+    "text": "13.4 Referencias\n\nMás información en en el Workshop 3: Introduction to data visualisation with ggplot2\nHaydee tutorial: Seminario de Estadística: Análisis de Datos con R\nTutorial R-Ladies Morelia Reprohack 2024",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>La Gramática de los Gráficos (GG)</span>"
     ]
   },
   {
     "objectID": "Parte7.html",
     "href": "Parte7.html",
-    "title": "10  Básicos de la visualización de datos",
+    "title": "14  Básicos de la visualización de datos",
     "section": "",
-    "text": "10.1 Explorando la estructura de los datos\nVamos a trabajar con un set de datos de pingüinos que se llama palmerpenguins. Pueden encontrar más información sobre este conjunto de datos en la página siguiente:\nEste conjunto de datos contiene las medidas de tres especies de pingüinos de tres islas en el archipiélago Palmer de la Antartica y fueron recolectados entre 2007 y 2009 por el Dr. Kristen Gorman.\nDemos un vistazo las variables que contiene.\nHay variables tanto de tipo factor como numéricas. Las variables de tipo factor nos pueden servir para encontrar grupos al momento de usar ggplot con las capas de los aesthetics.\nggplot2 necesita que los datos sean de la clase data.frame o tibble. Vamos a verificar la clase que tiene la base de datos.\nComo ya mencionamos, los plots nos pueden ayudar para responder algunas preguntas, por ejemplo:\nUna forma rápida de tener un vistazo a los datos es usar ggpairs() del paquete GGally.\nCódigo\n#install.packages(\"GGally\")\nlibrary(GGally)\nggpairs(penguins, aes(colour = species), progress = FALSE) +\n  theme_bw()",
+    "text": "14.1 Explorando la estructura de los datos\nVamos a trabajar con un set de datos de pingüinos que se llama palmerpenguins. Pueden encontrar más información sobre este conjunto de datos en la página siguiente:\nEste conjunto de datos contiene las medidas de tres especies de pingüinos de tres islas en el archipiélago Palmer de la Antartica y fueron recolectados entre 2007 y 2009 por el Dr. Kristen Gorman.\nDemos un vistazo las variables que contiene.\nHay variables tanto de tipo factor como numéricas. Las variables de tipo factor nos pueden servir para encontrar grupos al momento de usar ggplot con las capas de los aesthetics.\nggplot2 necesita que los datos sean de la clase data.frame o tibble. Vamos a verificar la clase que tiene la base de datos.\nComo ya mencionamos, los plots nos pueden ayudar para responder algunas preguntas, por ejemplo:\nUna forma rápida de tener un vistazo a los datos es usar ggpairs() del paquete GGally.\nCódigo\n#install.packages(\"GGally\")\nlibrary(GGally)\nggpairs(penguins, aes(colour = species), progress = FALSE) +\n  theme_bw()",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Básicos de la visualización de datos</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Básicos de la visualización de datos</span>"
     ]
   },
   {
     "objectID": "Parte8.html",
     "href": "Parte8.html",
-    "title": "11  Construyendo gráficas capa por capa",
+    "title": "15  Construyendo gráficas capa por capa",
     "section": "",
-    "text": "11.1 Primera capa: los datos\nUna de las ideas más poderosas de ggplot2 es que las gráficas se construyen agregando capas. Comenzamos con los datos, después indicamos qué variables queremos representar y finalmente elegimos cómo mostrar la información.\nPrimero cargamos el paquete de ggplot2\nToda gráfica comienza indicando qué conjunto de datos utilizaremos.\nCódigo\nggplot(data = penguins)\nTodavía no aparece ninguna figura, porque aún no hemos especificado qué variables queremos representar.",
+    "text": "15.1 Primera capa: los datos\nUna de las ideas más poderosas de ggplot2 es que las gráficas se construyen agregando capas. Comenzamos con los datos, después indicamos qué variables queremos representar y finalmente elegimos cómo mostrar la información.\nPrimero cargamos el paquete de ggplot2\nToda gráfica comienza indicando qué conjunto de datos utilizaremos.\nCódigo\nggplot(data = penguins)\nTodavía no aparece ninguna figura, porque aún no hemos especificado qué variables queremos representar.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
     ]
   },
   {
     "objectID": "Parte8.html#segunda-capa-las-estéticas",
     "href": "Parte8.html#segunda-capa-las-estéticas",
-    "title": "11  Construyendo gráficas capa por capa",
-    "section": "11.2 Segunda capa: las estéticas",
-    "text": "11.2 Segunda capa: las estéticas\nLas estéticas (aes) indican qué variables del conjunto de datos estarán asociadas a los ejes, colores, tamaños, etc.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n)\n\n\n\n\n\n\n\n\n\nAunque ya definimos los ejes, todavía falta indicar cómo representar los datos.",
+    "title": "15  Construyendo gráficas capa por capa",
+    "section": "15.2 Segunda capa: las estéticas",
+    "text": "15.2 Segunda capa: las estéticas\nLas estéticas (aes) indican qué variables del conjunto de datos estarán asociadas a los ejes, colores, tamaños, etc.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n)\n\n\n\n\n\n\n\n\n\nAunque ya definimos los ejes, todavía falta indicar cómo representar los datos.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
     ]
   },
   {
     "objectID": "Parte8.html#tercera-capa-la-geometría",
     "href": "Parte8.html#tercera-capa-la-geometría",
-    "title": "11  Construyendo gráficas capa por capa",
-    "section": "11.3 Tercera capa: la geometría",
-    "text": "11.3 Tercera capa: la geometría\nLas geometrías (geom_) determinan el tipo de gráfico. Para dos variables numéricas, una opción es un diagrama de dispersión (no es una regla).\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nAhora cada observación se representa mediante un punto.",
+    "title": "15  Construyendo gráficas capa por capa",
+    "section": "15.3 Tercera capa: la geometría",
+    "text": "15.3 Tercera capa: la geometría\nLas geometrías (geom_) determinan el tipo de gráfico. Para dos variables numéricas, una opción es un diagrama de dispersión (no es una regla).\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nAhora cada observación se representa mediante un punto.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
     ]
   },
   {
     "objectID": "Parte8.html#cuarta-capa-agregar-color",
     "href": "Parte8.html#cuarta-capa-agregar-color",
-    "title": "11  Construyendo gráficas capa por capa",
-    "section": "11.4 Cuarta capa: agregar color",
-    "text": "11.4 Cuarta capa: agregar color\nPodemos incorporar una variable categórica para distinguir grupos.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nLos colores permiten identificar las diferentes especies de pingüinos.",
+    "title": "15  Construyendo gráficas capa por capa",
+    "section": "15.4 Cuarta capa: agregar color",
+    "text": "15.4 Cuarta capa: agregar color\nPodemos incorporar una variable categórica para distinguir grupos.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nLos colores permiten identificar las diferentes especies de pingüinos.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
     ]
   },
   {
     "objectID": "Parte8.html#quinta-capa-modificar-la-apariencia",
     "href": "Parte8.html#quinta-capa-modificar-la-apariencia",
-    "title": "11  Construyendo gráficas capa por capa",
-    "section": "11.5 Quinta capa: modificar la apariencia",
-    "text": "11.5 Quinta capa: modificar la apariencia\nLas capas también permiten cambiar propiedades visuales.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7)\n\n\n\n\n\n\n\n\n\n\nsize controla el tamaño de los puntos.\nalpha controla la transparencia.",
+    "title": "15  Construyendo gráficas capa por capa",
+    "section": "15.5 Quinta capa: modificar la apariencia",
+    "text": "15.5 Quinta capa: modificar la apariencia\nLas capas también permiten cambiar propiedades visuales.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7)\n\n\n\n\n\n\n\n\n\n\nsize controla el tamaño de los puntos.\nalpha controla la transparencia.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
     ]
   },
   {
     "objectID": "Parte8.html#sexta-capa-etiquetas",
     "href": "Parte8.html#sexta-capa-etiquetas",
-    "title": "11  Construyendo gráficas capa por capa",
-    "section": "11.6 Sexta capa: etiquetas",
-    "text": "11.6 Sexta capa: etiquetas\nUna gráfica debe ser fácil de interpretar. Podemos añadir títulos y etiquetas a los ejes.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  )",
+    "title": "15  Construyendo gráficas capa por capa",
+    "section": "15.6 Sexta capa: etiquetas",
+    "text": "15.6 Sexta capa: etiquetas\nUna gráfica debe ser fácil de interpretar. Podemos añadir títulos y etiquetas a los ejes.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  )",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
     ]
   },
   {
     "objectID": "Parte8.html#séptima-capa-temas",
     "href": "Parte8.html#séptima-capa-temas",
-    "title": "11  Construyendo gráficas capa por capa",
-    "section": "11.7 Séptima capa: temas",
-    "text": "11.7 Séptima capa: temas\nFinalmente, podemos modificar la apariencia general de la figura.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipLa idea principal\n\n\n\nEn ggplot2, una gráfica se construye sumando capas:\nggplot(datos)} + aes() + geom_() +otras capas\nCada nueva capa añade información o modifica la apariencia de la figura, permitiendo construir visualizaciones complejas de manera gradual.\n\n\n\n\n\n\n\n\nNotaEjercicio\n\n\n\nRealiza un plot para tratar de responder a las siguientes preguntas:\n¿Existe alguna relación entre la longitud del pico y la longitud de la aleta?\n¿La longitud del pico incrementa con la longitud de la aleta?\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()",
+    "title": "15  Construyendo gráficas capa por capa",
+    "section": "15.7 Séptima capa: temas",
+    "text": "15.7 Séptima capa: temas\nFinalmente, podemos modificar la apariencia general de la figura.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipLa idea principal\n\n\n\nEn ggplot2, una gráfica se construye sumando capas:\nggplot(datos)} + aes() + geom_() +otras capas\nCada nueva capa añade información o modifica la apariencia de la figura, permitiendo construir visualizaciones complejas de manera gradual.\n\n\n\n\n\n\n\n\nNotaEjercicio\n\n\n\nRealiza un plot para tratar de responder a las siguientes preguntas:\n¿Existe alguna relación entre la longitud del pico y la longitud de la aleta?\n¿La longitud del pico incrementa con la longitud de la aleta?\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Construyendo gráficas capa por capa</span>"
     ]
   },
   {
     "objectID": "Parte9.html",
     "href": "Parte9.html",
-    "title": "12  Estéticas y escalas en ggplot2",
+    "title": "16  Estéticas y escalas en ggplot2",
     "section": "",
-    "text": "12.1 ¿Qué son las estéticas?\nAdemás de elegir el tipo de gráfica, podemos utilizar propiedades visuales para representar información adicional. Estas propiedades reciben el nombre de estéticas (aesthetics) y permiten asociar variables con colores, formas, tamaños o transparencia.\nLas estéticas establecen una correspondencia entre las variables del conjunto de datos y características visuales de la gráfica.\nLas más comunes son:\nPor ejemplo:\nCódigo\nlibrary(ggplot2)\n\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\nEn este caso, el color está determinado por la variable species.",
+    "text": "16.1 ¿Qué son las estéticas?\nAdemás de elegir el tipo de gráfica, podemos utilizar propiedades visuales para representar información adicional. Estas propiedades reciben el nombre de estéticas (aesthetics) y permiten asociar variables con colores, formas, tamaños o transparencia.\nLas estéticas establecen una correspondencia entre las variables del conjunto de datos y características visuales de la gráfica.\nLas más comunes son:\nPor ejemplo:\nCódigo\nlibrary(ggplot2)\n\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\nEn este caso, el color está determinado por la variable species.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
     ]
   },
   {
     "objectID": "Parte9.html#qué-son-las-estéticas",
     "href": "Parte9.html#qué-son-las-estéticas",
-    "title": "12  Estéticas y escalas en ggplot2",
+    "title": "16  Estéticas y escalas en ggplot2",
     "section": "",
     "text": "x y y: posición en los ejes.\ncolor: color de puntos o líneas.\nshape: forma de los puntos.\nsize: tamaño.\nalpha: transparencia.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
     ]
   },
   {
     "objectID": "Parte9.html#colores",
     "href": "Parte9.html#colores",
-    "title": "12  Estéticas y escalas en ggplot2",
-    "section": "12.2 Colores",
-    "text": "12.2 Colores\nEl color es una de las estéticas más útiles en una gráfica. Nos permite:\n\ndistinguir grupos;\nrepresentar valores numéricos;\nresaltar patrones;\nmejorar la comunicación visual.\n\nEn ggplot2, el color puede usarse de dos formas principales:\n\nComo una estética mapeada a una variable, dentro de aes().\nComo una propiedad fija, fuera de aes().\n\n\n\nCódigo\nlibrary(dplyr)\n\n\n\n12.2.1 Color como estética\nCuando colocamos color dentro de aes(), le estamos diciendo a ggplot2 que el color depende de una variable del conjunto de datos.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nEn este caso, cada especie aparece con un color diferente. Esto facilita comparar si las especies se agrupan de manera distinta según la longitud del pico y la longitud de la aleta.\nTambién podemos agregar una tendencia por especie:\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  geom_smooth(method = \"lm\") +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nAquí el color no solamente afecta a los puntos, sino también a las líneas de tendencia.\n\n\n12.2.2 Color fijo\nSi queremos que todos los puntos tengan el mismo color, el argumento debe ir fuera de aes().\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len\n  )\n) +\n  geom_point(size = 2, alpha = 0.7, color = \"steelblue\") +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportante\n\n\n\nDentro de aes() usamos variables del conjunto de datos.\nFuera de aes() usamos valores fijos.\n\n\n\n\n12.2.3 Guardar una gráfica como objeto\nUna práctica común es guardar una gráfica base y después agregarle nuevas capas.\n\n\nCódigo\np_penguins &lt;- ggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.8) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  )\n\np_penguins\n\n\n\n\n\n\n\n\n\nAhora podemos reutilizar p_penguins y modificar únicamente la escala de color.\n\n\n12.2.4 Cambiar colores manualmente\nPor defecto, ggplot2 asigna colores automáticamente. Sin embargo, podemos elegir colores específicos con scale_color_manual().\n\n\nCódigo\np_penguins +\n  scale_color_manual(\n    values = c(\n      \"Adelie\" = \"grey40\",\n      \"Chinstrap\" = \"orange\",\n      \"Gentoo\" = \"skyblue\"\n    )\n  )\n\n\n\n\n\n\n\n\n\nEsto es útil cuando queremos usar colores más contrastantes o una paleta específica.\n\n\n\n\n\n\nNota\n\n\n\nTambién existe scale_fill_manual(), que se usa cuando la estética es fill, por ejemplo en barras, histogramas, diagramas de caja o violines.\n\n\n\n\n12.2.5 Color para variables numéricas\nEl color no solamente sirve para variables categóricas. También puede representar variables numéricas.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nEn este caso, el color representa una escala continua: pingüinos con menor o mayor masa corporal.\n\n\n12.2.6 Gradientes de color\nPodemos controlar el gradiente usando scale_color_gradient().\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"lightblue\",\n    high = \"darkblue\"\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nTambién podemos usar una transformación, por ejemplo log10, si los valores tienen una escala muy desigual.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = log10(body_mass)\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"blue\",\n    high = \"red\"\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"log10(masa corporal)\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n12.2.7 Gradientes con punto medio\nCuando queremos mostrar valores por debajo y por encima de un punto de referencia, podemos usar scale_color_gradient2().\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient2(\n    low = \"blue\",\n    mid = \"white\",\n    high = \"red\",\n    midpoint = mean(penguins$body_mass, na.rm = TRUE)\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nEste tipo de escala es útil cuando hay un valor central importante, por ejemplo cero, un promedio o una referencia biológica.\n\n\n12.2.8 Usar paletas de colores\nEn lugar de elegir colores manualmente, podemos usar paletas ya diseñadas.\nUna opción común es el paquete RColorBrewer.\n\n\nCódigo\nlibrary(RColorBrewer)\n\ndisplay.brewer.all()\n\n\n\n\n\n\n\n\n\nPara una variable categórica, podemos usar scale_color_brewer().\n\n\nCódigo\np_penguins +\n  scale_color_brewer(palette = \"Dark2\")\n\n\n\n\n\n\n\n\n\n\n\n12.2.9 Paletas viridis\nLas paletas viridis son muy útiles porque suelen funcionar bien en escala de grises y son más accesibles para personas con distintos tipos de daltonismo.\nPara variables categóricas usamos scale_color_viridis_d().\n\n\nCódigo\np_penguins +\n  scale_color_viridis_d()\n\n\n\n\n\n\n\n\n\nLa d viene de discrete, porque species es una variable categórica.\nPara variables continuas usamos scale_color_viridis_c().\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_viridis_c() +\n  labs(\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nLa c viene de continuous, porque body_mass es una variable numérica.\n\n\n\n\n\n\nTip\n\n\n\nComo regla práctica:\n\nusa scale_color_viridis_d() para grupos o categorías;\nusa scale_color_viridis_c() para variables numéricas continuas.\n\n\n\n\n\n12.2.10 Escala de grises\nA veces necesitamos figuras que funcionen bien impresas en blanco y negro.\nPara variables categóricas:\n\n\nCódigo\np_penguins +\n  scale_color_grey()\n\n\n\n\n\n\n\n\n\nPara variables continuas:\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"grey85\",\n    high = \"black\"\n  ) +\n  labs(\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n12.2.11 Una nota sobre accesibilidad\nNo todas las combinaciones de colores son igualmente fáciles de interpretar. Algunas paletas pueden ser confusas para personas con daltonismo o pueden perder información al imprimirse en escala de grises.\nPor eso, cuando la gráfica sea para comunicación pública, artículos o presentaciones, conviene usar paletas accesibles como viridis.\n\n\nCódigo\np_penguins +\n  scale_color_viridis_d() +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    subtitle = \"Colores por especie usando una paleta accesible\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nEl color puede usarse para comunicar distintos tipos de información:\n\n\n\n\n\n\n\nObjetivo\nFunción útil\n\n\n\n\nAsignar color por grupo\naes(color = variable)\n\n\nUsar un color fijo\ngeom_point(color = \"steelblue\")\n\n\nElegir colores manualmente\nscale_color_manual()\n\n\nRepresentar una variable numérica\naes(color = variable_numerica)\n\n\nCrear un gradiente\nscale_color_gradient()\n\n\nUsar un gradiente con punto medio\nscale_color_gradient2()\n\n\nUsar paletas predefinidas\nscale_color_brewer()\n\n\nUsar paletas accesibles\nscale_color_viridis_d() / scale_color_viridis_c()\n\n\nUsar escala de grises\nscale_color_grey()\n\n\n\n\n\n\n\n\n\nNota\n\n\n\nUna página que contiene muchas paletas de colores y varias paletas accesibles es la siguietne:\nhttps://r-charts.com/color-palettes/\n\n\n\n\n12.2.12 Revisar accesibilidad de colores\nComo ya mencionamos, además de elegir una paleta agradable, es importante verificar que los colores sean distinguibles para personas con distintas formas de daltonismo. Una forma sencilla de hacerlo es con la función cvdPlot().\nLa función cvdPlot() permite visualizar cómo se vería una gráfica bajo distintas condiciones de deficiencia en la visión del color.\n\n\nCódigo\nif (!\"colorBlindness\" %in% installed.packages()) {\n  install.packages(\"colorBlindness\")\n}\n\nlibrary(colorBlindness)\n\n\nPrimero construimos una gráfica usando una paleta accesible, como viridis.\n\n\nCódigo\npp2_viridis &lt;- p_penguins +\n  scale_color_viridis_d() +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    subtitle = \"Colores por especie usando una paleta accesible\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  ) +\n  theme_minimal()\n\npp2_viridis\n\n\n\n\n\n\n\n\n\nAhora usamos cvdPlot() para simular cómo se vería la misma gráfica para personas con distintos tipos de deficiencia en la visión del color.\n\n\nCódigo\ncvdPlot(pp2_viridis)\n\n\n\n\n\n\n\n\n\nLa salida muestra varias versiones de la gráfica. Esto nos ayuda a revisar si los grupos siguen siendo distinguibles aun cuando cambia la percepción del color.\n\n\n\n\n\n\nNotaNota\n\n\n\nLas paletas viridis suelen ser una buena opción porque fueron diseñadas para ser perceptualmente uniformes y más accesibles para personas con daltonismo.\n\n\nVeamos solo un ejemplo de una paleta no accesible.\n\n\nCódigo\np_penguins\n\n\n\n\n\n\n\n\n\nUsando cvdPlot vemos que estos plots no son visualemente accesibles.\n\n\nCódigo\ncvdPlot(p_penguins)",
+    "title": "16  Estéticas y escalas en ggplot2",
+    "section": "16.2 Colores",
+    "text": "16.2 Colores\nEl color es una de las estéticas más útiles en una gráfica. Nos permite:\n\ndistinguir grupos;\nrepresentar valores numéricos;\nresaltar patrones;\nmejorar la comunicación visual.\n\nEn ggplot2, el color puede usarse de dos formas principales:\n\nComo una estética mapeada a una variable, dentro de aes().\nComo una propiedad fija, fuera de aes().\n\n\n\nCódigo\nlibrary(dplyr)\n\n\n\n16.2.1 Color como estética\nCuando colocamos color dentro de aes(), le estamos diciendo a ggplot2 que el color depende de una variable del conjunto de datos.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nEn este caso, cada especie aparece con un color diferente. Esto facilita comparar si las especies se agrupan de manera distinta según la longitud del pico y la longitud de la aleta.\nTambién podemos agregar una tendencia por especie:\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.7) +\n  geom_smooth(method = \"lm\") +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nAquí el color no solamente afecta a los puntos, sino también a las líneas de tendencia.\n\n\n16.2.2 Color fijo\nSi queremos que todos los puntos tengan el mismo color, el argumento debe ir fuera de aes().\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = flipper_len\n  )\n) +\n  geom_point(size = 2, alpha = 0.7, color = \"steelblue\") +\n  labs(\n    title = \"Relación entre la longitud del pico y aleta de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Longitud de la aleta (mm)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportante\n\n\n\nDentro de aes() usamos variables del conjunto de datos.\nFuera de aes() usamos valores fijos.\n\n\n\n\n16.2.3 Guardar una gráfica como objeto\nUna práctica común es guardar una gráfica base y después agregarle nuevas capas.\n\n\nCódigo\np_penguins &lt;- ggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2, alpha = 0.8) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  )\n\np_penguins\n\n\n\n\n\n\n\n\n\nAhora podemos reutilizar p_penguins y modificar únicamente la escala de color.\n\n\n16.2.4 Cambiar colores manualmente\nPor defecto, ggplot2 asigna colores automáticamente. Sin embargo, podemos elegir colores específicos con scale_color_manual().\n\n\nCódigo\np_penguins +\n  scale_color_manual(\n    values = c(\n      \"Adelie\" = \"grey40\",\n      \"Chinstrap\" = \"orange\",\n      \"Gentoo\" = \"skyblue\"\n    )\n  )\n\n\n\n\n\n\n\n\n\nEsto es útil cuando queremos usar colores más contrastantes o una paleta específica.\n\n\n\n\n\n\nNota\n\n\n\nTambién existe scale_fill_manual(), que se usa cuando la estética es fill, por ejemplo en barras, histogramas, diagramas de caja o violines.\n\n\n\n\n16.2.5 Color para variables numéricas\nEl color no solamente sirve para variables categóricas. También puede representar variables numéricas.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nEn este caso, el color representa una escala continua: pingüinos con menor o mayor masa corporal.\n\n\n16.2.6 Gradientes de color\nPodemos controlar el gradiente usando scale_color_gradient().\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"lightblue\",\n    high = \"darkblue\"\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nTambién podemos usar una transformación, por ejemplo log10, si los valores tienen una escala muy desigual.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = log10(body_mass)\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"blue\",\n    high = \"red\"\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"log10(masa corporal)\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n16.2.7 Gradientes con punto medio\nCuando queremos mostrar valores por debajo y por encima de un punto de referencia, podemos usar scale_color_gradient2().\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient2(\n    low = \"blue\",\n    mid = \"white\",\n    high = \"red\",\n    midpoint = mean(penguins$body_mass, na.rm = TRUE)\n  ) +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nEste tipo de escala es útil cuando hay un valor central importante, por ejemplo cero, un promedio o una referencia biológica.\n\n\n16.2.8 Usar paletas de colores\nEn lugar de elegir colores manualmente, podemos usar paletas ya diseñadas.\nUna opción común es el paquete RColorBrewer.\n\n\nCódigo\nlibrary(RColorBrewer)\n\ndisplay.brewer.all()\n\n\n\n\n\n\n\n\n\nPara una variable categórica, podemos usar scale_color_brewer().\n\n\nCódigo\np_penguins +\n  scale_color_brewer(palette = \"Dark2\")\n\n\n\n\n\n\n\n\n\n\n\n16.2.9 Paletas viridis\nLas paletas viridis son muy útiles porque suelen funcionar bien en escala de grises y son más accesibles para personas con distintos tipos de daltonismo.\nPara variables categóricas usamos scale_color_viridis_d().\n\n\nCódigo\np_penguins +\n  scale_color_viridis_d()\n\n\n\n\n\n\n\n\n\nLa d viene de discrete, porque species es una variable categórica.\nPara variables continuas usamos scale_color_viridis_c().\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_viridis_c() +\n  labs(\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\nLa c viene de continuous, porque body_mass es una variable numérica.\n\n\n\n\n\n\nTip\n\n\n\nComo regla práctica:\n\nusa scale_color_viridis_d() para grupos o categorías;\nusa scale_color_viridis_c() para variables numéricas continuas.\n\n\n\n\n\n16.2.10 Escala de grises\nA veces necesitamos figuras que funcionen bien impresas en blanco y negro.\nPara variables categóricas:\n\n\nCódigo\np_penguins +\n  scale_color_grey()\n\n\n\n\n\n\n\n\n\nPara variables continuas:\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = body_mass\n  )\n) +\n  geom_point(size = 2) +\n  scale_color_gradient(\n    low = \"grey85\",\n    high = \"black\"\n  ) +\n  labs(\n    color = \"Masa corporal (g)\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n16.2.11 Una nota sobre accesibilidad\nNo todas las combinaciones de colores son igualmente fáciles de interpretar. Algunas paletas pueden ser confusas para personas con daltonismo o pueden perder información al imprimirse en escala de grises.\nPor eso, cuando la gráfica sea para comunicación pública, artículos o presentaciones, conviene usar paletas accesibles como viridis.\n\n\nCódigo\np_penguins +\n  scale_color_viridis_d() +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    subtitle = \"Colores por especie usando una paleta accesible\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nEl color puede usarse para comunicar distintos tipos de información:\n\n\n\n\n\n\n\nObjetivo\nFunción útil\n\n\n\n\nAsignar color por grupo\naes(color = variable)\n\n\nUsar un color fijo\ngeom_point(color = \"steelblue\")\n\n\nElegir colores manualmente\nscale_color_manual()\n\n\nRepresentar una variable numérica\naes(color = variable_numerica)\n\n\nCrear un gradiente\nscale_color_gradient()\n\n\nUsar un gradiente con punto medio\nscale_color_gradient2()\n\n\nUsar paletas predefinidas\nscale_color_brewer()\n\n\nUsar paletas accesibles\nscale_color_viridis_d() / scale_color_viridis_c()\n\n\nUsar escala de grises\nscale_color_grey()\n\n\n\n\n\n\n\n\n\nNota\n\n\n\nUna página que contiene muchas paletas de colores y varias paletas accesibles es la siguietne:\nhttps://r-charts.com/color-palettes/\n\n\n\n\n16.2.12 Revisar accesibilidad de colores\nComo ya mencionamos, además de elegir una paleta agradable, es importante verificar que los colores sean distinguibles para personas con distintas formas de daltonismo. Una forma sencilla de hacerlo es con la función cvdPlot().\nLa función cvdPlot() permite visualizar cómo se vería una gráfica bajo distintas condiciones de deficiencia en la visión del color.\n\n\nCódigo\nif (!\"colorBlindness\" %in% installed.packages()) {\n  install.packages(\"colorBlindness\")\n}\n\nlibrary(colorBlindness)\n\n\nPrimero construimos una gráfica usando una paleta accesible, como viridis.\n\n\nCódigo\npp2_viridis &lt;- p_penguins +\n  scale_color_viridis_d() +\n  labs(\n    title = \"Medidas del pico de los pingüinos\",\n    subtitle = \"Colores por especie usando una paleta accesible\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\",\n    color = \"Especie\"\n  ) +\n  theme_minimal()\n\npp2_viridis\n\n\n\n\n\n\n\n\n\nAhora usamos cvdPlot() para simular cómo se vería la misma gráfica para personas con distintos tipos de deficiencia en la visión del color.\n\n\nCódigo\ncvdPlot(pp2_viridis)\n\n\n\n\n\n\n\n\n\nLa salida muestra varias versiones de la gráfica. Esto nos ayuda a revisar si los grupos siguen siendo distinguibles aun cuando cambia la percepción del color.\n\n\n\n\n\n\nNotaNota\n\n\n\nLas paletas viridis suelen ser una buena opción porque fueron diseñadas para ser perceptualmente uniformes y más accesibles para personas con daltonismo.\n\n\nVeamos solo un ejemplo de una paleta no accesible.\n\n\nCódigo\np_penguins\n\n\n\n\n\n\n\n\n\nUsando cvdPlot vemos que estos plots no son visualemente accesibles.\n\n\nCódigo\ncvdPlot(p_penguins)",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
     ]
   },
   {
     "objectID": "Parte9.html#forma-de-los-puntos",
     "href": "Parte9.html#forma-de-los-puntos",
-    "title": "12  Estéticas y escalas en ggplot2",
-    "section": "12.3 Forma de los puntos",
-    "text": "12.3 Forma de los puntos\nLa estética shape permite distinguir grupos mediante símbolos diferentes.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    shape = species\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nIncluso podemos combinar color y forma:\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species,\n    shape = species\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nEs el equivalente al parámetro pch de los gráficos base de R. Para cambiarlo, usamos shape = n, donde n es un número entre 0 y 25. Algunos de los símbolos disponibles se muestran a continuación.",
+    "title": "16  Estéticas y escalas en ggplot2",
+    "section": "16.3 Forma de los puntos",
+    "text": "16.3 Forma de los puntos\nLa estética shape permite distinguir grupos mediante símbolos diferentes.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    shape = species\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nIncluso podemos combinar color y forma:\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species,\n    shape = species\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nEs el equivalente al parámetro pch de los gráficos base de R. Para cambiarlo, usamos shape = n, donde n es un número entre 0 y 25. Algunos de los símbolos disponibles se muestran a continuación.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
     ]
   },
   {
     "objectID": "Parte9.html#tamaño",
     "href": "Parte9.html#tamaño",
-    "title": "12  Estéticas y escalas en ggplot2",
-    "section": "12.4 Tamaño",
-    "text": "12.4 Tamaño\nLa estética size es especialmente útil para variables numéricas.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    size = body_mass\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nLos pingüinos con mayor masa corporal aparecen representados por puntos más grandes.\nTambién podemos fijar un tamaño constante:\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(size = 3)",
+    "title": "16  Estéticas y escalas en ggplot2",
+    "section": "16.4 Tamaño",
+    "text": "16.4 Tamaño\nLa estética size es especialmente útil para variables numéricas.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    size = body_mass\n  )\n) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nLos pingüinos con mayor masa corporal aparecen representados por puntos más grandes.\nTambién podemos fijar un tamaño constante:\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(size = 3)",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
     ]
   },
   {
     "objectID": "Parte9.html#transparencia",
     "href": "Parte9.html#transparencia",
-    "title": "12  Estéticas y escalas en ggplot2",
-    "section": "12.5 Transparencia",
-    "text": "12.5 Transparencia\nLa transparencia se controla mediante el parámetro alpha, cuyos valores están entre 0 y 1.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(alpha = 0.4)\n\n\n\n\n\n\n\n\n\nValores pequeños producen puntos más transparentes.\nLa transparencia es útil cuando existen muchos datos y varios puntos se superponen.",
+    "title": "16  Estéticas y escalas en ggplot2",
+    "section": "16.5 Transparencia",
+    "text": "16.5 Transparencia\nLa transparencia se controla mediante el parámetro alpha, cuyos valores están entre 0 y 1.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(alpha = 0.4)\n\n\n\n\n\n\n\n\n\nValores pequeños producen puntos más transparentes.\nLa transparencia es útil cuando existen muchos datos y varios puntos se superponen.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
     ]
   },
   {
     "objectID": "Parte9.html#tipo-de-línea",
     "href": "Parte9.html#tipo-de-línea",
-    "title": "12  Estéticas y escalas en ggplot2",
-    "section": "12.6 Tipo de línea",
-    "text": "12.6 Tipo de línea\nlinetype: cambia el tipo de línea, por ejemplo, de sólida a punteada. Es el equivalente al parámetro lty de los gráficos base. Podemos especificar el tipo de línea mediante nombres (“solid”, “dashed”, “dotted”, “dotdash”, “longdash”, “twodash”) o mediante números del 0 al 6.",
+    "title": "16  Estéticas y escalas en ggplot2",
+    "section": "16.6 Tipo de línea",
+    "text": "16.6 Tipo de línea\nlinetype: cambia el tipo de línea, por ejemplo, de sólida a punteada. Es el equivalente al parámetro lty de los gráficos base. Podemos especificar el tipo de línea mediante nombres (“solid”, “dashed”, “dotted”, “dotdash”, “longdash”, “twodash”) o mediante números del 0 al 6.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
     ]
   },
   {
     "objectID": "Parte9.html#combinando-varias-estéticas",
     "href": "Parte9.html#combinando-varias-estéticas",
-    "title": "12  Estéticas y escalas en ggplot2",
-    "section": "12.7 Combinando varias estéticas",
-    "text": "12.7 Combinando varias estéticas\nPodemos utilizar varias estéticas simultáneamente.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species,\n    shape = species,\n    size = body_mass\n  )\n) +\n  geom_point(alpha = 0.7)\n\n\n\n\n\n\n\n\n\nCada estética añade una dimensión adicional de información.",
+    "title": "16  Estéticas y escalas en ggplot2",
+    "section": "16.7 Combinando varias estéticas",
+    "text": "16.7 Combinando varias estéticas\nPodemos utilizar varias estéticas simultáneamente.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species,\n    shape = species,\n    size = body_mass\n  )\n) +\n  geom_point(alpha = 0.7)\n\n\n\n\n\n\n\n\n\nCada estética añade una dimensión adicional de información.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
     ]
   },
   {
     "objectID": "Parte9.html#escalas-de-los-ejes",
     "href": "Parte9.html#escalas-de-los-ejes",
-    "title": "12  Estéticas y escalas en ggplot2",
-    "section": "12.8 Escalas de los ejes",
-    "text": "12.8 Escalas de los ejes\nEn ocasiones es necesario modificar los límites o las marcas de los ejes.\n\n12.8.1 Cambiar los límites\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  xlim(30, 60) +\n  ylim(12, 22)\n\n\n\n\n\n\n\n\n\n\n\n12.8.2 Utilizando scale_x_continuous()\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  scale_x_continuous(\n    limits = c(30, 60),\n    breaks = seq(30,60,5)\n  )\n\n\n\n\n\n\n\n\n\nAquí:\n\nlimits controla el intervalo mostrado.\nbreaks determina las marcas del eje.\n\n\n\n12.8.3 Modificando ambos ejes\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  scale_x_continuous(\n    breaks = seq(30,60,5)\n  ) +\n  scale_y_continuous(\n    breaks = seq(12,22,2)\n  )",
+    "title": "16  Estéticas y escalas en ggplot2",
+    "section": "16.8 Escalas de los ejes",
+    "text": "16.8 Escalas de los ejes\nEn ocasiones es necesario modificar los límites o las marcas de los ejes.\n\n16.8.1 Cambiar los límites\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  xlim(30, 60) +\n  ylim(12, 22)\n\n\n\n\n\n\n\n\n\n\n\n16.8.2 Utilizando scale_x_continuous()\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  scale_x_continuous(\n    limits = c(30, 60),\n    breaks = seq(30,60,5)\n  )\n\n\n\n\n\n\n\n\n\nAquí:\n\nlimits controla el intervalo mostrado.\nbreaks determina las marcas del eje.\n\n\n\n16.8.3 Modificando ambos ejes\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point() +\n  scale_x_continuous(\n    breaks = seq(30,60,5)\n  ) +\n  scale_y_continuous(\n    breaks = seq(12,22,2)\n  )",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
     ]
   },
   {
     "objectID": "Parte9.html#resumen",
     "href": "Parte9.html#resumen",
-    "title": "12  Estéticas y escalas en ggplot2",
-    "section": "12.9 Resumen",
-    "text": "12.9 Resumen\nLas estéticas permiten representar información mediante propiedades visuales:\n\n\n\nEstética\nRepresenta\n\n\n\n\nx, y\nPosición\n\n\ncolor\nColor\n\n\nshape\nForma\n\n\nsize\nTamaño\n\n\nalpha\nTransparencia\n\n\n\nLas escalas permiten controlar cómo se muestran los valores sobre los ejes y cómo se traducen las variables a elementos visuales.\nEn conjunto, las estéticas y las escalas hacen posible construir gráficas más informativas y fáciles de interpretar.",
+    "title": "16  Estéticas y escalas en ggplot2",
+    "section": "16.9 Resumen",
+    "text": "16.9 Resumen\nLas estéticas permiten representar información mediante propiedades visuales:\n\n\n\nEstética\nRepresenta\n\n\n\n\nx, y\nPosición\n\n\ncolor\nColor\n\n\nshape\nForma\n\n\nsize\nTamaño\n\n\nalpha\nTransparencia\n\n\n\nLas escalas permiten controlar cómo se muestran los valores sobre los ejes y cómo se traducen las variables a elementos visuales.\nEn conjunto, las estéticas y las escalas hacen posible construir gráficas más informativas y fáciles de interpretar.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Estéticas y escalas en ggplot2</span>"
     ]
   },
   {
     "objectID": "Parte10.html",
     "href": "Parte10.html",
-    "title": "13  Estéticas globales y locales",
+    "title": "17  Estéticas globales y locales",
     "section": "",
-    "text": "13.1 Estéticas globales\nHasta ahora hemos modificado diferentes estéticas como shape, size y alpha. Estas estéticas pueden especificarse dentro de la llamada a ggplot() o dentro de una capa particular, como geom_point().\nLa diferencia radica en el alcance de las estéticas:\nEstas son como las que ya hemos usado: las variables bill_len, bill_dep y species se definen dentro de ggplot(). Por lo tanto, cualquier capa añadida posteriormente heredará estas estéticas.\nCódigo\nlibrary(ggplot2)\n\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2) +\n  labs(title = \"Color heredado por todas las capas\")",
+    "text": "17.1 Estéticas globales\nHasta ahora hemos modificado diferentes estéticas como shape, size y alpha. Estas estéticas pueden especificarse dentro de la llamada a ggplot() o dentro de una capa particular, como geom_point().\nLa diferencia radica en el alcance de las estéticas:\nEstas son como las que ya hemos usado: las variables bill_len, bill_dep y species se definen dentro de ggplot(). Por lo tanto, cualquier capa añadida posteriormente heredará estas estéticas.\nCódigo\nlibrary(ggplot2)\n\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(size = 2) +\n  labs(title = \"Color heredado por todas las capas\")",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Estéticas globales y locales</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Estéticas globales y locales</span>"
     ]
   },
   {
     "objectID": "Parte10.html#estéticas-locales",
     "href": "Parte10.html#estéticas-locales",
-    "title": "13  Estéticas globales y locales",
-    "section": "13.2 Estéticas locales",
-    "text": "13.2 Estéticas locales\nTambién podemos especificar las estéticas dentro de una capa. En este caso, sólo esa capa utilizará dichas estéticas.\n\n\nCódigo\nggplot(data = penguins) +\n  geom_point(\n    aes(\n      x = bill_len,\n      y = bill_dep,\n      color = species\n    ),\n    size = 2\n  ) +\n  labs(title = \"Las estéticas se definen dentro de geom_point()\")\n\n\n\n\n\n\n\n\n\nEn ambos casos obtenemos la misma figura. La diferencia se hace evidente cuando utilizamos varias capas.",
+    "title": "17  Estéticas globales y locales",
+    "section": "17.2 Estéticas locales",
+    "text": "17.2 Estéticas locales\nTambién podemos especificar las estéticas dentro de una capa. En este caso, sólo esa capa utilizará dichas estéticas.\n\n\nCódigo\nggplot(data = penguins) +\n  geom_point(\n    aes(\n      x = bill_len,\n      y = bill_dep,\n      color = species\n    ),\n    size = 2\n  ) +\n  labs(title = \"Las estéticas se definen dentro de geom_point()\")\n\n\n\n\n\n\n\n\n\nEn ambos casos obtenemos la misma figura. La diferencia se hace evidente cuando utilizamos varias capas.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Estéticas globales y locales</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Estéticas globales y locales</span>"
     ]
   },
   {
     "objectID": "Parte10.html#herencia-de-estéticas",
     "href": "Parte10.html#herencia-de-estéticas",
-    "title": "13  Estéticas globales y locales",
-    "section": "13.3 Herencia de estéticas",
-    "text": "13.3 Herencia de estéticas\nRetomemos el caso en el que añadimos una línea de tendencia además de los puntos.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(alpha = 0.7) +\n  geom_smooth(se = FALSE)\n\n\n\n\n\n\n\n\n\nComo color = species fue definido de forma global, tanto los puntos como las líneas se colorean según la especie.\nSi queremos que sólo los puntos tengan colores diferentes y que la línea de ajuste sea única, podemos definir el color únicamente en geom_point().\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(\n    aes(color = species),\n    alpha = 0.7\n  ) +\n  geom_smooth(\n    color = \"black\",\n    se = FALSE\n  )\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nAhora el color depende de la especie únicamente para los puntos, mientras que la línea de tendencia se calcula usando todos los datos y aparece en negro.\n\n\n\n\n\n\nTipRegla general\n\n\n\n\nColocar dentro de ggplot() las estéticas que serán compartidas por varias capas.\nColocar dentro de cada geom() las estéticas que sólo deban afectar a esa capa.\n\nEsta forma de trabajar permite construir gráficos complejos de manera modular y es una de las principales ventajas de ggplot2.\n\n\nPodemos colocar también el estético de shape dentro de las geometrías y asociarlo a una variable.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(\n    aes(shape = species),\n    alpha = 0.7\n  )\n\n\n\n\n\n\n\n\n\nO incluso usar el tamaño y alfa para variables continuas.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(\n    aes(size = body_mass, alpha = flipper_len)\n  )+\n  labs(title = \"Tamaño y alpha usando variables continuas\")",
+    "title": "17  Estéticas globales y locales",
+    "section": "17.3 Herencia de estéticas",
+    "text": "17.3 Herencia de estéticas\nRetomemos el caso en el que añadimos una línea de tendencia además de los puntos.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(alpha = 0.7) +\n  geom_smooth(se = FALSE)\n\n\n\n\n\n\n\n\n\nComo color = species fue definido de forma global, tanto los puntos como las líneas se colorean según la especie.\nSi queremos que sólo los puntos tengan colores diferentes y que la línea de ajuste sea única, podemos definir el color únicamente en geom_point().\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(\n    aes(color = species),\n    alpha = 0.7\n  ) +\n  geom_smooth(\n    color = \"black\",\n    se = FALSE\n  )\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nAhora el color depende de la especie únicamente para los puntos, mientras que la línea de tendencia se calcula usando todos los datos y aparece en negro.\n\n\n\n\n\n\nTipRegla general\n\n\n\n\nColocar dentro de ggplot() las estéticas que serán compartidas por varias capas.\nColocar dentro de cada geom() las estéticas que sólo deban afectar a esa capa.\n\nEsta forma de trabajar permite construir gráficos complejos de manera modular y es una de las principales ventajas de ggplot2.\n\n\nPodemos colocar también el estético de shape dentro de las geometrías y asociarlo a una variable.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(\n    aes(shape = species),\n    alpha = 0.7\n  )\n\n\n\n\n\n\n\n\n\nO incluso usar el tamaño y alfa para variables continuas.\n\n\nCódigo\nggplot(\n  data = penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep\n  )\n) +\n  geom_point(\n    aes(size = body_mass, alpha = flipper_len)\n  )+\n  labs(title = \"Tamaño y alpha usando variables continuas\")",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Estéticas globales y locales</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Estéticas globales y locales</span>"
     ]
   },
   {
     "objectID": "Parte11.html",
     "href": "Parte11.html",
-    "title": "14  Temas en ggplot2",
+    "title": "18  Temas en ggplot2",
     "section": "",
-    "text": "14.1 Temas predefinidos\nAdemás de modificar las estéticas de los datos, como color, shape, size o alpha, también podemos modificar la apariencia general de la gráfica. Para eso usamos los temas.\nUn tema controla elementos visuales que no dependen directamente de los datos, por ejemplo:\nPrimero guardamos una gráfica base.\nggplot2 tiene varios temas predefinidos. Todos contienen la misma información, pero cambia la presentación visual.\nCódigo\np + theme_gray()\n\n\n\n\n\n\n\n\n\nCódigo\np + theme_light()\n\n\n\n\n\n\n\n\n\nCódigo\np + theme_dark()\n\n\n\n\n\n\n\n\n\nCódigo\np + theme_minimal()\n\n\n\n\n\n\n\n\n\nCódigo\np + theme_void()\n\n\n\n\n\n\n\n\n\nCódigo\np + theme_test()\nPor ejemplo, theme_gray() es el tema por defecto de ggplot2, mientras que theme_minimal() elimina varios elementos visuales para dejar una gráfica más limpia. En cambio, theme_void() elimina casi todos los elementos del fondo, incluyendo ejes y cuadrícula.",
+    "text": "18.1 Temas predefinidos\nAdemás de modificar las estéticas de los datos, como color, shape, size o alpha, también podemos modificar la apariencia general de la gráfica. Para eso usamos los temas.\nUn tema controla elementos visuales que no dependen directamente de los datos, por ejemplo:\nPrimero guardamos una gráfica base.\nggplot2 tiene varios temas predefinidos. Todos contienen la misma información, pero cambia la presentación visual.\nCódigo\np + theme_gray()\n\n\n\n\n\n\n\n\n\nCódigo\np + theme_light()\n\n\n\n\n\n\n\n\n\nCódigo\np + theme_dark()\n\n\n\n\n\n\n\n\n\nCódigo\np + theme_minimal()\n\n\n\n\n\n\n\n\n\nCódigo\np + theme_void()\n\n\n\n\n\n\n\n\n\nCódigo\np + theme_test()\nPor ejemplo, theme_gray() es el tema por defecto de ggplot2, mientras que theme_minimal() elimina varios elementos visuales para dejar una gráfica más limpia. En cambio, theme_void() elimina casi todos los elementos del fondo, incluyendo ejes y cuadrícula.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
     ]
   },
   {
     "objectID": "Parte11.html#temas-predefinidos",
     "href": "Parte11.html#temas-predefinidos",
-    "title": "14  Temas en ggplot2",
+    "title": "18  Temas en ggplot2",
     "section": "",
     "text": "NotaNota\n\n\n\nLos temas no cambian los datos ni la relación entre variables. Sólo modifican la apariencia general de la gráfica.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
     ]
   },
   {
     "objectID": "Parte11.html#modificar-elementos-del-tema",
     "href": "Parte11.html#modificar-elementos-del-tema",
-    "title": "14  Temas en ggplot2",
-    "section": "14.2 Modificar elementos del tema",
-    "text": "14.2 Modificar elementos del tema\nTambién podemos modificar elementos específicos con theme(). Por ejemplo, podemos cambiar el estilo del título, los títulos de los ejes y el texto de los ejes.\n\n\nCódigo\np +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(\n      color = \"red\",\n      size = 12,\n      face = \"bold.italic\"\n    ),\n    axis.title.x = element_text(\n      color = \"blue\",\n      size = 10,\n      face = \"bold\"\n    ),\n    axis.title.y = element_text(\n      color = \"#993333\",\n      size = 10,\n      face = \"italic\"\n    ),\n    axis.text = element_text(\n      color = \"slateblue2\",\n      size = 10\n    )\n  )\n\n\n\n\n\n\n\n\n\nEn este ejemplo usamos:\n\nplot.title: para modificar el título de la gráfica.\naxis.title.x: para modificar el título del eje x.\naxis.title.y: para modificar el título del eje y.\naxis.text: para modificar los valores que aparecen sobre los ejes.\n\nLa función element_text() permite modificar propiedades del texto, como el color, tamaño y estilo.",
+    "title": "18  Temas en ggplot2",
+    "section": "18.2 Modificar elementos del tema",
+    "text": "18.2 Modificar elementos del tema\nTambién podemos modificar elementos específicos con theme(). Por ejemplo, podemos cambiar el estilo del título, los títulos de los ejes y el texto de los ejes.\n\n\nCódigo\np +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(\n      color = \"red\",\n      size = 12,\n      face = \"bold.italic\"\n    ),\n    axis.title.x = element_text(\n      color = \"blue\",\n      size = 10,\n      face = \"bold\"\n    ),\n    axis.title.y = element_text(\n      color = \"#993333\",\n      size = 10,\n      face = \"italic\"\n    ),\n    axis.text = element_text(\n      color = \"slateblue2\",\n      size = 10\n    )\n  )\n\n\n\n\n\n\n\n\n\nEn este ejemplo usamos:\n\nplot.title: para modificar el título de la gráfica.\naxis.title.x: para modificar el título del eje x.\naxis.title.y: para modificar el título del eje y.\naxis.text: para modificar los valores que aparecen sobre los ejes.\n\nLa función element_text() permite modificar propiedades del texto, como el color, tamaño y estilo.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
     ]
   },
   {
     "objectID": "Parte11.html#combinar-temas-predefinidos-con-modificaciones-propias",
     "href": "Parte11.html#combinar-temas-predefinidos-con-modificaciones-propias",
-    "title": "14  Temas en ggplot2",
-    "section": "14.3 Combinar temas predefinidos con modificaciones propias",
-    "text": "14.3 Combinar temas predefinidos con modificaciones propias\nTambién podemos partir de un tema predefinido y después modificar algunos elementos particulares.\n\n\nCódigo\np +\n  theme_dark() +\n  theme(\n    plot.title = element_text(\n      color = \"red\",\n      size = 12,\n      face = \"bold.italic\"\n    ),\n    axis.title.x = element_text(\n      color = \"blue\",\n      size = 10,\n      face = \"bold\"\n    ),\n    axis.title.y = element_text(\n      color = \"#993333\",\n      size = 10,\n      face = \"italic\"\n    ),\n    axis.text = element_text(\n      color = \"slateblue2\",\n      size = 10\n    )\n  )\n\n\n\n\n\n\n\n\n\nAquí primero aplicamos theme_dark() y después cambiamos algunos elementos del texto. Esto muestra que los temas se pueden usar como punto de partida y luego ajustar según nuestras necesidades.",
+    "title": "18  Temas en ggplot2",
+    "section": "18.3 Combinar temas predefinidos con modificaciones propias",
+    "text": "18.3 Combinar temas predefinidos con modificaciones propias\nTambién podemos partir de un tema predefinido y después modificar algunos elementos particulares.\n\n\nCódigo\np +\n  theme_dark() +\n  theme(\n    plot.title = element_text(\n      color = \"red\",\n      size = 12,\n      face = \"bold.italic\"\n    ),\n    axis.title.x = element_text(\n      color = \"blue\",\n      size = 10,\n      face = \"bold\"\n    ),\n    axis.title.y = element_text(\n      color = \"#993333\",\n      size = 10,\n      face = \"italic\"\n    ),\n    axis.text = element_text(\n      color = \"slateblue2\",\n      size = 10\n    )\n  )\n\n\n\n\n\n\n\n\n\nAquí primero aplicamos theme_dark() y después cambiamos algunos elementos del texto. Esto muestra que los temas se pueden usar como punto de partida y luego ajustar según nuestras necesidades.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
     ]
   },
   {
     "objectID": "Parte11.html#elementos-de-un-tema",
     "href": "Parte11.html#elementos-de-un-tema",
-    "title": "14  Temas en ggplot2",
-    "section": "14.4 Elementos de un tema",
-    "text": "14.4 Elementos de un tema\nUna infografía que les puede ayudar a personalizar sus plots.\n\n\n\nggplot2 Theme Elements Reference Sheet",
+    "title": "18  Temas en ggplot2",
+    "section": "18.4 Elementos de un tema",
+    "text": "18.4 Elementos de un tema\nUna infografía que les puede ayudar a personalizar sus plots.\n\n\n\nggplot2 Theme Elements Reference Sheet",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
     ]
   },
   {
     "objectID": "Parte11.html#temas-propios",
     "href": "Parte11.html#temas-propios",
-    "title": "14  Temas en ggplot2",
-    "section": "14.5 Temas propios",
-    "text": "14.5 Temas propios\nHasta ahora hemos utilizado los temas predefinidos de ggplot2, como theme_light() o theme_minimal(). Sin embargo, también podemos construir nuestro propio tema combinando un tema existente con modificaciones realizadas mediante theme().\nPor ejemplo, podemos definir un tema personalizado para todas nuestras gráficas:\n\n\nCódigo\ntema_pingüinos &lt;- theme_minimal() +\n  theme(\n    plot.title = element_text(face = \"bold\", size = 14),\n    axis.title = element_text(size = 12),\n    legend.position = \"bottom\",\n    panel.grid.minor = element_blank()\n  )\n\n\nAhora podemos reutilizar este tema en cualquier figura:\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(alpha = 0.7) +\n  labs(\n    title = \"Relación entre longitud y profundidad del pico\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\"\n  ) +\n  tema_pingüinos\n\n\n\n\n\n\n\n\n\nDe esta manera, podemos mantener una apariencia consistente en todas nuestras visualizaciones sin tener que repetir las mismas modificaciones en cada gráfico.\n\n\n\n\n\n\nTipIdea importante\n\n\n\nUn tema personalizado es simplemente un objeto que almacena modificaciones de estilo. Esto es especialmente útil cuando queremos que todas las figuras de un proyecto, artículo o presentación compartan una apariencia uniforme.",
+    "title": "18  Temas en ggplot2",
+    "section": "18.5 Temas propios",
+    "text": "18.5 Temas propios\nHasta ahora hemos utilizado los temas predefinidos de ggplot2, como theme_light() o theme_minimal(). Sin embargo, también podemos construir nuestro propio tema combinando un tema existente con modificaciones realizadas mediante theme().\nPor ejemplo, podemos definir un tema personalizado para todas nuestras gráficas:\n\n\nCódigo\ntema_pingüinos &lt;- theme_minimal() +\n  theme(\n    plot.title = element_text(face = \"bold\", size = 14),\n    axis.title = element_text(size = 12),\n    legend.position = \"bottom\",\n    panel.grid.minor = element_blank()\n  )\n\n\nAhora podemos reutilizar este tema en cualquier figura:\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_point(alpha = 0.7) +\n  labs(\n    title = \"Relación entre longitud y profundidad del pico\",\n    x = \"Longitud del pico (mm)\",\n    y = \"Profundidad del pico (mm)\"\n  ) +\n  tema_pingüinos\n\n\n\n\n\n\n\n\n\nDe esta manera, podemos mantener una apariencia consistente en todas nuestras visualizaciones sin tener que repetir las mismas modificaciones en cada gráfico.\n\n\n\n\n\n\nTipIdea importante\n\n\n\nUn tema personalizado es simplemente un objeto que almacena modificaciones de estilo. Esto es especialmente útil cuando queremos que todas las figuras de un proyecto, artículo o presentación compartan una apariencia uniforme.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Temas en `ggplot2`</span>"
     ]
   },
   {
     "objectID": "Parte12.html",
     "href": "Parte12.html",
-    "title": "15  Facetas",
+    "title": "19  Facetas",
     "section": "",
-    "text": "15.1 facet_wrap()\nEn ocasiones es útil separar una gráfica en varios paneles para comparar grupos de datos. En ggplot2, esto se logra mediante las funciones facet_wrap() y facet_grid(), las cuales generan una colección de gráficas con la misma estructura, pero para diferentes subconjuntos de los datos.\nReutilicemos nuestro plot base:\nLa función facet_wrap() divide la gráfica según una sola variable categórica y organiza automáticamente los paneles en filas y columnas.\nPor ejemplo, podemos crear una gráfica para cada isla:\nCódigo\np +\n  facet_wrap(~ island)\nCada panel contiene únicamente los pingüinos correspondientes a una isla.\nTambién podemos controlar el número de columnas:\nCódigo\np +\n  facet_wrap(~ species, ncol = 1)\nEn este caso obtenemos una gráfica para cada especie, acomodadas en una sola columna.",
+    "text": "19.1 facet_wrap()\nEn ocasiones es útil separar una gráfica en varios paneles para comparar grupos de datos. En ggplot2, esto se logra mediante las funciones facet_wrap() y facet_grid(), las cuales generan una colección de gráficas con la misma estructura, pero para diferentes subconjuntos de los datos.\nReutilicemos nuestro plot base:\nLa función facet_wrap() divide la gráfica según una sola variable categórica y organiza automáticamente los paneles en filas y columnas.\nPor ejemplo, podemos crear una gráfica para cada isla:\nCódigo\np +\n  facet_wrap(~ island)\nCada panel contiene únicamente los pingüinos correspondientes a una isla.\nTambién podemos controlar el número de columnas:\nCódigo\np +\n  facet_wrap(~ species, ncol = 1)\nEn este caso obtenemos una gráfica para cada especie, acomodadas en una sola columna.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Facetas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Facetas</span>"
     ]
   },
   {
     "objectID": "Parte12.html#facet_wrap",
     "href": "Parte12.html#facet_wrap",
-    "title": "15  Facetas",
+    "title": "19  Facetas",
     "section": "",
     "text": "NotaNota\n\n\n\nfacet_wrap() es útil cuando queremos dividir los datos según una sola variable.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Facetas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Facetas</span>"
     ]
   },
   {
     "objectID": "Parte12.html#facet_grid",
     "href": "Parte12.html#facet_grid",
-    "title": "15  Facetas",
-    "section": "15.2 facet_grid()",
-    "text": "15.2 facet_grid()\nLa función facet_grid() permite organizar los paneles en una cuadrícula determinada por dos variables. Una variable define las filas y la otra las columnas.\nPor ejemplo, podemos separar por sexo y por isla:\n\n\nCódigo\np +\n  facet_grid(sex ~ island)\n\n\n\n\n\n\n\n\n\nAquí:\n\nlas filas corresponden al sexo;\nlas columnas corresponden a la isla.\n\nCada panel muestra únicamente las observaciones que pertenecen a esa combinación de categorías.\nTambién es posible utilizar una sola dimensión y dejar que la escala del eje \\(y\\) cambie entre las facetas:\n\n\nCódigo\np +\n  facet_grid(~ island, scales = \"free\")\n\n\n\n\n\n\n\n\n\nlo cual produce una fila con una columna por isla.\nO bien,\n\n\nCódigo\np +\n  facet_grid(species ~ .)\n\n\n\n\n\n\n\n\n\npara obtener una columna con una fila por especie.\n\n\n\n\n\n\nTip¿Cuándo usar cada una?\n\n\n\n\nfacet_wrap() se utiliza cuando queremos dividir los datos según una sola variable y dejar que ggplot2 organice automáticamente los paneles.\nfacet_grid() es útil cuando queremos comparar simultáneamente dos variables categóricas, una en las filas y otra en las columnas.",
+    "title": "19  Facetas",
+    "section": "19.2 facet_grid()",
+    "text": "19.2 facet_grid()\nLa función facet_grid() permite organizar los paneles en una cuadrícula determinada por dos variables. Una variable define las filas y la otra las columnas.\nPor ejemplo, podemos separar por sexo y por isla:\n\n\nCódigo\np +\n  facet_grid(sex ~ island)\n\n\n\n\n\n\n\n\n\nAquí:\n\nlas filas corresponden al sexo;\nlas columnas corresponden a la isla.\n\nCada panel muestra únicamente las observaciones que pertenecen a esa combinación de categorías.\nTambién es posible utilizar una sola dimensión y dejar que la escala del eje \\(y\\) cambie entre las facetas:\n\n\nCódigo\np +\n  facet_grid(~ island, scales = \"free\")\n\n\n\n\n\n\n\n\n\nlo cual produce una fila con una columna por isla.\nO bien,\n\n\nCódigo\np +\n  facet_grid(species ~ .)\n\n\n\n\n\n\n\n\n\npara obtener una columna con una fila por especie.\n\n\n\n\n\n\nTip¿Cuándo usar cada una?\n\n\n\n\nfacet_wrap() se utiliza cuando queremos dividir los datos según una sola variable y dejar que ggplot2 organice automáticamente los paneles.\nfacet_grid() es útil cuando queremos comparar simultáneamente dos variables categóricas, una en las filas y otra en las columnas.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Facetas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Facetas</span>"
     ]
   },
   {
     "objectID": "Parte13.html",
     "href": "Parte13.html",
-    "title": "16  Algunas geometrías básicas",
+    "title": "20  Algunas geometrías básicas",
     "section": "",
-    "text": "16.1 Gráfica de dispersión\nUna de las principales ventajas de ggplot2 es que podemos representar los mismos datos de distintas maneras simplemente cambiando la geometría (geom). Cada geometría está diseñada para resaltar diferentes características de los datos.\nPrimero cargamos nuestro gráfica base:\nLa geometría más común para estudiar la relación entre dos variables numéricas es geom_point().\nCódigo\np +\n  geom_point(alpha = 0.7) +\n  ggtitle(\"geom_point()\")",
+    "text": "20.1 Gráfica de dispersión\nUna de las principales ventajas de ggplot2 es que podemos representar los mismos datos de distintas maneras simplemente cambiando la geometría (geom). Cada geometría está diseñada para resaltar diferentes características de los datos.\nPrimero cargamos nuestro gráfica base:\nLa geometría más común para estudiar la relación entre dos variables numéricas es geom_point().\nCódigo\np +\n  geom_point(alpha = 0.7) +\n  ggtitle(\"geom_point()\")",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
     ]
   },
   {
     "objectID": "Parte13.html#etiquetas-de-texto",
     "href": "Parte13.html#etiquetas-de-texto",
-    "title": "16  Algunas geometrías básicas",
-    "section": "16.2 Etiquetas de texto",
-    "text": "16.2 Etiquetas de texto\nPodemos sustituir los puntos por texto utilizando geom_text(). Aquí usamos la especie como etiqueta.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    label = species,\n    color = species\n  )\n) +\n  geom_text() +\n  theme_minimal() +\n  ggtitle(\"geom_text()\")",
+    "title": "20  Algunas geometrías básicas",
+    "section": "20.2 Etiquetas de texto",
+    "text": "20.2 Etiquetas de texto\nPodemos sustituir los puntos por texto utilizando geom_text(). Aquí usamos la especie como etiqueta.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    label = species,\n    color = species\n  )\n) +\n  geom_text() +\n  theme_minimal() +\n  ggtitle(\"geom_text()\")",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
     ]
   },
   {
     "objectID": "Parte13.html#líneas",
     "href": "Parte13.html#líneas",
-    "title": "16  Algunas geometrías básicas",
-    "section": "16.3 Líneas",
-    "text": "16.3 Líneas\nSi ordenamos las observaciones por longitud del pico, podemos unirlas mediante líneas.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_line() +\n  theme_minimal() +\n  ggtitle(\"geom_line()\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvertencia\n\n\n\nLas líneas suelen utilizarse para series de tiempo o datos con un orden natural. En este ejemplo se muestran únicamente para ilustrar la geometría.",
+    "title": "20  Algunas geometrías básicas",
+    "section": "20.3 Líneas",
+    "text": "20.3 Líneas\nSi ordenamos las observaciones por longitud del pico, podemos unirlas mediante líneas.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    y = bill_dep,\n    color = species\n  )\n) +\n  geom_line() +\n  theme_minimal() +\n  ggtitle(\"geom_line()\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvertencia\n\n\n\nLas líneas suelen utilizarse para series de tiempo o datos con un orden natural. En este ejemplo se muestran únicamente para ilustrar la geometría.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
     ]
   },
   {
     "objectID": "Parte13.html#curvas-suavizadas",
     "href": "Parte13.html#curvas-suavizadas",
-    "title": "16  Algunas geometrías básicas",
-    "section": "16.4 Curvas suavizadas",
-    "text": "16.4 Curvas suavizadas\nUna forma común de visualizar tendencias es mediante geom_smooth().\n\n\nCódigo\np +\n  geom_point(alpha = 0.5) +\n  geom_smooth(se = FALSE) +\n  ggtitle(\"geom_smooth()\")",
+    "title": "20  Algunas geometrías básicas",
+    "section": "20.4 Curvas suavizadas",
+    "text": "20.4 Curvas suavizadas\nUna forma común de visualizar tendencias es mediante geom_smooth().\n\n\nCódigo\np +\n  geom_point(alpha = 0.5) +\n  geom_smooth(se = FALSE) +\n  ggtitle(\"geom_smooth()\")",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
     ]
   },
   {
     "objectID": "Parte13.html#histogramas",
     "href": "Parte13.html#histogramas",
-    "title": "16  Algunas geometrías básicas",
-    "section": "16.5 Histogramas",
-    "text": "16.5 Histogramas\nPara estudiar la distribución de una variable podemos utilizar histogramas.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    fill = species\n  )\n) +\n  geom_histogram(\n    bins = 30,\n    alpha = 0.7\n  ) +\n  theme_minimal() +\n  ggtitle(\"geom_histogram()\")",
+    "title": "20  Algunas geometrías básicas",
+    "section": "20.5 Histogramas",
+    "text": "20.5 Histogramas\nPara estudiar la distribución de una variable podemos utilizar histogramas.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    fill = species\n  )\n) +\n  geom_histogram(\n    bins = 30,\n    alpha = 0.7\n  ) +\n  theme_minimal() +\n  ggtitle(\"geom_histogram()\")",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
     ]
   },
   {
     "objectID": "Parte13.html#diagramas-de-caja",
     "href": "Parte13.html#diagramas-de-caja",
-    "title": "16  Algunas geometrías básicas",
-    "section": "16.6 Diagramas de caja",
-    "text": "16.6 Diagramas de caja\nLos diagramas de caja resumen la distribución de una variable y facilitan la comparación entre grupos.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = species,\n    y = bill_len,\n    fill = species\n  )\n) +\n  geom_boxplot() +\n  theme_minimal() +\n  ggtitle(\"geom_boxplot()\")",
+    "title": "20  Algunas geometrías básicas",
+    "section": "20.6 Diagramas de caja",
+    "text": "20.6 Diagramas de caja\nLos diagramas de caja resumen la distribución de una variable y facilitan la comparación entre grupos.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = species,\n    y = bill_len,\n    fill = species\n  )\n) +\n  geom_boxplot() +\n  theme_minimal() +\n  ggtitle(\"geom_boxplot()\")",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
     ]
   },
   {
     "objectID": "Parte13.html#diagramas-de-violín",
     "href": "Parte13.html#diagramas-de-violín",
-    "title": "16  Algunas geometrías básicas",
-    "section": "16.7 Diagramas de violín",
-    "text": "16.7 Diagramas de violín\nUna alternativa al diagrama de caja es el diagrama de violín, que muestra la forma de la distribución.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = species,\n    y = bill_len,\n    fill = species\n  )\n) +\n  geom_violin() +\n  theme_minimal() +\n  ggtitle(\"geom_violin()\")",
+    "title": "20  Algunas geometrías básicas",
+    "section": "20.7 Diagramas de violín",
+    "text": "20.7 Diagramas de violín\nUna alternativa al diagrama de caja es el diagrama de violín, que muestra la forma de la distribución.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = species,\n    y = bill_len,\n    fill = species\n  )\n) +\n  geom_violin() +\n  theme_minimal() +\n  ggtitle(\"geom_violin()\")",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
     ]
   },
   {
     "objectID": "Parte13.html#barras",
     "href": "Parte13.html#barras",
-    "title": "16  Algunas geometrías básicas",
-    "section": "16.8 Barras",
-    "text": "16.8 Barras\nTambién podemos representar el número de observaciones de cada especie.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = species,\n    fill = species\n  )\n) +\n  geom_bar() +\n  theme_minimal() +\n  ggtitle(\"geom_bar()\")",
+    "title": "20  Algunas geometrías básicas",
+    "section": "20.8 Barras",
+    "text": "20.8 Barras\nTambién podemos representar el número de observaciones de cada especie.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = species,\n    fill = species\n  )\n) +\n  geom_bar() +\n  theme_minimal() +\n  ggtitle(\"geom_bar()\")",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
     ]
   },
   {
     "objectID": "Parte13.html#densidades",
     "href": "Parte13.html#densidades",
-    "title": "16  Algunas geometrías básicas",
-    "section": "16.9 Densidades",
-    "text": "16.9 Densidades\nLas curvas de densidad permiten comparar distribuciones de forma suave.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    fill = species\n  )\n) +\n  geom_density(alpha = 0.4) +\n  theme_minimal() +\n  ggtitle(\"geom_density()\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipIdea importante\n\n\n\nLa estructura básica del gráfico permanece igual; únicamente cambia la geometría. Esta filosofía de capas es una de las características fundamentales de ggplot2.",
+    "title": "20  Algunas geometrías básicas",
+    "section": "20.9 Densidades",
+    "text": "20.9 Densidades\nLas curvas de densidad permiten comparar distribuciones de forma suave.\n\n\nCódigo\nggplot(\n  penguins,\n  aes(\n    x = bill_len,\n    fill = species\n  )\n) +\n  geom_density(alpha = 0.4) +\n  theme_minimal() +\n  ggtitle(\"geom_density()\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipIdea importante\n\n\n\nLa estructura básica del gráfico permanece igual; únicamente cambia la geometría. Esta filosofía de capas es una de las características fundamentales de ggplot2.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Algunas geometrías básicas</span>"
     ]
   },
   {
     "objectID": "Parte14.html",
     "href": "Parte14.html",
-    "title": "17  Ejercicios finales",
+    "title": "21  Ejercicios finales",
     "section": "",
     "text": "NotaEjercicio 1: ¿Existe dimorfismo sexual en los pingüinos?\n\n\n\nLos machos y las hembras de muchas especies presentan diferencias de tamaño. Usando el conjunto de datos penguins, investiga si el peso corporal de los pingüinos parece diferir entre sexos y especies. Construye una gráfica que cumpla con lo siguiente:\n\nCompara la variable body_mass entre machos y hembras.\nDistingue las especies mediante color.\nElige una geometría apropiada para comparar distribuciones.\nSepara la gráfica por isla usando facetas.\nPersonaliza el título, etiquetas y tema.\nA partir de la gráfica, responde:\n\n\n¿Los machos parecen pesar más que las hembras?\n¿La diferencia es similar en las tres especies?\n\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\n\n\nCódigo\nlibrary(ggplot2)\nggplot( penguins, aes( x = sex, y = body_mass, fill = species ) ) + \n  geom_boxplot() + \n  facet_wrap(~ island) + \n  labs( title = \"Peso corporal por sexo y especie\", \n        x = \"Sexo\", \n        y = \"Peso corporal (g)\", \n        fill = \"Especie\" ) + \n  theme_minimal() \n\n\n\n\n\n\n\n\n\nEn general, los machos presentan un mayor peso corporal que las hembras. Además, existen diferencias entre especies y entre islas.\n\n\n\n\n\n\n\n\n\n\n\nNotaEjercicio 2:¿Los diamantes de mejor calidad son más caros?\n\n\n\nEl conjunto de datos diamonds, incluido en ggplot2, contiene información sobre más de 50,000 diamantes.\nConstruye una gráfica que permita explorar la relación entre la calidad del corte (cut) y el precio (price).\nLa gráfica debe:\n\nComparar la distribución de precios entre las categorías de cut.\nUtilizar una geometría adecuada para comparar distribuciones.\nMostrar también las observaciones individuales.\nPersonalizar el título y las etiquetas de los ejes.\nElegir un tema diferente al predeterminado.\nResponder:\n\n¿Los diamantes con mejor corte son necesariamente más caros?\n¿Existe mucha variabilidad dentro de cada categoría?\n\n\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\n\n\nCódigo\nggplot(\n  diamonds,\n  aes(\n    x = cut,\n    y = price,\n    fill = cut\n  )\n) +\n  geom_boxplot(alpha = 0.7) +\n  geom_jitter(\n    alpha = 0.1,\n    width = 0.2\n  ) +\n  labs(\n    title = \"Precio de los diamantes según la calidad del corte\",\n    x = \"Calidad del corte\",\n    y = \"Precio (USD)\"\n  ) +\n  theme_light() +\n  theme(\n    legend.position = \"none\"\n  )\n\n\n\n\n\n\n\n\n\nLa gráfica muestra una gran variabilidad en los precios. Aunque las categorías de mejor calidad tienden a tener precios altos, existe un traslape considerable entre las distribuciones.",
     "crumbs": [
-      "**Sección 2** - Gráficos con ggplot2 ",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Ejercicios finales</span>"
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Ejercicios finales</span>"
+    ]
+  },
+  {
+    "objectID": "Act3_seccion4.html",
+    "href": "Act3_seccion4.html",
+    "title": "22  Actividad: ggplot2",
+    "section": "",
+    "text": "ejercicios graficos",
+    "crumbs": [
+      "**Sección 4** - Gráficos con ggplot2",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>**Actividad:** ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "Parte15.html",
+    "href": "Parte15.html",
+    "title": "23  Identificación de patrones en conjuntos de datos reales",
+    "section": "",
+    "text": "Detectar tendencias y relaciones en datos auténticos, conectando observaciones con posibles hipótesis.",
+    "crumbs": [
+      "**Sección 5** - Descubre patrones en los datos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Identificación de patrones en conjuntos de datos reales</span>"
+    ]
+  },
+  {
+    "objectID": "Parte16.html",
+    "href": "Parte16.html",
+    "title": "24  Identificación de patrones en conjuntos de datos reales",
+    "section": "",
+    "text": "Detectar tendencias y relaciones en datos auténticos, conectando observaciones con posibles hipótesis.",
+    "crumbs": [
+      "**Sección 5** - Descubre patrones en los datos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Identificación de patrones en conjuntos de datos reales</span>"
+    ]
+  },
+  {
+    "objectID": "Act4_seccion5.html",
+    "href": "Act4_seccion5.html",
+    "title": "25  Actividad: descubre algo interesante en un conjunto de datos",
+    "section": "",
+    "text": "Ejercicio práctico donde cada estudiante elige un hallazgo relevante y lo explica con evidencia.",
+    "crumbs": [
+      "**Sección 5** - Descubre patrones en los datos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>**Actividad:** descubre algo interesante en un conjunto de datos</span>"
+    ]
+  },
+  {
+    "objectID": "Parte17.html",
+    "href": "Parte17.html",
+    "title": "26  Primer vistazo a datos biológicos",
+    "section": "",
+    "text": "Explorar datasets de biología (genes, salud, biodiversidad) para reconocer su estructura y complejidad.",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Primer vistazo a datos biológicos</span>"
+    ]
+  },
+  {
+    "objectID": "Parte18.html",
+    "href": "Parte18.html",
+    "title": "27  Creación de tablas con información con estadística descriptiva",
+    "section": "",
+    "text": "Generar tablas con medidas básicas (media, mediana, desviación estándar) para resumir información.",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Creación de tablas con información con estadística descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "Act5_seccion6.html",
+    "href": "Act5_seccion6.html",
+    "title": "28  Actividad: Casos de estudio salud pública",
+    "section": "",
+    "text": "Aplicar lo aprendido a datos de salud pública, analizando patrones y discutiendo implicaciones sociales.",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>**Actividad:** Casos de estudio salud pública</span>"
+    ]
+  },
+  {
+    "objectID": "Parte19.html",
+    "href": "Parte19.html",
+    "title": "29  Variantes genéticas y enfermedades del sistema inmune",
+    "section": "",
+    "text": "Introducir cómo cambios en el ADN pueden influir en la respuesta inmunológica y predisposición a enfermedades.",
+    "crumbs": [
+      "**Sección 7** - Caso de estudio: Genes y el sistema inmune",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Variantes genéticas y enfermedades del sistema inmune</span>"
+    ]
+  },
+  {
+    "objectID": "Parte20.html",
+    "href": "Parte20.html",
+    "title": "30  Exploración de bases de datos públicas",
+    "section": "",
+    "text": "Aprender a buscar y descargar información genética disponible en repositorios abiertos.",
+    "crumbs": [
+      "**Sección 7** - Caso de estudio: Genes y el sistema inmune",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Exploración de bases de datos públicas</span>"
+    ]
+  },
+  {
+    "objectID": "Act6_seccion7.html",
+    "href": "Act6_seccion7.html",
+    "title": "31  Actividad: Explora datos genéticos reales",
+    "section": "",
+    "text": "Ejercicio práctico para familiarizarse con datasets auténticos y reconocer su estructura.",
+    "crumbs": [
+      "**Sección 7** - Caso de estudio: Genes y el sistema inmune",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Actividad: Explora datos genéticos reales</span>"
+    ]
+  },
+  {
+    "objectID": "Parte21.html",
+    "href": "Parte21.html",
+    "title": "32  Cómo formular preguntas biológicas",
+    "section": "",
+    "text": "Diseñar preguntas claras que conecten hipótesis con datos disponibles.",
+    "crumbs": [
+      "**Sección 8** - Preguntas biológicas y reportes en Quarto",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
+    ]
+  },
+  {
+    "objectID": "Act7_seccion8.html",
+    "href": "Act7_seccion8.html",
+    "title": "33  Actividad: de la pregunta al análisis",
+    "section": "",
+    "text": "Transformar una pregunta biológica en un plan de análisis con pasos definidos.",
+    "crumbs": [
+      "**Sección 8** - Preguntas biológicas y reportes en Quarto",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Actividad: de la pregunta al análisis</span>"
+    ]
+  },
+  {
+    "objectID": "Parte22.html",
+    "href": "Parte22.html",
+    "title": "34  Creación de reportes con Quarto",
+    "section": "",
+    "text": "Generar documentos reproducibles que integren código, resultados y explicación científica.",
+    "crumbs": [
+      "**Sección 8** - Preguntas biológicas y reportes en Quarto",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "Act8_seccion8.html",
+    "href": "Act8_seccion8.html",
+    "title": "35  Actividad en equipo: identificación de patrones en datos genéticos",
+    "section": "",
+    "text": "Colaborar para detectar tendencias y discutir su posible significado biológico.",
+    "crumbs": [
+      "**Sección 8** - Preguntas biológicas y reportes en Quarto",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Actividad en equipo: identificación de patrones en datos genéticos</span>"
+    ]
+  },
+  {
+    "objectID": "Parte23.html",
+    "href": "Parte23.html",
+    "title": "36  Salida de campo: ecosistemas de La Paz",
+    "section": "",
+    "text": "7 am a 13 h",
+    "crumbs": [
+      "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Salida de campo: ecosistemas de La Paz</span>"
+    ]
+  },
+  {
+    "objectID": "Parte24.html",
+    "href": "Parte24.html",
+    "title": "37  ¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?",
+    "section": "",
+    "text": "Relacionar las observaciones de campo con los conceptos de datos",
+    "crumbs": [
+      "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?</span>"
+    ]
+  },
+  {
+    "objectID": "Parte25.html",
+    "href": "Parte25.html",
+    "title": "38  ¿Qué significa tener una predisposición genética?",
+    "section": "",
+    "text": "Relacionar las observaciones de campo con los conceptos de datos",
+    "crumbs": [
+      "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>¿Qué significa tener una predisposición genética?</span>"
+    ]
+  },
+  {
+    "objectID": "Parte26.html",
+    "href": "Parte26.html",
+    "title": "39  Introducción a la salud mental y a los datos relacionados con el cerebro",
+    "section": "",
+    "text": "Presentar cómo se estudian variables relacionadas con el cerebro y su impacto en bienestar.",
+    "crumbs": [
+      "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Introducción a la salud mental y a los datos relacionados con el cerebro</span>"
+    ]
+  },
+  {
+    "objectID": "Parte27.html",
+    "href": "Parte27.html",
+    "title": "40  Estrés, sueño y hábitos: la interacción gene × entorno",
+    "section": "",
+    "text": "Analizar cómo factores ambientales y genéticos se combinan para influir en la salud.",
+    "crumbs": [
+      "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
+      "<span class='chapter-number'>40</span>  <span class='chapter-title'>Estrés, sueño y hábitos: la interacción gene × entorno</span>"
+    ]
+  },
+  {
+    "objectID": "Act9_seccion9.html",
+    "href": "Act9_seccion9.html",
+    "title": "41  Actividad en equipo: continuación del póster",
+    "section": "",
+    "text": "Seguir desarrollando el póster académico del proyecto final, integrando resultados y narrativa científica.",
+    "crumbs": [
+      "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
+      "<span class='chapter-number'>41</span>  <span class='chapter-title'>Actividad en equipo: continuación del póster</span>"
+    ]
+  },
+  {
+    "objectID": "Parte28.html",
+    "href": "Parte28.html",
+    "title": "42  Análisis y visualización de tus datos",
+    "section": "",
+    "text": "Los estudiantes trabajan con sus resultados para generar gráficas y comprender patrones clave.",
+    "crumbs": [
+      "**Sección 10** - Recta final del proyecto",
+      "<span class='chapter-number'>42</span>  <span class='chapter-title'>Análisis y visualización de tus datos</span>"
+    ]
+  },
+  {
+    "objectID": "Parte29.html",
+    "href": "Parte29.html",
+    "title": "43  Creación de paneles de figuras",
+    "section": "",
+    "text": "Se organizan las visualizaciones en paneles coherentes que apoyen la narrativa científica.",
+    "crumbs": [
+      "**Sección 10** - Recta final del proyecto",
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Creación de paneles de figuras</span>"
     ]
   }
 ]

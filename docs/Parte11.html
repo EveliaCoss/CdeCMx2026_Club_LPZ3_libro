@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Temas en ggplot2 – POV: Descubres lo que dicen tus genes</title>
+<title>18&nbsp; Temas en ggplot2 – POV: Descubres lo que dicen tus genes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -70,6 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./Parte12.html" rel="next">
 <link href="./Parte10.html" rel="prev">
+<link href="./flyer/logo_cdecmx.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -121,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte5.html"><strong>Sección 2</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte11.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Temas en <code>ggplot2</code></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte5.html"><strong>Sección 4</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte11.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Temas en <code>ggplot2</code></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -255,12 +256,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manipulación de datos en R</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Act1_seccion2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><strong>Actividad:</strong> Pokémon con <code>dplyr</code></span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Sección 2</strong> - Gráficos con ggplot2</span></a>
+ <span class="menu-text"><strong>Sección 3</strong> - Estructura del proyecto final</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -268,62 +275,289 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Act2_seccion3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><strong>Actividad:</strong> Lo que los datos nos cuentan</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Explicacion_ProyectoFinal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Explicación del proyecto final</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Explicacion_Poster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Cómo comunicar ciencia en un póster</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Sección 4</strong> - Gráficos con ggplot2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Parte5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">¿Por qué visualizar datos?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">¿Por qué visualizar datos?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">La Gramática de los Gráficos (GG)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Básicos de la visualización de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Construyendo gráficas capa por capa</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Estéticas y escalas en ggplot2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estéticas y escalas en ggplot2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Estéticas globales y locales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Estéticas globales y locales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte11.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Temas en <code>ggplot2</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Temas en <code>ggplot2</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Facetas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Facetas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Algunas geometrías básicas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Algunas geometrías básicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Parte14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Ejercicios finales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Ejercicios finales</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Act3_seccion4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><strong>Actividad:</strong> ggplot2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Sección 5</strong> - Descubre patrones en los datos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Identificación de patrones en conjuntos de datos reales</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Identificación de patrones en conjuntos de datos reales</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Act4_seccion5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><strong>Actividad:</strong> descubre algo interesante en un conjunto de datos</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Sección 6</strong> - Datos biológicos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Primer vistazo a datos biológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Creación de tablas con información con estadística descriptiva</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Act5_seccion6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><strong>Actividad:</strong> Casos de estudio salud pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Sección 7</strong> - Caso de estudio: Genes y el sistema inmune</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Variantes genéticas y enfermedades del sistema inmune</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Exploración de bases de datos públicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Act6_seccion7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Actividad: Explora datos genéticos reales</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Sección 8</strong> - Preguntas biológicas y reportes en Quarto</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Cómo formular preguntas biológicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Act7_seccion8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Actividad: de la pregunta al análisis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Creación de reportes con Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Act8_seccion8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Actividad en equipo: identificación de patrones en datos genéticos</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Sección 9</strong> - Cerebro, Conducta y ambiente (Gene × Environment)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Salida de campo: ecosistemas de La Paz</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">¿Qué significa tener una predisposición genética?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte26.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Introducción a la salud mental y a los datos relacionados con el cerebro</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Estrés, sueño y hábitos: la interacción gene × entorno</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Act9_seccion9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Actividad en equipo: continuación del póster</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Sección 10</strong> - Recta final del proyecto</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Análisis y visualización de tus datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Creación de paneles de figuras</span></span></a>
   </div>
 </li>
       </ul>
@@ -338,20 +572,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#temas-predefinidos" id="toc-temas-predefinidos" class="nav-link active" data-scroll-target="#temas-predefinidos"><span class="header-section-number">14.1</span> Temas predefinidos</a></li>
-  <li><a href="#modificar-elementos-del-tema" id="toc-modificar-elementos-del-tema" class="nav-link" data-scroll-target="#modificar-elementos-del-tema"><span class="header-section-number">14.2</span> Modificar elementos del tema</a></li>
-  <li><a href="#combinar-temas-predefinidos-con-modificaciones-propias" id="toc-combinar-temas-predefinidos-con-modificaciones-propias" class="nav-link" data-scroll-target="#combinar-temas-predefinidos-con-modificaciones-propias"><span class="header-section-number">14.3</span> Combinar temas predefinidos con modificaciones propias</a></li>
-  <li><a href="#elementos-de-un-tema" id="toc-elementos-de-un-tema" class="nav-link" data-scroll-target="#elementos-de-un-tema"><span class="header-section-number">14.4</span> Elementos de un tema</a></li>
-  <li><a href="#temas-propios" id="toc-temas-propios" class="nav-link" data-scroll-target="#temas-propios"><span class="header-section-number">14.5</span> Temas propios</a></li>
+  <li><a href="#temas-predefinidos" id="toc-temas-predefinidos" class="nav-link active" data-scroll-target="#temas-predefinidos"><span class="header-section-number">18.1</span> Temas predefinidos</a></li>
+  <li><a href="#modificar-elementos-del-tema" id="toc-modificar-elementos-del-tema" class="nav-link" data-scroll-target="#modificar-elementos-del-tema"><span class="header-section-number">18.2</span> Modificar elementos del tema</a></li>
+  <li><a href="#combinar-temas-predefinidos-con-modificaciones-propias" id="toc-combinar-temas-predefinidos-con-modificaciones-propias" class="nav-link" data-scroll-target="#combinar-temas-predefinidos-con-modificaciones-propias"><span class="header-section-number">18.3</span> Combinar temas predefinidos con modificaciones propias</a></li>
+  <li><a href="#elementos-de-un-tema" id="toc-elementos-de-un-tema" class="nav-link" data-scroll-target="#elementos-de-un-tema"><span class="header-section-number">18.4</span> Elementos de un tema</a></li>
+  <li><a href="#temas-propios" id="toc-temas-propios" class="nav-link" data-scroll-target="#temas-propios"><span class="header-section-number">18.5</span> Temas propios</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte5.html"><strong>Sección 2</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte11.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Temas en <code>ggplot2</code></span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte5.html"><strong>Sección 4</strong> - Gráficos con ggplot2</a></li><li class="breadcrumb-item"><a href="./Parte11.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Temas en <code>ggplot2</code></span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Temas en <code>ggplot2</code></span></h1>
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Temas en <code>ggplot2</code></span></h1>
 </div>
 
 
@@ -401,8 +635,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<section id="temas-predefinidos" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="temas-predefinidos"><span class="header-section-number">14.1</span> Temas predefinidos</h2>
+<section id="temas-predefinidos" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="temas-predefinidos"><span class="header-section-number">18.1</span> Temas predefinidos</h2>
 <p><code>ggplot2</code> tiene varios temas predefinidos. Todos contienen la misma información, pero cambia la presentación visual.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -487,8 +721,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="modificar-elementos-del-tema" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="modificar-elementos-del-tema"><span class="header-section-number">14.2</span> Modificar elementos del tema</h2>
+<section id="modificar-elementos-del-tema" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="modificar-elementos-del-tema"><span class="header-section-number">18.2</span> Modificar elementos del tema</h2>
 <p>También podemos modificar elementos específicos con <code>theme()</code>. Por ejemplo, podemos cambiar el estilo del título, los títulos de los ejes y el texto de los ejes.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -534,8 +768,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>La función <code>element_text()</code> permite modificar propiedades del texto, como el color, tamaño y estilo.</p>
 </section>
-<section id="combinar-temas-predefinidos-con-modificaciones-propias" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="combinar-temas-predefinidos-con-modificaciones-propias"><span class="header-section-number">14.3</span> Combinar temas predefinidos con modificaciones propias</h2>
+<section id="combinar-temas-predefinidos-con-modificaciones-propias" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="combinar-temas-predefinidos-con-modificaciones-propias"><span class="header-section-number">18.3</span> Combinar temas predefinidos con modificaciones propias</h2>
 <p>También podemos partir de un tema predefinido y después modificar algunos elementos particulares.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -574,8 +808,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Aquí primero aplicamos <code>theme_dark()</code> y después cambiamos algunos elementos del texto. Esto muestra que los temas se pueden usar como punto de partida y luego ajustar según nuestras necesidades.</p>
 </section>
-<section id="elementos-de-un-tema" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="elementos-de-un-tema"><span class="header-section-number">14.4</span> Elementos de un tema</h2>
+<section id="elementos-de-un-tema" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="elementos-de-un-tema"><span class="header-section-number">18.4</span> Elementos de un tema</h2>
 <p>Una infografía que les puede ayudar a personalizar sus plots.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -584,8 +818,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="temas-propios" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="temas-propios"><span class="header-section-number">14.5</span> Temas propios</h2>
+<section id="temas-propios" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="temas-propios"><span class="header-section-number">18.5</span> Temas propios</h2>
 <p>Hasta ahora hemos utilizado los temas predefinidos de <code>ggplot2</code>, como <code>theme_light()</code> o <code>theme_minimal()</code>. Sin embargo, también podemos construir nuestro propio tema combinando un tema existente con modificaciones realizadas mediante <code>theme()</code>.</p>
 <p>Por ejemplo, podemos definir un tema personalizado para todas nuestras gráficas:</p>
 <div class="cell">
@@ -1089,12 +1323,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Parte10.html" class="pagination-link" aria-label="Estéticas globales y locales">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Estéticas globales y locales</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Estéticas globales y locales</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Parte12.html" class="pagination-link" aria-label="Facetas">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Facetas</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Facetas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

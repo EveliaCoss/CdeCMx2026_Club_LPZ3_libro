@@ -1,0 +1,3 @@
+# Creación de paneles de figuras
+
+Se organizan las visualizaciones en paneles coherentes que apoyen la narrativa científica.

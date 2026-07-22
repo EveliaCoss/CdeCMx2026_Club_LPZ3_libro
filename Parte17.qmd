@@ -1,0 +1,3 @@
+# Primer vistazo a datos biológicos
+
+Explorar datasets de biología (genes, salud, biodiversidad) para reconocer su estructura y complejidad.

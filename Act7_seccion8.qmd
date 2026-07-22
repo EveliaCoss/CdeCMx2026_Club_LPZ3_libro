@@ -1,0 +1,3 @@
+# Actividad: de la pregunta al análisis
+
+Transformar una pregunta biológica en un plan de análisis con pasos definidos.

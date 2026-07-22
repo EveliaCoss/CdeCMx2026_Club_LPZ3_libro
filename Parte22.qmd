@@ -1,0 +1,3 @@
+# Creación de reportes con Quarto
+
+Generar documentos reproducibles que integren código, resultados y explicación científica.
