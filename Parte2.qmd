@@ -1,5 +1,7 @@
 # Introducción a R
 
+> Instructora: Evelia Coss
+
 ## ¿Qué es R?
 
 R es un entorno de desarrollo de software libre y lenguaje de programación.
@@ -213,27 +215,3 @@ install.packages("DT")
 Debes poder ver algo como esto:
 
 ![](figures/rlibrerias_output.png)
-
-## Evitar conflictos para la instalación de paquetes en R
-
-### Si usamos Windows debemos instalar Rtools
-
-En **Windows** utilizamos **Rtools** para evitar problemas al instalar paquetes desde código fuente en RStudio. Selecciona la versión que se adapta a tu versión de R.
-
-[![](figures/rtools_windows.png){fig-align="center"}](https://cran.r-project.org/bin/windows/Rtools/)
-
-Yo seleccioné la versión Rtools 4.5 y me aparece la siguiente página web, después di clic en donde aparece el instalador, descargue el archivo y lo ejecute.
-
-[![](figures/rtools_installer.png)](https://cran.r-project.org/bin/windows/Rtools/rtools45/rtools.html)
-
-### Si usamos Mac/iOs debemos instalar Xcode
-
-En **macOS**, no existe un equivalente directo a Rtools. En su lugar, se emplean las [**Xcode Command Line Tools**](https://mac.r-project.org/tools/) (que incluyen `clang` y `make`) junto con **GNU Fortran** para compilar paquetes que requieren código en C/C++ o Fortran.
-
-[![](figures/xcode_mac.png)](https://mac.r-project.org/tools/)
-
-Esto significa que, si trabajan en Mac, deben asegurarse de tener instaladas estas herramientas para evitar errores al instalar ciertos paquetes de R. Abre una terminal de Bash y coloca este código:
-
-```{bash, eval=F}
-sudo xcode-select --install
-```

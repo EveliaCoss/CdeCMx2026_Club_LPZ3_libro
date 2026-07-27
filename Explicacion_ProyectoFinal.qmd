@@ -1,3 +1,9 @@
 # Explicación del proyecto final
 
 Presentar la estructura, entregables y criterios de evaluación del trabajo integrador del curso.
+
+::: {.callout-tip appearance="simple" icon="false"}
+Crearás tu propio proyecto o dashboard para contar una historia con datos: con tu estilo, tus ideas y tu forma única de interpretar el mundo, a partir de los conocimientos y técnicas aprendidas en la semana de clubes.
+
+Mayor explicación [Día 3](https://docs.google.com/presentation/d/16dKoQcyZ3FfJKgqTIA8u9t9fvYigY55ruEhDrjL6kSI/edit?usp=sharing).
+:::

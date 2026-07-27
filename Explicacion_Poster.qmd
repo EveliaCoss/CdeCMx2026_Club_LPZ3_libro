@@ -1,3 +1,9 @@
 # Cómo comunicar ciencia en un póster
 
+> Instructor: Zuriel Ceja
+
 Aprender a sintetizar resultados en un formato visual claro, breve y atractivo, con gráficos y texto conciso.
+
+::: callout-note
+Presentación ["Como comunicar ciencia en un póster"](https://docs.google.com/presentation/d/1fqbB7xNZ_jwluQP275bqgniB5uCAFisicBX9nQcKpRg/edit?usp=sharing)
+:::

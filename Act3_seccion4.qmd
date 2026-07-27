@@ -1,3 +1,0 @@
-# **Actividad:** ggplot2
-
-ejercicios graficos

@@ -1,3 +1,5 @@
 # Creación de tablas con información con estadística descriptiva
 
+> Instructora: Evelia Coss
+
 Generar tablas con medidas básicas (media, mediana, desviación estándar) para resumir información.

@@ -1,13 +1,15 @@
 # Estructura de datos en R
 
+> Instructora: Evelia Coss
+
 ## Principales estructuras de datos en R
 
 Las estructuras de datos son objetos que contienen datos. Cuando trabajamos con R, lo que estamos haciendo es manipular estas estructuras.
 
-![](figures/DataStructure.png){fig-align="center"}
+![](figures/DataStructure_v2.png){fig-align="center"}
 
 | **Estructura** | **Dimensión** | **Homogeneidad** | **Ejemplo** | **Uso típico** |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | **Vector** | 1D | Homogénea (todos del mismo tipo) | `c(1,2,3)` | Secuencias simples de números, caracteres o lógicos |
 | **Lista** | 1D | Heterogénea (puede mezclar tipos) | `list(a=1:3, b="hola")` | Agrupar objetos distintos, resultados de modelos |
 | **Matriz** | 2D | Homogénea | `matrix(1:6, nrow=2)` | Cálculos numéricos, álgebra lineal |
@@ -18,7 +20,7 @@ Las estructuras de datos son objetos que contienen datos. Cuando trabajamos con 
 ## Clases de variables
 
 | Clases | Declaración de la variable | Conversión de formato | Reglas |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | `numeric` | `numeric()` | `as.numeric()` | FALSE -\> 0, TRUE -\> 1; "1", "2", ... -\> 1,2, ...; "A" -\> NA |
 | `integer` | `integer()` | `as.integer()` | FALSE -\> 0, TRUE -\> 1; "1", "2", ... -\> 1,2, ...; "A" -\> NA |
 | `double` | `double()` | `as.double()` |  |
@@ -33,7 +35,7 @@ Si queremos saber la clase de la variable debemos usar `class()`, aunque tambien
 ## Operadores
 
 | Aritméticos | Comparación | Argumentos lógicos (Logical Operators) |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `+` Adición / suma | `<` Menor que | `!x` - Not x (logical NOT) |
 | `-` Sustracción / resta | `>` Mayor que | `x & y` OR `x AND y` - (logical AND) |
 | `*` Multiplicación | `<=` Menor o igual que | `x && y` - identico |

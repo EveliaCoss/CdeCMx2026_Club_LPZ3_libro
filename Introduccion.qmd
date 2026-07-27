@@ -1,3 +1,66 @@
 # Descubre qué son los genes
 
-Conceptos básicos sobre genética
+> Instructora: Evelia Coss
+
+## **¿Qué es un gen?**
+
+Imagina que tu cuerpo es como una **máquina increíblemente compleja**. Para que funcione correctamente, necesita instrucciones detalladas sobre cómo construir y mantener cada parte. Esas instrucciones están escritas en un "manual" especial llamado **ADN**, y los genes son las **páginas específicas de ese manual**.
+
+Un **gen** es un **segmento de ADN** que contiene las instrucciones para producir una **proteína específica**. Las proteínas son las moléculas que hacen prácticamente todo en tu cuerpo: desde construir músculos hasta luchar contra infecciones.
+
+![Imagen creada con Gemini. Ejemplo enfocado solo en genes que codifican a proteínas, pero no todos los genes se relacionan con proteínas.](figures/Gene_example.png){fig-align="center"}
+
+## **¿Dónde están los genes?**
+
+Los genes se encuentran en el **núcleo de casi todas tus células**, organizados en estructuras llamadas **cromosomas**. Tienes **23 pares de cromosomas** (46 en total), y cada uno contiene miles de genes. Es como si tuvieras 46 libros en tu biblioteca celular, y cada libro contiene miles de instrucciones diferentes.
+
+![Imagen creada con Gemini.](figures/Gene_chromosome.png){fig-align="center"}
+
+## **¿Cómo funcionan los genes?**
+
+El proceso es fascinante y ocurre constantemente en tu cuerpo:
+
+1.  **Lectura**: Tu célula "lee" un gen específico del ADN
+2.  **Copia**: Crea una copia temporal llamada **ARN mensajero (ARNm)**
+3.  **Traducción**: El ARNm viaja a una máquina celular llamada **ribosoma**
+4.  **Producción**: El ribosoma construye la proteína exacta que el gen instruye
+5.  **Acción**: La proteína realiza su función en el cuerpo
+
+### **Ejemplos de genes en acción**
+
+- **Gen de la melanina**: Determina el color de tu piel, ojos y cabello
+- **Gen de la lactasa**: Permite que algunos adultos digieran la leche
+- **Gen de la hemoglobina**: Produce la proteína que transporta oxígeno en tu sangre
+- **Genes inmunológicos**: Crean anticuerpos para defenderte de enfermedades
+
+### **¿Por qué algunos genes se heredan?**
+
+Heredas genes de tus padres. Cada progenitor te da una copia de cada gen (excepto algunos en los cromosomas sexuales). Por eso puedes tener los ojos de tu mamá o la altura de tu papá. Algunos genes se expresan más que otros, creando la variedad que ves en las personas.
+
+![Imagen creada con Gemini](figures/gene_herencia.png){fig-align="center"}
+
+### **Mutaciones: Cambios en los genes**
+
+A veces, los genes pueden cambiar o mutar. Estos cambios pueden ser:
+
+- **Neutrales**: No afectan tu salud
+- **Beneficiosos**: Te dan una ventaja (como resistencia a ciertas enfermedades)
+- **Perjudiciales**: Pueden causar problemas de salud
+
+### **Datos fascinantes sobre genes 🤯**
+
+- Tienes aproximadamente **20,000 a 25,000 genes** en tu cuerpo
+- Compartes el **99.9% de tu ADN** con otros humanos
+- Solo el **1-2% de tu ADN** codifica proteínas; el resto tiene otras funciones
+- Los científicos aún están descubriendo nuevas funciones de genes conocidos
+
+## RESUMEN
+
+Piensa en los genes como **recetas en un libro de cocina**:
+
+- El **ADN** es el libro completo
+- Los **genes** son recetas específicas
+- Las **proteínas** son los platos que preparas
+- Tu **cuerpo** es el resultado de todos esos platos trabajando juntos
+
+![Imagen creada con Gemini](figures/gene_libro.png){fig-align="center"}

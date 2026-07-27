@@ -1,5 +1,7 @@
 # Manipulación de datos en R
 
+> Instructora: Evelia Coss
+
 Carguemos los paquetes
 
 ```{r, message=FALSE, warning=FALSE}
@@ -52,6 +54,8 @@ Sin embargo, es importante saber que para **datasets muy grandes** existe el paq
 - [**data.table**](https://sofiazorrilla.github.io/data.table_long/): más rápido y eficiente, recomendado en contextos de *big data*. Puedes ver el video de [VieRnes de Bioinformática con nuestras instructoras](https://github.com/EveliaCoss/ViernesBioinfo2024_parte2#viernes-2-y-3-introducci%C3%B3n-al-paquete-datatable-en-r).
 :::
 
+![Imagen creada con Gemini.](figures/mediblesvsnomedibles_espanol.png){fig-align="center"}
+
 ## Paquete `palmerpenguins`
 
 ::::: columns
@@ -73,6 +77,10 @@ El objetivo de palmerpenguins es proporcionar un gran conjunto de datos para la 
 ## Acerca de los datos
 
 Los datos fueron recopilados y puestos a disposición por [la Dra. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) y la [Estación Palmer, Antártida LTER](https://pallter.marine.rutgers.edu/) , miembro de la [Red de Investigación Ecológica a Largo Plazo](https://lternet.edu/).
+
+Especies que encontraremos en el paquete de datos de `palmerpenguins`:
+
+![Imagen creada con Gemini. Especies encontradas en el dataset: Adelia (Adélie), Papúa (Gentoo) y Barbijo (Chinstrap).](figures/palmerpenguins_species.png){fig-align="center"}
 
 ## Medidas de tamaño de pingüinos adultos en busca de alimento cerca de la Estación Palmer, Antártida
 

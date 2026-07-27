@@ -1,0 +1,53 @@
+# **Actividad:** Explorando con datos de **Pokémon**
+
+> Instructor: Zuriel Ceja
+
+Notas personales de Zuriel. Espero que les funcione 💜
+
+::: callout-note
+[Presentación completa](https://docs.google.com/presentation/d/1ZaGkUdDG8wUcgQXKfjXXOcbIGAAXR8fbzygzTGBwrts/edit?usp=sharing) en Google slides.
+:::
+
+## 1. Descarga de los datos de Pokémon
+
+Este análisis exploratorio examina el dataset de Pokémon de Tidy Tuesday. Verificaremos la calidad de los datos, realizaremos limpieza necesaria y crearemos visualizaciones para entender mejor las características de los Pokémon.
+
+```{r}
+library(tidyverse)
+
+pokemon <- read.csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-04-01/pokemon_df.csv")
+head(pokemon, 10) %>% 
+  DT::datatable(rownames = FALSE)
+```
+
+## 2. Verificación Inicial de la Información
+
+```{r}
+# Dimensiones
+cat("Dimensiones del dataset:", nrow(pokemon), "filas x", ncol(pokemon), "columnas\n\n")
+
+# Tipos de datos
+str(pokemon)
+
+# Resumen rápido
+summary(pokemon)
+```
+
+Si quieres ver toda la información puedes usar:
+
+```{r, eval= FALSE}
+View(pokemon)
+```
+
+En R, la función `glimpse()` sirve para obtener una vista rápida y compacta de un objeto tipo `data frame` o `tibble`: muestra todas las columnas en formato transpuesto, con su nombre, tipo de dato y algunos valores iniciales. Es más legible que `print()` para tablas anchas y más detallado que `str()`.
+
+```{r}
+glimpse(pokemon)
+```
+
+## 3. Visualización gráfica
+
+```{r}
+ggplot(pokemon, aes(x = attack, y = defense)) +
+  geom_point()
+```

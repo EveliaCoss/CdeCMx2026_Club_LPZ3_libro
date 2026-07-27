@@ -1,3 +1,25 @@
 # Primer vistazo a datos biológicos
 
+> Instructora: Evelia Coss
+
 Explorar datasets de biología (genes, salud, biodiversidad) para reconocer su estructura y complejidad.
+
+## Instalar y cargar paquetes en R
+
+Instalar el paquete `pacman`:
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+install.packages("pacman")
+```
+
+Este paquete `pacman` permite cargar e instalar los paquetes instalados:
+
+```{r}
+pacman::p_load(
+  tidyverse,         # gestión de datos
+  stringr,           # trabajar con cadenas/caracteres
+  lubridate,         # trabajar con fechas
+  rio,               # importar / exportar
+  here,              # rutas relativas 
+  fs)                # interacciones de directorio
+```

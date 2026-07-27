@@ -1,3 +1,0 @@
-# Identificación de patrones en conjuntos de datos reales
-
-Detectar tendencias y relaciones en datos auténticos, conectando observaciones con posibles hipótesis.

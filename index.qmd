@@ -14,7 +14,11 @@
   #### **Instructores:**
 
   - **Australia: Zuriel Ceja** - Estudiante de doctorado, QIMR Berghofer / The University of Queensland Zuriel.Ceja\@qimrb.edu.au GitHub: ZurielCeja 
-  - **México: Dra. Evelia Lorena Coss-Navarrete** - Profesora de asignatura de la ENES Unidad Juriquilla. [Pagina web](https://eveliacoss.github.io/)
+  - **México: Evelia Lorena Coss-Navarrete** - Profesora de asignatura de la ENES Unidad Juriquilla. [Pagina web](https://eveliacoss.github.io/)
+
+  Ayudante: **José Manuel Echevarría Rubio -** Estudiante de doctorado, CIBNOR
+
+  Organizadora: **Ana Patricia Ruiz Beltran** - Posdoctoral
 
   #### **Resumen del club:**
 
@@ -38,6 +42,8 @@
 
   ### Agenda 📆 {#agenda}
 
+  [Calendario LPZ3](https://docs.google.com/spreadsheets/d/1srJJY8kLpVImDrreTUftckYq1RMVIxNmKIXGqbsLa7A/edit?usp=sharing) enviado a Clubes de Ciencia, cambio de día de la salida de campo.
+
   +----------------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
   | Días           | Tema                                              | Actividades                                                                                                      |
   +================+===================================================+==================================================================================================================+
@@ -57,21 +63,21 @@
   |                |                                                   | 6.  **Clase**: Creación de tablas con información con estadística descriptiva                                    |
   |                |                                                   | 7.  **Actividad**: Casos de estudio salud pública                                                                |
   +----------------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
-  | **Día 3**      | Caso de estudio: Genes y el sistema inmune        | 1.  **Clase**: Variantes genéticas y enfermedades del sistema inmune                                             |
+  | **Día 3**      | Cerebro, Conducta y ambiente (Gene × Environment) | 1.  **Salida de campo**: Ecosistemas, genes y salud humana: ¿Qué nos puede enseñar la naturaleza sobre nosotros? |
+  |                |                                                   | 2.  **Actividad:** Mapeando sistemas                                                                             |
+  | Miércoles      |                                                   | 3.  **Actividad:** Traduciendo observaciones a humanos                                                           |
+  |                |                                                   | 4.  **Actividad:** Gene x Environment Uno Game                                                                   |
+  | 29/julio       |                                                   | 5.  **Actividad:** Construyendo una hipótesis Gene x Environment                                                 |
+  |                |                                                   | 6.  **Actividad en equipo**: continuación del póster                                                             |
+  +----------------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+  | **Día 4**      | Caso de estudio: Genes y el sistema inmune        | 1.  **Clase**: Variantes genéticas y enfermedades del sistema inmune                                             |
   |                |                                                   | 2.  **Dinámica**: Exploración de bases de datos públicas                                                         |
-  | Miércoles      |                                                   | 3.  **Actividad:** Explora datos genéticos reales                                                                |
+  | Jueves         |                                                   | 3.  **Actividad:** Explora datos genéticos reales                                                                |
   |                |                                                   | 4.  **Dinámica**: Cómo formular preguntas biológicas                                                             |
-  | 29/julio       |                                                   | 5.  **Actividad:** De la pregunta al análisis                                                                    |
+  | 30/julio       |                                                   | 5.  **Actividad:** De la pregunta al análisis                                                                    |
   |                |                                                   | 6.  **Clase**: Creación de reportes con Quarto                                                                   |
   |                |                                                   | 7.  **Actividad en equipo**: Identificación de patrones en datos genéticos                                       |
   |                |                                                   | 8.  **Actividad en equipo**: bosquejo inicial del póster relacionado con el proyecto final                       |
-  +----------------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
-  | **Día 4**      | Cerebro, Conducta y ambiente (Gene × Environment) | 1.  **Salida de campo**: Ecosistemas, genes y salud humana: ¿Qué nos puede enseñar la naturaleza sobre nosotros? |
-  |                |                                                   | 2.  **Actividad:** Mapeando sistemas                                                                             |
-  | Jueves         |                                                   | 3.  **Actividad:** Traduciendo observaciones a humanos                                                           |
-  |                |                                                   | 4.  **Actividad:** Gene x Environment Uno Game                                                                   |
-  | 30/julio       |                                                   | 5.  **Actividad:** Construyendo una hipótesis Gene x Environment                                                 |
-  |                |                                                   | 6.  **Actividad en equipo**: continuación del póster                                                             |
   +----------------+---------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
   | **Día 5**      | Recta final del proyecto                          | 1.  **Clase**:  Análisis y visualización de tus datos                                                            |
   |                |                                                   | 2.  **Dinámica**: Creación de paneles de figuras                                                                 |

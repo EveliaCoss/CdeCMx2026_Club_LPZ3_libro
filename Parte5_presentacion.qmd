@@ -1,0 +1,7 @@
+# Conoce tu dataset
+
+> Instructor: Zuriel Ceja
+
+::: callout-note
+Presentación [Meet your dataset](https://docs.google.com/presentation/d/1HlNoT-diY7cWBKXEVYWrb1AVIvMBoS6vFtEhRIvoWL0/edit?usp=sharing)
+:::

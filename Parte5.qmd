@@ -1,5 +1,7 @@
 # ¿Por qué visualizar datos?
 
+> Instructor: Zuriel Ceja
+
 Los datos por sí solos rara vez cuentan una historia. Una tabla con cientos o miles de observaciones puede contener patrones, tendencias o valores atípicos que son difíciles de identificar únicamente leyendo números.
 
 La visualización de datos nos permite:

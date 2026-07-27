@@ -11,6 +11,15 @@ book:
     logo: "flyer/logo_cdecmx.png" # Logo ENES
     search: true
   author: 
+    - name: Zuriel Ceja
+      degrees: PhD student
+      url: https://www.qimrb.edu.au/about/our-people/zuriel-ceja-de-la-cruz
+      orcid: https://orcid.org/0000-0003-2392-1964
+      email: Zuriel.ceja@qimrberghofer.edu.au
+      affiliations:
+        - name: QIMR Berghofer / The University of Queensland 
+          country: Australia
+          url: https://www.qimrb.edu.au/  
     - name: Evelia Coss
       degrees: PhD
       url: https://eveliacoss.github.io/ 
@@ -21,23 +30,20 @@ book:
         - name: ENES, Juriquilla - UNAM
           country: México
           url: https://www.enesjuriquilla.unam.mx/
-    - name: Zuriel Ceja
-      degrees: PhD student
-      url: https://www.qimrb.edu.au/about/our-people/zuriel-ceja-de-la-cruz
-      orcid: https://orcid.org/0000-0003-2392-1964
-      email: Zuriel.ceja@qimrberghofer.edu.au
-      affiliations:
-        - name: QIMR Berghofer / The University of Queensland 
-          country: Australia
-          url: https://www.qimrb.edu.au/        
+        - name: uDocz
+          country: Perú
+          url: https://www.udocz.com/home
+      
   # date: "6/15/2026"
   page-navigation: true
   chapters:
     - index.qmd          # Información general
-    - Presentaciones.qmd # Bienvenida: Tú y tus genes    
+    - Presentaciones.qmd # Ronda de presentaciones
+    - Bienvenida.qmd     # Bienvenida: Tú y tus genes 
     - part: "**Pre-requisitos**"
       chapters: 
-      - install_R.qmd # Instalación de R y RStudio    
+      - install_R.qmd # Instalación de R y RStudio
+      - install_packages.qmd
     - part: "**Sección 1** - Introducción: Datos, Genes, y Tú"
       chapters:  
       - Introduccion.qmd   # Descubre qué son los genes
@@ -51,10 +57,12 @@ book:
     - part: "**Sección 3** - Estructura del proyecto final"
       chapters: 
       - Act2_seccion3.qmd # Actividad: Lo que los datos nos cuentan
+      - Act3_seccion3.qmd # Actividad: Explorandon con datos de Pokémon
       - Explicacion_ProyectoFinal.qmd # Explicación del proyecto final
       - Explicacion_Poster.qmd # Cómo comunicar ciencia en un póster    
     - part: "**Sección 4** - Gráficos con ggplot2"
       chapters:  
+      - Parte5_presentacion.qmd # Ejercicios finales
       - Parte5.qmd # Intro a ggplot
       - Parte6.qmd # La gramatica de los gráficos
       - Parte7.qmd # Básicos de la visualización de datos
@@ -64,12 +72,10 @@ book:
       - Parte11.qmd # Temas
       - Parte12.qmd # facetas
       - Parte13.qmd # Geometrías
-      - Parte14.qmd # Ejercicios finales
-      - Act3_seccion4.qmd # Actividad:
+      - Act4_seccion4.qmd # Actividad: ggplot2
     - part: "**Sección 5** - Descubre patrones en los datos"
       chapters: 
       - Parte15.qmd # Identificación de patrones en conjuntos de datos reales
-      - Parte16.qmd # Actividad: descubre algo interesante en un conjunto de datos
       - Act4_seccion5.qmd # Actividad: descubre algo interesante en un conjunto de datos
     - part: "**Sección 6** - Datos biológicos"
       chapters: 

@@ -1,6 +1,31 @@
 # Introducción a la bioinformática como lupa para la vida
 
+> Instructora: Evelia Coss
+
 ¿Qué es la bioinformática y la ciencia de datos?
+
+## **Bioinformática se conforma de la computación, biológica, matemáticas y estadística**
+
+La bioinformática, en relación con la **genética y la genómica**, es una **subdisciplina científica** que implica el uso de **ciencias informáticas** para *recopilar, almacenar, analizar y diseminar datos biológicos*, como secuencias de ADN, ARN y aminoácidos o anotaciones sobre esas secuencias [NIH, 2023](https://www.genome.gov/es/genetics-glossary/Bioinformatica).
+
+### **Ciencia de Datos**
+
+La ciencia de datos es una **disciplina transversal** más amplia que combina estadística, programación y conocimiento de dominio. Su enfoque es:
+
+- **Objeto de estudio**: Cualquier tipo de datos (estructurados o no estructurados) de cualquier dominio
+- **Objetivo**: Extraer insights, patrones y conocimiento accionable de grandes volúmenes de datos
+- **Aplicaciones**: Marketing, finanzas, salud pública, logística, recomendaciones, predicciones generales
+- **Contexto**: Aplicable a múltiples industrias y campos
+
+### **Comparación Directa**
+
+| Aspecto | Bioinformática | Ciencia de Datos |
+|------------------------|------------------------|------------------------|
+| **Especialización** | Altamente especializada en biología | Generalista, aplicable a cualquier dominio |
+| **Datos** | Biológicos y genómicos | Cualquier tipo de datos |
+| **Herramientas** | BLAST, FASTA, Bioconductor, Galaxy | Python, R, SQL, TensorFlow, Spark |
+| **Formación base** | Biología + Informática | Estadística + Programación + Dominio |
+| **Pregunta típica** | ¿Qué mutación causa esta enfermedad? | ¿Cuál es el patrón en estos datos? |
 
 # Buenas prácticas en bioinformática
 
