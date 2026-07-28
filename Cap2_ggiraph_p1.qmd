@@ -9,7 +9,11 @@ pacman::p_load(
   gapminder,        # Datos mundiales
   tidyverse,        # gestión de datos
   DT,               # Tablas bonitas
-  gtsummary         # generar resumenes
+  gtsummary,        # generar resumenes
+  psych,            # tabla con estadisticos
+  knitr,             # Tabla bonita
+  flextable,
+  gt
 )        
 ```
 
@@ -58,20 +62,195 @@ save(JAGUAR_gapminder, file = "data/JAGUAR_gapminder.RData")
 
 ## Estadística descriptiva de los datos
 
+### **TIPO 1: Tabla con `summary()` (Base R) 🟢**
+
+La forma más simple y rápida de obtener estadísticas.
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  select(lifeExp, pop, gdpPercap) %>%
+  summary()
+```
+
+**Ventajas**:
+
+- ✅ Muy rápido
+- ✅ No requiere paquetes adicionales
+- ✅ Muestra 6 estadísticas automáticamente
+
+**Desventajas**:
+
+- ❌ No es muy bonito
+- ❌ Difícil de personalizar
+- ❌ No agrupa bien
+
+### **TIPO 2: Tabla con `describe()` (Paquete `psych`) 🟡**
+
+**¿Qué es?**: Tabla más detallada que `summary()`.
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  select(lifeExp, pop, gdpPercap) %>%
+  describe()
+```
+
+### **TIPO 3: Tabla con `group_by()` y `summarize()` 🟠**
+
+Tabla personalizada creada manualmente con dplyr.
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarize(
+    n = n(),
+    media_lifeExp = mean(lifeExp),
+    sd_lifeExp = sd(lifeExp),
+    min_lifeExp = min(lifeExp),
+    max_lifeExp = max(lifeExp),
+    media_gdp = mean(gdpPercap),
+    sd_gdp = sd(gdpPercap),
+    .groups = 'drop'
+  )
+```
+
+### **TIPO 4: Tabla con `knitr::kable()` 🔴**
+
+Tabla bonita para reportes y documentos.
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarize(
+    Países = n(),
+    `Esperanza de Vida (media)` = round(mean(lifeExp), 2),
+    `Esperanza de Vida (SD)` = round(sd(lifeExp), 2),
+    `PIB per Cápita (media)` = round(mean(gdpPercap), 0),
+    .groups = 'drop'
+  ) %>%
+  kable(
+    caption = "Estadísticas por Continente en 2007",
+    align = c("l", "c", "c", "c", "c")
+  )
+```
+
+### **TIPO 5: Tabla con `flextable()` 🟣**
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarize(
+    Países = n(),
+    `Esperanza de Vida` = round(mean(lifeExp), 2),
+    `PIB per Cápita` = round(mean(gdpPercap), 0),
+    .groups = 'drop'
+  ) %>%
+  flextable() %>%
+  set_header_labels(
+    continent = "Continente",
+    Países = "Número de Países",
+    `Esperanza de Vida` = "Esperanza de Vida (años)",
+    `PIB per Cápita` = "PIB per Cápita (USD)"
+  ) %>%
+  autofit() %>%
+  theme_vanilla()
+```
+
+**Resultado**: Tabla profesional con formato automático
+
+### **TIPO 6: Tabla Dinámica (Pivot Table) 🔵**
+
+```{r}
+gapminder %>%
+  filter(year %in% c(1952, 1982, 2007)) %>%
+  group_by(continent, year) %>%
+  summarize(
+    media_lifeExp = round(mean(lifeExp), 2),
+    .groups = 'drop'
+  ) %>%
+  pivot_wider(
+    names_from = year,
+    values_from = media_lifeExp
+  ) %>%
+  kable(
+    caption = "Esperanza de Vida por Continente (1952, 1982, 2007)"
+  )
+```
+
+### **TIPO 7: Tabla con `gt()` (Great Tables) 🟢**
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarize(
+    Países = n(),
+    `Esperanza de Vida` = mean(lifeExp),
+    `PIB per Cápita` = mean(gdpPercap),
+    .groups = 'drop'
+  ) %>%
+  gt() %>%
+  fmt_number(
+    columns = c(`Esperanza de Vida`, `PIB per Cápita`),
+    decimals = 2
+  ) %>%
+  tab_header(
+    title = "Estadísticas por Continente en 2007",
+    subtitle = "Datos de Gapminder"
+  ) %>%
+  cols_label(
+    continent = "Continente",
+    Países = "Número de Países",
+    `Esperanza de Vida` = "Esperanza de Vida (años)",
+    `PIB per Cápita` = "PIB per Cápita (USD)"
+  )
+```
+
+**Uso**: Para publicaciones y reportes científicos
+
+###  **TIPO 8: Tabla Interactiva con `DT::datatable()` 🟡**
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  select(country, continent, lifeExp, pop, gdpPercap) %>%
+  datatable(
+    colnames = c("País", "Continente", "Esperanza de Vida", "Población", "PIB per Cápita"),
+    options = list(
+      pageLength = 10,
+      searching = TRUE,
+      ordering = TRUE
+    ),
+    caption = "Datos de Gapminder 2007"
+  )
+```
+
+### **TIPO 9: Tabla profesional para artículos**
+
 Obtener un resumen descriptivo de la esperanza de vida media en los países seleccionados.
 
 ```{r general_table}
 JAGUAR_gapminder %>%
+  # Eliminar columnas
   select(-continent, -id, -year) %>% 
-  # Estadistica descriptiva en la tabla
+  # Estadistica descriptiva en la tabla. Crea la tabla de resumen.
   tbl_summary(
     by = country, 
+    # Para variables continuas (lifeExp, pop, gdpPercap). Muestra: Media (Desviación Estándar)
     statistic = list(all_continuous() ~ "{mean} ({sd})", 
+    # Para variables categóricas (country). Muestra: Conteo / Total (Porcentaje)          
                      all_categorical() ~ "{n} / {N} ({p}%)"),
+    # {N} se reemplaza automáticamente con el número total de observaciones
+    # Redondea variables continuas a 2 decimales
     digits = all_continuous() ~ 2) %>% 
   # Nombre del titulo de la tabla
   modify_caption("Caracteristicas de los paises (N = {N})") %>%
-  as_gt()
+  # Convierte la tabla a formato gt (Great Tables) para mejor visualización.
+  as_gt() 
 ```
 
 ## Referencias

@@ -4,7 +4,7 @@
 
 Explorar datasets de biología (genes, salud, biodiversidad) para reconocer su estructura y complejidad.
 
-### **¿Por qué los datos biológicos son "especiales"? 🤔**
+### ¿Por qué los datos biológicos son "especiales"? 🤔
 
 Los datos biológicos son diferentes a otros tipos de datos porque:
 
@@ -14,13 +14,13 @@ Los datos biológicos son diferentes a otros tipos de datos porque:
 - **Contexto importante**: El ambiente influye en los datos
 - **Escala**: Desde moléculas microscópicas hasta ecosistemas completos
 
-### **Estructura de un Dataset Biológico 🗂️**
+### Estructura de un Dataset Biológico 🗂️
 
 Un dataset biológico típicamente tiene esta estructura:
 
 ![Imagen creada con Gemini.](figures/biologico_estructura.png){fig-align="center"}
 
-### **¿Qué es Gapminder? 🌐**
+### ¿Qué es Gapminder? 🌐
 
 [Gapminder](https://www.gapminder.org/data/) es una **organización sin fines de lucro con sede en Suecia** que promueve el desarrollo global mediante el uso de estadísticas que pueden ayudar a reducir mitos comunes e historias sensasionalistas sobre la salud y la economía mundial. Proporciona datasets sobre:
 
@@ -50,17 +50,17 @@ Piénsalo así: Si sumamos todo lo que se fabrica, cultiva, vende y se presta co
 **Resumen**
 
 | Concepto | Definición |
-|----------------------|--------------------------------------------------|
+|------------------------------------|------------------------------------|
 | **PIB** | Valor total de bienes y servicios producidos en un país en un año |
 | **PIB per Cápita** | PIB dividido entre la población (producción por persona) |
 | **Relación con salud** | Mayor PIB per Cápita → Mejor acceso a salud → Mayor esperanza de vida |
 | **En Gapminder** | Indicador clave para entender desarrollo y su relación con biología humana |
 :::
 
-### **¿Por qué Gapminder es ideal para datos biológicos? 🎯**
+### ¿Por qué Gapminder es ideal para datos biológicos? 🎯
 
 | Aspecto | Relevancia |
-|-------------------|-----------------------------------------------------|
+|------------------------------------|------------------------------------|
 | **Datos reales** | Información verificada de organismos internacionales (ONU, OMS) |
 | **Temporal** | Datos a lo largo de décadas, mostrando cambios biológicos y sociales |
 | **Multidimensional** | Múltiples variables que interactúan (salud, economía, educación) |
@@ -68,7 +68,7 @@ Piénsalo así: Si sumamos todo lo que se fabrica, cultiva, vende y se presta co
 | **Complejo** | Relaciones no lineales y correlaciones interesantes |
 | **Accesible** | Datos públicos y bien documentados |
 
-### **Tipos de Datos en Gapminder 🔬**
+### Tipos de Datos en Gapminder 🔬
 
 #### **1. Datos Demográficos (Biología de Poblaciones)**
 
@@ -108,10 +108,10 @@ Piénsalo así: Si sumamos todo lo que se fabrica, cultiva, vende y se presta co
 
 ![Imagen creada con Gemini.](figures/biologico_datos.png){fig-align="center"}
 
-### **Preguntas que Podemos Responder con Gapminder 🤔**
+## Preguntas que Podemos Responder con Gapminder 🤔
 
 | Pregunta | Tipo de Análisis | Complejidad | Relevancia Biológica |
-|---------------------|------------------|-----------------|-----------------|
+|------------------|------------------|------------------|------------------|
 | ¿Cuál es la esperanza de vida promedio global? | Estadística descriptiva | Baja | Supervivencia humana |
 | ¿Qué país tiene la mortalidad infantil más baja? | Comparación de grupos | Baja | Salud infantil |
 | ¿Existe correlación entre PIB y esperanza de vida? | Análisis de correlación | Media | Ambiente → Fenotipo |
@@ -182,6 +182,50 @@ gapminder %>%
   head() # observar los primeros 3 valores
 ```
 
-::: {.callout-tip icon="false"}
-## Actividad
+## Manos a la obra
+
+Realiza estas dos actividades en parejas o equipos
+
+::: callout-note
+## Actividad 1
+
+- Ejercicio 1.1: Dimensiones del archivo
+
+¿Cuántas filas y columnas tiene el dataset de gapminder?
+
+```         
+Pista: Usa dim() o nrow() y ncol()
+```
+
+- Ejercicio 1.2: Nombres de columnas
+
+¿Cuáles son los nombres de todas las columnas?
+
+```         
+Pista: Usa colnames() o names()
+```
+
+- Ejercicio 1.3: Primeras observaciones
+
+Visualiza las primeras 6 filas del dataset.
+
+```         
+Pista: Usa head()
+```
+
+- Ejercicio 1.4: Tipos de datos
+
+¿Qué tipo de dato tiene cada columna?
+
+```         
+Pista: Usa str() o glimpse()
+```
+
+- Ejercicio 1.5: Número de países
+
+¿Cuántos países únicos hay en el dataset?
+
+```         
+Pista: Usa unique() o n_distinct()
+```
 :::

@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -550,8 +585,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#qué-es-la-estadística-descriptiva" id="toc-qué-es-la-estadística-descriptiva" class="nav-link active" data-scroll-target="#qué-es-la-estadística-descriptiva"><span class="header-section-number">29.0.1</span> <strong>¿Qué es la Estadística Descriptiva? 🤔</strong></a></li>
+  <li><a href="#conexión-con-biología" id="toc-conexión-con-biología" class="nav-link" data-scroll-target="#conexión-con-biología"><span class="header-section-number">29.0.2</span> <strong>Conexión con Biología 🧬</strong></a></li>
+  <li><a href="#cargar-el-paquete" id="toc-cargar-el-paquete" class="nav-link" data-scroll-target="#cargar-el-paquete"><span class="header-section-number">29.1</span> Cargar el paquete</a></li>
+  <li><a href="#actividad-2" id="toc-actividad-2" class="nav-link" data-scroll-target="#actividad-2"><span class="header-section-number">29.2</span> Actividad 2</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -579,8 +623,395 @@ ul.task-list li input[type="checkbox"] {
 <p>Instructora: Evelia Coss</p>
 </blockquote>
 <p>Generar tablas con medidas básicas (media, mediana, desviación estándar) para resumir información.</p>
+<section id="qué-es-la-estadística-descriptiva" class="level3" data-number="29.0.1">
+<h3 data-number="29.0.1" class="anchored" data-anchor-id="qué-es-la-estadística-descriptiva"><span class="header-section-number">29.0.1</span> <strong>¿Qué es la Estadística Descriptiva? 🤔</strong></h3>
+<p>La <strong>estadística descriptiva</strong> es el conjunto de técnicas que usamos para <strong>resumir, organizar y describir datos</strong> de forma clara y comprensible. Es como tomar un dataset enorme y extraer la información más importante.</p>
+</section>
+<section id="conexión-con-biología" class="level3" data-number="29.0.2">
+<h3 data-number="29.0.2" class="anchored" data-anchor-id="conexión-con-biología"><span class="header-section-number">29.0.2</span> <strong>Conexión con Biología 🧬</strong></h3>
+<p>En el dataset de Gapminder:</p>
+<ul>
+<li><strong>Media de esperanza de vida</strong>: Refleja la salud promedio global</li>
+<li><strong>Desviación estándar</strong>: Muestra desigualdad en salud entre países</li>
+<li><strong>Mediana de PIB</strong>: Representa el país “típico”</li>
+<li><strong>Rango de población</strong>: Muestra diversidad de tamaños de países</li>
+</ul>
+</section>
+<section id="cargar-el-paquete" class="level2" data-number="29.1">
+<h2 data-number="29.1" class="anchored" data-anchor-id="cargar-el-paquete"><span class="header-section-number">29.1</span> Cargar el paquete</h2>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  gapminder,         <span class="co"># Datos mundiales</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  tidyverse)         <span class="co"># gestión de datos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="actividad-2" class="level2" data-number="29.2">
+<h2 data-number="29.2" class="anchored" data-anchor-id="actividad-2"><span class="header-section-number">29.2</span> Actividad 2</h2>
+<ul>
+<li>Ejercicio 2.1: Resumen estadístico</li>
+</ul>
+<p>Calcula la media, mediana, mínimo y máximo de la esperanza de vida.</p>
+<pre><code>Pista: Usa summary() o describe()</code></pre>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gapminder<span class="sc">$</span>lifeExp)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  23.60   48.20   60.71   59.47   70.85   82.60 </code></pre>
+</div>
+</div>
+<p>Interpretación:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Medida</th>
+<th>Valor</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Mínimo</strong></td>
+<td>23.6 años</td>
+<td>El país con menor esperanza de vida</td>
+</tr>
+<tr class="even">
+<td><strong>Q1 (25%)</strong></td>
+<td>48.2 años</td>
+<td>25% de observaciones están por debajo</td>
+</tr>
+<tr class="odd">
+<td><strong>Mediana</strong></td>
+<td>60.71 años</td>
+<td>Valor central; 50% arriba, 50% abajo</td>
+</tr>
+<tr class="even">
+<td><strong>Media</strong></td>
+<td>59.47 años</td>
+<td>Promedio de todas las observaciones</td>
+</tr>
+<tr class="odd">
+<td><strong>Q3 (75%)</strong></td>
+<td>70.85 años</td>
+<td>75% de observaciones están por debajo</td>
+</tr>
+<tr class="even">
+<td><strong>Máximo</strong></td>
+<td>82.6 años</td>
+<td>El país con mayor esperanza de vida</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ejercicio 2.2: Rango de años</li>
+</ul>
+<p>¿Cuál es el año más antiguo y el más reciente en el dataset?</p>
+<pre><code>Pista: Usa min() y max() en la columna year</code></pre>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontrar el año mínimo y máximo</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(gapminder<span class="sc">$</span>year)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1952</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(gapminder<span class="sc">$</span>year)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2007</code></pre>
+</div>
+</div>
+<p><strong>Interpretación</strong>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Medida</th>
+<th>Valor</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Año más antiguo</strong></td>
+<td>1952</td>
+<td>Inicio del dataset</td>
+</tr>
+<tr class="even">
+<td><strong>Año más reciente</strong></td>
+<td>2007</td>
+<td>Fin del dataset</td>
+</tr>
+<tr class="odd">
+<td><strong>Rango temporal</strong></td>
+<td>55 años</td>
+<td>Período de cobertura</td>
+</tr>
+<tr class="even">
+<td><strong>Intervalo</strong></td>
+<td>Cada 5 años</td>
+<td>Frecuencia de datos</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ejercicio 2.3: Población total</li>
+</ul>
+<p>¿Cuál es la población total mundial en 2007?</p>
+<pre><code>Pista: Filtra year == 2007 y suma la columna pop</code></pre>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción A. Filtrar datos de 2007 y sumar población</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(gapminder_2007<span class="sc">$</span>pop)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6251013179</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción B. Una forma más elegante:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">poblacion_total =</span> <span class="fu">sum</span>(pop))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  poblacion_total
+            &lt;dbl&gt;
+1      6251013179</code></pre>
+</div>
+</div>
+<p><strong>Interpretación</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Medida</th>
+<th>Valor</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Población mundial 2007</strong></td>
+<td>6.25 billones</td>
+<td>Total de habitantes</td>
+</tr>
+<tr class="even">
+<td><strong>En notación científica</strong></td>
+<td>6.25 × 10⁹</td>
+<td>6.25 mil millones</td>
+</tr>
+<tr class="odd">
+<td><strong>Comparación</strong></td>
+<td>~6.3 billones reales</td>
+<td>El dataset cubre ~99% de la población</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ejercicio 2.4: Variabilidad</li>
+</ul>
+<p>¿Cuál tiene mayor variabilidad: esperanza de vida o PIB per cápita?</p>
+<pre><code>Pista: Compara desviación estándar o coeficiente de variación</code></pre>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular desviación estándar</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(gapminder<span class="sc">$</span>lifeExp)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12.91711</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(gapminder<span class="sc">$</span>gdpPercap)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9857.455</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Esperanza de vida</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>mean_lifeExp <span class="ot">&lt;-</span> <span class="fu">mean</span>(gapminder<span class="sc">$</span>lifeExp)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>sd_lifeExp <span class="ot">&lt;-</span> <span class="fu">sd</span>(gapminder<span class="sc">$</span>lifeExp)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>cv_lifeExp <span class="ot">&lt;-</span> (sd_lifeExp <span class="sc">/</span> mean_lifeExp) <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PIB per cápita</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>mean_gdp <span class="ot">&lt;-</span> <span class="fu">mean</span>(gapminder<span class="sc">$</span>gdpPercap)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>sd_gdp <span class="ot">&lt;-</span> <span class="fu">sd</span>(gapminder<span class="sc">$</span>gdpPercap)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>cv_gdp <span class="ot">&lt;-</span> (sd_gdp <span class="sc">/</span> mean_gdp) <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación visual</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">c</span>(<span class="st">"Esperanza de Vida"</span>, <span class="st">"PIB per Cápita"</span>),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Media =</span> <span class="fu">c</span>(mean_lifeExp, mean_gdp),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Desv_Est =</span> <span class="fu">c</span>(sd_lifeExp, sd_gdp),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">CV_Porcentaje =</span> <span class="fu">c</span>(cv_lifeExp, cv_gdp)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Variable      Media   Desv_Est CV_Porcentaje
+1 Esperanza de Vida   59.47444   12.91711      21.71875
+2    PIB per Cápita 7215.32708 9857.45454     136.61826</code></pre>
+</div>
+</div>
+<p><strong>Interpretación</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 12%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Media</th>
+<th>Desv. Est.</th>
+<th>CV (%)</th>
+<th>Variabilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Esperanza de Vida</strong></td>
+<td>59.47 años</td>
+<td>12.47</td>
+<td>20.98%</td>
+<td>Baja-Media</td>
+</tr>
+<tr class="even">
+<td><strong>PIB per Cápita</strong></td>
+<td>$7,215</td>
+<td>$14,222</td>
+<td>150.51%</td>
+<td><strong>Muy Alta</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ejercicio 2.5: Valores faltantes</li>
+</ul>
+<p>¿Hay valores faltantes (NA) en el dataset? ¿En qué columnas?</p>
+<pre><code>Pista: Usa is.na() o sum(is.na())</code></pre>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 1: Contar NAs por columna</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(gapminder))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country continent      year   lifeExp       pop gdpPercap 
+        0         0         0         0         0         0 </code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 2: Verificar si hay algún NA en todo el dataset</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(gapminder))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 3: Visualizar con una función más detallada</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span><span class="fu">sum</span>(<span class="fu">is.na</span>(.))))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  country continent  year lifeExp   pop gdpPercap
+    &lt;int&gt;     &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt;     &lt;int&gt;
+1       0         0     0       0     0         0</code></pre>
+</div>
+</div>
+<p><strong>Interpretación</strong>: El dataset de Gapminder está <strong>completamente limpio</strong>. No hay valores faltantes en ninguna columna. Esto es excelente para el análisis, ya que no necesitamos imputar datos ni eliminar filas incompletas.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Nota</strong>: En datasets reales, los valores faltantes son comunes y requieren estrategias especiales (eliminar, imputar, etc.).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Actividad 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Ejercicio 3.1: Un país específico</li>
+</ul>
+<p>Filtra los datos de México y visualiza cómo cambió su esperanza de vida de 1952 a 2007.</p>
+<pre><code>Pista: Usa filter() para country == "Mexico"</code></pre>
+<ul>
+<li>Ejercicio 3.2: Un año específico</li>
+</ul>
+<p>¿Cuál es el país con la mayor esperanza de vida en 2007?</p>
+<pre><code>Pista: Filtra year == 2007 y usa arrange() o max()</code></pre>
+<ul>
+<li>Ejercicio 3.3: Un continente</li>
+</ul>
+<p>¿Cuál es la esperanza de vida promedio en África en 2007?</p>
+<pre><code>Pista: Filtra continent == "Africa" y year == 2007, luego calcula mean()</code></pre>
+<ul>
+<li>Ejercicio 3.4: Agrupación simple</li>
+</ul>
+<p>Calcula la esperanza de vida promedio por continente en 2007.</p>
+<pre><code>Pista: Usa group_by(continent) y summarize(mean(lifeExp))</code></pre>
+<ul>
+<li>Ejercicio 3.5:Agrupación múltiple</li>
+</ul>
+<p>¿Cuál es la población promedio por continente en cada década (1952, 1962, 1972, etc.)?</p>
+<pre><code>Pista: Usa group_by(continent, year) y summarize(mean(pop))</code></pre>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

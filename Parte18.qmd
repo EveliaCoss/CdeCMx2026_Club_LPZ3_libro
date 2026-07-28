@@ -3,3 +3,222 @@
 > Instructora: Evelia Coss
 
 Generar tablas con medidas básicas (media, mediana, desviación estándar) para resumir información.
+
+### ¿Qué es la Estadística Descriptiva? 🤔
+
+La **estadística descriptiva** es el conjunto de técnicas que usamos para **resumir, organizar y describir datos** de forma clara y comprensible. Es como tomar un dataset enorme y extraer la información más importante.
+
+### Conexión con Biología 🧬
+
+En el dataset de Gapminder:
+
+- **Media de esperanza de vida**: Refleja la salud promedio global
+- **Desviación estándar**: Muestra desigualdad en salud entre países
+- **Mediana de PIB**: Representa el país "típico"
+- **Rango de población**: Muestra diversidad de tamaños de países
+
+## Cargar el paquete
+
+```{r, warning=FALSE, message=FALSE}
+pacman::p_load(
+  gapminder,         # Datos mundiales
+  tidyverse)         # gestión de datos
+```
+
+## Actividad 2
+
+- Ejercicio 2.1: Resumen estadístico
+
+Calcula la media, mediana, mínimo y máximo de la esperanza de vida.
+
+```         
+Pista: Usa summary() o describe()
+```
+
+```{r}
+summary(gapminder$lifeExp)
+```
+
+Interpretación:
+
+| Medida       | Valor      | Significado                           |
+|--------------|------------|---------------------------------------|
+| **Mínimo**   | 23.6 años  | El país con menor esperanza de vida   |
+| **Q1 (25%)** | 48.2 años  | 25% de observaciones están por debajo |
+| **Mediana**  | 60.71 años | Valor central; 50% arriba, 50% abajo  |
+| **Media**    | 59.47 años | Promedio de todas las observaciones   |
+| **Q3 (75%)** | 70.85 años | 75% de observaciones están por debajo |
+| **Máximo**   | 82.6 años  | El país con mayor esperanza de vida   |
+
+- Ejercicio 2.2: Rango de años
+
+¿Cuál es el año más antiguo y el más reciente en el dataset?
+
+```         
+Pista: Usa min() y max() en la columna year
+```
+
+```{r}
+# Encontrar el año mínimo y máximo
+min(gapminder$year)
+max(gapminder$year)
+```
+
+**Interpretación**:
+
+| Medida               | Valor       | Significado          |
+|----------------------|-------------|----------------------|
+| **Año más antiguo**  | 1952        | Inicio del dataset   |
+| **Año más reciente** | 2007        | Fin del dataset      |
+| **Rango temporal**   | 55 años     | Período de cobertura |
+| **Intervalo**        | Cada 5 años | Frecuencia de datos  |
+
+- Ejercicio 2.3: Población total
+
+¿Cuál es la población total mundial en 2007?
+
+```         
+Pista: Filtra year == 2007 y suma la columna pop
+```
+
+```{r}
+# Opción A. Filtrar datos de 2007 y sumar población
+gapminder_2007 <- gapminder %>%
+  filter(year == 2007)
+
+sum(gapminder_2007$pop)
+```
+
+```{r}
+# Opción B. Una forma más elegante:
+gapminder %>%
+  filter(year == 2007) %>%
+  summarize(poblacion_total = sum(pop))
+```
+
+**Interpretación**:
+
+| Medida | Valor | Significado |
+|------------------------|------------------------|------------------------|
+| **Población mundial 2007** | 6.25 billones | Total de habitantes |
+| **En notación científica** | 6.25 × 10⁹ | 6.25 mil millones |
+| **Comparación** | \~6.3 billones reales | El dataset cubre \~99% de la población |
+
+- Ejercicio 2.4: Variabilidad
+
+¿Cuál tiene mayor variabilidad: esperanza de vida o PIB per cápita?
+
+```         
+Pista: Compara desviación estándar o coeficiente de variación
+```
+
+```{r}
+# Calcular desviación estándar
+sd(gapminder$lifeExp)
+sd(gapminder$gdpPercap)
+```
+
+```{r}
+# Esperanza de vida
+mean_lifeExp <- mean(gapminder$lifeExp)
+sd_lifeExp <- sd(gapminder$lifeExp)
+cv_lifeExp <- (sd_lifeExp / mean_lifeExp) * 100
+```
+
+```{r}
+# PIB per cápita
+mean_gdp <- mean(gapminder$gdpPercap)
+sd_gdp <- sd(gapminder$gdpPercap)
+cv_gdp <- (sd_gdp / mean_gdp) * 100
+```
+
+```{r}
+# Comparación visual
+data.frame(
+  Variable = c("Esperanza de Vida", "PIB per Cápita"),
+  Media = c(mean_lifeExp, mean_gdp),
+  Desv_Est = c(sd_lifeExp, sd_gdp),
+  CV_Porcentaje = c(cv_lifeExp, cv_gdp)
+)
+```
+
+**Interpretación**:
+
+| Variable              | Media      | Desv. Est. | CV (%)  | Variabilidad |
+|-----------------------|------------|------------|---------|--------------|
+| **Esperanza de Vida** | 59.47 años | 12.47      | 20.98%  | Baja-Media   |
+| **PIB per Cápita**    | \$7,215    | \$14,222   | 150.51% | **Muy Alta** |
+
+- Ejercicio 2.5: Valores faltantes
+
+¿Hay valores faltantes (NA) en el dataset? ¿En qué columnas?
+
+```         
+Pista: Usa is.na() o sum(is.na())
+```
+
+```{r}
+# Opción 1: Contar NAs por columna
+colSums(is.na(gapminder))
+```
+
+```{r}
+# Opción 2: Verificar si hay algún NA en todo el dataset
+sum(is.na(gapminder))
+```
+
+```{r}
+# Opción 3: Visualizar con una función más detallada
+gapminder %>%
+  summarize(across(everything(), ~sum(is.na(.))))
+```
+
+**Interpretación**: El dataset de Gapminder está **completamente limpio**. No hay valores faltantes en ninguna columna. Esto es excelente para el análisis, ya que no necesitamos imputar datos ni eliminar filas incompletas.
+
+::: callout-important
+**Nota**: En datasets reales, los valores faltantes son comunes y requieren estrategias especiales (eliminar, imputar, etc.).
+:::
+
+::: callout-note
+## Actividad 3
+
+- Ejercicio 3.1: Un país específico
+
+Filtra los datos de México y visualiza cómo cambió su esperanza de vida de 1952 a 2007.
+
+```         
+Pista: Usa filter() para country == "Mexico"
+```
+
+- Ejercicio 3.2: Un año específico
+
+¿Cuál es el país con la mayor esperanza de vida en 2007?
+
+```         
+Pista: Filtra year == 2007 y usa arrange() o max()
+```
+
+- Ejercicio 3.3: Un continente
+
+¿Cuál es la esperanza de vida promedio en África en 2007?
+
+```         
+Pista: Filtra continent == "Africa" y year == 2007, luego calcula mean()
+```
+
+- Ejercicio 3.4: Agrupación simple
+
+Calcula la esperanza de vida promedio por continente en 2007.
+
+```         
+Pista: Usa group_by(continent) y summarize(mean(lifeExp))
+```
+
+- Ejercicio 3.5:Agrupación múltiple
+
+¿Cuál es la población promedio por continente en cada década (1952, 1962, 1972, etc.)?
+
+```         
+Pista: Usa group_by(continent, year) y summarize(mean(pop))
+```
+:::
