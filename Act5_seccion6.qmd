@@ -1,5 +1,0 @@
-# **Actividad:** Casos de estudio salud pública
-
-> Instructora: Evelia Coss
-
-Aplicar lo aprendido a datos de salud pública, analizando patrones y discutiendo implicaciones sociales.

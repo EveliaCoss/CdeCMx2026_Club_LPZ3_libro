@@ -79,9 +79,10 @@ book:
       - Act4_seccion5.qmd # Actividad: descubre algo interesante en un conjunto de datos
     - part: "**Sección 6** - Datos biológicos"
       chapters: 
-      - Parte17.qmd # Primer vistazo a datos biológicos 
+      - Parte17.qmd # Primer vistazo a datos biológicos
       - Parte18.qmd # Creación de tablas con información con estadística descriptiva
-      - Act5_seccion6.qmd # Actividad: Casos de estudio salud pública
+      - Cap2_ggiraph_p1.qmd # Creación de tablas con información con estadística descriptiva
+      - Cap3_ggiraph_p2.qmd # Graficas interactivas
     - part: "**Sección 7** - Caso de estudio: Genes y el sistema inmune"
       chapters: 
       - Parte19.qmd # Variantes genéticas y enfermedades del sistema inmune

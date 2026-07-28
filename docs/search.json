@@ -1209,7 +1209,29 @@
     "href": "Parte17.html",
     "title": "28  Primer vistazo a datos biológicos",
     "section": "",
-    "text": "28.1 Instalar y cargar paquetes en R\nExplorar datasets de biología (genes, salud, biodiversidad) para reconocer su estructura y complejidad.\nInstalar el paquete pacman:\nCódigo\ninstall.packages(\"pacman\")\nEste paquete pacman permite cargar e instalar los paquetes instalados:\nCódigo\npacman::p_load(\n  tidyverse,         # gestión de datos\n  stringr,           # trabajar con cadenas/caracteres\n  lubridate,         # trabajar con fechas\n  rio,               # importar / exportar\n  here,              # rutas relativas \n  fs)                # interacciones de directorio",
+    "text": "28.0.1 ¿Por qué los datos biológicos son “especiales”? 🤔\nExplorar datasets de biología (genes, salud, biodiversidad) para reconocer su estructura y complejidad.\nLos datos biológicos son diferentes a otros tipos de datos porque:",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Primer vistazo a datos biológicos</span>"
+    ]
+  },
+  {
+    "objectID": "Parte17.html#instalar-y-cargar-paquetes-en-r",
+    "href": "Parte17.html#instalar-y-cargar-paquetes-en-r",
+    "title": "28  Primer vistazo a datos biológicos",
+    "section": "28.1 Instalar y cargar paquetes en R",
+    "text": "28.1 Instalar y cargar paquetes en R\nInstalar el paquete pacman:\n\n\nCódigo\ninstall.packages(\"pacman\")\n\n\nEste paquete pacman permite cargar e instalar los paquetes instalados:\n\n\nCódigo\npacman::p_load(\n  gapminder,         # Datos mundiales\n  tidyverse)         # gestión de datos",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Primer vistazo a datos biológicos</span>"
+    ]
+  },
+  {
+    "objectID": "Parte17.html#exploración-de-datos",
+    "href": "Parte17.html#exploración-de-datos",
+    "title": "28  Primer vistazo a datos biológicos",
+    "section": "28.2 Exploración de datos",
+    "text": "28.2 Exploración de datos\n\n\nCódigo\ngapminder %&gt;% \n  str()\n\n\ntibble [1,704 × 6] (S3: tbl_df/tbl/data.frame)\n $ country  : Factor w/ 142 levels \"Afghanistan\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ continent: Factor w/ 5 levels \"Africa\",\"Americas\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ year     : int [1:1704] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...\n $ lifeExp  : num [1:1704] 28.8 30.3 32 34 36.1 ...\n $ pop      : int [1:1704] 8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...\n $ gdpPercap: num [1:1704] 779 821 853 836 740 ...\n\n\nRecordemos que para data frames de librerías normalmente podemos encontrar la documentación y entender cada atributo más rápido:\n\n\nCódigo\n?gapminder\n\n\n\n\n\n\n\n\nTip¿Qué nos dicen las columnas de gapminder?\n\n\n\n\n\n\ncountry / país: un factor que indica el nombre del país (Afganistán, Suecia, Brasil, etc.)\ncontinent / continente: un factor que denota la región geográfica (África, América, Asia, Europa, Oceanía)\nyear / año: un número que representa el año de los datos (1952 a 2007, cada 5 años)\nlifeExp / esperanza de vida: un número que indica los años de vida esperados al nacer\npop / población: un número que representa el total de habitantes del país\ngdpPercap / PIB per cápita: un número que muestra la producción económica por persona en dólares USD\n\n\n\n\nEn lugar de lanzarnos de inmediato a las preguntas, conviene dar espacio a la curiosidad y explorar primero qué más puede revelarnos la información disponible. Por eso, comenzaremos revisando variables como la mortalidad infantil, la fertilidad y la población.\nPodemos aplicar un filtro para quedarnos únicamente con los registros de México y, a partir de ahí, seleccionar las columnas de país, año y población.\n\n\nCódigo\ngapminder %&gt;% \n  filter(country == \"Mexico\") %&gt;% # Seleccionar pais\n  dplyr::select(country, year, pop) %&gt;%  # seleccionar columnas\n  head() # observar los primeros 3 valores\n\n\n# A tibble: 6 × 3\n  country  year      pop\n  &lt;fct&gt;   &lt;int&gt;    &lt;int&gt;\n1 Mexico   1952 30144317\n2 Mexico   1957 35015548\n3 Mexico   1962 41121485\n4 Mexico   1967 47995559\n5 Mexico   1972 55984294\n6 Mexico   1977 63759976\n\n\n\n\n\n\n\n\nTipActividad",
     "crumbs": [
       "**Sección 6** - Datos biológicos",
       "<span class='chapter-number'>28</span>  <span class='chapter-title'>Primer vistazo a datos biológicos</span>"
@@ -1227,179 +1249,289 @@
     ]
   },
   {
-    "objectID": "Act5_seccion6.html",
-    "href": "Act5_seccion6.html",
-    "title": "30  Actividad: Casos de estudio salud pública",
+    "objectID": "Cap2_ggiraph_p1.html",
+    "href": "Cap2_ggiraph_p1.html",
+    "title": "30  Pre-procesamiento de los datos",
     "section": "",
-    "text": "Instructora: Evelia Coss\n\nAplicar lo aprendido a datos de salud pública, analizando patrones y discutiendo implicaciones sociales.",
+    "text": "30.1 Selección de datos\nEn esta sección llevaremos a cabo la manipulación y limpieza de los datos que utilizaremos en los ejercicios posteriores.\nCargar paquetes en R\nNos gustaría conocer la información relacionada con la esperanza de vida (lifeExp), la población total del país (pop) y el producto interno bruto per cápita (gdpPercap) de los países involucrados en el Proyecto JAGUAR - UNAM durante el año 2007, utilizando el conjunto de datos gapminder disponible a través del paquete gapminder en R.\nCódigo\n# Paises involucrados con el proyecto JAGUAR\nJAGUAR_paises &lt;-  c(\"Argentina\", \"Brazil\", \"Colombia\", \"Chile\", \"Mexico\", \"Peru\", \"Uruguay\")\n\n# Seleccionar la informacion relacionada con los paises del proyecto JAGUAR durante todos los years registrados\nJAGUAR_gapminder &lt;- gapminder::gapminder %&gt;% \n  mutate(\n    # Convertir paises de factor a caracter para tener capas independientes por paises en la figura interactiva\n    id = levels(country)[as.numeric(country)],\n    country = forcats::fct_reorder(country, lifeExp)) %&gt;% \n  filter(continent == \"Americas\") %&gt;%\n  filter(country %in% JAGUAR_paises) %&gt;% # seleccionar paises\n  droplevels()  # eliminar niveles de factor no utilizados\nRevisar informacion\nCódigo\n# Visualizar informacion en una tabla bonita\nJAGUAR_gapminder %&gt;%\n  DT::datatable()\nGuardar la variable\nCódigo\n# crear una carpeta para la salida\n# Eliminar si existe\nif (dir.exists(\"data\")) {\n  unlink(\"data\", recursive = TRUE)\n}\n\n# Crear el nuevo directorio\ndir.create(\"data\")\n\n# Guardar la variable\nsave(JAGUAR_gapminder, file = \"data/JAGUAR_gapminder.RData\")",
     "crumbs": [
       "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>**Actividad:** Casos de estudio salud pública</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Pre-procesamiento de los datos</span>"
+    ]
+  },
+  {
+    "objectID": "Cap2_ggiraph_p1.html#estadística-descriptiva-de-los-datos",
+    "href": "Cap2_ggiraph_p1.html#estadística-descriptiva-de-los-datos",
+    "title": "30  Pre-procesamiento de los datos",
+    "section": "30.2 Estadística descriptiva de los datos",
+    "text": "30.2 Estadística descriptiva de los datos\nObtener un resumen descriptivo de la esperanza de vida media en los países seleccionados.\n\n\nCódigo\nJAGUAR_gapminder %&gt;%\n  select(-continent, -id, -year) %&gt;% \n  # Estadistica descriptiva en la tabla\n  tbl_summary(\n    by = country, \n    statistic = list(all_continuous() ~ \"{mean} ({sd})\", \n                     all_categorical() ~ \"{n} / {N} ({p}%)\"),\n    digits = all_continuous() ~ 2) %&gt;% \n  # Nombre del titulo de la tabla\n  modify_caption(\"Caracteristicas de los paises (N = {N})\") %&gt;%\n  as_gt()\n\n\n\n\n\n\nCaracteristicas de los paises (N = 84)\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPeru\nN = 121\nBrazil\nN = 121\nColombia\nN = 121\nMexico\nN = 121\nChile\nN = 121\nArgentina\nN = 121\nUruguay\nN = 121\n\n\n\n\nlifeExp\n58.86 (9.57)\n62.24 (7.04)\n63.90 (6.98)\n65.41 (8.19)\n67.43 (8.67)\n69.06 (4.19)\n70.78 (3.34)\n\n\npop\n17,559,093.00 (7,053,307.63)\n122,312,126.67 (45,747,618.44)\n27,256,099.58 (10,535,047.08)\n68,414,297.42 (26,954,820.63)\n11,205,725.33 (3,333,125.57)\n28,602,239.92 (7,546,608.99)\n2,912,487.17 (368,526.99)\n\n\ngdpPercap\n5,613.84 (1,056.66)\n5,829.32 (2,436.45)\n4,195.34 (1,652.93)\n7,724.11 (2,770.81)\n6,703.29 (3,026.19)\n8,955.55 (1,862.58)\n7,100.13 (1,612.26)\n\n\n\n1 Mean (SD)",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Pre-procesamiento de los datos</span>"
+    ]
+  },
+  {
+    "objectID": "Cap2_ggiraph_p1.html#referencias",
+    "href": "Cap2_ggiraph_p1.html#referencias",
+    "title": "30  Pre-procesamiento de los datos",
+    "section": "30.3 Referencias",
+    "text": "30.3 Referencias\n\nCap 6.5 EDA in tables - Tablas bonitas con estadistica\nCreating interactive visualizations with {ggiraph} (with or without Shiny)",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Pre-procesamiento de los datos</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html",
+    "href": "Cap3_ggiraph_p2.html",
+    "title": "31  Empleo de ggiraph",
+    "section": "",
+    "text": "31.0.1 Paleta de colores\nCargar paquetes\nSi te gustaria colocar mas colores de tu elección puedes emplear COLOR HEX.\nCódigo\npaises_pal  &lt;- c(\"#3392d0\", \"#9e3995\", \"#0552a1\",\"#de20a0\", \"#047e60\", \"#ea2f34\", \"#f8bf23\")\nnames(paises_pal) &lt;- c(\"Argentina\", \"Brazil\", \"Colombia\", \"Chile\", \"Mexico\", \"Peru\", \"Uruguay\")\nscales::show_col(paises_pal)",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#panel-a.-paises-que-participan-en-jaguar-project",
+    "href": "Cap3_ggiraph_p2.html#panel-a.-paises-que-participan-en-jaguar-project",
+    "title": "31  Empleo de ggiraph",
+    "section": "31.1 Panel A. Paises que participan en JAGUAR project",
+    "text": "31.1 Panel A. Paises que participan en JAGUAR project\n\n\nCódigo\n# Obtener los datos del mapa\nworld_map &lt;- ne_countries(scale = \"medium\", returnclass = \"sf\")\n\n# Filtrar los países de América Latina incluyendo México\nlatin_america &lt;- subset(world_map, name %in% c(\"Brazil\", \"Uruguay\", \"Argentina\", \"French Guiana\", \"Suriname\", \"Colombia\", \"Venezuela\", \"Bolivia\", \"Ecuador\", \"Chile\", \"Paraguay\", \"Peru\", \"Guyana\", \"Panama\", \"Costa Rica\", \"Nicaragua\", \"Honduras\", \"Belize\", \"Guatemala\", \"Mexico\", \"Trinidad and Tobago\", \"Caribe\", \"Puerto Rico\"))\n\n# Paises involucrados con el proyecto JAGUAR\nJAGUAR_paises &lt;-  c(\"Argentina\", \"Brazil\", \"Colombia\", \"Chile\", \"Mexico\", \"Peru\", \"Uruguay\")\n\n# Definir los colores para los países\nlatin_america &lt;- latin_america %&gt;% mutate(color = \n  case_when(\n  name == \"Argentina\" ~ \"#3392d0\",\n  name == \"Brazil\" ~ \"#9e3995\",\n  name == \"Colombia\" ~ \"#0552a1\",\n  name == \"Chile\" ~ \"#de20a0\",\n  name == \"Mexico\" ~ \"#047e60\",\n  name == \"Peru\" ~ \"#ea2f34\",\n  name == \"Uruguay\" ~ \"#f8bf23\",\n  TRUE ~ \"lightgrey\"\n))\n\n\n# Crear el mapa con ggplot2\nmap_plot &lt;- ggplot(data = latin_america) +\n  geom_sf(aes(fill = color, text = name), color = \"black\") +  # añadir `text` para tooltips\n  scale_fill_identity() +\n  theme_void() +\n  theme(\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    legend.position = \"none\") +\n  coord_sf()\n\n\nWarning in layer_sf(geom = GeomSf, data = data, mapping = mapping, stat = stat,\n: Ignoring unknown aesthetics: text\n\n\nCódigo\nmap_plot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipGuardar la figura\n\n\n\n\n\n31.1.1 ggsave\n\n\nCódigo\n# Guardar el mapa con alta calidad\nggsave(filename = \"graphs/mapa_latinoamerica.png\", \n       plot = map_plot, \n       width = 10,     # Ancho en pulgadas\n       height = 7,    # Altura en pulgadas\n       dpi = 300,     # Resolución en píxeles por pulgada\n       units = \"in\")  # Unidades de tamaño\n\n\n\n\n31.1.2 png\n\n\nCódigo\npng(\"graphs/mapa_latinoamerica_optionB.png\")\nprint(map_plot)\ndev.off()",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#mi-primer-mapa-interactivo",
+    "href": "Cap3_ggiraph_p2.html#mi-primer-mapa-interactivo",
+    "title": "31  Empleo de ggiraph",
+    "section": "31.2 Mi primer mapa interactivo",
+    "text": "31.2 Mi primer mapa interactivo\n\n\nCódigo\n# Crear el mapa\np_jaguar &lt;- ggplot() +\n  # Fondo gris para todos los países de América Latina\n  geom_sf(data = latin_america, fill = \"lightgrey\", color = \"white\") +\n  \n  # Colorear los países del consorcio JAGUAR con interactividad\n  geom_sf_interactive(\n    data = filter(latin_america, name %in% JAGUAR_paises),\n    aes(fill = color, tooltip = name, data_id = name),\n    color = \"white\"\n  ) +\n  \n  scale_fill_identity() +  # Para usar directamente los colores definidos\n  coord_sf(crs = st_crs(3857)) +\n  theme_void() +\n  theme(legend.position = \"none\")\np_jaguar\n\n\n\n\n\n\n\n\n\nCódigo\n# Mostrar como mapa interactivo\ngirafe(ggobj = p_jaguar)",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#panel-b.-población-total-por-paises",
+    "href": "Cap3_ggiraph_p2.html#panel-b.-población-total-por-paises",
+    "title": "31  Empleo de ggiraph",
+    "section": "31.3 Panel B. Población total por paises",
+    "text": "31.3 Panel B. Población total por paises\n\n\nCódigo\n# Crear el boxplot interactivo con los datos de JAGUAR_gapminder\nbox_plot &lt;- JAGUAR_gapminder %&gt;%\n  ggplot(aes(x = pop, y = country, fill = country, data_id = id)) +\n  # Agregar boxplots interactivos con ligero desplazamiento vertical\n  geom_boxplot_interactive(\n    position = position_nudge(y = 0.25),  # Desplaza los boxplots hacia abajo\n    width = 0.5 # Controla el ancho de las cajas\n  ) +\n  # Agregar marcas verticales tipo \"barra\" para valores individuales, también interactivos\n  geom_point_interactive(\n    aes(col = country, tooltip = id),                  # Color por país\n    position = position_nudge(y = -0.25),# Desplaza puntos hacia arriba\n    size = 8,                            # Tamaño de la marca\n    shape = '|',                         # Tipo de marcador vertical\n    alpha = 0.75                         # Transparencia\n  ) +\n  scale_fill_manual(values = paises_pal) +\n  scale_color_manual(values = paises_pal) +\n  # Etiquetas y título del gráfico\n  labs(\n    x = 'Población total (en años)',\n    y = element_blank(),\n    title = glue::glue('Distribución de la población')\n  ) +\n  # Tema minimalista y ajustes estéticos\n  theme_minimal(base_size = 12) +\n  theme(\n    text = element_text(\n      color = 'grey20'\n    ),\n    legend.position = 'none',\n    panel.grid.minor = element_blank(),\n    plot.title.position = 'plot'\n  )\nbox_plot\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\n\n\n\n\n31.3.1 Volver interactivo\n\n\nCódigo\ngirafe(\n  ggobj = box_plot) # Objeto ggplot a convertir en interactivo\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\nActualmente, nuestro gráfico de líneas se vuelve naranja cuando pasamos el ratón por encima de ellas. Todo lo demás permanece sin cambios. Cambiémoslo para que todas las líneas menos una se vuelvan transparentes.\nLa forma de hacerlo es pasar una lista de opciones a girafe(). Esta lista contendrá opts_hover() y opts_hover_inv() para determinar el código CSS que debe aplicarse. Además, fijemos el tamaño de nuestra trama con opts_sizing().\n\n\nCódigo\n# Convertir en gráfico interactivo\ngirafe(\n  ggobj = box_plot,  # Gráfico generado con geom_*_interactive\n  options = list(\n    opts_hover(css = ''),   # Estilo CSS para el elemento bajo el cursor\n    opts_hover_inv(css = \"opacity:0.1;\"), # Estilo CSS para los demás elementos (baja opacidad)\n    opts_sizing(rescale = FALSE) # Mantiene el tamaño fijo del gráfico\n  ),\n  \n  height_svg = 6,  # Altura del gráfico en SVG\n  width_svg = 9    # Ancho del gráfico en SVG\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\n\n\n\n\n\n\nNotaNotas\n\n\n\n\nline_chart debe ser un objeto creado con ggplot() que use geoms interactivos como geom_line_interactive().\nopts_hover(css = ''): puedes personalizar aquí el estilo al pasar el mouse sobre una línea (ej. cambiar color o grosor).\nopts_hover_inv(css = 'opacity:0.1;'): permite resaltar una línea al atenuar las otras.\nheight_svg y width_svg definen el tamaño del gráfico exportado/interactivo.",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#panel-c.-esperanza-de-vida-atraves-del-tiempo",
+    "href": "Cap3_ggiraph_p2.html#panel-c.-esperanza-de-vida-atraves-del-tiempo",
+    "title": "31  Empleo de ggiraph",
+    "section": "31.4 Panel C. Esperanza de vida atraves del tiempo",
+    "text": "31.4 Panel C. Esperanza de vida atraves del tiempo\n\n\nCódigo\n# Crear archivo de lineas sobre la esperanza de vida\nline_chart &lt;- JAGUAR_gapminder %&gt;%\n  ggplot(aes(x = year, y = lifeExp, col = country, data_id = id)) +\n  geom_line_interactive(linewidth = 2.5) +\n  geom_point_interactive(aes(tooltip = id), size = 4) +\n  theme_minimal(base_size = 12) +\n  labs(\n    x = element_blank(),\n    y = 'Esperanza de vida \\n(en años)',\n    title = 'Esperanza de vida a lo largo del tiempo'\n  ) +\n  theme(\n    text = element_text(\n      color = 'grey20'\n    ),\n    legend.position = 'none',\n    panel.grid.minor = element_blank(),\n    plot.title.position = 'plot') +\n  scale_color_manual(values = paises_pal)\n\nline_chart\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\n\n\n\n\n31.4.1 Volver interactivo\n\n\nCódigo\ngirafe(\n  ggobj = line_chart, # Objeto ggplot a convertir en interactivo\n  # Seleccionar el Estilo CSS para la línea sobre la que se pasa el cursor\n  options = list(\n    opts_hover(css = ''), ## CSS code of line we're hovering over\n     # Estilo CSS para las demás líneas que no están siendo enfocadas (reduce opacidad)\n    opts_hover_inv(css = \"opacity:0.1;\"), ## CSS code of all other lines\n    # Fija el tamaño del gráfico (no permite que cambie con el tamaño del contenedor)\n    opts_sizing(rescale = FALSE) ## Fixes sizes to dimensions below\n  ),\n  # Altura del gráfico en unidades SVG\n  height_svg = 6,\n  # Ancho del gráfico en unidades SVG\n  width_svg = 9\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#unir-panel-b-y-c",
+    "href": "Cap3_ggiraph_p2.html#unir-panel-b-y-c",
+    "title": "31  Empleo de ggiraph",
+    "section": "31.5 Unir Panel B y C",
+    "text": "31.5 Unir Panel B y C\n\n\nCódigo\ninteractive_plot &lt;- girafe(\n  # Combina el boxplot y el gráfico de líneas en una sola visualización interactiva\n  ggobj = box_plot + plot_spacer() + line_chart + \n    plot_layout(widths = c(0.45, 0.1, 0.45)),\n  # Opciones de interactividad para girafe\n  options = list(\n    opts_hover(css = ''),\n    opts_hover_inv(css = \"opacity:0.1;\"), \n    opts_sizing(rescale = FALSE)\n  ),\n  # Dimensiones del gráfico en unidades SVG\n  height_svg = 6,\n  width_svg = 8\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n`label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\nCódigo\ninteractive_plot",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#unir-panel-a-b-y-c",
+    "href": "Cap3_ggiraph_p2.html#unir-panel-a-b-y-c",
+    "title": "31  Empleo de ggiraph",
+    "section": "31.6 Unir Panel A, B y C",
+    "text": "31.6 Unir Panel A, B y C\n\n\nCódigo\n# Layout con patchwork: mapa arriba, boxplot + line_chart abajo\nlayout_total &lt;- p_jaguar | (box_plot / line_chart) + plot_layout(widths = c(0.45, 0.1, 0.45)) \n#+ plot_layout(heights = c(0.5, 0.5))  # mitad mapa, mitad box + línea\n\n# Convertir todo en visualización interactiva\ninteractive_plot &lt;- girafe(\n  ggobj = layout_total,\n  options = list(\n    opts_hover(css = ''),\n    opts_hover_inv(css = \"opacity:0.1;\"),\n    opts_sizing(rescale = FALSE)\n  ),\n  height_svg = 6,\n  width_svg = 8\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n`label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\nCódigo\ninteractive_plot\n\n\n\n\n\n\nGuardar el plot interactivo\n\n\nCódigo\nhtmltools::save_html(interactive_plot, \"graphs/multiple-ggiraph-1.html\")",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#referencias",
+    "href": "Cap3_ggiraph_p2.html#referencias",
+    "title": "31  Empleo de ggiraph",
+    "section": "31.7 Referencias",
+    "text": "31.7 Referencias\n\nCreating interactive visualizations with {ggiraph} (with or without Shiny)\nMore complex CSS\nggiraph manual",
+    "crumbs": [
+      "**Sección 6** - Datos biológicos",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Empleo de `ggiraph`</span>"
     ]
   },
   {
     "objectID": "Parte19.html",
     "href": "Parte19.html",
-    "title": "31  Variantes genéticas y enfermedades del sistema inmune",
+    "title": "32  Variantes genéticas y enfermedades del sistema inmune",
     "section": "",
     "text": "Introducir cómo cambios en el ADN pueden influir en la respuesta inmunológica y predisposición a enfermedades.",
     "crumbs": [
       "**Sección 7** - Caso de estudio: Genes y el sistema inmune",
-      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Variantes genéticas y enfermedades del sistema inmune</span>"
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Variantes genéticas y enfermedades del sistema inmune</span>"
     ]
   },
   {
     "objectID": "Parte20.html",
     "href": "Parte20.html",
-    "title": "32  Exploración de bases de datos públicas",
+    "title": "33  Exploración de bases de datos públicas",
     "section": "",
     "text": "Aprender a buscar y descargar información genética disponible en repositorios abiertos.",
     "crumbs": [
       "**Sección 7** - Caso de estudio: Genes y el sistema inmune",
-      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Exploración de bases de datos públicas</span>"
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Exploración de bases de datos públicas</span>"
     ]
   },
   {
     "objectID": "Act6_seccion7.html",
     "href": "Act6_seccion7.html",
-    "title": "33  Actividad: Explora datos genéticos reales",
+    "title": "34  Actividad: Explora datos genéticos reales",
     "section": "",
     "text": "Ejercicio práctico para familiarizarse con datasets auténticos y reconocer su estructura.",
     "crumbs": [
       "**Sección 7** - Caso de estudio: Genes y el sistema inmune",
-      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Actividad: Explora datos genéticos reales</span>"
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Actividad: Explora datos genéticos reales</span>"
     ]
   },
   {
     "objectID": "Parte21.html",
     "href": "Parte21.html",
-    "title": "34  Cómo formular preguntas biológicas",
+    "title": "35  Cómo formular preguntas biológicas",
     "section": "",
     "text": "Diseñar preguntas claras que conecten hipótesis con datos disponibles.",
     "crumbs": [
       "**Sección 8** - Preguntas biológicas y reportes en Quarto",
-      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
     ]
   },
   {
     "objectID": "Act7_seccion8.html",
     "href": "Act7_seccion8.html",
-    "title": "35  Actividad: de la pregunta al análisis",
+    "title": "36  Actividad: de la pregunta al análisis",
     "section": "",
     "text": "Transformar una pregunta biológica en un plan de análisis con pasos definidos.",
     "crumbs": [
       "**Sección 8** - Preguntas biológicas y reportes en Quarto",
-      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Actividad: de la pregunta al análisis</span>"
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Actividad: de la pregunta al análisis</span>"
     ]
   },
   {
     "objectID": "Parte22.html",
     "href": "Parte22.html",
-    "title": "36  Creación de reportes con Quarto",
+    "title": "37  Creación de reportes con Quarto",
     "section": "",
     "text": "Generar documentos reproducibles que integren código, resultados y explicación científica.",
     "crumbs": [
       "**Sección 8** - Preguntas biológicas y reportes en Quarto",
-      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
     ]
   },
   {
     "objectID": "Act8_seccion8.html",
     "href": "Act8_seccion8.html",
-    "title": "37  Actividad en equipo: identificación de patrones en datos genéticos",
+    "title": "38  Actividad en equipo: identificación de patrones en datos genéticos",
     "section": "",
     "text": "Colaborar para detectar tendencias y discutir su posible significado biológico.",
     "crumbs": [
       "**Sección 8** - Preguntas biológicas y reportes en Quarto",
-      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Actividad en equipo: identificación de patrones en datos genéticos</span>"
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Actividad en equipo: identificación de patrones en datos genéticos</span>"
     ]
   },
   {
     "objectID": "Parte23.html",
     "href": "Parte23.html",
-    "title": "38  Salida de campo: ecosistemas de La Paz",
+    "title": "39  Salida de campo: ecosistemas de La Paz",
     "section": "",
     "text": "7 am a 13 h",
     "crumbs": [
       "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Salida de campo: ecosistemas de La Paz</span>"
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Salida de campo: ecosistemas de La Paz</span>"
     ]
   },
   {
     "objectID": "Parte24.html",
     "href": "Parte24.html",
-    "title": "39  ¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?",
+    "title": "40  ¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?",
     "section": "",
     "text": "Relacionar las observaciones de campo con los conceptos de datos",
     "crumbs": [
       "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>39</span>  <span class='chapter-title'>¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?</span>"
+      "<span class='chapter-number'>40</span>  <span class='chapter-title'>¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?</span>"
     ]
   },
   {
     "objectID": "Parte25.html",
     "href": "Parte25.html",
-    "title": "40  ¿Qué significa tener una predisposición genética?",
+    "title": "41  ¿Qué significa tener una predisposición genética?",
     "section": "",
     "text": "Relacionar las observaciones de campo con los conceptos de datos",
     "crumbs": [
       "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>40</span>  <span class='chapter-title'>¿Qué significa tener una predisposición genética?</span>"
+      "<span class='chapter-number'>41</span>  <span class='chapter-title'>¿Qué significa tener una predisposición genética?</span>"
     ]
   },
   {
     "objectID": "Parte26.html",
     "href": "Parte26.html",
-    "title": "41  Introducción a la salud mental y a los datos relacionados con el cerebro",
+    "title": "42  Introducción a la salud mental y a los datos relacionados con el cerebro",
     "section": "",
     "text": "Presentar cómo se estudian variables relacionadas con el cerebro y su impacto en bienestar.",
     "crumbs": [
       "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>41</span>  <span class='chapter-title'>Introducción a la salud mental y a los datos relacionados con el cerebro</span>"
+      "<span class='chapter-number'>42</span>  <span class='chapter-title'>Introducción a la salud mental y a los datos relacionados con el cerebro</span>"
     ]
   },
   {
     "objectID": "Parte27.html",
     "href": "Parte27.html",
-    "title": "42  Estrés, sueño y hábitos: la interacción gene × entorno",
+    "title": "43  Estrés, sueño y hábitos: la interacción gene × entorno",
     "section": "",
     "text": "Analizar cómo factores ambientales y genéticos se combinan para influir en la salud.",
     "crumbs": [
       "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>42</span>  <span class='chapter-title'>Estrés, sueño y hábitos: la interacción gene × entorno</span>"
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Estrés, sueño y hábitos: la interacción gene × entorno</span>"
     ]
   },
   {
     "objectID": "Act9_seccion9.html",
     "href": "Act9_seccion9.html",
-    "title": "43  Actividad en equipo: continuación del póster",
+    "title": "44  Actividad en equipo: continuación del póster",
     "section": "",
     "text": "Seguir desarrollando el póster académico del proyecto final, integrando resultados y narrativa científica.",
     "crumbs": [
       "**Sección 9** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Actividad en equipo: continuación del póster</span>"
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>Actividad en equipo: continuación del póster</span>"
     ]
   },
   {
     "objectID": "Parte28.html",
     "href": "Parte28.html",
-    "title": "44  Análisis y visualización de tus datos",
+    "title": "45  Análisis y visualización de tus datos",
     "section": "",
     "text": "Los estudiantes trabajan con sus resultados para generar gráficas y comprender patrones clave.",
     "crumbs": [
       "**Sección 10** - Recta final del proyecto",
-      "<span class='chapter-number'>44</span>  <span class='chapter-title'>Análisis y visualización de tus datos</span>"
+      "<span class='chapter-number'>45</span>  <span class='chapter-title'>Análisis y visualización de tus datos</span>"
     ]
   },
   {
     "objectID": "Parte29.html",
     "href": "Parte29.html",
-    "title": "45  Creación de paneles de figuras",
+    "title": "46  Creación de paneles de figuras",
     "section": "",
     "text": "Se organizan las visualizaciones en paneles coherentes que apoyen la narrativa científica.",
     "crumbs": [
       "**Sección 10** - Recta final del proyecto",
-      "<span class='chapter-number'>45</span>  <span class='chapter-title'>Creación de paneles de figuras</span>"
+      "<span class='chapter-number'>46</span>  <span class='chapter-title'>Creación de paneles de figuras</span>"
     ]
   }
 ]

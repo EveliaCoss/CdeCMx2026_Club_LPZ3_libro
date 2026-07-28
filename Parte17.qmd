@@ -4,9 +4,136 @@
 
 Explorar datasets de biología (genes, salud, biodiversidad) para reconocer su estructura y complejidad.
 
+### **¿Por qué los datos biológicos son "especiales"? 🤔**
+
+Los datos biológicos son diferentes a otros tipos de datos porque:
+
+- **Alta dimensionalidad**: Muchas variables (genes, proteínas, características)
+- **Complejidad**: Relaciones no lineales entre variables
+- **Variabilidad natural**: Cada organismo es único
+- **Contexto importante**: El ambiente influye en los datos
+- **Escala**: Desde moléculas microscópicas hasta ecosistemas completos
+
+### **Estructura de un Dataset Biológico 🗂️**
+
+Un dataset biológico típicamente tiene esta estructura:
+
+![Imagen creada con Gemini.](figures/biologico_estructura.png){fig-align="center"}
+
+### **¿Qué es Gapminder? 🌐**
+
+[Gapminder](https://www.gapminder.org/data/) es una **organización sin fines de lucro con sede en Suecia** que promueve el desarrollo global mediante el uso de estadísticas que pueden ayudar a reducir mitos comunes e historias sensasionalistas sobre la salud y la economía mundial. Proporciona datasets sobre:
+
+- **Salud**: Esperanza de vida, mortalidad infantil, enfermedades
+- **Economía**: PIB per cápita, ingresos
+- **Demografía**: Población, tasa de natalidad, tasa de mortalidad
+- **Educación**: Años de escolaridad, alfabetismo
+- **Medio ambiente**: Emisiones de CO₂, acceso a agua potable
+
+::: {.callout-tip icon="false"}
+**Importancia biológica**: Estos datos reflejan la salud y supervivencia de poblaciones humanas, conceptos fundamentales en biología.
+:::
+
+::: callout-note
+**PIB** significa **Producto Interno Bruto**. Es el **valor total de todos los bienes y servicios** que un país produce en un año específico.
+
+Piénsalo así: Si sumamos todo lo que se fabrica, cultiva, vende y se presta como servicio en un país durante un año, eso es el PIB.
+
+### **Desglose de la Definición 🔍**
+
+| Palabra      | Significado                                      |
+|--------------|--------------------------------------------------|
+| **Producto** | Bienes (cosas físicas) y servicios (actividades) |
+| **Interno**  | Dentro del territorio del país                   |
+| **Bruto**    | Sin restar costos o depreciación                 |
+
+**Resumen**
+
+| Concepto | Definición |
+|----------------------|--------------------------------------------------|
+| **PIB** | Valor total de bienes y servicios producidos en un país en un año |
+| **PIB per Cápita** | PIB dividido entre la población (producción por persona) |
+| **Relación con salud** | Mayor PIB per Cápita → Mejor acceso a salud → Mayor esperanza de vida |
+| **En Gapminder** | Indicador clave para entender desarrollo y su relación con biología humana |
+:::
+
+### **¿Por qué Gapminder es ideal para datos biológicos? 🎯**
+
+| Aspecto | Relevancia |
+|-------------------|-----------------------------------------------------|
+| **Datos reales** | Información verificada de organismos internacionales (ONU, OMS) |
+| **Temporal** | Datos a lo largo de décadas, mostrando cambios biológicos y sociales |
+| **Multidimensional** | Múltiples variables que interactúan (salud, economía, educación) |
+| **Geográfico** | Variabilidad entre países y regiones (biodiversidad humana) |
+| **Complejo** | Relaciones no lineales y correlaciones interesantes |
+| **Accesible** | Datos públicos y bien documentados |
+
+### **Tipos de Datos en Gapminder 🔬**
+
+#### **1. Datos Demográficos (Biología de Poblaciones)**
+
+- Población total
+- Tasa de natalidad
+- Tasa de mortalidad
+- Crecimiento poblacional
+
+**Relevancia biológica**: Estudian la dinámica de poblaciones humanas
+
+#### **2. Datos de Salud (Biología Humana)**
+
+- Esperanza de vida
+- Mortalidad infantil
+- Prevalencia de enfermedades
+- Acceso a servicios de salud
+
+**Relevancia biológica**: Reflejan la salud y supervivencia de organismos humanos
+
+#### **3. Datos Socioeconómicos (Ambiente)**
+
+- PIB per cápita
+- Años de escolaridad
+- Acceso a agua potable
+- Acceso a electricidad
+
+**Relevancia biológica**: El ambiente socioeconómico influye en la expresión de características biológicas (fenotipo)
+
+#### **4. Datos Ambientales (Ecosistema)**
+
+- Emisiones de CO₂
+- Deforestación
+- Contaminación
+- Cambio climático
+
+**Relevancia biológica**: Afectan la biodiversidad y la supervivencia de organismos
+
+![Imagen creada con Gemini.](figures/biologico_datos.png){fig-align="center"}
+
+### **Preguntas que Podemos Responder con Gapminder 🤔**
+
+| Pregunta | Tipo de Análisis | Complejidad | Relevancia Biológica |
+|---------------------|------------------|-----------------|-----------------|
+| ¿Cuál es la esperanza de vida promedio global? | Estadística descriptiva | Baja | Supervivencia humana |
+| ¿Qué país tiene la mortalidad infantil más baja? | Comparación de grupos | Baja | Salud infantil |
+| ¿Existe correlación entre PIB y esperanza de vida? | Análisis de correlación | Media | Ambiente → Fenotipo |
+| ¿Cómo ha evolucionado la esperanza de vida en 60 años? | Análisis temporal | Media | Cambios biológicos |
+| ¿Qué regiones tienen patrones similares de desarrollo? | Análisis de agrupación | Media-Alta | Biodiversidad humana |
+| ¿Podemos predecir la esperanza de vida basada en PIB y educación? | Machine Learning | Alta | Factores determinantes |
+| ¿Cuál es el impacto del CO₂ en la salud poblacional? | Análisis multivariado | Alta | Ecosistema → Salud |
+
+::: {.callout-caution icon="false"}
+## Pasos a seguir
+
+El proceso que vamos a seguir para resolver algunas de estas preguntas mencionadas será:
+
+1.  Exploración de datos
+2.  Entendimiento de los datos
+3.  Análisis de datos hasta encontrar los relevantes para las resolver preguntas
+4.  Visualización y resumen
+:::
+
 ## Instalar y cargar paquetes en R
 
-Instalar el paquete `pacman`:
+Instalar el paquete [`pacman`](https://github.com/cran/pacman):
 
 ```{r, eval=FALSE, message=FALSE, warning=FALSE}
 install.packages("pacman")
@@ -14,12 +141,47 @@ install.packages("pacman")
 
 Este paquete `pacman` permite cargar e instalar los paquetes instalados:
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 pacman::p_load(
-  tidyverse,         # gestión de datos
-  stringr,           # trabajar con cadenas/caracteres
-  lubridate,         # trabajar con fechas
-  rio,               # importar / exportar
-  here,              # rutas relativas 
-  fs)                # interacciones de directorio
+  gapminder,         # Datos mundiales
+  tidyverse)         # gestión de datos
 ```
+
+## Exploración de datos
+
+```{r}
+gapminder %>% 
+  str()
+```
+
+Recordemos que para data frames de librerías normalmente podemos encontrar la documentación y entender cada atributo más rápido:
+
+```{r, eval=FALSE}
+?gapminder
+```
+
+::: {.callout-tip icon="false" collapse="true"}
+## ¿Qué nos dicen las columnas de **`gapminder`**?
+
+- **country / país**: un factor que indica el nombre del país (Afganistán, Suecia, Brasil, etc.)
+- **continent / continente**: un factor que denota la región geográfica (África, América, Asia, Europa, Oceanía)
+- **year / año**: un número que representa el año de los datos (1952 a 2007, cada 5 años)
+- **lifeExp / esperanza de vida**: un número que indica los años de vida esperados al nacer
+- **pop / población**: un número que representa el total de habitantes del país
+- **gdpPercap / PIB per cápita**: un número que muestra la producción económica por persona en dólares USD
+:::
+
+En lugar de lanzarnos de inmediato a las preguntas, conviene dar espacio a la curiosidad y explorar primero qué más puede revelarnos la información disponible. Por eso, comenzaremos revisando variables como la mortalidad infantil, la fertilidad y la población.
+
+Podemos aplicar un filtro para quedarnos únicamente con los registros de México y, a partir de ahí, seleccionar las columnas de país, año y población.
+
+```{r}
+gapminder %>% 
+  filter(country == "Mexico") %>% # Seleccionar pais
+  dplyr::select(country, year, pop) %>%  # seleccionar columnas
+  head() # observar los primeros 3 valores
+```
+
+::: {.callout-tip icon="false"}
+## Actividad
+:::
