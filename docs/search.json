@@ -1249,234 +1249,234 @@
     ]
   },
   {
-    "objectID": "Parte18.html",
-    "href": "Parte18.html",
-    "title": "28  Creación de tablas con información con estadística descriptiva",
-    "section": "",
-    "text": "28.0.1 ¿Qué es la Estadística Descriptiva? 🤔\nGenerar tablas con medidas básicas (media, mediana, desviación estándar) para resumir información.\nLa estadística descriptiva es el conjunto de técnicas que usamos para resumir, organizar y describir datos de forma clara y comprensible. Es como tomar un dataset enorme y extraer la información más importante.",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Creación de tablas con información con estadística descriptiva</span>"
-    ]
-  },
-  {
-    "objectID": "Parte18.html#cargar-el-paquete",
-    "href": "Parte18.html#cargar-el-paquete",
-    "title": "28  Creación de tablas con información con estadística descriptiva",
-    "section": "28.1 Cargar el paquete",
-    "text": "28.1 Cargar el paquete\n\n\nCódigo\npacman::p_load(\n  gapminder,         # Datos mundiales\n  tidyverse)         # gestión de datos",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Creación de tablas con información con estadística descriptiva</span>"
-    ]
-  },
-  {
-    "objectID": "Parte18.html#actividad-2",
-    "href": "Parte18.html#actividad-2",
-    "title": "28  Creación de tablas con información con estadística descriptiva",
-    "section": "28.2 Actividad 2",
-    "text": "28.2 Actividad 2\n\nEjercicio 2.1: Resumen estadístico\n\nCalcula la media, mediana, mínimo y máximo de la esperanza de vida.\nPista: Usa summary() o describe()\n\n\nCódigo\nsummary(gapminder$lifeExp)\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  23.60   48.20   60.71   59.47   70.85   82.60 \n\n\nInterpretación:\n\n\n\nMedida\nValor\nSignificado\n\n\n\n\nMínimo\n23.6 años\nEl país con menor esperanza de vida\n\n\nQ1 (25%)\n48.2 años\n25% de observaciones están por debajo\n\n\nMediana\n60.71 años\nValor central; 50% arriba, 50% abajo\n\n\nMedia\n59.47 años\nPromedio de todas las observaciones\n\n\nQ3 (75%)\n70.85 años\n75% de observaciones están por debajo\n\n\nMáximo\n82.6 años\nEl país con mayor esperanza de vida\n\n\n\n\nEjercicio 2.2: Rango de años\n\n¿Cuál es el año más antiguo y el más reciente en el dataset?\nPista: Usa min() y max() en la columna year\n\n\nCódigo\n# Encontrar el año mínimo y máximo\nmin(gapminder$year)\n\n\n[1] 1952\n\n\nCódigo\nmax(gapminder$year)\n\n\n[1] 2007\n\n\nInterpretación:\n\n\n\nMedida\nValor\nSignificado\n\n\n\n\nAño más antiguo\n1952\nInicio del dataset\n\n\nAño más reciente\n2007\nFin del dataset\n\n\nRango temporal\n55 años\nPeríodo de cobertura\n\n\nIntervalo\nCada 5 años\nFrecuencia de datos\n\n\n\n\nEjercicio 2.3: Población total\n\n¿Cuál es la población total mundial en 2007?\nPista: Filtra year == 2007 y suma la columna pop\n\n\nCódigo\n# Opción A. Filtrar datos de 2007 y sumar población\ngapminder_2007 &lt;- gapminder %&gt;%\n  filter(year == 2007)\n\nsum(gapminder_2007$pop)\n\n\n[1] 6251013179\n\n\n\n\nCódigo\n# Opción B. Una forma más elegante:\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  summarize(poblacion_total = sum(pop))\n\n\n# A tibble: 1 × 1\n  poblacion_total\n            &lt;dbl&gt;\n1      6251013179\n\n\nInterpretación:\n\n\n\n\n\n\n\n\nMedida\nValor\nSignificado\n\n\n\n\nPoblación mundial 2007\n6.25 billones\nTotal de habitantes\n\n\nEn notación científica\n6.25 × 10⁹\n6.25 mil millones\n\n\nComparación\n~6.3 billones reales\nEl dataset cubre ~99% de la población\n\n\n\n\nEjercicio 2.4: Variabilidad\n\n¿Cuál tiene mayor variabilidad: esperanza de vida o PIB per cápita?\nPista: Compara desviación estándar o coeficiente de variación\n\n\nCódigo\n# Calcular desviación estándar\nsd(gapminder$lifeExp)\n\n\n[1] 12.91711\n\n\nCódigo\nsd(gapminder$gdpPercap)\n\n\n[1] 9857.455\n\n\n\n\nCódigo\n# Esperanza de vida\nmean_lifeExp &lt;- mean(gapminder$lifeExp)\nsd_lifeExp &lt;- sd(gapminder$lifeExp)\ncv_lifeExp &lt;- (sd_lifeExp / mean_lifeExp) * 100\n\n\n\n\nCódigo\n# PIB per cápita\nmean_gdp &lt;- mean(gapminder$gdpPercap)\nsd_gdp &lt;- sd(gapminder$gdpPercap)\ncv_gdp &lt;- (sd_gdp / mean_gdp) * 100\n\n\n\n\nCódigo\n# Comparación visual\ndata.frame(\n  Variable = c(\"Esperanza de Vida\", \"PIB per Cápita\"),\n  Media = c(mean_lifeExp, mean_gdp),\n  Desv_Est = c(sd_lifeExp, sd_gdp),\n  CV_Porcentaje = c(cv_lifeExp, cv_gdp)\n)\n\n\n           Variable      Media   Desv_Est CV_Porcentaje\n1 Esperanza de Vida   59.47444   12.91711      21.71875\n2    PIB per Cápita 7215.32708 9857.45454     136.61826\n\n\nInterpretación:\n\n\n\n\n\n\n\n\n\n\nVariable\nMedia\nDesv. Est.\nCV (%)\nVariabilidad\n\n\n\n\nEsperanza de Vida\n59.47 años\n12.47\n20.98%\nBaja-Media\n\n\nPIB per Cápita\n$7,215\n$14,222\n150.51%\nMuy Alta\n\n\n\n\nEjercicio 2.5: Valores faltantes\n\n¿Hay valores faltantes (NA) en el dataset? ¿En qué columnas?\nPista: Usa is.na() o sum(is.na())\n\n\nCódigo\n# Opción 1: Contar NAs por columna\ncolSums(is.na(gapminder))\n\n\n  country continent      year   lifeExp       pop gdpPercap \n        0         0         0         0         0         0 \n\n\n\n\nCódigo\n# Opción 2: Verificar si hay algún NA en todo el dataset\nsum(is.na(gapminder))\n\n\n[1] 0\n\n\n\n\nCódigo\n# Opción 3: Visualizar con una función más detallada\ngapminder %&gt;%\n  summarize(across(everything(), ~sum(is.na(.))))\n\n\n# A tibble: 1 × 6\n  country continent  year lifeExp   pop gdpPercap\n    &lt;int&gt;     &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt;     &lt;int&gt;\n1       0         0     0       0     0         0\n\n\nInterpretación: El dataset de Gapminder está completamente limpio. No hay valores faltantes en ninguna columna. Esto es excelente para el análisis, ya que no necesitamos imputar datos ni eliminar filas incompletas.\n\n\n\n\n\n\nImportante\n\n\n\nNota: En datasets reales, los valores faltantes son comunes y requieren estrategias especiales (eliminar, imputar, etc.).\n\n\n\n\n\n\n\n\nNotaActividad 3\n\n\n\n\nEjercicio 3.1: Un país específico\n\nFiltra los datos de México y visualiza cómo cambió su esperanza de vida de 1952 a 2007.\nPista: Usa filter() para country == \"Mexico\"\n\nEjercicio 3.2: Un año específico\n\n¿Cuál es el país con la mayor esperanza de vida en 2007?\nPista: Filtra year == 2007 y usa arrange() o max()\n\nEjercicio 3.3: Un continente\n\n¿Cuál es la esperanza de vida promedio en África en 2007?\nPista: Filtra continent == \"Africa\" y year == 2007, luego calcula mean()\n\nEjercicio 3.4: Agrupación simple\n\nCalcula la esperanza de vida promedio por continente en 2007.\nPista: Usa group_by(continent) y summarize(mean(lifeExp))\n\nEjercicio 3.5:Agrupación múltiple\n\n¿Cuál es la población promedio por continente en cada década (1952, 1962, 1972, etc.)?\nPista: Usa group_by(continent, year) y summarize(mean(pop))",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Creación de tablas con información con estadística descriptiva</span>"
-    ]
-  },
-  {
-    "objectID": "Cap2_ggiraph_p1.html",
-    "href": "Cap2_ggiraph_p1.html",
-    "title": "29  Pre-procesamiento de los datos",
-    "section": "",
-    "text": "29.1 Selección de datos\nEn esta sección llevaremos a cabo la manipulación y limpieza de los datos que utilizaremos en los ejercicios posteriores.\nCargar paquetes en R\nNos gustaría conocer la información relacionada con la esperanza de vida (lifeExp), la población total del país (pop) y el producto interno bruto per cápita (gdpPercap) de los países involucrados en el Proyecto JAGUAR - UNAM durante el año 2007, utilizando el conjunto de datos gapminder disponible a través del paquete gapminder en R.\nCódigo\n# Paises involucrados con el proyecto JAGUAR\nJAGUAR_paises &lt;-  c(\"Argentina\", \"Brazil\", \"Colombia\", \"Chile\", \"Mexico\", \"Peru\", \"Uruguay\")\n\n# Seleccionar la informacion relacionada con los paises del proyecto JAGUAR durante todos los years registrados\nJAGUAR_gapminder &lt;- gapminder::gapminder %&gt;% \n  mutate(\n    # Convertir paises de factor a caracter para tener capas independientes por paises en la figura interactiva\n    id = levels(country)[as.numeric(country)],\n    country = forcats::fct_reorder(country, lifeExp)) %&gt;% \n  filter(continent == \"Americas\") %&gt;%\n  filter(country %in% JAGUAR_paises) %&gt;% # seleccionar paises\n  droplevels()  # eliminar niveles de factor no utilizados\nRevisar informacion\nCódigo\n# Visualizar informacion en una tabla bonita\nJAGUAR_gapminder %&gt;%\n  DT::datatable()\nGuardar la variable\nCódigo\n# crear una carpeta para la salida\n# Eliminar si existe\nif (dir.exists(\"data\")) {\n  unlink(\"data\", recursive = TRUE)\n}\n\n# Crear el nuevo directorio\ndir.create(\"data\")\n\n# Guardar la variable\nsave(JAGUAR_gapminder, file = \"data/JAGUAR_gapminder.RData\")",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Pre-procesamiento de los datos</span>"
-    ]
-  },
-  {
-    "objectID": "Cap2_ggiraph_p1.html#estadística-descriptiva-de-los-datos",
-    "href": "Cap2_ggiraph_p1.html#estadística-descriptiva-de-los-datos",
-    "title": "29  Pre-procesamiento de los datos",
-    "section": "29.2 Estadística descriptiva de los datos",
-    "text": "29.2 Estadística descriptiva de los datos\n\n29.2.1 TIPO 1: Tabla con summary() (Base R) 🟢\nLa forma más simple y rápida de obtener estadísticas.\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  select(lifeExp, pop, gdpPercap) %&gt;%\n  summary()\n\n\n    lifeExp           pop              gdpPercap      \n Min.   :39.61   Min.   :1.996e+05   Min.   :  277.6  \n 1st Qu.:57.16   1st Qu.:4.508e+06   1st Qu.: 1624.8  \n Median :71.94   Median :1.052e+07   Median : 6124.4  \n Mean   :67.01   Mean   :4.402e+07   Mean   :11680.1  \n 3rd Qu.:76.41   3rd Qu.:3.121e+07   3rd Qu.:18008.8  \n Max.   :82.60   Max.   :1.319e+09   Max.   :49357.2  \n\n\nVentajas:\n\n✅ Muy rápido\n✅ No requiere paquetes adicionales\n✅ Muestra 6 estadísticas automáticamente\n\nDesventajas:\n\n❌ No es muy bonito\n❌ Difícil de personalizar\n❌ No agrupa bien\n\n\n\n29.2.2 TIPO 2: Tabla con describe() (Paquete psych) 🟡\n¿Qué es?: Tabla más detallada que summary().\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  select(lifeExp, pop, gdpPercap) %&gt;%\n  describe()\n\n\n          vars   n        mean           sd      median     trimmed         mad\nlifeExp      1 142       67.01        12.07       71.94       68.11       11.01\npop          2 142 44021219.57 147621397.90 10517531.00 18112753.95 12212489.77\ngdpPercap    3 142    11680.07     12859.94     6124.37     9614.17     7522.41\n                min          max        range  skew kurtosis          se\nlifeExp       39.61 8.260000e+01 4.299000e+01 -0.67    -0.87        1.01\npop       199579.00 1.318683e+09 1.318484e+09  7.25    55.42 12388112.52\ngdpPercap    277.55 4.935719e+04 4.907964e+04  1.20     0.25     1079.18\n\n\n\n\n29.2.3 TIPO 3: Tabla con group_by() y summarize() 🟠\nTabla personalizada creada manualmente con dplyr.\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  group_by(continent) %&gt;%\n  summarize(\n    n = n(),\n    media_lifeExp = mean(lifeExp),\n    sd_lifeExp = sd(lifeExp),\n    min_lifeExp = min(lifeExp),\n    max_lifeExp = max(lifeExp),\n    media_gdp = mean(gdpPercap),\n    sd_gdp = sd(gdpPercap),\n    .groups = 'drop'\n  )\n\n\n# A tibble: 5 × 8\n  continent     n media_lifeExp sd_lifeExp min_lifeExp max_lifeExp media_gdp\n  &lt;fct&gt;     &lt;int&gt;         &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n1 Africa       52          54.8      9.63         39.6        76.4     3089.\n2 Americas     25          73.6      4.44         60.9        80.7    11003.\n3 Asia         33          70.7      7.96         43.8        82.6    12473.\n4 Europe       30          77.6      2.98         71.8        81.8    25054.\n5 Oceania       2          80.7      0.729        80.2        81.2    29810.\n# ℹ 1 more variable: sd_gdp &lt;dbl&gt;\n\n\n\n\n29.2.4 TIPO 4: Tabla con knitr::kable() 🔴\nTabla bonita para reportes y documentos.\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  group_by(continent) %&gt;%\n  summarize(\n    Países = n(),\n    `Esperanza de Vida (media)` = round(mean(lifeExp), 2),\n    `Esperanza de Vida (SD)` = round(sd(lifeExp), 2),\n    `PIB per Cápita (media)` = round(mean(gdpPercap), 0),\n    .groups = 'drop'\n  ) %&gt;%\n  kable(\n    caption = \"Estadísticas por Continente en 2007\",\n    align = c(\"l\", \"c\", \"c\", \"c\", \"c\")\n  )\n\n\n\nEstadísticas por Continente en 2007\n\n\n\n\n\n\n\n\n\ncontinent\nPaíses\nEsperanza de Vida (media)\nEsperanza de Vida (SD)\nPIB per Cápita (media)\n\n\n\n\nAfrica\n52\n54.81\n9.63\n3089\n\n\nAmericas\n25\n73.61\n4.44\n11003\n\n\nAsia\n33\n70.73\n7.96\n12473\n\n\nEurope\n30\n77.65\n2.98\n25054\n\n\nOceania\n2\n80.72\n0.73\n29810\n\n\n\n\n\n\n\n29.2.5 TIPO 5: Tabla con flextable() 🟣\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  group_by(continent) %&gt;%\n  summarize(\n    Países = n(),\n    `Esperanza de Vida` = round(mean(lifeExp), 2),\n    `PIB per Cápita` = round(mean(gdpPercap), 0),\n    .groups = 'drop'\n  ) %&gt;%\n  flextable() %&gt;%\n  set_header_labels(\n    continent = \"Continente\",\n    Países = \"Número de Países\",\n    `Esperanza de Vida` = \"Esperanza de Vida (años)\",\n    `PIB per Cápita` = \"PIB per Cápita (USD)\"\n  ) %&gt;%\n  autofit() %&gt;%\n  theme_vanilla()\n\n\nContinenteNúmero de PaísesEsperanza de Vida (años)PIB per Cápita (USD)Africa5254.813,089Americas2573.6111,003Asia3370.7312,473Europe3077.6525,054Oceania280.7229,810\n\n\nResultado: Tabla profesional con formato automático\n\n\n29.2.6 TIPO 6: Tabla Dinámica (Pivot Table) 🔵\n\n\nCódigo\ngapminder %&gt;%\n  filter(year %in% c(1952, 1982, 2007)) %&gt;%\n  group_by(continent, year) %&gt;%\n  summarize(\n    media_lifeExp = round(mean(lifeExp), 2),\n    .groups = 'drop'\n  ) %&gt;%\n  pivot_wider(\n    names_from = year,\n    values_from = media_lifeExp\n  ) %&gt;%\n  kable(\n    caption = \"Esperanza de Vida por Continente (1952, 1982, 2007)\"\n  )\n\n\n\nEsperanza de Vida por Continente (1952, 1982, 2007)\n\n\ncontinent\n1952\n1982\n2007\n\n\n\n\nAfrica\n39.14\n51.59\n54.81\n\n\nAmericas\n53.28\n66.23\n73.61\n\n\nAsia\n46.31\n62.62\n70.73\n\n\nEurope\n64.41\n72.81\n77.65\n\n\nOceania\n69.25\n74.29\n80.72\n\n\n\n\n\n\n\n29.2.7 TIPO 7: Tabla con gt() (Great Tables) 🟢\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  group_by(continent) %&gt;%\n  summarize(\n    Países = n(),\n    `Esperanza de Vida` = mean(lifeExp),\n    `PIB per Cápita` = mean(gdpPercap),\n    .groups = 'drop'\n  ) %&gt;%\n  gt() %&gt;%\n  fmt_number(\n    columns = c(`Esperanza de Vida`, `PIB per Cápita`),\n    decimals = 2\n  ) %&gt;%\n  tab_header(\n    title = \"Estadísticas por Continente en 2007\",\n    subtitle = \"Datos de Gapminder\"\n  ) %&gt;%\n  cols_label(\n    continent = \"Continente\",\n    Países = \"Número de Países\",\n    `Esperanza de Vida` = \"Esperanza de Vida (años)\",\n    `PIB per Cápita` = \"PIB per Cápita (USD)\"\n  )\n\n\n\n\n\n\n\n\nEstadísticas por Continente en 2007\n\n\nDatos de Gapminder\n\n\nContinente\nNúmero de Países\nEsperanza de Vida (años)\nPIB per Cápita (USD)\n\n\n\n\nAfrica\n52\n54.81\n3,089.03\n\n\nAmericas\n25\n73.61\n11,003.03\n\n\nAsia\n33\n70.73\n12,473.03\n\n\nEurope\n30\n77.65\n25,054.48\n\n\nOceania\n2\n80.72\n29,810.19\n\n\n\n\n\n\n\nUso: Para publicaciones y reportes científicos\n\n\n29.2.8 TIPO 8: Tabla Interactiva con DT::datatable() 🟡\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  select(country, continent, lifeExp, pop, gdpPercap) %&gt;%\n  datatable(\n    colnames = c(\"País\", \"Continente\", \"Esperanza de Vida\", \"Población\", \"PIB per Cápita\"),\n    options = list(\n      pageLength = 10,\n      searching = TRUE,\n      ordering = TRUE\n    ),\n    caption = \"Datos de Gapminder 2007\"\n  )\n\n\n\n\n\n\n\n\n29.2.9 TIPO 9: Tabla profesional para artículos\nObtener un resumen descriptivo de la esperanza de vida media en los países seleccionados.\n\n\nCódigo\nJAGUAR_gapminder %&gt;%\n  # Eliminar columnas\n  select(-continent, -id, -year) %&gt;% \n  # Estadistica descriptiva en la tabla. Crea la tabla de resumen.\n  tbl_summary(\n    by = country, \n    # Para variables continuas (lifeExp, pop, gdpPercap). Muestra: Media (Desviación Estándar)\n    statistic = list(all_continuous() ~ \"{mean} ({sd})\", \n    # Para variables categóricas (country). Muestra: Conteo / Total (Porcentaje)          \n                     all_categorical() ~ \"{n} / {N} ({p}%)\"),\n    # {N} se reemplaza automáticamente con el número total de observaciones\n    # Redondea variables continuas a 2 decimales\n    digits = all_continuous() ~ 2) %&gt;% \n  # Nombre del titulo de la tabla\n  modify_caption(\"Caracteristicas de los paises (N = {N})\") %&gt;%\n  # Convierte la tabla a formato gt (Great Tables) para mejor visualización.\n  as_gt() \n\n\n\n\n\n\nCaracteristicas de los paises (N = 84)\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPeru\nN = 121\nBrazil\nN = 121\nColombia\nN = 121\nMexico\nN = 121\nChile\nN = 121\nArgentina\nN = 121\nUruguay\nN = 121\n\n\n\n\nlifeExp\n58.86 (9.57)\n62.24 (7.04)\n63.90 (6.98)\n65.41 (8.19)\n67.43 (8.67)\n69.06 (4.19)\n70.78 (3.34)\n\n\npop\n17,559,093.00 (7,053,307.63)\n122,312,126.67 (45,747,618.44)\n27,256,099.58 (10,535,047.08)\n68,414,297.42 (26,954,820.63)\n11,205,725.33 (3,333,125.57)\n28,602,239.92 (7,546,608.99)\n2,912,487.17 (368,526.99)\n\n\ngdpPercap\n5,613.84 (1,056.66)\n5,829.32 (2,436.45)\n4,195.34 (1,652.93)\n7,724.11 (2,770.81)\n6,703.29 (3,026.19)\n8,955.55 (1,862.58)\n7,100.13 (1,612.26)\n\n\n\n1 Mean (SD)",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Pre-procesamiento de los datos</span>"
-    ]
-  },
-  {
-    "objectID": "Cap2_ggiraph_p1.html#referencias",
-    "href": "Cap2_ggiraph_p1.html#referencias",
-    "title": "29  Pre-procesamiento de los datos",
-    "section": "29.3 Referencias",
-    "text": "29.3 Referencias\n\nCap 6.5 EDA in tables - Tablas bonitas con estadistica\nCreating interactive visualizations with {ggiraph} (with or without Shiny)",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Pre-procesamiento de los datos</span>"
-    ]
-  },
-  {
-    "objectID": "Cap3_ggiraph_p2.html",
-    "href": "Cap3_ggiraph_p2.html",
-    "title": "30  📚 Empleo de ggiraph",
-    "section": "",
-    "text": "30.0.1 Paleta de colores\nCargar paquetes\nSi te gustaria colocar mas colores de tu elección puedes emplear COLOR HEX.\nCódigo\npaises_pal  &lt;- c(\"#3392d0\", \"#9e3995\", \"#0552a1\",\"#de20a0\", \"#047e60\", \"#ea2f34\", \"#f8bf23\")\nnames(paises_pal) &lt;- c(\"Argentina\", \"Brazil\", \"Colombia\", \"Chile\", \"Mexico\", \"Peru\", \"Uruguay\")\nscales::show_col(paises_pal)",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
-    ]
-  },
-  {
-    "objectID": "Cap3_ggiraph_p2.html#panel-a.-paises-que-participan-en-jaguar-project",
-    "href": "Cap3_ggiraph_p2.html#panel-a.-paises-que-participan-en-jaguar-project",
-    "title": "30  📚 Empleo de ggiraph",
-    "section": "30.1 Panel A. Paises que participan en JAGUAR project",
-    "text": "30.1 Panel A. Paises que participan en JAGUAR project\n\n\nCódigo\n# Obtener los datos del mapa\nworld_map &lt;- ne_countries(scale = \"medium\", returnclass = \"sf\")\n\n# Filtrar los países de América Latina incluyendo México\nlatin_america &lt;- subset(world_map, name %in% c(\"Brazil\", \"Uruguay\", \"Argentina\", \"French Guiana\", \"Suriname\", \"Colombia\", \"Venezuela\", \"Bolivia\", \"Ecuador\", \"Chile\", \"Paraguay\", \"Peru\", \"Guyana\", \"Panama\", \"Costa Rica\", \"Nicaragua\", \"Honduras\", \"Belize\", \"Guatemala\", \"Mexico\", \"Trinidad and Tobago\", \"Caribe\", \"Puerto Rico\"))\n\n# Paises involucrados con el proyecto JAGUAR\nJAGUAR_paises &lt;-  c(\"Argentina\", \"Brazil\", \"Colombia\", \"Chile\", \"Mexico\", \"Peru\", \"Uruguay\")\n\n# Definir los colores para los países\nlatin_america &lt;- latin_america %&gt;% mutate(color = \n  case_when(\n  name == \"Argentina\" ~ \"#3392d0\",\n  name == \"Brazil\" ~ \"#9e3995\",\n  name == \"Colombia\" ~ \"#0552a1\",\n  name == \"Chile\" ~ \"#de20a0\",\n  name == \"Mexico\" ~ \"#047e60\",\n  name == \"Peru\" ~ \"#ea2f34\",\n  name == \"Uruguay\" ~ \"#f8bf23\",\n  TRUE ~ \"lightgrey\"\n))\n\n\n# Crear el mapa con ggplot2\nmap_plot &lt;- ggplot(data = latin_america) +\n  geom_sf(aes(fill = color, text = name), color = \"black\") +  # añadir `text` para tooltips\n  scale_fill_identity() +\n  theme_void() +\n  theme(\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    legend.position = \"none\") +\n  coord_sf()\n\n\nWarning in layer_sf(geom = GeomSf, data = data, mapping = mapping, stat = stat,\n: Ignoring unknown aesthetics: text\n\n\nCódigo\nmap_plot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipGuardar la figura\n\n\n\n\n\n30.1.1 ggsave\n\n\nCódigo\n# Guardar el mapa con alta calidad\nggsave(filename = \"graphs/mapa_latinoamerica.png\", \n       plot = map_plot, \n       width = 10,     # Ancho en pulgadas\n       height = 7,    # Altura en pulgadas\n       dpi = 300,     # Resolución en píxeles por pulgada\n       units = \"in\")  # Unidades de tamaño\n\n\n\n\n30.1.2 png\n\n\nCódigo\npng(\"graphs/mapa_latinoamerica_optionB.png\")\nprint(map_plot)\ndev.off()",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
-    ]
-  },
-  {
-    "objectID": "Cap3_ggiraph_p2.html#mi-primer-mapa-interactivo",
-    "href": "Cap3_ggiraph_p2.html#mi-primer-mapa-interactivo",
-    "title": "30  📚 Empleo de ggiraph",
-    "section": "30.2 Mi primer mapa interactivo",
-    "text": "30.2 Mi primer mapa interactivo\n\n\nCódigo\n# Crear el mapa\np_jaguar &lt;- ggplot() +\n  # Fondo gris para todos los países de América Latina\n  geom_sf(data = latin_america, fill = \"lightgrey\", color = \"white\") +\n  \n  # Colorear los países del consorcio JAGUAR con interactividad\n  geom_sf_interactive(\n    data = filter(latin_america, name %in% JAGUAR_paises),\n    aes(fill = color, tooltip = name, data_id = name),\n    color = \"white\"\n  ) +\n  \n  scale_fill_identity() +  # Para usar directamente los colores definidos\n  coord_sf(crs = st_crs(3857)) +\n  theme_void() +\n  theme(legend.position = \"none\")\np_jaguar\n\n\n\n\n\n\n\n\n\nCódigo\n# Mostrar como mapa interactivo\ngirafe(ggobj = p_jaguar)",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
-    ]
-  },
-  {
-    "objectID": "Cap3_ggiraph_p2.html#panel-b.-población-total-por-paises",
-    "href": "Cap3_ggiraph_p2.html#panel-b.-población-total-por-paises",
-    "title": "30  📚 Empleo de ggiraph",
-    "section": "30.3 Panel B. Población total por paises",
-    "text": "30.3 Panel B. Población total por paises\n\n\nCódigo\n# Crear el boxplot interactivo con los datos de JAGUAR_gapminder\nbox_plot &lt;- JAGUAR_gapminder %&gt;%\n  ggplot(aes(x = pop, y = country, fill = country, data_id = id)) +\n  # Agregar boxplots interactivos con ligero desplazamiento vertical\n  geom_boxplot_interactive(\n    position = position_nudge(y = 0.25),  # Desplaza los boxplots hacia abajo\n    width = 0.5 # Controla el ancho de las cajas\n  ) +\n  # Agregar marcas verticales tipo \"barra\" para valores individuales, también interactivos\n  geom_point_interactive(\n    aes(col = country, tooltip = id),                  # Color por país\n    position = position_nudge(y = -0.25),# Desplaza puntos hacia arriba\n    size = 8,                            # Tamaño de la marca\n    shape = '|',                         # Tipo de marcador vertical\n    alpha = 0.75                         # Transparencia\n  ) +\n  scale_fill_manual(values = paises_pal) +\n  scale_color_manual(values = paises_pal) +\n  # Etiquetas y título del gráfico\n  labs(\n    x = 'Población total (en años)',\n    y = element_blank(),\n    title = glue::glue('Distribución de la población')\n  ) +\n  # Tema minimalista y ajustes estéticos\n  theme_minimal(base_size = 12) +\n  theme(\n    text = element_text(\n      color = 'grey20'\n    ),\n    legend.position = 'none',\n    panel.grid.minor = element_blank(),\n    plot.title.position = 'plot'\n  )\nbox_plot\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\n\n\n\n\n30.3.1 Volver interactivo\n\n\nCódigo\ngirafe(\n  ggobj = box_plot) # Objeto ggplot a convertir en interactivo\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\nActualmente, nuestro gráfico de líneas se vuelve naranja cuando pasamos el ratón por encima de ellas. Todo lo demás permanece sin cambios. Cambiémoslo para que todas las líneas menos una se vuelvan transparentes.\nLa forma de hacerlo es pasar una lista de opciones a girafe(). Esta lista contendrá opts_hover() y opts_hover_inv() para determinar el código CSS que debe aplicarse. Además, fijemos el tamaño de nuestra trama con opts_sizing().\n\n\nCódigo\n# Convertir en gráfico interactivo\ngirafe(\n  ggobj = box_plot,  # Gráfico generado con geom_*_interactive\n  options = list(\n    opts_hover(css = ''),   # Estilo CSS para el elemento bajo el cursor\n    opts_hover_inv(css = \"opacity:0.1;\"), # Estilo CSS para los demás elementos (baja opacidad)\n    opts_sizing(rescale = FALSE) # Mantiene el tamaño fijo del gráfico\n  ),\n  \n  height_svg = 6,  # Altura del gráfico en SVG\n  width_svg = 9    # Ancho del gráfico en SVG\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\n\n\n\n\n\n\nNotaNotas\n\n\n\n\nline_chart debe ser un objeto creado con ggplot() que use geoms interactivos como geom_line_interactive().\nopts_hover(css = ''): puedes personalizar aquí el estilo al pasar el mouse sobre una línea (ej. cambiar color o grosor).\nopts_hover_inv(css = 'opacity:0.1;'): permite resaltar una línea al atenuar las otras.\nheight_svg y width_svg definen el tamaño del gráfico exportado/interactivo.",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
-    ]
-  },
-  {
-    "objectID": "Cap3_ggiraph_p2.html#panel-c.-esperanza-de-vida-atraves-del-tiempo",
-    "href": "Cap3_ggiraph_p2.html#panel-c.-esperanza-de-vida-atraves-del-tiempo",
-    "title": "30  📚 Empleo de ggiraph",
-    "section": "30.4 Panel C. Esperanza de vida atraves del tiempo",
-    "text": "30.4 Panel C. Esperanza de vida atraves del tiempo\n\n\nCódigo\n# Crear archivo de lineas sobre la esperanza de vida\nline_chart &lt;- JAGUAR_gapminder %&gt;%\n  ggplot(aes(x = year, y = lifeExp, col = country, data_id = id)) +\n  geom_line_interactive(linewidth = 2.5) +\n  geom_point_interactive(aes(tooltip = id), size = 4) +\n  theme_minimal(base_size = 12) +\n  labs(\n    x = element_blank(),\n    y = 'Esperanza de vida \\n(en años)',\n    title = 'Esperanza de vida a lo largo del tiempo'\n  ) +\n  theme(\n    text = element_text(\n      color = 'grey20'\n    ),\n    legend.position = 'none',\n    panel.grid.minor = element_blank(),\n    plot.title.position = 'plot') +\n  scale_color_manual(values = paises_pal)\n\nline_chart\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\n\n\n\n\n30.4.1 Volver interactivo\n\n\nCódigo\ngirafe(\n  ggobj = line_chart, # Objeto ggplot a convertir en interactivo\n  # Seleccionar el Estilo CSS para la línea sobre la que se pasa el cursor\n  options = list(\n    opts_hover(css = ''), ## CSS code of line we're hovering over\n     # Estilo CSS para las demás líneas que no están siendo enfocadas (reduce opacidad)\n    opts_hover_inv(css = \"opacity:0.1;\"), ## CSS code of all other lines\n    # Fija el tamaño del gráfico (no permite que cambie con el tamaño del contenedor)\n    opts_sizing(rescale = FALSE) ## Fixes sizes to dimensions below\n  ),\n  # Altura del gráfico en unidades SVG\n  height_svg = 6,\n  # Ancho del gráfico en unidades SVG\n  width_svg = 9\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
-    ]
-  },
-  {
-    "objectID": "Cap3_ggiraph_p2.html#unir-panel-b-y-c",
-    "href": "Cap3_ggiraph_p2.html#unir-panel-b-y-c",
-    "title": "30  📚 Empleo de ggiraph",
-    "section": "30.5 Unir Panel B y C",
-    "text": "30.5 Unir Panel B y C\n\n\nCódigo\ninteractive_plot &lt;- girafe(\n  # Combina el boxplot y el gráfico de líneas en una sola visualización interactiva\n  ggobj = box_plot + plot_spacer() + line_chart + \n    plot_layout(widths = c(0.45, 0.1, 0.45)),\n  # Opciones de interactividad para girafe\n  options = list(\n    opts_hover(css = ''),\n    opts_hover_inv(css = \"opacity:0.1;\"), \n    opts_sizing(rescale = FALSE)\n  ),\n  # Dimensiones del gráfico en unidades SVG\n  height_svg = 6,\n  width_svg = 8\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n`label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\nCódigo\ninteractive_plot",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
-    ]
-  },
-  {
-    "objectID": "Cap3_ggiraph_p2.html#unir-panel-a-b-y-c",
-    "href": "Cap3_ggiraph_p2.html#unir-panel-a-b-y-c",
-    "title": "30  📚 Empleo de ggiraph",
-    "section": "30.6 Unir Panel A, B y C",
-    "text": "30.6 Unir Panel A, B y C\n\n\nCódigo\n# Layout con patchwork: mapa arriba, boxplot + line_chart abajo\nlayout_total &lt;- p_jaguar | (box_plot / line_chart) + plot_layout(widths = c(0.45, 0.1, 0.45)) \n#+ plot_layout(heights = c(0.5, 0.5))  # mitad mapa, mitad box + línea\n\n# Convertir todo en visualización interactiva\ninteractive_plot &lt;- girafe(\n  ggobj = layout_total,\n  options = list(\n    opts_hover(css = ''),\n    opts_hover_inv(css = \"opacity:0.1;\"),\n    opts_sizing(rescale = FALSE)\n  ),\n  height_svg = 6,\n  width_svg = 8\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n`label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\nCódigo\ninteractive_plot\n\n\n\n\n\n\nGuardar el plot interactivo\n\n\nCódigo\nhtmltools::save_html(interactive_plot, \"graphs/multiple-ggiraph-1.html\")",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
-    ]
-  },
-  {
-    "objectID": "Cap3_ggiraph_p2.html#referencias",
-    "href": "Cap3_ggiraph_p2.html#referencias",
-    "title": "30  📚 Empleo de ggiraph",
-    "section": "30.7 Referencias",
-    "text": "30.7 Referencias\n\nCreating interactive visualizations with {ggiraph} (with or without Shiny)\nMore complex CSS\nggiraph manual",
-    "crumbs": [
-      "**Sección 6** - Datos biológicos",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
-    ]
-  },
-  {
     "objectID": "Parte23.html",
     "href": "Parte23.html",
-    "title": "31  Salida de campo: ecosistemas de La Paz",
+    "title": "28  Salida de campo: ecosistemas de La Paz",
     "section": "",
     "text": "7 am a 13 h",
     "crumbs": [
       "**Sección 7** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Salida de campo: ecosistemas de La Paz</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Salida de campo: ecosistemas de La Paz</span>"
     ]
   },
   {
     "objectID": "Parte24.html",
     "href": "Parte24.html",
-    "title": "32  ¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?",
+    "title": "29  ¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?",
     "section": "",
     "text": "Relacionar las observaciones de campo con los conceptos de datos",
     "crumbs": [
       "**Sección 7** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>32</span>  <span class='chapter-title'>¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?</span>"
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>¿Cómo influyen las variantes genéticas en nuestro riesgo de salud?</span>"
     ]
   },
   {
     "objectID": "Parte25.html",
     "href": "Parte25.html",
-    "title": "33  ¿Qué significa tener una predisposición genética?",
+    "title": "30  ¿Qué significa tener una predisposición genética?",
     "section": "",
     "text": "Relacionar las observaciones de campo con los conceptos de datos",
     "crumbs": [
       "**Sección 7** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>33</span>  <span class='chapter-title'>¿Qué significa tener una predisposición genética?</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>¿Qué significa tener una predisposición genética?</span>"
     ]
   },
   {
     "objectID": "Parte26.html",
     "href": "Parte26.html",
-    "title": "34  Introducción a la salud mental y a los datos relacionados con el cerebro",
+    "title": "31  Introducción a la salud mental y a los datos relacionados con el cerebro",
     "section": "",
     "text": "Presentar cómo se estudian variables relacionadas con el cerebro y su impacto en bienestar.",
     "crumbs": [
       "**Sección 7** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Introducción a la salud mental y a los datos relacionados con el cerebro</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Introducción a la salud mental y a los datos relacionados con el cerebro</span>"
     ]
   },
   {
     "objectID": "Parte27.html",
     "href": "Parte27.html",
-    "title": "35  Estrés, sueño y hábitos: la interacción gene × entorno",
+    "title": "32  Estrés, sueño y hábitos: la interacción gene × entorno",
     "section": "",
     "text": "Analizar cómo factores ambientales y genéticos se combinan para influir en la salud.",
     "crumbs": [
       "**Sección 7** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Estrés, sueño y hábitos: la interacción gene × entorno</span>"
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Estrés, sueño y hábitos: la interacción gene × entorno</span>"
     ]
   },
   {
     "objectID": "Act9_seccion9.html",
     "href": "Act9_seccion9.html",
-    "title": "36  📚 Actividad en equipo: continuación del póster",
+    "title": "33  📚 Actividad en equipo: continuación del póster",
     "section": "",
     "text": "Seguir desarrollando el póster académico del proyecto final, integrando resultados y narrativa científica.",
     "crumbs": [
       "**Sección 7** - Cerebro, Conducta y ambiente (Gene × Environment)",
-      "<span class='chapter-number'>36</span>  <span class='chapter-title'>**📚** Actividad en equipo: continuación del póster</span>"
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>**📚** Actividad en equipo: continuación del póster</span>"
     ]
   },
   {
     "objectID": "Explicacion_ProyectoFinal.html",
     "href": "Explicacion_ProyectoFinal.html",
-    "title": "37  Explicación del proyecto final",
+    "title": "34  Explicación del proyecto final",
     "section": "",
     "text": "Presentar la estructura, entregables y criterios de evaluación del trabajo integrador del curso.\n\n\n\n\n\n\nCrearás tu propio proyecto o dashboard para contar una historia con datos: con tu estilo, tus ideas y tu forma única de interpretar el mundo, a partir de los conocimientos y técnicas aprendidas en la semana de clubes.\nMayor explicación Día 3.",
     "crumbs": [
       "**Sección 8** - Estructura del proyecto final",
-      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Explicación del proyecto final</span>"
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Explicación del proyecto final</span>"
+    ]
+  },
+  {
+    "objectID": "Parte18.html",
+    "href": "Parte18.html",
+    "title": "35  Creación de tablas con información con estadística descriptiva",
+    "section": "",
+    "text": "35.0.1 ¿Qué es la Estadística Descriptiva? 🤔\nGenerar tablas con medidas básicas (media, mediana, desviación estándar) para resumir información.\nLa estadística descriptiva es el conjunto de técnicas que usamos para resumir, organizar y describir datos de forma clara y comprensible. Es como tomar un dataset enorme y extraer la información más importante.",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Creación de tablas con información con estadística descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "Parte18.html#cargar-el-paquete",
+    "href": "Parte18.html#cargar-el-paquete",
+    "title": "35  Creación de tablas con información con estadística descriptiva",
+    "section": "35.1 Cargar el paquete",
+    "text": "35.1 Cargar el paquete\n\n\nCódigo\npacman::p_load(\n  gapminder,         # Datos mundiales\n  tidyverse)         # gestión de datos",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Creación de tablas con información con estadística descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "Parte18.html#actividad-2",
+    "href": "Parte18.html#actividad-2",
+    "title": "35  Creación de tablas con información con estadística descriptiva",
+    "section": "35.2 Actividad 2",
+    "text": "35.2 Actividad 2\n\nEjercicio 2.1: Resumen estadístico\n\nCalcula la media, mediana, mínimo y máximo de la esperanza de vida.\nPista: Usa summary() o describe()\n\n\nCódigo\nsummary(gapminder$lifeExp)\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  23.60   48.20   60.71   59.47   70.85   82.60 \n\n\nInterpretación:\n\n\n\nMedida\nValor\nSignificado\n\n\n\n\nMínimo\n23.6 años\nEl país con menor esperanza de vida\n\n\nQ1 (25%)\n48.2 años\n25% de observaciones están por debajo\n\n\nMediana\n60.71 años\nValor central; 50% arriba, 50% abajo\n\n\nMedia\n59.47 años\nPromedio de todas las observaciones\n\n\nQ3 (75%)\n70.85 años\n75% de observaciones están por debajo\n\n\nMáximo\n82.6 años\nEl país con mayor esperanza de vida\n\n\n\n\nEjercicio 2.2: Rango de años\n\n¿Cuál es el año más antiguo y el más reciente en el dataset?\nPista: Usa min() y max() en la columna year\n\n\nCódigo\n# Encontrar el año mínimo y máximo\nmin(gapminder$year)\n\n\n[1] 1952\n\n\nCódigo\nmax(gapminder$year)\n\n\n[1] 2007\n\n\nInterpretación:\n\n\n\nMedida\nValor\nSignificado\n\n\n\n\nAño más antiguo\n1952\nInicio del dataset\n\n\nAño más reciente\n2007\nFin del dataset\n\n\nRango temporal\n55 años\nPeríodo de cobertura\n\n\nIntervalo\nCada 5 años\nFrecuencia de datos\n\n\n\n\nEjercicio 2.3: Población total\n\n¿Cuál es la población total mundial en 2007?\nPista: Filtra year == 2007 y suma la columna pop\n\n\nCódigo\n# Opción A. Filtrar datos de 2007 y sumar población\ngapminder_2007 &lt;- gapminder %&gt;%\n  filter(year == 2007)\n\nsum(gapminder_2007$pop)\n\n\n[1] 6251013179\n\n\n\n\nCódigo\n# Opción B. Una forma más elegante:\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  summarize(poblacion_total = sum(pop))\n\n\n# A tibble: 1 × 1\n  poblacion_total\n            &lt;dbl&gt;\n1      6251013179\n\n\nInterpretación:\n\n\n\n\n\n\n\n\nMedida\nValor\nSignificado\n\n\n\n\nPoblación mundial 2007\n6.25 billones\nTotal de habitantes\n\n\nEn notación científica\n6.25 × 10⁹\n6.25 mil millones\n\n\nComparación\n~6.3 billones reales\nEl dataset cubre ~99% de la población\n\n\n\n\nEjercicio 2.4: Variabilidad\n\n¿Cuál tiene mayor variabilidad: esperanza de vida o PIB per cápita?\nPista: Compara desviación estándar o coeficiente de variación\n\n\nCódigo\n# Calcular desviación estándar\nsd(gapminder$lifeExp)\n\n\n[1] 12.91711\n\n\nCódigo\nsd(gapminder$gdpPercap)\n\n\n[1] 9857.455\n\n\n\n\nCódigo\n# Esperanza de vida\nmean_lifeExp &lt;- mean(gapminder$lifeExp)\nsd_lifeExp &lt;- sd(gapminder$lifeExp)\ncv_lifeExp &lt;- (sd_lifeExp / mean_lifeExp) * 100\n\n\n\n\nCódigo\n# PIB per cápita\nmean_gdp &lt;- mean(gapminder$gdpPercap)\nsd_gdp &lt;- sd(gapminder$gdpPercap)\ncv_gdp &lt;- (sd_gdp / mean_gdp) * 100\n\n\n\n\nCódigo\n# Comparación visual\ndata.frame(\n  Variable = c(\"Esperanza de Vida\", \"PIB per Cápita\"),\n  Media = c(mean_lifeExp, mean_gdp),\n  Desv_Est = c(sd_lifeExp, sd_gdp),\n  CV_Porcentaje = c(cv_lifeExp, cv_gdp)\n)\n\n\n           Variable      Media   Desv_Est CV_Porcentaje\n1 Esperanza de Vida   59.47444   12.91711      21.71875\n2    PIB per Cápita 7215.32708 9857.45454     136.61826\n\n\nInterpretación:\n\n\n\n\n\n\n\n\n\n\nVariable\nMedia\nDesv. Est.\nCV (%)\nVariabilidad\n\n\n\n\nEsperanza de Vida\n59.47 años\n12.47\n20.98%\nBaja-Media\n\n\nPIB per Cápita\n$7,215\n$14,222\n150.51%\nMuy Alta\n\n\n\n\nEjercicio 2.5: Valores faltantes\n\n¿Hay valores faltantes (NA) en el dataset? ¿En qué columnas?\nPista: Usa is.na() o sum(is.na())\n\n\nCódigo\n# Opción 1: Contar NAs por columna\ncolSums(is.na(gapminder))\n\n\n  country continent      year   lifeExp       pop gdpPercap \n        0         0         0         0         0         0 \n\n\n\n\nCódigo\n# Opción 2: Verificar si hay algún NA en todo el dataset\nsum(is.na(gapminder))\n\n\n[1] 0\n\n\n\n\nCódigo\n# Opción 3: Visualizar con una función más detallada\ngapminder %&gt;%\n  summarize(across(everything(), ~sum(is.na(.))))\n\n\n# A tibble: 1 × 6\n  country continent  year lifeExp   pop gdpPercap\n    &lt;int&gt;     &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt;     &lt;int&gt;\n1       0         0     0       0     0         0\n\n\nInterpretación: El dataset de Gapminder está completamente limpio. No hay valores faltantes en ninguna columna. Esto es excelente para el análisis, ya que no necesitamos imputar datos ni eliminar filas incompletas.\n\n\n\n\n\n\nImportante\n\n\n\nNota: En datasets reales, los valores faltantes son comunes y requieren estrategias especiales (eliminar, imputar, etc.).\n\n\n\n\n\n\n\n\nNotaActividad 3\n\n\n\n\nEjercicio 3.1: Un país específico\n\nFiltra los datos de México y visualiza cómo cambió su esperanza de vida de 1952 a 2007.\nPista: Usa filter() para country == \"Mexico\"\n\nEjercicio 3.2: Un año específico\n\n¿Cuál es el país con la mayor esperanza de vida en 2007?\nPista: Filtra year == 2007 y usa arrange() o max()\n\nEjercicio 3.3: Un continente\n\n¿Cuál es la esperanza de vida promedio en África en 2007?\nPista: Filtra continent == \"Africa\" y year == 2007, luego calcula mean()\n\nEjercicio 3.4: Agrupación simple\n\nCalcula la esperanza de vida promedio por continente en 2007.\nPista: Usa group_by(continent) y summarize(mean(lifeExp))\n\nEjercicio 3.5:Agrupación múltiple\n\n¿Cuál es la población promedio por continente en cada década (1952, 1962, 1972, etc.)?\nPista: Usa group_by(continent, year) y summarize(mean(pop))",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Creación de tablas con información con estadística descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "Cap2_ggiraph_p1.html",
+    "href": "Cap2_ggiraph_p1.html",
+    "title": "36  Pre-procesamiento de los datos",
+    "section": "",
+    "text": "36.1 Selección de datos\nEn esta sección llevaremos a cabo la manipulación y limpieza de los datos que utilizaremos en los ejercicios posteriores.\nCargar paquetes en R\nNos gustaría conocer la información relacionada con la esperanza de vida (lifeExp), la población total del país (pop) y el producto interno bruto per cápita (gdpPercap) de los países involucrados en el Proyecto JAGUAR - UNAM durante el año 2007, utilizando el conjunto de datos gapminder disponible a través del paquete gapminder en R.\nCódigo\n# Paises involucrados con el proyecto JAGUAR\nJAGUAR_paises &lt;-  c(\"Argentina\", \"Brazil\", \"Colombia\", \"Chile\", \"Mexico\", \"Peru\", \"Uruguay\")\n\n# Seleccionar la informacion relacionada con los paises del proyecto JAGUAR durante todos los years registrados\nJAGUAR_gapminder &lt;- gapminder::gapminder %&gt;% \n  mutate(\n    # Convertir paises de factor a caracter para tener capas independientes por paises en la figura interactiva\n    id = levels(country)[as.numeric(country)],\n    country = forcats::fct_reorder(country, lifeExp)) %&gt;% \n  filter(continent == \"Americas\") %&gt;%\n  filter(country %in% JAGUAR_paises) %&gt;% # seleccionar paises\n  droplevels()  # eliminar niveles de factor no utilizados\nRevisar informacion\nCódigo\n# Visualizar informacion en una tabla bonita\nJAGUAR_gapminder %&gt;%\n  DT::datatable()\nGuardar la variable\nCódigo\n# crear una carpeta para la salida\n# Eliminar si existe\nif (dir.exists(\"data\")) {\n  unlink(\"data\", recursive = TRUE)\n}\n\n# Crear el nuevo directorio\ndir.create(\"data\")\n\n# Guardar la variable\nsave(JAGUAR_gapminder, file = \"data/JAGUAR_gapminder.RData\")",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Pre-procesamiento de los datos</span>"
+    ]
+  },
+  {
+    "objectID": "Cap2_ggiraph_p1.html#estadística-descriptiva-de-los-datos",
+    "href": "Cap2_ggiraph_p1.html#estadística-descriptiva-de-los-datos",
+    "title": "36  Pre-procesamiento de los datos",
+    "section": "36.2 Estadística descriptiva de los datos",
+    "text": "36.2 Estadística descriptiva de los datos\n\n36.2.1 TIPO 1: Tabla con summary() (Base R) 🟢\nLa forma más simple y rápida de obtener estadísticas.\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  select(lifeExp, pop, gdpPercap) %&gt;%\n  summary()\n\n\n    lifeExp           pop              gdpPercap      \n Min.   :39.61   Min.   :1.996e+05   Min.   :  277.6  \n 1st Qu.:57.16   1st Qu.:4.508e+06   1st Qu.: 1624.8  \n Median :71.94   Median :1.052e+07   Median : 6124.4  \n Mean   :67.01   Mean   :4.402e+07   Mean   :11680.1  \n 3rd Qu.:76.41   3rd Qu.:3.121e+07   3rd Qu.:18008.8  \n Max.   :82.60   Max.   :1.319e+09   Max.   :49357.2  \n\n\nVentajas:\n\n✅ Muy rápido\n✅ No requiere paquetes adicionales\n✅ Muestra 6 estadísticas automáticamente\n\nDesventajas:\n\n❌ No es muy bonito\n❌ Difícil de personalizar\n❌ No agrupa bien\n\n\n\n36.2.2 TIPO 2: Tabla con describe() (Paquete psych) 🟡\n¿Qué es?: Tabla más detallada que summary().\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  select(lifeExp, pop, gdpPercap) %&gt;%\n  describe()\n\n\n          vars   n        mean           sd      median     trimmed         mad\nlifeExp      1 142       67.01        12.07       71.94       68.11       11.01\npop          2 142 44021219.57 147621397.90 10517531.00 18112753.95 12212489.77\ngdpPercap    3 142    11680.07     12859.94     6124.37     9614.17     7522.41\n                min          max        range  skew kurtosis          se\nlifeExp       39.61 8.260000e+01 4.299000e+01 -0.67    -0.87        1.01\npop       199579.00 1.318683e+09 1.318484e+09  7.25    55.42 12388112.52\ngdpPercap    277.55 4.935719e+04 4.907964e+04  1.20     0.25     1079.18\n\n\n\n\n36.2.3 TIPO 3: Tabla con group_by() y summarize() 🟠\nTabla personalizada creada manualmente con dplyr.\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  group_by(continent) %&gt;%\n  summarize(\n    n = n(),\n    media_lifeExp = mean(lifeExp),\n    sd_lifeExp = sd(lifeExp),\n    min_lifeExp = min(lifeExp),\n    max_lifeExp = max(lifeExp),\n    media_gdp = mean(gdpPercap),\n    sd_gdp = sd(gdpPercap),\n    .groups = 'drop'\n  )\n\n\n# A tibble: 5 × 8\n  continent     n media_lifeExp sd_lifeExp min_lifeExp max_lifeExp media_gdp\n  &lt;fct&gt;     &lt;int&gt;         &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n1 Africa       52          54.8      9.63         39.6        76.4     3089.\n2 Americas     25          73.6      4.44         60.9        80.7    11003.\n3 Asia         33          70.7      7.96         43.8        82.6    12473.\n4 Europe       30          77.6      2.98         71.8        81.8    25054.\n5 Oceania       2          80.7      0.729        80.2        81.2    29810.\n# ℹ 1 more variable: sd_gdp &lt;dbl&gt;\n\n\n\n\n36.2.4 TIPO 4: Tabla con knitr::kable() 🔴\nTabla bonita para reportes y documentos.\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  group_by(continent) %&gt;%\n  summarize(\n    Países = n(),\n    `Esperanza de Vida (media)` = round(mean(lifeExp), 2),\n    `Esperanza de Vida (SD)` = round(sd(lifeExp), 2),\n    `PIB per Cápita (media)` = round(mean(gdpPercap), 0),\n    .groups = 'drop'\n  ) %&gt;%\n  kable(\n    caption = \"Estadísticas por Continente en 2007\",\n    align = c(\"l\", \"c\", \"c\", \"c\", \"c\")\n  )\n\n\n\nEstadísticas por Continente en 2007\n\n\n\n\n\n\n\n\n\ncontinent\nPaíses\nEsperanza de Vida (media)\nEsperanza de Vida (SD)\nPIB per Cápita (media)\n\n\n\n\nAfrica\n52\n54.81\n9.63\n3089\n\n\nAmericas\n25\n73.61\n4.44\n11003\n\n\nAsia\n33\n70.73\n7.96\n12473\n\n\nEurope\n30\n77.65\n2.98\n25054\n\n\nOceania\n2\n80.72\n0.73\n29810\n\n\n\n\n\n\n\n36.2.5 TIPO 5: Tabla con flextable() 🟣\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  group_by(continent) %&gt;%\n  summarize(\n    Países = n(),\n    `Esperanza de Vida` = round(mean(lifeExp), 2),\n    `PIB per Cápita` = round(mean(gdpPercap), 0),\n    .groups = 'drop'\n  ) %&gt;%\n  flextable() %&gt;%\n  set_header_labels(\n    continent = \"Continente\",\n    Países = \"Número de Países\",\n    `Esperanza de Vida` = \"Esperanza de Vida (años)\",\n    `PIB per Cápita` = \"PIB per Cápita (USD)\"\n  ) %&gt;%\n  autofit() %&gt;%\n  theme_vanilla()\n\n\nContinenteNúmero de PaísesEsperanza de Vida (años)PIB per Cápita (USD)Africa5254.813,089Americas2573.6111,003Asia3370.7312,473Europe3077.6525,054Oceania280.7229,810\n\n\nResultado: Tabla profesional con formato automático\n\n\n36.2.6 TIPO 6: Tabla Dinámica (Pivot Table) 🔵\n\n\nCódigo\ngapminder %&gt;%\n  filter(year %in% c(1952, 1982, 2007)) %&gt;%\n  group_by(continent, year) %&gt;%\n  summarize(\n    media_lifeExp = round(mean(lifeExp), 2),\n    .groups = 'drop'\n  ) %&gt;%\n  pivot_wider(\n    names_from = year,\n    values_from = media_lifeExp\n  ) %&gt;%\n  kable(\n    caption = \"Esperanza de Vida por Continente (1952, 1982, 2007)\"\n  )\n\n\n\nEsperanza de Vida por Continente (1952, 1982, 2007)\n\n\ncontinent\n1952\n1982\n2007\n\n\n\n\nAfrica\n39.14\n51.59\n54.81\n\n\nAmericas\n53.28\n66.23\n73.61\n\n\nAsia\n46.31\n62.62\n70.73\n\n\nEurope\n64.41\n72.81\n77.65\n\n\nOceania\n69.25\n74.29\n80.72\n\n\n\n\n\n\n\n36.2.7 TIPO 7: Tabla con gt() (Great Tables) 🟢\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  group_by(continent) %&gt;%\n  summarize(\n    Países = n(),\n    `Esperanza de Vida` = mean(lifeExp),\n    `PIB per Cápita` = mean(gdpPercap),\n    .groups = 'drop'\n  ) %&gt;%\n  gt() %&gt;%\n  fmt_number(\n    columns = c(`Esperanza de Vida`, `PIB per Cápita`),\n    decimals = 2\n  ) %&gt;%\n  tab_header(\n    title = \"Estadísticas por Continente en 2007\",\n    subtitle = \"Datos de Gapminder\"\n  ) %&gt;%\n  cols_label(\n    continent = \"Continente\",\n    Países = \"Número de Países\",\n    `Esperanza de Vida` = \"Esperanza de Vida (años)\",\n    `PIB per Cápita` = \"PIB per Cápita (USD)\"\n  )\n\n\n\n\n\n\n\n\nEstadísticas por Continente en 2007\n\n\nDatos de Gapminder\n\n\nContinente\nNúmero de Países\nEsperanza de Vida (años)\nPIB per Cápita (USD)\n\n\n\n\nAfrica\n52\n54.81\n3,089.03\n\n\nAmericas\n25\n73.61\n11,003.03\n\n\nAsia\n33\n70.73\n12,473.03\n\n\nEurope\n30\n77.65\n25,054.48\n\n\nOceania\n2\n80.72\n29,810.19\n\n\n\n\n\n\n\nUso: Para publicaciones y reportes científicos\n\n\n36.2.8 TIPO 8: Tabla Interactiva con DT::datatable() 🟡\n\n\nCódigo\ngapminder %&gt;%\n  filter(year == 2007) %&gt;%\n  select(country, continent, lifeExp, pop, gdpPercap) %&gt;%\n  datatable(\n    colnames = c(\"País\", \"Continente\", \"Esperanza de Vida\", \"Población\", \"PIB per Cápita\"),\n    options = list(\n      pageLength = 10,\n      searching = TRUE,\n      ordering = TRUE\n    ),\n    caption = \"Datos de Gapminder 2007\"\n  )\n\n\n\n\n\n\n\n\n36.2.9 TIPO 9: Tabla profesional para artículos\nObtener un resumen descriptivo de la esperanza de vida media en los países seleccionados.\n\n\nCódigo\nJAGUAR_gapminder %&gt;%\n  # Eliminar columnas\n  select(-continent, -id, -year) %&gt;% \n  # Estadistica descriptiva en la tabla. Crea la tabla de resumen.\n  tbl_summary(\n    by = country, \n    # Para variables continuas (lifeExp, pop, gdpPercap). Muestra: Media (Desviación Estándar)\n    statistic = list(all_continuous() ~ \"{mean} ({sd})\", \n    # Para variables categóricas (country). Muestra: Conteo / Total (Porcentaje)          \n                     all_categorical() ~ \"{n} / {N} ({p}%)\"),\n    # {N} se reemplaza automáticamente con el número total de observaciones\n    # Redondea variables continuas a 2 decimales\n    digits = all_continuous() ~ 2) %&gt;% \n  # Nombre del titulo de la tabla\n  modify_caption(\"Caracteristicas de los paises (N = {N})\") %&gt;%\n  # Convierte la tabla a formato gt (Great Tables) para mejor visualización.\n  as_gt() \n\n\n\n\n\n\nCaracteristicas de los paises (N = 84)\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPeru\nN = 121\nBrazil\nN = 121\nColombia\nN = 121\nMexico\nN = 121\nChile\nN = 121\nArgentina\nN = 121\nUruguay\nN = 121\n\n\n\n\nlifeExp\n58.86 (9.57)\n62.24 (7.04)\n63.90 (6.98)\n65.41 (8.19)\n67.43 (8.67)\n69.06 (4.19)\n70.78 (3.34)\n\n\npop\n17,559,093.00 (7,053,307.63)\n122,312,126.67 (45,747,618.44)\n27,256,099.58 (10,535,047.08)\n68,414,297.42 (26,954,820.63)\n11,205,725.33 (3,333,125.57)\n28,602,239.92 (7,546,608.99)\n2,912,487.17 (368,526.99)\n\n\ngdpPercap\n5,613.84 (1,056.66)\n5,829.32 (2,436.45)\n4,195.34 (1,652.93)\n7,724.11 (2,770.81)\n6,703.29 (3,026.19)\n8,955.55 (1,862.58)\n7,100.13 (1,612.26)\n\n\n\n1 Mean (SD)",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Pre-procesamiento de los datos</span>"
+    ]
+  },
+  {
+    "objectID": "Cap2_ggiraph_p1.html#referencias",
+    "href": "Cap2_ggiraph_p1.html#referencias",
+    "title": "36  Pre-procesamiento de los datos",
+    "section": "36.3 Referencias",
+    "text": "36.3 Referencias\n\nCap 6.5 EDA in tables - Tablas bonitas con estadistica\nCreating interactive visualizations with {ggiraph} (with or without Shiny)",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Pre-procesamiento de los datos</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html",
+    "href": "Cap3_ggiraph_p2.html",
+    "title": "37  📚 Empleo de ggiraph",
+    "section": "",
+    "text": "37.0.1 Paleta de colores\nCargar paquetes\nSi te gustaria colocar mas colores de tu elección puedes emplear COLOR HEX.\nCódigo\npaises_pal  &lt;- c(\"#3392d0\", \"#9e3995\", \"#0552a1\",\"#de20a0\", \"#047e60\", \"#ea2f34\", \"#f8bf23\")\nnames(paises_pal) &lt;- c(\"Argentina\", \"Brazil\", \"Colombia\", \"Chile\", \"Mexico\", \"Peru\", \"Uruguay\")\nscales::show_col(paises_pal)",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#panel-a.-paises-que-participan-en-jaguar-project",
+    "href": "Cap3_ggiraph_p2.html#panel-a.-paises-que-participan-en-jaguar-project",
+    "title": "37  📚 Empleo de ggiraph",
+    "section": "37.1 Panel A. Paises que participan en JAGUAR project",
+    "text": "37.1 Panel A. Paises que participan en JAGUAR project\n\n\nCódigo\n# Obtener los datos del mapa\nworld_map &lt;- ne_countries(scale = \"medium\", returnclass = \"sf\")\n\n# Filtrar los países de América Latina incluyendo México\nlatin_america &lt;- subset(world_map, name %in% c(\"Brazil\", \"Uruguay\", \"Argentina\", \"French Guiana\", \"Suriname\", \"Colombia\", \"Venezuela\", \"Bolivia\", \"Ecuador\", \"Chile\", \"Paraguay\", \"Peru\", \"Guyana\", \"Panama\", \"Costa Rica\", \"Nicaragua\", \"Honduras\", \"Belize\", \"Guatemala\", \"Mexico\", \"Trinidad and Tobago\", \"Caribe\", \"Puerto Rico\"))\n\n# Paises involucrados con el proyecto JAGUAR\nJAGUAR_paises &lt;-  c(\"Argentina\", \"Brazil\", \"Colombia\", \"Chile\", \"Mexico\", \"Peru\", \"Uruguay\")\n\n# Definir los colores para los países\nlatin_america &lt;- latin_america %&gt;% mutate(color = \n  case_when(\n  name == \"Argentina\" ~ \"#3392d0\",\n  name == \"Brazil\" ~ \"#9e3995\",\n  name == \"Colombia\" ~ \"#0552a1\",\n  name == \"Chile\" ~ \"#de20a0\",\n  name == \"Mexico\" ~ \"#047e60\",\n  name == \"Peru\" ~ \"#ea2f34\",\n  name == \"Uruguay\" ~ \"#f8bf23\",\n  TRUE ~ \"lightgrey\"\n))\n\n\n# Crear el mapa con ggplot2\nmap_plot &lt;- ggplot(data = latin_america) +\n  geom_sf(aes(fill = color, text = name), color = \"black\") +  # añadir `text` para tooltips\n  scale_fill_identity() +\n  theme_void() +\n  theme(\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    legend.position = \"none\") +\n  coord_sf()\n\n\nWarning in layer_sf(geom = GeomSf, data = data, mapping = mapping, stat = stat,\n: Ignoring unknown aesthetics: text\n\n\nCódigo\nmap_plot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipGuardar la figura\n\n\n\n\n\n37.1.1 ggsave\n\n\nCódigo\n# Guardar el mapa con alta calidad\nggsave(filename = \"graphs/mapa_latinoamerica.png\", \n       plot = map_plot, \n       width = 10,     # Ancho en pulgadas\n       height = 7,    # Altura en pulgadas\n       dpi = 300,     # Resolución en píxeles por pulgada\n       units = \"in\")  # Unidades de tamaño\n\n\n\n\n37.1.2 png\n\n\nCódigo\npng(\"graphs/mapa_latinoamerica_optionB.png\")\nprint(map_plot)\ndev.off()",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#mi-primer-mapa-interactivo",
+    "href": "Cap3_ggiraph_p2.html#mi-primer-mapa-interactivo",
+    "title": "37  📚 Empleo de ggiraph",
+    "section": "37.2 Mi primer mapa interactivo",
+    "text": "37.2 Mi primer mapa interactivo\n\n\nCódigo\n# Crear el mapa\np_jaguar &lt;- ggplot() +\n  # Fondo gris para todos los países de América Latina\n  geom_sf(data = latin_america, fill = \"lightgrey\", color = \"white\") +\n  \n  # Colorear los países del consorcio JAGUAR con interactividad\n  geom_sf_interactive(\n    data = filter(latin_america, name %in% JAGUAR_paises),\n    aes(fill = color, tooltip = name, data_id = name),\n    color = \"white\"\n  ) +\n  \n  scale_fill_identity() +  # Para usar directamente los colores definidos\n  coord_sf(crs = st_crs(3857)) +\n  theme_void() +\n  theme(legend.position = \"none\")\np_jaguar\n\n\n\n\n\n\n\n\n\nCódigo\n# Mostrar como mapa interactivo\ngirafe(ggobj = p_jaguar)",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#panel-b.-población-total-por-paises",
+    "href": "Cap3_ggiraph_p2.html#panel-b.-población-total-por-paises",
+    "title": "37  📚 Empleo de ggiraph",
+    "section": "37.3 Panel B. Población total por paises",
+    "text": "37.3 Panel B. Población total por paises\n\n\nCódigo\n# Crear el boxplot interactivo con los datos de JAGUAR_gapminder\nbox_plot &lt;- JAGUAR_gapminder %&gt;%\n  ggplot(aes(x = pop, y = country, fill = country, data_id = id)) +\n  # Agregar boxplots interactivos con ligero desplazamiento vertical\n  geom_boxplot_interactive(\n    position = position_nudge(y = 0.25),  # Desplaza los boxplots hacia abajo\n    width = 0.5 # Controla el ancho de las cajas\n  ) +\n  # Agregar marcas verticales tipo \"barra\" para valores individuales, también interactivos\n  geom_point_interactive(\n    aes(col = country, tooltip = id),                  # Color por país\n    position = position_nudge(y = -0.25),# Desplaza puntos hacia arriba\n    size = 8,                            # Tamaño de la marca\n    shape = '|',                         # Tipo de marcador vertical\n    alpha = 0.75                         # Transparencia\n  ) +\n  scale_fill_manual(values = paises_pal) +\n  scale_color_manual(values = paises_pal) +\n  # Etiquetas y título del gráfico\n  labs(\n    x = 'Población total (en años)',\n    y = element_blank(),\n    title = glue::glue('Distribución de la población')\n  ) +\n  # Tema minimalista y ajustes estéticos\n  theme_minimal(base_size = 12) +\n  theme(\n    text = element_text(\n      color = 'grey20'\n    ),\n    legend.position = 'none',\n    panel.grid.minor = element_blank(),\n    plot.title.position = 'plot'\n  )\nbox_plot\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\n\n\n\n\n37.3.1 Volver interactivo\n\n\nCódigo\ngirafe(\n  ggobj = box_plot) # Objeto ggplot a convertir en interactivo\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\nActualmente, nuestro gráfico de líneas se vuelve naranja cuando pasamos el ratón por encima de ellas. Todo lo demás permanece sin cambios. Cambiémoslo para que todas las líneas menos una se vuelvan transparentes.\nLa forma de hacerlo es pasar una lista de opciones a girafe(). Esta lista contendrá opts_hover() y opts_hover_inv() para determinar el código CSS que debe aplicarse. Además, fijemos el tamaño de nuestra trama con opts_sizing().\n\n\nCódigo\n# Convertir en gráfico interactivo\ngirafe(\n  ggobj = box_plot,  # Gráfico generado con geom_*_interactive\n  options = list(\n    opts_hover(css = ''),   # Estilo CSS para el elemento bajo el cursor\n    opts_hover_inv(css = \"opacity:0.1;\"), # Estilo CSS para los demás elementos (baja opacidad)\n    opts_sizing(rescale = FALSE) # Mantiene el tamaño fijo del gráfico\n  ),\n  \n  height_svg = 6,  # Altura del gráfico en SVG\n  width_svg = 9    # Ancho del gráfico en SVG\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\n\n\n\n\n\n\nNotaNotas\n\n\n\n\nline_chart debe ser un objeto creado con ggplot() que use geoms interactivos como geom_line_interactive().\nopts_hover(css = ''): puedes personalizar aquí el estilo al pasar el mouse sobre una línea (ej. cambiar color o grosor).\nopts_hover_inv(css = 'opacity:0.1;'): permite resaltar una línea al atenuar las otras.\nheight_svg y width_svg definen el tamaño del gráfico exportado/interactivo.",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#panel-c.-esperanza-de-vida-atraves-del-tiempo",
+    "href": "Cap3_ggiraph_p2.html#panel-c.-esperanza-de-vida-atraves-del-tiempo",
+    "title": "37  📚 Empleo de ggiraph",
+    "section": "37.4 Panel C. Esperanza de vida atraves del tiempo",
+    "text": "37.4 Panel C. Esperanza de vida atraves del tiempo\n\n\nCódigo\n# Crear archivo de lineas sobre la esperanza de vida\nline_chart &lt;- JAGUAR_gapminder %&gt;%\n  ggplot(aes(x = year, y = lifeExp, col = country, data_id = id)) +\n  geom_line_interactive(linewidth = 2.5) +\n  geom_point_interactive(aes(tooltip = id), size = 4) +\n  theme_minimal(base_size = 12) +\n  labs(\n    x = element_blank(),\n    y = 'Esperanza de vida \\n(en años)',\n    title = 'Esperanza de vida a lo largo del tiempo'\n  ) +\n  theme(\n    text = element_text(\n      color = 'grey20'\n    ),\n    legend.position = 'none',\n    panel.grid.minor = element_blank(),\n    plot.title.position = 'plot') +\n  scale_color_manual(values = paises_pal)\n\nline_chart\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\n\n\n\n\n\n\n\n\n37.4.1 Volver interactivo\n\n\nCódigo\ngirafe(\n  ggobj = line_chart, # Objeto ggplot a convertir en interactivo\n  # Seleccionar el Estilo CSS para la línea sobre la que se pasa el cursor\n  options = list(\n    opts_hover(css = ''), ## CSS code of line we're hovering over\n     # Estilo CSS para las demás líneas que no están siendo enfocadas (reduce opacidad)\n    opts_hover_inv(css = \"opacity:0.1;\"), ## CSS code of all other lines\n    # Fija el tamaño del gráfico (no permite que cambie con el tamaño del contenedor)\n    opts_sizing(rescale = FALSE) ## Fixes sizes to dimensions below\n  ),\n  # Altura del gráfico en unidades SVG\n  height_svg = 6,\n  # Ancho del gráfico en unidades SVG\n  width_svg = 9\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#unir-panel-b-y-c",
+    "href": "Cap3_ggiraph_p2.html#unir-panel-b-y-c",
+    "title": "37  📚 Empleo de ggiraph",
+    "section": "37.5 Unir Panel B y C",
+    "text": "37.5 Unir Panel B y C\n\n\nCódigo\ninteractive_plot &lt;- girafe(\n  # Combina el boxplot y el gráfico de líneas en una sola visualización interactiva\n  ggobj = box_plot + plot_spacer() + line_chart + \n    plot_layout(widths = c(0.45, 0.1, 0.45)),\n  # Opciones de interactividad para girafe\n  options = list(\n    opts_hover(css = ''),\n    opts_hover_inv(css = \"opacity:0.1;\"), \n    opts_sizing(rescale = FALSE)\n  ),\n  # Dimensiones del gráfico en unidades SVG\n  height_svg = 6,\n  width_svg = 8\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n`label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\nCódigo\ninteractive_plot",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#unir-panel-a-b-y-c",
+    "href": "Cap3_ggiraph_p2.html#unir-panel-a-b-y-c",
+    "title": "37  📚 Empleo de ggiraph",
+    "section": "37.6 Unir Panel A, B y C",
+    "text": "37.6 Unir Panel A, B y C\n\n\nCódigo\n# Layout con patchwork: mapa arriba, boxplot + line_chart abajo\nlayout_total &lt;- p_jaguar | (box_plot / line_chart) + plot_layout(widths = c(0.45, 0.1, 0.45)) \n#+ plot_layout(heights = c(0.5, 0.5))  # mitad mapa, mitad box + línea\n\n# Convertir todo en visualización interactiva\ninteractive_plot &lt;- girafe(\n  ggobj = layout_total,\n  options = list(\n    opts_hover(css = ''),\n    opts_hover_inv(css = \"opacity:0.1;\"),\n    opts_sizing(rescale = FALSE)\n  ),\n  height_svg = 6,\n  width_svg = 8\n)\n\n\nWarning: `label` cannot be a &lt;ggplot2::element_blank&gt; object.\n`label` cannot be a &lt;ggplot2::element_blank&gt; object.\n\n\nCódigo\ninteractive_plot\n\n\n\n\n\n\nGuardar el plot interactivo\n\n\nCódigo\nhtmltools::save_html(interactive_plot, \"graphs/multiple-ggiraph-1.html\")",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
+    ]
+  },
+  {
+    "objectID": "Cap3_ggiraph_p2.html#referencias",
+    "href": "Cap3_ggiraph_p2.html#referencias",
+    "title": "37  📚 Empleo de ggiraph",
+    "section": "37.7 Referencias",
+    "text": "37.7 Referencias\n\nCreating interactive visualizations with {ggiraph} (with or without Shiny)\nMore complex CSS\nggiraph manual",
+    "crumbs": [
+      "**Sección 9** - Estadística descriptiva y figuras interactivas",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>**📚** Empleo de `ggiraph`</span>"
     ]
   },
   {
@@ -1486,7 +1486,7 @@
     "section": "",
     "text": "39 Introducción a Quarto\nGenerar documentos reproducibles que integren código, resultados y explicación científica.\nFecha: 19 de febrero, 2026\nQuarto es una versión multilingüe y de última generación de R Markdown de Posit que incluye docenas de nuevas características y capacidades y al mismo tiempo puede renderizar la mayoría de los archivos Rmd existentes sin modificaciones.",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>38</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
     ]
   },
@@ -1497,7 +1497,7 @@
     "section": "39.1 ¿Cómo funciona?",
     "text": "39.1 ¿Cómo funciona?\nUtiliza el botón  Render en el IDE de RStudio para renderizar el archivo y obtener una vista previa de la salida con un solo clic o un atajo de teclado (⇧⌘K).\n\n\n\n\n\nSi prefiere renderizar automáticamente al guardar, puede activar la opción “Renderizar al guardar” en la barra de herramientas del editor. La vista previa se actualizará al volver a renderizar el documento. La vista previa en paralelo funciona tanto con HTML como con PDF.\n\n\n\n\n\nAl renderizar un documento de Quarto, knitr ejecuta primero todos los fragmentos de código y crea un nuevo documento Markdown (.md), que incluye el código y su salida. El archivo Markdown generado es procesado por pandoc , que crea el formato final. El botón Renderizar encapsula estas acciones y las ejecuta en el orden correcto.",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>38</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
     ]
   },
@@ -1508,7 +1508,7 @@
     "section": "39.2 ¿Cómo se compone?",
     "text": "39.2 ¿Cómo se compone?\nEl archivo contiene tres tipos de contenido: un encabezado YAML, fragmentos de código y texto Markdown.\n\n39.2.1 encabezado YAML\nUn encabezado YAML (opcional) delimitado por tres guiones ( ---) en cada extremo.\n---\ntitle: \"Hello, Quarto\"\nformat: html\neditor: visual\n---\nAl renderizar, el símbolo title, \"Hello, Quarto\", aparecerá en la parte superior del documento renderizado con un tamaño de fuente mayor que el resto del documento. Los otros dos campos YAML indican que la salida debe estar en formato html formaty que el documento debe abrirse en formato visual editorpredeterminado.\nPuedes consultar todos los campos YAML disponibles para documentos: HTML aquí . Los campos YAML disponibles varían según el formato del documento; por ejemplo, consulte aquí los campos YAML para documentos PDF y aquí para MS Word.\n\n\n\n\n\n\nImportante\n\n\n\nPara crear archivos PDF, se necesitará instalar una distribución reciente de LaTeX. Recomendamos usar TinyTeX (basado en TexLive), que se puede instalar con el siguiente comando:\nquarto install tinytex",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>38</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
     ]
   },
@@ -1519,7 +1519,7 @@
     "section": "39.3 Renderizar a varios tipos de archivos",
     "text": "39.3 Renderizar a varios tipos de archivos\nSi desea renderizar en todos los formatos, puede hacerlo con el paquete quarto , que proporciona una interfaz de R para la CLI de Quarto. Por ejemplo, para renderizar el documento actual, utilice quarto::quarto_render(). También puede especificar el nombre del documento que desea renderizar, así como los formatos de salida.\nquarto::quarto_render(\n  \"authoring.qmd\", \n  output_format = c(\"pdf\", \"html\", \"docx\")\n)\nComo resultado, verá aparecer tres nuevos archivos en el panel Archivos:\n\nauthoring.docx\nauthoring.html\nauthoring.pdf",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>38</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
     ]
   },
@@ -1530,7 +1530,7 @@
     "section": "39.4 Callout / notas",
     "text": "39.4 Callout / notas\nDa clic en Insert/callout.\nPuede seleccionar uno de los cinco tipos de callout (nota, sugerencia, importante, precaución o advertencia), personalizar su apariencia (predeterminada, simple o mínima) y decidir si desea mostrar el ícono.\n\n\n\n\n\nLuego, intente insertar el texto dentro del cuadro de callout.\n\n\n\n\n\n\nNota\n\n\n\nNota\n\n\n\n\n\n\n\n\nTip\n\n\n\nSugerencia\n\n\n\n\n\n\n\n\nImportante\n\n\n\nImportante\n\n\n\n\n\n\n\n\nPrecaución\n\n\n\nPrecaución\n\n\n\n\n\n\n\n\nAdvertencia\n\n\n\nAdvertencia",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>38</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
     ]
   },
@@ -1541,7 +1541,7 @@
     "section": "39.5 Cross reference / Referencias cruzadas",
     "text": "39.5 Cross reference / Referencias cruzadas\nLas cross references en Quarto son una forma de enlazar automáticamente figuras, tablas, secciones, ecuaciones y otros elementos dentro de tu documento, de manera que se numeran y se convierten en hipervínculos navegables. Esto evita tener que actualizar manualmente la numeración si agregas o quitas elementos.\n\nEtiqueta (label) Cada elemento que quieras referenciar necesita una etiqueta única.\n\nPara figuras: {#fig-nombre}\nPara tablas: {#tbl-nombre}\nPara secciones: {#sec-nombre}\nPara ecuaciones: {#eq-nombre}\n\nReferencia en el texto Para referenciar, se usa @ seguido del identificador:\n\n@fig-nombre → referencia a una figura.\n@tbl-nombre → referencia a una tabla.\n@sec-nombre → referencia a una sección.\n@eq-nombre → referencia a una ecuación.\n\n\nQuarto asigna números consecutivos a las entidades (Figura 1, Tabla 2, etc.) y actualiza todo si cambias el orden o agregas nuevos elementos.\nEjemplo:\n\n\n\n\n\n\n\n\nEntidad\nReferencia\nEtiqueta / Título\n\n\n\n\nSección\n@sec-eda\nID añadido al encabezado:\n# Análisis exploratorio de datos {#sec-eda}\n\n\nFigura\n@fig-pressure\nOpciones YAML en la celda de código:\n#| label: fig-scatterplot\n#| fig-cap: \"Pressure\"\n\n\nTabla\n@tbl-stats\nOpciones YAML en la celda de código:\n#| label: tbl-stats\n#| tbl-cap: \"Summary statistics for price and area of houses in Duke Forest\"\n\n\nEcuación\n@eq-slr\nAl final de la ecuación de visualización:\n$$ {#eq-slr}",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>38</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
     ]
   },
@@ -1552,7 +1552,7 @@
     "section": "40.1 Estadísticas descriptivas",
     "text": "40.1 Estadísticas descriptivas\n\n\nCódigo\nknitr::kable(head(ggplot2::diamonds))\n\n\n\n\nTabla 40.1: Summary statistics for price and area of houses in Duke Forest\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncarat\ncut\ncolor\nclarity\ndepth\ntable\nprice\nx\ny\nz\n\n\n\n\n0.23\nIdeal\nE\nSI2\n61.5\n55\n326\n3.95\n3.98\n2.43\n\n\n0.21\nPremium\nE\nSI1\n59.8\n61\n326\n3.89\n3.84\n2.31\n\n\n0.23\nGood\nE\nVS1\n56.9\n65\n327\n4.05\n4.07\n2.31\n\n\n0.29\nPremium\nI\nVS2\n62.4\n58\n334\n4.20\n4.23\n2.63\n\n\n0.31\nGood\nJ\nSI2\n63.3\n58\n335\n4.34\n4.35\n2.75\n\n\n0.24\nVery Good\nJ\nVVS2\n62.8\n57\n336\n3.94\n3.96\n2.48\n\n\n\n\n\n\n\n\n\n40.1.1 Modelo de regresión\nEl modelo lineal simple se expresa como:\n\\[Y = \\beta_0 + \\beta_1 X + \\epsilon \\tag{40.1}\\]\nEjemplo en el texto:\nPresentamos los resultados del análisis exploratorio de datos en Capítulo 40 y la estadística descriptiva en Sección 40.1 .\nLa Figura 40.1 muestra la relación entre estas dos variables en un diagrama de dispersión.\nLa Tabla 40.1 presenta estadísticas descriptivas básicas de estas dos variables.\nPodemos ajustar un modelo de regresión lineal simple de la forma mostrada en Ecuación 40.1.",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>38</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
     ]
   },
@@ -1563,7 +1563,7 @@
     "section": "40.2 Aprendiendo más",
     "text": "40.2 Aprendiendo más\n¡Ya has aprendido los conceptos básicos de Quarto! Una vez que te sientas cómodo creando y personalizando documentos, aquí tienes algunas cosas más que puedes explorar:\n\nPresentaciones : cree presentaciones de PowerPoint, Beamer y Revealjs utilizando la misma sintaxis que aprendió para crear documentos.\nSitios web : publique colecciones de documentos como un sitio web. Los sitios web admiten múltiples formas de navegación y búsqueda de texto completo.\nBlogs : crea un blog con una página acerca de, listas de publicaciones flexibles, categorías, feeds RSS y más de veinte temas.\nLibros : cree libros y manuscritos en formatos impresos (PDF, MS Word) y en línea (HTML, ePub).\nInteractividad : incluya componentes interactivos para ayudar a los lectores a explorar los conceptos y los datos que está presentando más profundamente.\n\n\n\n\n\n\nImagen tomada de: Allison Horst",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>38</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
     ]
   },
@@ -1574,7 +1574,7 @@
     "section": "40.3 Referencias",
     "text": "40.3 Referencias\n\nTutorial: Hello, Quarto",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>38</span>  <span class='chapter-title'>Creación de reportes con Quarto</span>"
     ]
   },
@@ -1585,7 +1585,7 @@
     "section": "",
     "text": "39.1 📚 Actividad 1: Crear un documento de Quarto con formato de salida html\nEjercicio práctico para familiarizarse con datasets auténticos y reconocer su estructura.\nPara crear un documento nuevo, ve a Archivos/File &gt; Nuevo archivo &gt; Documento de Quarto.\nPara este tipo de archivos vamos a usar la información del YAML para HTML.",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>39</span>  <span class='chapter-title'>**📚** Actividad: Explora datos genéticos reales</span>"
     ]
   },
@@ -1596,7 +1596,7 @@
     "section": "39.2 📚 Actividad 2: Explorar la galleria de Quarto y elegir un diseño",
     "text": "39.2 📚 Actividad 2: Explorar la galleria de Quarto y elegir un diseño\n\nVisita la galeria de Quarto.\nVe al apartado de Articles & Reports.\n\n\n\n\n\n\n\nSelecciona un diseño y da clic en el botón “&lt;/&gt;”.\n\n\n\n\n\n\n\nDescarga el archivo desde GitHub y abrelo en Rstudio.\n\n\n\n\n\n\n\n\n\n\n\n\nNotaActividad\n\n\n\nDescarga este ejemplo sobre el paquete palmerpenguins y comienza a editarlo.\nAquí puedes ver su visualización.",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>39</span>  <span class='chapter-title'>**📚** Actividad: Explora datos genéticos reales</span>"
     ]
   },
@@ -1607,7 +1607,7 @@
     "section": "39.3 Referencias",
     "text": "39.3 Referencias\n\nTutorial: Hello, Quarto",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>39</span>  <span class='chapter-title'>**📚** Actividad: Explora datos genéticos reales</span>"
     ]
   },
@@ -1618,7 +1618,7 @@
     "section": "",
     "text": "40.1 VARIABLE INDEPENDIENTE\nDiseñar preguntas claras que conecten hipótesis con datos disponibles.\nEs la variable que TÚ CAMBIAS o MANIPULAS deliberadamente en tu experimento. Es la causa que estás investigando.\nCaracterísticas:",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>40</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
     ]
   },
@@ -1629,7 +1629,7 @@
     "section": "",
     "text": "La controlas tú (el investigador)\nEs lo que modificas para ver qué pasa\nAparece en el eje X (horizontal) de un gráfico\n\n\n\n\n\n\n\nTip\n\n\n\nEjemplo práctico: Si investigas cómo la temperatura afecta el crecimiento de plantas, la temperatura es tu variable independiente porque TÚ la cambias (10°C, 20°C, 30°C, etc.).\nOtro ejemplo: Evaluación de un tratamiento con rangos diferentes de concentración de un medicamento o un diferentes tipos",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>40</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
     ]
   },
@@ -1640,7 +1640,7 @@
     "section": "40.2 VARIABLE DEPENDIENTE",
     "text": "40.2 VARIABLE DEPENDIENTE\nEs la variable que MIDES u OBSERVAS como resultado. Es el efecto que esperas ver.\nCaracterísticas:\n\nDepende de lo que hagas con la variable independiente\nEs lo que cambias como consecuencia\nAparece en el eje Y (vertical) de un gráfico\nEs lo que realmente te interesa medir\n\n\n\n\n\n\n\nTip\n\n\n\nEjemplo práctico: En el mismo experimento, el crecimiento de las plantas (altura en cm, número de hojas, biomasa) es tu variable dependiente porque esperas que cambie según la temperatura que apliques.",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>40</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
     ]
   },
@@ -1651,7 +1651,7 @@
     "section": "40.3 RELACIÓN CAUSA-EFECTO",
     "text": "40.3 RELACIÓN CAUSA-EFECTO\nPiénsalo así:\nVariable independiente -&gt; Variable dependiente\n“Si cambio la temperatura, ¿qué pasará con el crecimiento?”\nTemperatura -&gt; Crecimiento de plantas\n\n\n\nImagen creada con Gemini.",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>40</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
     ]
   },
@@ -1662,7 +1662,7 @@
     "section": "40.4 Ejemplos preguntas y variables",
     "text": "40.4 Ejemplos preguntas y variables\n\n\n\n\n\n\n\n\nPregunta Biológica\nVariable Independiente\nVariable Dependiente\n\n\n\n\n¿Cómo afecta la luz en la fotosíntesis?\nIntensidad de luz (baja, media, alta)\nTasa de fotosíntesis ( producido)\n\n\n¿Influye el pH en la actividad enzimática?\npH del medio (ácido, neutro, básico)\nVelocidad de reacción enzimática\n\n\n¿Cómo cambia la frecuencia cardíaca con el ejercicio?\nIntensidad del ejercicio (reposo, moderado, intenso)\nFrecuencia cardíaca (latidos/minuto)\n\n\n¿Afecta la salinidad al crecimiento de bacterias?\nConcentración de sal en el medio\nNúmero de colonias bacterianas",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>40</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
     ]
   },
@@ -1673,7 +1673,7 @@
     "section": "40.5 Ejemplos y variables identificadas",
     "text": "40.5 Ejemplos y variables identificadas\nPresenta estas situaciones y pide que identifiquen cuál es la variable independiente y cuál la dependiente:\n\nUn estudiante quiere saber si el tipo de suelo afecta la germinación de semillas. VI: tipo de suelo | VD: germinación (sí/no, porcentaje)\nUna investigadora estudia cómo la dosis de un medicamento influye en la presión arterial. VI: dosis del medicamento | VD: presión arterial\nUn biólogo examina si la cantidad de agua afecta el tamaño de las flores. VI: cantidad de agua | VD: tamaño de flores\n\n\n\n\n\n\n\nNotaResumen\n\n\n\n\nIndependiente = Lo que TÚ controlas (la causa)\nDependiente = Lo que MIDES (el efecto)\nLa dependiente “depende” de lo que hagas con la independiente 🔗",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>40</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
     ]
   },
@@ -1684,7 +1684,7 @@
     "section": "40.6 Método Científico en 5 Pasos",
     "text": "40.6 Método Científico en 5 Pasos\n\nVamos a partir de:\n\nPregunta → Hipótesis → Predicción → Experimento → Análisis\nDiagrama visual del ciclo\nÉnfasis en que es un proceso iterativo\n\n\n\n\n\n\n\n\nNotaEjemplo\n\n\n\n\nPregunta: ¿Cómo afecta la temperatura al crecimiento de una planta?\nHipótesis: Si aumentamos la temperatura a un nivel óptimo, la planta crecerá más rápido.\nPredicción: A 22°C la planta crecerá más alta que a 5°C o a 38°C.\nExperimento: Colocar plantas idénticas a 5°C (frío), 22°C (óptimo) y 38°C (calor) manteniendo iguales el agua y la luz.\nAnálisis: Medir la altura de las plantas para confirmar o refutar la hipótesis.\n\n\n\n\n\n\nImagen creada con Gemini.",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>40</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
     ]
   },
@@ -1695,7 +1695,7 @@
     "section": "40.7 🔬 ¿Cómo Armar una Pregunta Biológica?",
     "text": "40.7 🔬 ¿Cómo Armar una Pregunta Biológica?\n\n40.7.1 PASO 1: Observa la Naturaleza 👀\nComienza con algo que te intriga o que ves en el mundo real.\nEjemplos de observaciones:\n\n“Noto que las plantas crecen más rápido cerca de la ventana”\n“Observo que algunos insectos son más activos de noche”\n“Veo que las hojas cambian de color en otoño”\n\n\n\n40.7.2 PASO 2: Convierte la Observación en Curiosidad ❓\nPregúntate el “¿por qué?” o “¿cómo?” de lo que observaste.\nEjemplos de curiosidad inicial:\n\n“¿Por qué las plantas crecen más cerca de la ventana?”\n“¿Por qué algunos insectos son más activos de noche?”\n“¿Por qué las hojas cambian de color?”\n\n\n\n40.7.3 PASO 3: Refina la Pregunta - Hazla Específica 🎯\nAquí es donde transformas la curiosidad general en una pregunta biológica real. Debes:\n✅ Ser específico: No preguntes sobre “plantas” en general, sino sobre una característica medible ✅ Ser observable: Debe ser algo que puedas ver, medir o cuantificar ✅ Ser testeable: Debe poder responderse mediante experimentación\nEjemplo de refinamiento:\n\n\n\n\n\n\n\n❌ Pregunta vaga\n✅ Pregunta biológica\n\n\n\n\n“¿Por qué las plantas crecen más cerca de la ventana?”\n“¿Cómo afecta la intensidad de luz en el crecimiento de altura de plantas de tomate?”\n\n\n“¿Por qué algunos insectos son más activos de noche?”\n“¿Cuál es la relación entre la intensidad de luz y la actividad locomotora de cucarachas?”\n\n\n“¿Por qué las hojas cambian de color?”\n“¿Qué factores ambientales (temperatura, luz) desencadenan la degradación de clorofila en hojas de árboles deciduos?”\n\n\n\n\n\n40.7.4 PASO 4: Verifica que Cumpla los Criterios ✅\nTu pregunta biológica debe cumplir con TODOS estos criterios:\n\n🔍 1. CLARA Y ESPECÍFICA\n\nEvita ambigüedades\nUsa términos precisos\nIdentifica exactamente qué quieres investigar\n\nEjemplo:\n\n❌ “¿Cómo afecta el agua a las plantas?” (demasiado vago)\n✅ “¿Cómo afecta la frecuencia de riego en la biomasa total de plantas de frijol?” (específico)\n\n\n\n📊 2. OBSERVABLE Y MEDIBLE\n\nDebe referirse a algo que puedas ver, contar o medir\nUsa variables cuantificables\n\nEjemplo:\n\n❌ “¿Por qué algunas bacterias son más fuertes?” (no es medible)\n✅ “¿Cómo afecta la temperatura en la tasa de crecimiento de colonias bacterianas?” (medible: número de colonias, tiempo)\n\n\n\n🧪 3. TESTEABLE\n\nDebe poder responderse mediante experimentación\nNo debe ser una pregunta filosófica o moral\n\nEjemplo:\n\n❌ “¿Es importante que las plantas tengan luz?” (pregunta de valor, no científica)\n✅ “¿Cuál es el efecto de la ausencia de luz en la producción de clorofila?” (testeable)\n\n\n\n📚 4. BASADA EN CONOCIMIENTO PREVIO\n\nSurge de observaciones reales o literatura científica\nNo es completamente aleatoria\n\nEjemplo:\n\n❌ “¿Los tomates pueden volar?” (sin base en la realidad)\n✅ “¿Cómo afecta la salinidad del suelo en la absorción de agua por raíces de tomate?” (basada en conocimiento de osmosis)\n\n\n\n🎓 5. RELEVANTE CIENTÍFICAMENTE\n\nContribuye al conocimiento biológico\nTiene aplicaciones prácticas o teóricas\n\nEjemplo:\n\n❌ “¿Cuántas veces puedo lanzar una moneda antes de que caiga cara?” (no es biología)\n✅ “¿Cómo afecta la contaminación del aire en la tasa de fotosíntesis de plantas urbanas?” (relevante para ecología)",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>40</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
     ]
   },
@@ -1706,7 +1706,7 @@
     "section": "40.8 🎯 Estructura Recomendada para Formular la Pregunta",
     "text": "40.8 🎯 Estructura Recomendada para Formular la Pregunta\nUsa esta estructura para asegurar que tu pregunta sea científica:\n\n40.8.1 Formato 1: “¿Cómo afecta [variable independiente] en [variable dependiente]?”\nEjemplos:\n\n“¿Cómo afecta la temperatura en la tasa de germinación de semillas?”\n“¿Cómo afecta la concentración de sal en la altura de plantas de frijol?”\n“¿Cómo afecta la intensidad de luz en la producción de oxígeno en algas?”\n\n\n\n40.8.2 Formato 2: “¿Cuál es la relación entre [variable 1] y [variable 2]?”\nEjemplos:\n\n“¿Cuál es la relación entre la pH del agua y la supervivencia de peces?”\n“¿Cuál es la relación entre la edad del organismo y la capacidad de regeneración?”\n\n\n\n40.8.3 Formato 3: “¿Qué efecto tiene [condición] en [proceso biológico]?”\nEjemplos:\n\n“¿Qué efecto tiene la privación de sueño en la memoria de corto plazo?”\n“¿Qué efecto tiene la radiación UV en la mutación de bacterias?”\n\n\n\n\nImagen creada con Gemini.",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>40</span>  <span class='chapter-title'>Cómo formular preguntas biológicas</span>"
     ]
   },
@@ -1717,7 +1717,7 @@
     "section": "",
     "text": "41.1 🔬 “De la Curiosidad al Descubrimiento: Tu Primer Proyecto de Investigación”\nTransformar una pregunta biológica en un plan de análisis con pasos definidos.",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>41</span>  <span class='chapter-title'>**📚** Actividad: de la pregunta al análisis</span>"
     ]
   },
@@ -1728,7 +1728,7 @@
     "section": "",
     "text": "41.1.1 ¿Qué deben hacer?\nEn equipos de 3-4 personas, diseñarán un proyecto de investigación biológica completo aplicando todo lo que aprendieron hoy.\n⏱️ Tiempo: 45-60 minutos en clase\nPasos a Seguir:\n1️⃣ Elijan un tema que les interese (botánica, microbiología, ecología, fisiología, etc.)\n2️⃣ Formulen una pregunta biológica clara y testeable\n\nFormato: “¿Cómo afecta [variable independiente] en [variable dependiente]?”\n\n3️⃣ Escriban una hipótesis\n\nFormato: “Si… entonces… porque…”\n\n4️⃣ Definan objetivos SMART (general + 2-3 específicos)\n\n\n\n\n\n\nNota📌 ¿Qué significa SMART?\n\n\n\n\nEspecífico: Define claramente qué quieres lograr, evitando generalidades.\nMedible: Incluye métricas o indicadores para evaluar el progreso.\nAlcanzable: Debe ser realista según tus recursos y capacidades.\nRelevante: Tiene que estar alineado con tus prioridades o metas mayores.\nTemporal: Establece un plazo concreto para cumplirlo.\n\n\n\n5️⃣ Identifiquen las variables:\n\nVariable independiente (lo que cambian)\nVariable dependiente (lo que miden)\nVariables de control (lo que mantienen igual)\n\n6️⃣ Describan el experimento:\n\nMateriales, procedimiento, duración, repeticiones\n\n7️⃣ Analicen resultados ficticios (proporcionados)\n\nQué SÍ pueden afirmar\nQué NO pueden afirmar",
     "crumbs": [
-      "**Sección 9** - Reportes en Quarto y Preguntas biológicas",
+      "**Sección 10** - Reportes en Quarto y Preguntas biológicas",
       "<span class='chapter-number'>41</span>  <span class='chapter-title'>**📚** Actividad: de la pregunta al análisis</span>"
     ]
   },
@@ -1739,7 +1739,7 @@
     "section": "",
     "text": "Los estudiantes trabajan con sus resultados para generar gráficas y comprender patrones clave.",
     "crumbs": [
-      "**Sección 10** - Recta final del proyecto",
+      "**Sección 11** - Recta final del proyecto",
       "<span class='chapter-number'>42</span>  <span class='chapter-title'>Análisis y visualización de tus datos</span>"
     ]
   },
@@ -1750,7 +1750,7 @@
     "section": "",
     "text": "Se organizan las visualizaciones en paneles coherentes que apoyen la narrativa científica.",
     "crumbs": [
-      "**Sección 10** - Recta final del proyecto",
+      "**Sección 11** - Recta final del proyecto",
       "<span class='chapter-number'>43</span>  <span class='chapter-title'>Creación de paneles de figuras</span>"
     ]
   }
