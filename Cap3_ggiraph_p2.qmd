@@ -16,6 +16,8 @@ pacman::p_load(
 load("data/JAGUAR_gapminder.RData")
 ```
 
+[![Imagen creada por Allison Horst.](figures/patchwork.png)](https://allisonhorst.com/r-packages-functions)
+
 ### Paleta de colores
 
 Si te gustaria colocar mas colores de tu elección puedes emplear [COLOR HEX](https://colorbrewer2.org/#type=sequential&scheme=YlGn&n=9).
