@@ -1,4 +1,4 @@
-# **Actividad:** ggplot2
+# **📚 Actividad:** ggplot2
 
 :::: callout-note
 ## Ejercicio 1: ¿Existe dimorfismo sexual en los pingüinos?

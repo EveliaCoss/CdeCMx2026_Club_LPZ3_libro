@@ -1,4 +1,4 @@
-# **Actividad:** `palmerpenguins` con `dplyr`
+# **📚 Actividad:** `palmerpenguins` con `dplyr`
 
 > Instructora: Evelia Coss
 

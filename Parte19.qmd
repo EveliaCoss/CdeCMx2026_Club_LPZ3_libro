@@ -1,3 +1,24 @@
 # Variantes genéticas y enfermedades del sistema inmune
 
+> Instructora: Evelia Coss
+
 Introducir cómo cambios en el ADN pueden influir en la respuesta inmunológica y predisposición a enfermedades.
+
+## **plotly**
+
+Demonstrates a heatmaply interactive heatmap with a dark green background background and light blue foreground.
+
+```{r}
+library(quarto)
+library(plotly)
+
+green_blue_theme <- theme_colors_plotly("#293a0a", "#a5eff7")
+
+fig <- plot_ly(iris, x = ~Species, y = ~Sepal.Width, type = "violin",
+               box = list(visible = TRUE),
+               meanline = list(visible = TRUE),
+               points = "all")
+
+fig |> green_blue_theme()
+
+```

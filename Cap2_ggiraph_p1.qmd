@@ -212,7 +212,7 @@ gapminder %>%
 
 **Uso**: Para publicaciones y reportes científicos
 
-###  **TIPO 8: Tabla Interactiva con `DT::datatable()` 🟡**
+### **TIPO 8: Tabla Interactiva con `DT::datatable()` 🟡**
 
 ```{r}
 gapminder %>%

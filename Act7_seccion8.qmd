@@ -1,3 +1,53 @@
-# Actividad: de la pregunta al análisis
+# **📚** Actividad: de la pregunta al análisis
 
 Transformar una pregunta biológica en un plan de análisis con pasos definidos.
+
+## 🔬 "De la Curiosidad al Descubrimiento: Tu Primer Proyecto de Investigación"
+
+### ¿Qué deben hacer?
+
+En equipos de 3-4 personas, diseñarán un **proyecto de investigación biológica completo** aplicando todo lo que aprendieron hoy.
+
+⏱️ Tiempo: 45-60 minutos en clase
+
+**Pasos a Seguir:**
+
+**1️⃣ Elijan un tema** que les interese (botánica, microbiología, ecología, fisiología, etc.)
+
+**2️⃣ Formulen una pregunta biológica clara y testeable**
+
+- Formato: *"¿Cómo afecta \[variable independiente\] en \[variable dependiente\]?"*
+
+**3️⃣ Escriban una hipótesis**
+
+- Formato: *"Si... entonces... porque..."*
+
+**4️⃣ Definan objetivos SMART** (general + 2-3 específicos)
+
+::: {.callout-note icon="false"}
+## 📌 ¿Qué significa SMART?
+
+- **Específico**: Define claramente qué quieres lograr, evitando generalidades.
+- **Medible**: Incluye métricas o indicadores para evaluar el progreso.
+- **Alcanzable**: Debe ser realista según tus recursos y capacidades.
+- **Relevante**: Tiene que estar alineado con tus prioridades o metas mayores.
+- **Temporal**: Establece un plazo concreto para cumplirlo.
+:::
+
+**5️⃣ Identifiquen las variables:**
+
+- Variable independiente (lo que cambian)
+
+- Variable dependiente (lo que miden)
+
+- Variables de control (lo que mantienen igual)
+
+**6️⃣ Describan el experimento:**
+
+- Materiales, procedimiento, duración, repeticiones
+
+**7️⃣ Analicen resultados ficticios** (proporcionados)
+
+- Qué SÍ pueden afirmar
+
+- Qué NO pueden afirmar

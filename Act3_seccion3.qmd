@@ -1,4 +1,4 @@
-# **Actividad:** Explorando con datos de **Pokémon**
+# **📚 Actividad:** Explorando con datos de **Pokémon**
 
 > Instructor: Zuriel Ceja
 

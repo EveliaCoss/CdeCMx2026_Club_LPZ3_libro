@@ -50,7 +50,7 @@ Piénsalo así: Si sumamos todo lo que se fabrica, cultiva, vende y se presta co
 **Resumen**
 
 | Concepto | Definición |
-|------------------------------------|------------------------------------|
+|----|----|
 | **PIB** | Valor total de bienes y servicios producidos en un país en un año |
 | **PIB per Cápita** | PIB dividido entre la población (producción por persona) |
 | **Relación con salud** | Mayor PIB per Cápita → Mejor acceso a salud → Mayor esperanza de vida |
@@ -60,7 +60,7 @@ Piénsalo así: Si sumamos todo lo que se fabrica, cultiva, vende y se presta co
 ### ¿Por qué Gapminder es ideal para datos biológicos? 🎯
 
 | Aspecto | Relevancia |
-|------------------------------------|------------------------------------|
+|----|----|
 | **Datos reales** | Información verificada de organismos internacionales (ONU, OMS) |
 | **Temporal** | Datos a lo largo de décadas, mostrando cambios biológicos y sociales |
 | **Multidimensional** | Múltiples variables que interactúan (salud, economía, educación) |
@@ -111,7 +111,7 @@ Piénsalo así: Si sumamos todo lo que se fabrica, cultiva, vende y se presta co
 ## Preguntas que Podemos Responder con Gapminder 🤔
 
 | Pregunta | Tipo de Análisis | Complejidad | Relevancia Biológica |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | ¿Cuál es la esperanza de vida promedio global? | Estadística descriptiva | Baja | Supervivencia humana |
 | ¿Qué país tiene la mortalidad infantil más baja? | Comparación de grupos | Baja | Salud infantil |
 | ¿Existe correlación entre PIB y esperanza de vida? | Análisis de correlación | Media | Ambiente → Fenotipo |

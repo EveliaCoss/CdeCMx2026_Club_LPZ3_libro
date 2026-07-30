@@ -1,3 +1,7 @@
 # Exploración de bases de datos públicas
 
+> Instructora: Evelia Coss
+
 Aprender a buscar y descargar información genética disponible en repositorios abiertos.
+
+<https://data.humdata.org/dataset/who-data-for-mex#>

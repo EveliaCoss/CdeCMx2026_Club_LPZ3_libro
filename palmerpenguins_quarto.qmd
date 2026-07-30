@@ -1,0 +1,181 @@
+---
+title: "Quarto HTML Basics"
+author: "Evelia Coss"
+date: 07/28/2026
+toc: true
+format:
+  html:
+    html-math-method: katex
+    code-tools: true
+    self-contained: true
+execute:
+  warning: false
+  message: false
+---
+
+## Paquete `palmerpenguins`
+
+::::: columns
+::: {.column width="60%"}
+El objetivo de palmerpenguins es proporcionar un gran conjunto de datos para la exploración y visualización de datos, como alternativa a `iris`.
+
+- Paquete en CRAN: [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/articles/intro.html)
+- GitHub: [palmerpenguins](https://github.com/allisonhorst/palmerpenguins/)
+- Zenodo del paquete: [allisonhorst/palmerpenguins: v0.1.0](https://zenodo.org/records/3960218)
+- Zenodo de los datos: [datos de palmerpenguins](https://zenodo.org/records/14902740)
+- Artículo: <https://doi.org/10.1371/journal.pone.0090081>
+:::
+
+::: {.column width="40%"}
+![](figures/palmerpenguins.png){fig-align="right" width="178"}
+:::
+:::::
+
+## Acerca de los datos
+
+Los datos fueron recopilados y puestos a disposición por [la Dra. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) y la [Estación Palmer, Antártida LTER](https://pallter.marine.rutgers.edu/) , miembro de la [Red de Investigación Ecológica a Largo Plazo](https://lternet.edu/).
+
+Especies que encontraremos en el paquete de datos de `palmerpenguins`:
+
+![Imagen creada con Gemini. Especies encontradas en el dataset: Adelia (Adélie), Papúa (Gentoo) y Barbijo (Chinstrap).](figures/palmerpenguins_species.png){fig-align="center"}
+
+## Cargar paquetes y datos
+
+```{r}
+pacman::p_load(
+  palmerpenguins,   # Datos de pinguinos
+  tidyverse,        # gestión de datos
+  patchwork,        # unir graficas
+  ggiraph,           # graficas interactivas
+  gtsummary,        # generar resumenes
+  scales,
+  gt
+)   
+```
+
+## Exploración de los datos
+
+Visualización general
+
+```{r}
+head(penguins) %>% 
+  DT::datatable(rownames = FALSE)
+```
+
+Estadística descriptiva general de los datos
+
+```{r}
+penguins %>%
+  # Estadistica descriptiva en la tabla. Crea la tabla de resumen.
+  tbl_summary(
+    by = species, 
+    # Para variables continuas (lifeExp, pop, gdpPercap). Muestra: Media (Desviación Estándar)
+    statistic = list(all_continuous() ~ "{mean} ({sd})", 
+                     # Para variables categóricas (country). Muestra: Conteo / Total (Porcentaje)          
+                     all_categorical() ~ "{n} / {N} ({p}%)"),
+    # {N} se reemplaza automáticamente con el número total de observaciones
+    # Redondea variables continuas a 2 decimales
+    digits = all_continuous() ~ 2) %>% 
+  # Nombre del titulo de la tabla
+  modify_caption("Caracteristicas de las especies (N = {N})") %>%
+  # Convierte la tabla a formato gt (Great Tables) para mejor visualización.
+  as_gt() 
+```
+
+## Visualización gráfica
+
+### Selección de la paleta de colores
+
+[![](figures/lter_penguins.png){fig-align="center" width="546"}](https://allisonhorst.github.io/palmerpenguins/index.html)
+
+Si te gustaria colocar mas colores de tu elección puedes emplear [COLOR HEX](https://colorbrewer2.org/#type=sequential&scheme=YlGn&n=9).
+
+```{r}
+penguins_pal  <- c("purple","cyan4", "darkorange")
+names(penguins_pal) <- c("Chinstrap", "Gentoo", "Adelie")
+scales::show_col(penguins_pal)
+```
+
+### Masa de los pinguinos vs Longitud de las aletas
+
+```{r}
+mass_flipper <- ggplot(data = penguins, 
+                       aes(x = flipper_length_mm,
+                           y = body_mass_g)) +
+  geom_point(aes(color = species, 
+                 shape = species),
+             size = 3,
+             alpha = 0.8) +
+  # Colores
+  scale_color_manual(values = penguins_pal) +
+  # Leyendas
+  labs(title = "Tamaño de los Pingüinos, Palmer Station LTER",
+       subtitle = "Longitud de aleta y masa corporal de los pingüinos",
+       x = "Longitud de aleta (mm)",
+       y = "Masa corporal (g)",
+       color = "Especies de Pingüinos",
+       shape = "Especies de Pingüinos") +
+  
+  theme(legend.position = c(0.2, 0.8), # Posición de la leyenda
+        plot.title.position = "plot",
+        plot.caption = element_text(hjust = 0, face= "italic"),
+        plot.caption.position = "plot")
+
+mass_flipper
+```
+
+### Longitud de aleta vs. longitud de pico
+
+```{r}
+flipper_bill <- ggplot(data = penguins,
+                       aes(x = flipper_length_mm,
+                           y = bill_length_mm)) +
+  geom_point(aes(color = species, 
+                 shape = species),
+             size = 3,
+             alpha = 0.8) +
+  scale_color_manual(values = penguins_pal) +
+  labs(
+    title = "Longitud de aleta y pico",
+    subtitle = "Dimensiones de los pingüinos Adelie, Chinstrap y Gentoo en la Estación Palmer LTER",
+    x = "Longitud de aleta (mm)",
+    y = "Longitud de pico (mm)",
+    color = "Especies de pingüinos",
+    shape = "Especies de pingüinos"
+  ) +
+  theme(
+        plot.title.position = "plot",
+        plot.caption = element_text(hjust = 0, face= "italic"),
+        plot.caption.position = "plot")
+
+flipper_bill
+```
+
+### Longitud del pico vs. profundidad del pico
+
+```{r}
+bill_len_dep <- ggplot(data = penguins,
+                       aes(x = bill_length_mm,
+                           y = bill_depth_mm,
+                           group = species)) +
+  geom_point(aes(color = species, 
+                 shape = species),
+             size = 3,
+             alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, aes(color = species)) +
+  scale_color_manual(values = penguins_pal) +
+  labs(
+    title = "Dimensiones del pico de los pingüinos",
+    subtitle = "Longitud y profundidad del pico de los pingüinos Adelie, Chinstrap y Gentoo en la Estación Palmer LTER",
+  x = "Longitud del pico (mm)",
+  y = "Profundidad del pico (mm)",
+  color = "Especies de pingüinos",
+  shape = "Especies de pingüinos"
+) +
+  theme(legend.position = c(0.85, 0.15),
+        plot.title.position = "plot",
+        plot.caption = element_text(hjust = 0, face= "italic"),
+        plot.caption.position = "plot")
+
+bill_len_dep
+```
