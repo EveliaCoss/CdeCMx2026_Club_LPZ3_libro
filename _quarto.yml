@@ -90,18 +90,20 @@ book:
     - part: "**Sección 8** - Estructura del proyecto final"
       chapters:     
       - Explicacion_ProyectoFinal.qmd # Explicación del proyecto final    
-    - part: "**Sección 9** - Estadística descriptiva y figuras interactivas"
+    - part: "**Sección 9** - Reportes en Quarto"
+      chapters: 
+      - Parte22.qmd # Creación de reportes con Quarto
+      - Act6_seccion7.qmd # Actividad: Explora datos genéticos reales
+    - part: "**Sección 10** - Estadística descriptiva y figuras interactivas"
       chapters: 
       - Parte18.qmd # Creación de tablas con información con estadística descriptiva
       - Cap2_ggiraph_p1.qmd # Creación de tablas con información con estadística descriptiva
       - Cap3_ggiraph_p2.qmd # Graficas interactivas
-    - part: "**Sección 10** - Reportes en Quarto y Preguntas biológicas"
+    - part: "**Sección 11** - Preguntas biológicas"
       chapters: 
-      - Parte22.qmd # Creación de reportes con Quarto
-      - Act6_seccion7.qmd # Actividad: Explora datos genéticos reales
       - Parte21.qmd # Cómo formular preguntas biológicas
       - Act7_seccion8.qmd # Actividad: de la pregunta al análisis
-    - part: "**Sección 11** - Recta final del proyecto"
+    - part: "**Sección 12** - Recta final del proyecto"
       chapters: 
       - Parte28.qmd # Análisis y visualización de tus datos
       - Parte29.qmd # Creación de paneles de figuras
